@@ -1,70 +1,11116 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))r(a);new MutationObserver(a=>{for(const s of a)if(s.type==="childList")for(const i of s.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function n(a){const s={};return a.integrity&&(s.integrity=a.integrity),a.referrerPolicy&&(s.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?s.credentials="include":a.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function r(a){if(a.ep)return;a.ep=!0;const s=n(a);fetch(a.href,s)}})();function Pd(e,t){for(var n=0;n<t.length;n++){const r=t[n];if(typeof r!="string"&&!Array.isArray(r)){for(const a in r)if(a!=="default"&&!(a in e)){const s=Object.getOwnPropertyDescriptor(r,a);s&&Object.defineProperty(e,a,s.get?s:{enumerable:!0,get:()=>r[a]})}}}return Object.freeze(Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}))}(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))n(r);new MutationObserver(r=>{for(const a of r)if(a.type==="childList")for(const s of a.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&n(s)}).observe(document,{childList:!0,subtree:!0});function t(r){const a={};return r.integrity&&(a.integrity=r.integrity),r.referrerPolicy&&(a.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?a.credentials="include":r.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function n(r){if(r.ep)return;r.ep=!0;const a=t(r);fetch(r.href,a)}})();function Fd(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}var Wo={exports:{}},Ea={},Ho={exports:{}},T={};/**
-* @license React
-* react.production.min.js
-*
-* Copyright (c) Facebook, Inc. and its affiliates.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE file in the root directory of this source tree.
-*/var pr=Symbol.for("react.element"),Ld=Symbol.for("react.portal"),Md=Symbol.for("react.fragment"),Td=Symbol.for("react.strict_mode"),Rd=Symbol.for("react.profiler"),Id=Symbol.for("react.provider"),Od=Symbol.for("react.context"),Ad=Symbol.for("react.forward_ref"),Dd=Symbol.for("react.suspense"),Ud=Symbol.for("react.memo"),$d=Symbol.for("react.lazy"),yi=Symbol.iterator;function Bd(e){return e===null||typeof e!="object"?null:(e=yi&&e[yi]||e["@@iterator"],typeof e=="function"?e:null)}var Qo={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},qo=Object.assign,Yo={};function bn(e,t,n){this.props=e,this.context=t,this.refs=Yo,this.updater=n||Qo}bn.prototype.isReactComponent={};bn.prototype.setState=function(e,t){if(typeof e!="object"&&typeof e!="function"&&e!=null)throw Error("setState(...): takes an object of state variables to update or a function which returns an object of state variables.");this.updater.enqueueSetState(this,e,t,"setState")};bn.prototype.forceUpdate=function(e){this.updater.enqueueForceUpdate(this,e,"forceUpdate")};function Ko(){}Ko.prototype=bn.prototype;function bs(e,t,n){this.props=e,this.context=t,this.refs=Yo,this.updater=n||Qo}var ys=bs.prototype=new Ko;ys.constructor=bs;qo(ys,bn.prototype);ys.isPureReactComponent=!0;var vi=Array.isArray,Xo=Object.prototype.hasOwnProperty,vs={current:null},Go={key:!0,ref:!0,__self:!0,__source:!0};function Zo(e,t,n){var r,a={},s=null,i=null;if(t!=null)for(r in t.ref!==void 0&&(i=t.ref),t.key!==void 0&&(s=""+t.key),t)Xo.call(t,r)&&!Go.hasOwnProperty(r)&&(a[r]=t[r]);var c=arguments.length-2;if(c===1)a.children=n;else if(1<c){for(var o=Array(c),u=0;u<c;u++)o[u]=arguments[u+2];a.children=o}if(e&&e.defaultProps)for(r in c=e.defaultProps,c)a[r]===void 0&&(a[r]=c[r]);return{$$typeof:pr,type:e,key:s,ref:i,props:a,_owner:vs.current}}function Vd(e,t){return{$$typeof:pr,type:e.type,key:t,ref:e.ref,props:e.props,_owner:e._owner}}function ws(e){return typeof e=="object"&&e!==null&&e.$$typeof===pr}function Wd(e){var t={"=":"=0",":":"=2"};return"$"+e.replace(/[=:]/g,function(n){return t[n]})}var wi=/\/+/g;function Ka(e,t){return typeof e=="object"&&e!==null&&e.key!=null?Wd(""+e.key):t.toString(36)}function Vr(e,t,n,r,a){var s=typeof e;(s==="undefined"||s==="boolean")&&(e=null);var i=!1;if(e===null)i=!0;else switch(s){case"string":case"number":i=!0;break;case"object":switch(e.$$typeof){case pr:case Ld:i=!0}}if(i)return i=e,a=a(i),e=r===""?"."+Ka(i,0):r,vi(a)?(n="",e!=null&&(n=e.replace(wi,"$&/")+"/"),Vr(a,t,n,"",function(u){return u})):a!=null&&(ws(a)&&(a=Vd(a,n+(!a.key||i&&i.key===a.key?"":(""+a.key).replace(wi,"$&/")+"/")+e)),t.push(a)),1;if(i=0,r=r===""?".":r+":",vi(e))for(var c=0;c<e.length;c++){s=e[c];var o=r+Ka(s,c);i+=Vr(s,t,n,o,a)}else if(o=Bd(e),typeof o=="function")for(e=o.call(e),c=0;!(s=e.next()).done;)s=s.value,o=r+Ka(s,c++),i+=Vr(s,t,n,o,a);else if(s==="object")throw t=String(e),Error("Objects are not valid as a React child (found: "+(t==="[object Object]"?"object with keys {"+Object.keys(e).join(", ")+"}":t)+"). If you meant to render a collection of children, use an array instead.");return i}function Nr(e,t,n){if(e==null)return e;var r=[],a=0;return Vr(e,r,"","",function(s){return t.call(n,s,a++)}),r}function Hd(e){if(e._status===-1){var t=e._result;t=t(),t.then(function(n){(e._status===0||e._status===-1)&&(e._status=1,e._result=n)},function(n){(e._status===0||e._status===-1)&&(e._status=2,e._result=n)}),e._status===-1&&(e._status=0,e._result=t)}if(e._status===1)return e._result.default;throw e._result}var de={current:null},Wr={transition:null},Qd={ReactCurrentDispatcher:de,ReactCurrentBatchConfig:Wr,ReactCurrentOwner:vs};function Jo(){throw Error("act(...) is not supported in production builds of React.")}T.Children={map:Nr,forEach:function(e,t,n){Nr(e,function(){t.apply(this,arguments)},n)},count:function(e){var t=0;return Nr(e,function(){t++}),t},toArray:function(e){return Nr(e,function(t){return t})||[]},only:function(e){if(!ws(e))throw Error("React.Children.only expected to receive a single React element child.");return e}};T.Component=bn;T.Fragment=Md;T.Profiler=Rd;T.PureComponent=bs;T.StrictMode=Td;T.Suspense=Dd;T.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=Qd;T.act=Jo;T.cloneElement=function(e,t,n){if(e==null)throw Error("React.cloneElement(...): The argument must be a React element, but you passed "+e+".");var r=qo({},e.props),a=e.key,s=e.ref,i=e._owner;if(t!=null){if(t.ref!==void 0&&(s=t.ref,i=vs.current),t.key!==void 0&&(a=""+t.key),e.type&&e.type.defaultProps)var c=e.type.defaultProps;for(o in t)Xo.call(t,o)&&!Go.hasOwnProperty(o)&&(r[o]=t[o]===void 0&&c!==void 0?c[o]:t[o])}var o=arguments.length-2;if(o===1)r.children=n;else if(1<o){c=Array(o);for(var u=0;u<o;u++)c[u]=arguments[u+2];r.children=c}return{$$typeof:pr,type:e.type,key:a,ref:s,props:r,_owner:i}};T.createContext=function(e){return e={$$typeof:Od,_currentValue:e,_currentValue2:e,_threadCount:0,Provider:null,Consumer:null,_defaultValue:null,_globalName:null},e.Provider={$$typeof:Id,_context:e},e.Consumer=e};T.createElement=Zo;T.createFactory=function(e){var t=Zo.bind(null,e);return t.type=e,t};T.createRef=function(){return{current:null}};T.forwardRef=function(e){return{$$typeof:Ad,render:e}};T.isValidElement=ws;T.lazy=function(e){return{$$typeof:$d,_payload:{_status:-1,_result:e},_init:Hd}};T.memo=function(e,t){return{$$typeof:Ud,type:e,compare:t===void 0?null:t}};T.startTransition=function(e){var t=Wr.transition;Wr.transition={};try{e()}finally{Wr.transition=t}};T.unstable_act=Jo;T.useCallback=function(e,t){return de.current.useCallback(e,t)};T.useContext=function(e){return de.current.useContext(e)};T.useDebugValue=function(){};T.useDeferredValue=function(e){return de.current.useDeferredValue(e)};T.useEffect=function(e,t){return de.current.useEffect(e,t)};T.useId=function(){return de.current.useId()};T.useImperativeHandle=function(e,t,n){return de.current.useImperativeHandle(e,t,n)};T.useInsertionEffect=function(e,t){return de.current.useInsertionEffect(e,t)};T.useLayoutEffect=function(e,t){return de.current.useLayoutEffect(e,t)};T.useMemo=function(e,t){return de.current.useMemo(e,t)};T.useReducer=function(e,t,n){return de.current.useReducer(e,t,n)};T.useRef=function(e){return de.current.useRef(e)};T.useState=function(e){return de.current.useState(e)};T.useSyncExternalStore=function(e,t,n){return de.current.useSyncExternalStore(e,t,n)};T.useTransition=function(){return de.current.useTransition()};T.version="18.3.1";Ho.exports=T;var k=Ho.exports;const qd=Fd(k),Yd=Pd({__proto__:null,default:qd},[k]);/**
-* @license React
-* react-jsx-runtime.production.min.js
-*
-* Copyright (c) Facebook, Inc. and its affiliates.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE file in the root directory of this source tree.
-*/var Kd=k,Xd=Symbol.for("react.element"),Gd=Symbol.for("react.fragment"),Zd=Object.prototype.hasOwnProperty,Jd=Kd.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,ef={key:!0,ref:!0,__self:!0,__source:!0};function ec(e,t,n){var r,a={},s=null,i=null;n!==void 0&&(s=""+n),t.key!==void 0&&(s=""+t.key),t.ref!==void 0&&(i=t.ref);for(r in t)Zd.call(t,r)&&!ef.hasOwnProperty(r)&&(a[r]=t[r]);if(e&&e.defaultProps)for(r in t=e.defaultProps,t)a[r]===void 0&&(a[r]=t[r]);return{$$typeof:Xd,type:e,key:s,ref:i,props:a,_owner:Jd.current}}Ea.Fragment=Gd;Ea.jsx=ec;Ea.jsxs=ec;Wo.exports=Ea;var l=Wo.exports,tc={exports:{}},je={},nc={exports:{}},rc={};/**
-* @license React
-* scheduler.production.min.js
-*
-* Copyright (c) Facebook, Inc. and its affiliates.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE file in the root directory of this source tree.
-*/(function(e){function t(E,L){var M=E.length;E.push(L);e:for(;0<M;){var q=M-1>>>1,J=E[q];if(0<a(J,L))E[q]=L,E[M]=J,M=q;else break e}}function n(E){return E.length===0?null:E[0]}function r(E){if(E.length===0)return null;var L=E[0],M=E.pop();if(M!==L){E[0]=M;e:for(var q=0,J=E.length,kr=J>>>1;q<kr;){var Ct=2*(q+1)-1,Ya=E[Ct],St=Ct+1,jr=E[St];if(0>a(Ya,M))St<J&&0>a(jr,Ya)?(E[q]=jr,E[St]=M,q=St):(E[q]=Ya,E[Ct]=M,q=Ct);else if(St<J&&0>a(jr,M))E[q]=jr,E[St]=M,q=St;else break e}}return L}function a(E,L){var M=E.sortIndex-L.sortIndex;return M!==0?M:E.id-L.id}if(typeof performance=="object"&&typeof performance.now=="function"){var s=performance;e.unstable_now=function(){return s.now()}}else{var i=Date,c=i.now();e.unstable_now=function(){return i.now()-c}}var o=[],u=[],x=1,f=null,p=3,y=!1,v=!1,g=!1,_=typeof setTimeout=="function"?setTimeout:null,h=typeof clearTimeout=="function"?clearTimeout:null,d=typeof setImmediate<"u"?setImmediate:null;typeof navigator<"u"&&navigator.scheduling!==void 0&&navigator.scheduling.isInputPending!==void 0&&navigator.scheduling.isInputPending.bind(navigator.scheduling);function m(E){for(var L=n(u);L!==null;){if(L.callback===null)r(u);else if(L.startTime<=E)r(u),L.sortIndex=L.expirationTime,t(o,L);else break;L=n(u)}}function w(E){if(g=!1,m(E),!v)if(n(o)!==null)v=!0,Qa(C);else{var L=n(u);L!==null&&qa(w,L.startTime-E)}}function C(E,L){v=!1,g&&(g=!1,h(F),F=-1),y=!0;var M=p;try{for(m(L),f=n(o);f!==null&&(!(f.expirationTime>L)||E&&!P());){var q=f.callback;if(typeof q=="function"){f.callback=null,p=f.priorityLevel;var J=q(f.expirationTime<=L);L=e.unstable_now(),typeof J=="function"?f.callback=J:f===n(o)&&r(o),m(L)}else r(o);f=n(o)}if(f!==null)var kr=!0;else{var Ct=n(u);Ct!==null&&qa(w,Ct.startTime-L),kr=!1}return kr}finally{f=null,p=M,y=!1}}var N=!1,z=null,F=-1,B=5,b=-1;function P(){return!(e.unstable_now()-b<B)}function be(){if(z!==null){var E=e.unstable_now();b=E;var L=!0;try{L=z(!0,E)}finally{L?Qe():(N=!1,z=null)}}else N=!1}var Qe;if(typeof d=="function")Qe=function(){d(be)};else if(typeof MessageChannel<"u"){var bi=new MessageChannel,zd=bi.port2;bi.port1.onmessage=be,Qe=function(){zd.postMessage(null)}}else Qe=function(){_(be,0)};function Qa(E){z=E,N||(N=!0,Qe())}function qa(E,L){F=_(function(){E(e.unstable_now())},L)}e.unstable_IdlePriority=5,e.unstable_ImmediatePriority=1,e.unstable_LowPriority=4,e.unstable_NormalPriority=3,e.unstable_Profiling=null,e.unstable_UserBlockingPriority=2,e.unstable_cancelCallback=function(E){E.callback=null},e.unstable_continueExecution=function(){v||y||(v=!0,Qa(C))},e.unstable_forceFrameRate=function(E){0>E||125<E?console.error("forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported"):B=0<E?Math.floor(1e3/E):5},e.unstable_getCurrentPriorityLevel=function(){return p},e.unstable_getFirstCallbackNode=function(){return n(o)},e.unstable_next=function(E){switch(p){case 1:case 2:case 3:var L=3;break;default:L=p}var M=p;p=L;try{return E()}finally{p=M}},e.unstable_pauseExecution=function(){},e.unstable_requestPaint=function(){},e.unstable_runWithPriority=function(E,L){switch(E){case 1:case 2:case 3:case 4:case 5:break;default:E=3}var M=p;p=E;try{return L()}finally{p=M}},e.unstable_scheduleCallback=function(E,L,M){var q=e.unstable_now();switch(typeof M=="object"&&M!==null?(M=M.delay,M=typeof M=="number"&&0<M?q+M:q):M=q,E){case 1:var J=-1;break;case 2:J=250;break;case 5:J=1073741823;break;case 4:J=1e4;break;default:J=5e3}return J=M+J,E={id:x++,callback:L,priorityLevel:E,startTime:M,expirationTime:J,sortIndex:-1},M>q?(E.sortIndex=M,t(u,E),n(o)===null&&E===n(u)&&(g?(h(F),F=-1):g=!0,qa(w,M-q))):(E.sortIndex=J,t(o,E),v||y||(v=!0,Qa(C))),E},e.unstable_shouldYield=P,e.unstable_wrapCallback=function(E){var L=p;return function(){var M=p;p=L;try{return E.apply(this,arguments)}finally{p=M}}}})(rc);nc.exports=rc;var tf=nc.exports;/**
-* @license React
-* react-dom.production.min.js
-*
-* Copyright (c) Facebook, Inc. and its affiliates.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE file in the root directory of this source tree.
-*/var nf=k,ke=tf;function j(e){for(var t="https://reactjs.org/docs/error-decoder.html?invariant="+e,n=1;n<arguments.length;n++)t+="&args[]="+encodeURIComponent(arguments[n]);return"Minified React error #"+e+"; visit "+t+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var ac=new Set,Qn={};function Bt(e,t){dn(e,t),dn(e+"Capture",t)}function dn(e,t){for(Qn[e]=t,e=0;e<t.length;e++)ac.add(t[e])}var Ze=!(typeof window>"u"||typeof window.document>"u"||typeof window.document.createElement>"u"),jl=Object.prototype.hasOwnProperty,rf=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,ki={},ji={};function af(e){return jl.call(ji,e)?!0:jl.call(ki,e)?!1:rf.test(e)?ji[e]=!0:(ki[e]=!0,!1)}function lf(e,t,n,r){if(n!==null&&n.type===0)return!1;switch(typeof t){case"function":case"symbol":return!0;case"boolean":return r?!1:n!==null?!n.acceptsBooleans:(e=e.toLowerCase().slice(0,5),e!=="data-"&&e!=="aria-");default:return!1}}function sf(e,t,n,r){if(t===null||typeof t>"u"||lf(e,t,n,r))return!0;if(r)return!1;if(n!==null)switch(n.type){case 3:return!t;case 4:return t===!1;case 5:return isNaN(t);case 6:return isNaN(t)||1>t}return!1}function fe(e,t,n,r,a,s,i){this.acceptsBooleans=t===2||t===3||t===4,this.attributeName=r,this.attributeNamespace=a,this.mustUseProperty=n,this.propertyName=e,this.type=t,this.sanitizeURL=s,this.removeEmptyString=i}var ae={};"children dangerouslySetInnerHTML defaultValue defaultChecked innerHTML suppressContentEditableWarning suppressHydrationWarning style".split(" ").forEach(function(e){ae[e]=new fe(e,0,!1,e,null,!1,!1)});[["acceptCharset","accept-charset"],["className","class"],["htmlFor","for"],["httpEquiv","http-equiv"]].forEach(function(e){var t=e[0];ae[t]=new fe(t,1,!1,e[1],null,!1,!1)});["contentEditable","draggable","spellCheck","value"].forEach(function(e){ae[e]=new fe(e,2,!1,e.toLowerCase(),null,!1,!1)});["autoReverse","externalResourcesRequired","focusable","preserveAlpha"].forEach(function(e){ae[e]=new fe(e,2,!1,e,null,!1,!1)});"allowFullScreen async autoFocus autoPlay controls default defer disabled disablePictureInPicture disableRemotePlayback formNoValidate hidden loop noModule noValidate open playsInline readOnly required reversed scoped seamless itemScope".split(" ").forEach(function(e){ae[e]=new fe(e,3,!1,e.toLowerCase(),null,!1,!1)});["checked","multiple","muted","selected"].forEach(function(e){ae[e]=new fe(e,3,!0,e,null,!1,!1)});["capture","download"].forEach(function(e){ae[e]=new fe(e,4,!1,e,null,!1,!1)});["cols","rows","size","span"].forEach(function(e){ae[e]=new fe(e,6,!1,e,null,!1,!1)});["rowSpan","start"].forEach(function(e){ae[e]=new fe(e,5,!1,e.toLowerCase(),null,!1,!1)});var ks=/[\-:]([a-z])/g;function js(e){return e[1].toUpperCase()}"accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clip-rule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fill-rule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity stroke-width text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height".split(" ").forEach(function(e){var t=e.replace(ks,js);ae[t]=new fe(t,1,!1,e,null,!1,!1)});"xlink:actuate xlink:arcrole xlink:role xlink:show xlink:title xlink:type".split(" ").forEach(function(e){var t=e.replace(ks,js);ae[t]=new fe(t,1,!1,e,"http://www.w3.org/1999/xlink",!1,!1)});["xml:base","xml:lang","xml:space"].forEach(function(e){var t=e.replace(ks,js);ae[t]=new fe(t,1,!1,e,"http://www.w3.org/XML/1998/namespace",!1,!1)});["tabIndex","crossOrigin"].forEach(function(e){ae[e]=new fe(e,1,!1,e.toLowerCase(),null,!1,!1)});ae.xlinkHref=new fe("xlinkHref",1,!1,"xlink:href","http://www.w3.org/1999/xlink",!0,!1);["src","href","action","formAction"].forEach(function(e){ae[e]=new fe(e,1,!1,e.toLowerCase(),null,!0,!0)});function Ns(e,t,n,r){var a=ae.hasOwnProperty(t)?ae[t]:null;(a!==null?a.type!==0:r||!(2<t.length)||t[0]!=="o"&&t[0]!=="O"||t[1]!=="n"&&t[1]!=="N")&&(sf(t,n,a,r)&&(n=null),r||a===null?af(t)&&(n===null?e.removeAttribute(t):e.setAttribute(t,""+n)):a.mustUseProperty?e[a.propertyName]=n===null?a.type===3?!1:"":n:(t=a.attributeName,r=a.attributeNamespace,n===null?e.removeAttribute(t):(a=a.type,n=a===3||a===4&&n===!0?"":""+n,r?e.setAttributeNS(r,t,n):e.setAttribute(t,n))))}var nt=nf.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,_r=Symbol.for("react.element"),Ht=Symbol.for("react.portal"),Qt=Symbol.for("react.fragment"),_s=Symbol.for("react.strict_mode"),Nl=Symbol.for("react.profiler"),lc=Symbol.for("react.provider"),sc=Symbol.for("react.context"),Cs=Symbol.for("react.forward_ref"),_l=Symbol.for("react.suspense"),Cl=Symbol.for("react.suspense_list"),Ss=Symbol.for("react.memo"),at=Symbol.for("react.lazy"),ic=Symbol.for("react.offscreen"),Ni=Symbol.iterator;function _n(e){return e===null||typeof e!="object"?null:(e=Ni&&e[Ni]||e["@@iterator"],typeof e=="function"?e:null)}var H=Object.assign,Xa;function Mn(e){if(Xa===void 0)try{throw Error()}catch(n){var t=n.stack.trim().match(/\n( *(at )?)/);Xa=t&&t[1]||""}return`
-`+Xa+e}var Ga=!1;function Za(e,t){if(!e||Ga)return"";Ga=!0;var n=Error.prepareStackTrace;Error.prepareStackTrace=void 0;try{if(t)if(t=function(){throw Error()},Object.defineProperty(t.prototype,"props",{set:function(){throw Error()}}),typeof Reflect=="object"&&Reflect.construct){try{Reflect.construct(t,[])}catch(u){var r=u}Reflect.construct(e,[],t)}else{try{t.call()}catch(u){r=u}e.call(t.prototype)}else{try{throw Error()}catch(u){r=u}e()}}catch(u){if(u&&r&&typeof u.stack=="string"){for(var a=u.stack.split(`
-`),s=r.stack.split(`
-`),i=a.length-1,c=s.length-1;1<=i&&0<=c&&a[i]!==s[c];)c--;for(;1<=i&&0<=c;i--,c--)if(a[i]!==s[c]){if(i!==1||c!==1)do if(i--,c--,0>c||a[i]!==s[c]){var o=`
-`+a[i].replace(" at new "," at ");return e.displayName&&o.includes("<anonymous>")&&(o=o.replace("<anonymous>",e.displayName)),o}while(1<=i&&0<=c);break}}}finally{Ga=!1,Error.prepareStackTrace=n}return(e=e?e.displayName||e.name:"")?Mn(e):""}function of(e){switch(e.tag){case 5:return Mn(e.type);case 16:return Mn("Lazy");case 13:return Mn("Suspense");case 19:return Mn("SuspenseList");case 0:case 2:case 15:return e=Za(e.type,!1),e;case 11:return e=Za(e.type.render,!1),e;case 1:return e=Za(e.type,!0),e;default:return""}}function Sl(e){if(e==null)return null;if(typeof e=="function")return e.displayName||e.name||null;if(typeof e=="string")return e;switch(e){case Qt:return"Fragment";case Ht:return"Portal";case Nl:return"Profiler";case _s:return"StrictMode";case _l:return"Suspense";case Cl:return"SuspenseList"}if(typeof e=="object")switch(e.$$typeof){case sc:return(e.displayName||"Context")+".Consumer";case lc:return(e._context.displayName||"Context")+".Provider";case Cs:var t=e.render;return e=e.displayName,e||(e=t.displayName||t.name||"",e=e!==""?"ForwardRef("+e+")":"ForwardRef"),e;case Ss:return t=e.displayName||null,t!==null?t:Sl(e.type)||"Memo";case at:t=e._payload,e=e._init;try{return Sl(e(t))}catch{}}return null}function cf(e){var t=e.type;switch(e.tag){case 24:return"Cache";case 9:return(t.displayName||"Context")+".Consumer";case 10:return(t._context.displayName||"Context")+".Provider";case 18:return"DehydratedFragment";case 11:return e=t.render,e=e.displayName||e.name||"",t.displayName||(e!==""?"ForwardRef("+e+")":"ForwardRef");case 7:return"Fragment";case 5:return t;case 4:return"Portal";case 3:return"Root";case 6:return"Text";case 16:return Sl(t);case 8:return t===_s?"StrictMode":"Mode";case 22:return"Offscreen";case 12:return"Profiler";case 21:return"Scope";case 13:return"Suspense";case 19:return"SuspenseList";case 25:return"TracingMarker";case 1:case 0:case 17:case 2:case 14:case 15:if(typeof t=="function")return t.displayName||t.name||null;if(typeof t=="string")return t}return null}function vt(e){switch(typeof e){case"boolean":case"number":case"string":case"undefined":return e;case"object":return e;default:return""}}function oc(e){var t=e.type;return(e=e.nodeName)&&e.toLowerCase()==="input"&&(t==="checkbox"||t==="radio")}function uf(e){var t=oc(e)?"checked":"value",n=Object.getOwnPropertyDescriptor(e.constructor.prototype,t),r=""+e[t];if(!e.hasOwnProperty(t)&&typeof n<"u"&&typeof n.get=="function"&&typeof n.set=="function"){var a=n.get,s=n.set;return Object.defineProperty(e,t,{configurable:!0,get:function(){return a.call(this)},set:function(i){r=""+i,s.call(this,i)}}),Object.defineProperty(e,t,{enumerable:n.enumerable}),{getValue:function(){return r},setValue:function(i){r=""+i},stopTracking:function(){e._valueTracker=null,delete e[t]}}}}function Cr(e){e._valueTracker||(e._valueTracker=uf(e))}function cc(e){if(!e)return!1;var t=e._valueTracker;if(!t)return!0;var n=t.getValue(),r="";return e&&(r=oc(e)?e.checked?"true":"false":e.value),e=r,e!==n?(t.setValue(e),!0):!1}function ta(e){if(e=e||(typeof document<"u"?document:void 0),typeof e>"u")return null;try{return e.activeElement||e.body}catch{return e.body}}function El(e,t){var n=t.checked;return H({},t,{defaultChecked:void 0,defaultValue:void 0,value:void 0,checked:n??e._wrapperState.initialChecked})}function _i(e,t){var n=t.defaultValue==null?"":t.defaultValue,r=t.checked!=null?t.checked:t.defaultChecked;n=vt(t.value!=null?t.value:n),e._wrapperState={initialChecked:r,initialValue:n,controlled:t.type==="checkbox"||t.type==="radio"?t.checked!=null:t.value!=null}}function uc(e,t){t=t.checked,t!=null&&Ns(e,"checked",t,!1)}function zl(e,t){uc(e,t);var n=vt(t.value),r=t.type;if(n!=null)r==="number"?(n===0&&e.value===""||e.value!=n)&&(e.value=""+n):e.value!==""+n&&(e.value=""+n);else if(r==="submit"||r==="reset"){e.removeAttribute("value");return}t.hasOwnProperty("value")?Pl(e,t.type,n):t.hasOwnProperty("defaultValue")&&Pl(e,t.type,vt(t.defaultValue)),t.checked==null&&t.defaultChecked!=null&&(e.defaultChecked=!!t.defaultChecked)}function Ci(e,t,n){if(t.hasOwnProperty("value")||t.hasOwnProperty("defaultValue")){var r=t.type;if(!(r!=="submit"&&r!=="reset"||t.value!==void 0&&t.value!==null))return;t=""+e._wrapperState.initialValue,n||t===e.value||(e.value=t),e.defaultValue=t}n=e.name,n!==""&&(e.name=""),e.defaultChecked=!!e._wrapperState.initialChecked,n!==""&&(e.name=n)}function Pl(e,t,n){(t!=="number"||ta(e.ownerDocument)!==e)&&(n==null?e.defaultValue=""+e._wrapperState.initialValue:e.defaultValue!==""+n&&(e.defaultValue=""+n))}var Tn=Array.isArray;function rn(e,t,n,r){if(e=e.options,t){t={};for(var a=0;a<n.length;a++)t["$"+n[a]]=!0;for(n=0;n<e.length;n++)a=t.hasOwnProperty("$"+e[n].value),e[n].selected!==a&&(e[n].selected=a),a&&r&&(e[n].defaultSelected=!0)}else{for(n=""+vt(n),t=null,a=0;a<e.length;a++){if(e[a].value===n){e[a].selected=!0,r&&(e[a].defaultSelected=!0);return}t!==null||e[a].disabled||(t=e[a])}t!==null&&(t.selected=!0)}}function Fl(e,t){if(t.dangerouslySetInnerHTML!=null)throw Error(j(91));return H({},t,{value:void 0,defaultValue:void 0,children:""+e._wrapperState.initialValue})}function Si(e,t){var n=t.value;if(n==null){if(n=t.children,t=t.defaultValue,n!=null){if(t!=null)throw Error(j(92));if(Tn(n)){if(1<n.length)throw Error(j(93));n=n[0]}t=n}t==null&&(t=""),n=t}e._wrapperState={initialValue:vt(n)}}function dc(e,t){var n=vt(t.value),r=vt(t.defaultValue);n!=null&&(n=""+n,n!==e.value&&(e.value=n),t.defaultValue==null&&e.defaultValue!==n&&(e.defaultValue=n)),r!=null&&(e.defaultValue=""+r)}function Ei(e){var t=e.textContent;t===e._wrapperState.initialValue&&t!==""&&t!==null&&(e.value=t)}function fc(e){switch(e){case"svg":return"http://www.w3.org/2000/svg";case"math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}function Ll(e,t){return e==null||e==="http://www.w3.org/1999/xhtml"?fc(t):e==="http://www.w3.org/2000/svg"&&t==="foreignObject"?"http://www.w3.org/1999/xhtml":e}var Sr,pc=function(e){return typeof MSApp<"u"&&MSApp.execUnsafeLocalFunction?function(t,n,r,a){MSApp.execUnsafeLocalFunction(function(){return e(t,n,r,a)})}:e}(function(e,t){if(e.namespaceURI!=="http://www.w3.org/2000/svg"||"innerHTML"in e)e.innerHTML=t;else{for(Sr=Sr||document.createElement("div"),Sr.innerHTML="<svg>"+t.valueOf().toString()+"</svg>",t=Sr.firstChild;e.firstChild;)e.removeChild(e.firstChild);for(;t.firstChild;)e.appendChild(t.firstChild)}});function qn(e,t){if(t){var n=e.firstChild;if(n&&n===e.lastChild&&n.nodeType===3){n.nodeValue=t;return}}e.textContent=t}var On={animationIterationCount:!0,aspectRatio:!0,borderImageOutset:!0,borderImageSlice:!0,borderImageWidth:!0,boxFlex:!0,boxFlexGroup:!0,boxOrdinalGroup:!0,columnCount:!0,columns:!0,flex:!0,flexGrow:!0,flexPositive:!0,flexShrink:!0,flexNegative:!0,flexOrder:!0,gridArea:!0,gridRow:!0,gridRowEnd:!0,gridRowSpan:!0,gridRowStart:!0,gridColumn:!0,gridColumnEnd:!0,gridColumnSpan:!0,gridColumnStart:!0,fontWeight:!0,lineClamp:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,tabSize:!0,widows:!0,zIndex:!0,zoom:!0,fillOpacity:!0,floodOpacity:!0,stopOpacity:!0,strokeDasharray:!0,strokeDashoffset:!0,strokeMiterlimit:!0,strokeOpacity:!0,strokeWidth:!0},df=["Webkit","ms","Moz","O"];Object.keys(On).forEach(function(e){df.forEach(function(t){t=t+e.charAt(0).toUpperCase()+e.substring(1),On[t]=On[e]})});function hc(e,t,n){return t==null||typeof t=="boolean"||t===""?"":n||typeof t!="number"||t===0||On.hasOwnProperty(e)&&On[e]?(""+t).trim():t+"px"}function mc(e,t){e=e.style;for(var n in t)if(t.hasOwnProperty(n)){var r=n.indexOf("--")===0,a=hc(n,t[n],r);n==="float"&&(n="cssFloat"),r?e.setProperty(n,a):e[n]=a}}var ff=H({menuitem:!0},{area:!0,base:!0,br:!0,col:!0,embed:!0,hr:!0,img:!0,input:!0,keygen:!0,link:!0,meta:!0,param:!0,source:!0,track:!0,wbr:!0});function Ml(e,t){if(t){if(ff[e]&&(t.children!=null||t.dangerouslySetInnerHTML!=null))throw Error(j(137,e));if(t.dangerouslySetInnerHTML!=null){if(t.children!=null)throw Error(j(60));if(typeof t.dangerouslySetInnerHTML!="object"||!("__html"in t.dangerouslySetInnerHTML))throw Error(j(61))}if(t.style!=null&&typeof t.style!="object")throw Error(j(62))}}function Tl(e,t){if(e.indexOf("-")===-1)return typeof t.is=="string";switch(e){case"annotation-xml":case"color-profile":case"font-face":case"font-face-src":case"font-face-uri":case"font-face-format":case"font-face-name":case"missing-glyph":return!1;default:return!0}}var Rl=null;function Es(e){return e=e.target||e.srcElement||window,e.correspondingUseElement&&(e=e.correspondingUseElement),e.nodeType===3?e.parentNode:e}var Il=null,an=null,ln=null;function zi(e){if(e=xr(e)){if(typeof Il!="function")throw Error(j(280));var t=e.stateNode;t&&(t=Ma(t),Il(e.stateNode,e.type,t))}}function xc(e){an?ln?ln.push(e):ln=[e]:an=e}function gc(){if(an){var e=an,t=ln;if(ln=an=null,zi(e),t)for(e=0;e<t.length;e++)zi(t[e])}}function bc(e,t){return e(t)}function yc(){}var Ja=!1;function vc(e,t,n){if(Ja)return e(t,n);Ja=!0;try{return bc(e,t,n)}finally{Ja=!1,(an!==null||ln!==null)&&(yc(),gc())}}function Yn(e,t){var n=e.stateNode;if(n===null)return null;var r=Ma(n);if(r===null)return null;n=r[t];e:switch(t){case"onClick":case"onClickCapture":case"onDoubleClick":case"onDoubleClickCapture":case"onMouseDown":case"onMouseDownCapture":case"onMouseMove":case"onMouseMoveCapture":case"onMouseUp":case"onMouseUpCapture":case"onMouseEnter":(r=!r.disabled)||(e=e.type,r=!(e==="button"||e==="input"||e==="select"||e==="textarea")),e=!r;break e;default:e=!1}if(e)return null;if(n&&typeof n!="function")throw Error(j(231,t,typeof n));return n}var Ol=!1;if(Ze)try{var Cn={};Object.defineProperty(Cn,"passive",{get:function(){Ol=!0}}),window.addEventListener("test",Cn,Cn),window.removeEventListener("test",Cn,Cn)}catch{Ol=!1}function pf(e,t,n,r,a,s,i,c,o){var u=Array.prototype.slice.call(arguments,3);try{t.apply(n,u)}catch(x){this.onError(x)}}var An=!1,na=null,ra=!1,Al=null,hf={onError:function(e){An=!0,na=e}};function mf(e,t,n,r,a,s,i,c,o){An=!1,na=null,pf.apply(hf,arguments)}function xf(e,t,n,r,a,s,i,c,o){if(mf.apply(this,arguments),An){if(An){var u=na;An=!1,na=null}else throw Error(j(198));ra||(ra=!0,Al=u)}}function Vt(e){var t=e,n=e;if(e.alternate)for(;t.return;)t=t.return;else{e=t;do t=e,t.flags&4098&&(n=t.return),e=t.return;while(e)}return t.tag===3?n:null}function wc(e){if(e.tag===13){var t=e.memoizedState;if(t===null&&(e=e.alternate,e!==null&&(t=e.memoizedState)),t!==null)return t.dehydrated}return null}function Pi(e){if(Vt(e)!==e)throw Error(j(188))}function gf(e){var t=e.alternate;if(!t){if(t=Vt(e),t===null)throw Error(j(188));return t!==e?null:e}for(var n=e,r=t;;){var a=n.return;if(a===null)break;var s=a.alternate;if(s===null){if(r=a.return,r!==null){n=r;continue}break}if(a.child===s.child){for(s=a.child;s;){if(s===n)return Pi(a),e;if(s===r)return Pi(a),t;s=s.sibling}throw Error(j(188))}if(n.return!==r.return)n=a,r=s;else{for(var i=!1,c=a.child;c;){if(c===n){i=!0,n=a,r=s;break}if(c===r){i=!0,r=a,n=s;break}c=c.sibling}if(!i){for(c=s.child;c;){if(c===n){i=!0,n=s,r=a;break}if(c===r){i=!0,r=s,n=a;break}c=c.sibling}if(!i)throw Error(j(189))}}if(n.alternate!==r)throw Error(j(190))}if(n.tag!==3)throw Error(j(188));return n.stateNode.current===n?e:t}function kc(e){return e=gf(e),e!==null?jc(e):null}function jc(e){if(e.tag===5||e.tag===6)return e;for(e=e.child;e!==null;){var t=jc(e);if(t!==null)return t;e=e.sibling}return null}var Nc=ke.unstable_scheduleCallback,Fi=ke.unstable_cancelCallback,bf=ke.unstable_shouldYield,yf=ke.unstable_requestPaint,Y=ke.unstable_now,vf=ke.unstable_getCurrentPriorityLevel,zs=ke.unstable_ImmediatePriority,_c=ke.unstable_UserBlockingPriority,aa=ke.unstable_NormalPriority,wf=ke.unstable_LowPriority,Cc=ke.unstable_IdlePriority,za=null,We=null;function kf(e){if(We&&typeof We.onCommitFiberRoot=="function")try{We.onCommitFiberRoot(za,e,void 0,(e.current.flags&128)===128)}catch{}}var Oe=Math.clz32?Math.clz32:_f,jf=Math.log,Nf=Math.LN2;function _f(e){return e>>>=0,e===0?32:31-(jf(e)/Nf|0)|0}var Er=64,zr=4194304;function Rn(e){switch(e&-e){case 1:return 1;case 2:return 2;case 4:return 4;case 8:return 8;case 16:return 16;case 32:return 32;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return e&4194240;case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:return e&130023424;case 134217728:return 134217728;case 268435456:return 268435456;case 536870912:return 536870912;case 1073741824:return 1073741824;default:return e}}function la(e,t){var n=e.pendingLanes;if(n===0)return 0;var r=0,a=e.suspendedLanes,s=e.pingedLanes,i=n&268435455;if(i!==0){var c=i&~a;c!==0?r=Rn(c):(s&=i,s!==0&&(r=Rn(s)))}else i=n&~a,i!==0?r=Rn(i):s!==0&&(r=Rn(s));if(r===0)return 0;if(t!==0&&t!==r&&!(t&a)&&(a=r&-r,s=t&-t,a>=s||a===16&&(s&4194240)!==0))return t;if(r&4&&(r|=n&16),t=e.entangledLanes,t!==0)for(e=e.entanglements,t&=r;0<t;)n=31-Oe(t),a=1<<n,r|=e[n],t&=~a;return r}function Cf(e,t){switch(e){case 1:case 2:case 4:return t+250;case 8:case 16:case 32:case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return t+5e3;case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:return-1;case 134217728:case 268435456:case 536870912:case 1073741824:return-1;default:return-1}}function Sf(e,t){for(var n=e.suspendedLanes,r=e.pingedLanes,a=e.expirationTimes,s=e.pendingLanes;0<s;){var i=31-Oe(s),c=1<<i,o=a[i];o===-1?(!(c&n)||c&r)&&(a[i]=Cf(c,t)):o<=t&&(e.expiredLanes|=c),s&=~c}}function Dl(e){return e=e.pendingLanes&-1073741825,e!==0?e:e&1073741824?1073741824:0}function Sc(){var e=Er;return Er<<=1,!(Er&4194240)&&(Er=64),e}function el(e){for(var t=[],n=0;31>n;n++)t.push(e);return t}function hr(e,t,n){e.pendingLanes|=t,t!==536870912&&(e.suspendedLanes=0,e.pingedLanes=0),e=e.eventTimes,t=31-Oe(t),e[t]=n}function Ef(e,t){var n=e.pendingLanes&~t;e.pendingLanes=t,e.suspendedLanes=0,e.pingedLanes=0,e.expiredLanes&=t,e.mutableReadLanes&=t,e.entangledLanes&=t,t=e.entanglements;var r=e.eventTimes;for(e=e.expirationTimes;0<n;){var a=31-Oe(n),s=1<<a;t[a]=0,r[a]=-1,e[a]=-1,n&=~s}}function Ps(e,t){var n=e.entangledLanes|=t;for(e=e.entanglements;n;){var r=31-Oe(n),a=1<<r;a&t|e[r]&t&&(e[r]|=t),n&=~a}}var O=0;function Ec(e){return e&=-e,1<e?4<e?e&268435455?16:536870912:4:1}var zc,Fs,Pc,Fc,Lc,Ul=!1,Pr=[],ft=null,pt=null,ht=null,Kn=new Map,Xn=new Map,st=[],zf="mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset submit".split(" ");function Li(e,t){switch(e){case"focusin":case"focusout":ft=null;break;case"dragenter":case"dragleave":pt=null;break;case"mouseover":case"mouseout":ht=null;break;case"pointerover":case"pointerout":Kn.delete(t.pointerId);break;case"gotpointercapture":case"lostpointercapture":Xn.delete(t.pointerId)}}function Sn(e,t,n,r,a,s){return e===null||e.nativeEvent!==s?(e={blockedOn:t,domEventName:n,eventSystemFlags:r,nativeEvent:s,targetContainers:[a]},t!==null&&(t=xr(t),t!==null&&Fs(t)),e):(e.eventSystemFlags|=r,t=e.targetContainers,a!==null&&t.indexOf(a)===-1&&t.push(a),e)}function Pf(e,t,n,r,a){switch(t){case"focusin":return ft=Sn(ft,e,t,n,r,a),!0;case"dragenter":return pt=Sn(pt,e,t,n,r,a),!0;case"mouseover":return ht=Sn(ht,e,t,n,r,a),!0;case"pointerover":var s=a.pointerId;return Kn.set(s,Sn(Kn.get(s)||null,e,t,n,r,a)),!0;case"gotpointercapture":return s=a.pointerId,Xn.set(s,Sn(Xn.get(s)||null,e,t,n,r,a)),!0}return!1}function Mc(e){var t=Ft(e.target);if(t!==null){var n=Vt(t);if(n!==null){if(t=n.tag,t===13){if(t=wc(n),t!==null){e.blockedOn=t,Lc(e.priority,function(){Pc(n)});return}}else if(t===3&&n.stateNode.current.memoizedState.isDehydrated){e.blockedOn=n.tag===3?n.stateNode.containerInfo:null;return}}}e.blockedOn=null}function Hr(e){if(e.blockedOn!==null)return!1;for(var t=e.targetContainers;0<t.length;){var n=$l(e.domEventName,e.eventSystemFlags,t[0],e.nativeEvent);if(n===null){n=e.nativeEvent;var r=new n.constructor(n.type,n);Rl=r,n.target.dispatchEvent(r),Rl=null}else return t=xr(n),t!==null&&Fs(t),e.blockedOn=n,!1;t.shift()}return!0}function Mi(e,t,n){Hr(e)&&n.delete(t)}function Ff(){Ul=!1,ft!==null&&Hr(ft)&&(ft=null),pt!==null&&Hr(pt)&&(pt=null),ht!==null&&Hr(ht)&&(ht=null),Kn.forEach(Mi),Xn.forEach(Mi)}function En(e,t){e.blockedOn===t&&(e.blockedOn=null,Ul||(Ul=!0,ke.unstable_scheduleCallback(ke.unstable_NormalPriority,Ff)))}function Gn(e){function t(a){return En(a,e)}if(0<Pr.length){En(Pr[0],e);for(var n=1;n<Pr.length;n++){var r=Pr[n];r.blockedOn===e&&(r.blockedOn=null)}}for(ft!==null&&En(ft,e),pt!==null&&En(pt,e),ht!==null&&En(ht,e),Kn.forEach(t),Xn.forEach(t),n=0;n<st.length;n++)r=st[n],r.blockedOn===e&&(r.blockedOn=null);for(;0<st.length&&(n=st[0],n.blockedOn===null);)Mc(n),n.blockedOn===null&&st.shift()}var sn=nt.ReactCurrentBatchConfig,sa=!0;function Lf(e,t,n,r){var a=O,s=sn.transition;sn.transition=null;try{O=1,Ls(e,t,n,r)}finally{O=a,sn.transition=s}}function Mf(e,t,n,r){var a=O,s=sn.transition;sn.transition=null;try{O=4,Ls(e,t,n,r)}finally{O=a,sn.transition=s}}function Ls(e,t,n,r){if(sa){var a=$l(e,t,n,r);if(a===null)ul(e,t,r,ia,n),Li(e,r);else if(Pf(a,e,t,n,r))r.stopPropagation();else if(Li(e,r),t&4&&-1<zf.indexOf(e)){for(;a!==null;){var s=xr(a);if(s!==null&&zc(s),s=$l(e,t,n,r),s===null&&ul(e,t,r,ia,n),s===a)break;a=s}a!==null&&r.stopPropagation()}else ul(e,t,r,null,n)}}var ia=null;function $l(e,t,n,r){if(ia=null,e=Es(r),e=Ft(e),e!==null)if(t=Vt(e),t===null)e=null;else if(n=t.tag,n===13){if(e=wc(t),e!==null)return e;e=null}else if(n===3){if(t.stateNode.current.memoizedState.isDehydrated)return t.tag===3?t.stateNode.containerInfo:null;e=null}else t!==e&&(e=null);return ia=e,null}function Tc(e){switch(e){case"cancel":case"click":case"close":case"contextmenu":case"copy":case"cut":case"auxclick":case"dblclick":case"dragend":case"dragstart":case"drop":case"focusin":case"focusout":case"input":case"invalid":case"keydown":case"keypress":case"keyup":case"mousedown":case"mouseup":case"paste":case"pause":case"play":case"pointercancel":case"pointerdown":case"pointerup":case"ratechange":case"reset":case"resize":case"seeked":case"submit":case"touchcancel":case"touchend":case"touchstart":case"volumechange":case"change":case"selectionchange":case"textInput":case"compositionstart":case"compositionend":case"compositionupdate":case"beforeblur":case"afterblur":case"beforeinput":case"blur":case"fullscreenchange":case"focus":case"hashchange":case"popstate":case"select":case"selectstart":return 1;case"drag":case"dragenter":case"dragexit":case"dragleave":case"dragover":case"mousemove":case"mouseout":case"mouseover":case"pointermove":case"pointerout":case"pointerover":case"scroll":case"toggle":case"touchmove":case"wheel":case"mouseenter":case"mouseleave":case"pointerenter":case"pointerleave":return 4;case"message":switch(vf()){case zs:return 1;case _c:return 4;case aa:case wf:return 16;case Cc:return 536870912;default:return 16}default:return 16}}var ot=null,Ms=null,Qr=null;function Rc(){if(Qr)return Qr;var e,t=Ms,n=t.length,r,a="value"in ot?ot.value:ot.textContent,s=a.length;for(e=0;e<n&&t[e]===a[e];e++);var i=n-e;for(r=1;r<=i&&t[n-r]===a[s-r];r++);return Qr=a.slice(e,1<r?1-r:void 0)}function qr(e){var t=e.keyCode;return"charCode"in e?(e=e.charCode,e===0&&t===13&&(e=13)):e=t,e===10&&(e=13),32<=e||e===13?e:0}function Fr(){return!0}function Ti(){return!1}function Ne(e){function t(n,r,a,s,i){this._reactName=n,this._targetInst=a,this.type=r,this.nativeEvent=s,this.target=i,this.currentTarget=null;for(var c in e)e.hasOwnProperty(c)&&(n=e[c],this[c]=n?n(s):s[c]);return this.isDefaultPrevented=(s.defaultPrevented!=null?s.defaultPrevented:s.returnValue===!1)?Fr:Ti,this.isPropagationStopped=Ti,this}return H(t.prototype,{preventDefault:function(){this.defaultPrevented=!0;var n=this.nativeEvent;n&&(n.preventDefault?n.preventDefault():typeof n.returnValue!="unknown"&&(n.returnValue=!1),this.isDefaultPrevented=Fr)},stopPropagation:function(){var n=this.nativeEvent;n&&(n.stopPropagation?n.stopPropagation():typeof n.cancelBubble!="unknown"&&(n.cancelBubble=!0),this.isPropagationStopped=Fr)},persist:function(){},isPersistent:Fr}),t}var yn={eventPhase:0,bubbles:0,cancelable:0,timeStamp:function(e){return e.timeStamp||Date.now()},defaultPrevented:0,isTrusted:0},Ts=Ne(yn),mr=H({},yn,{view:0,detail:0}),Tf=Ne(mr),tl,nl,zn,Pa=H({},mr,{screenX:0,screenY:0,clientX:0,clientY:0,pageX:0,pageY:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,getModifierState:Rs,button:0,buttons:0,relatedTarget:function(e){return e.relatedTarget===void 0?e.fromElement===e.srcElement?e.toElement:e.fromElement:e.relatedTarget},movementX:function(e){return"movementX"in e?e.movementX:(e!==zn&&(zn&&e.type==="mousemove"?(tl=e.screenX-zn.screenX,nl=e.screenY-zn.screenY):nl=tl=0,zn=e),tl)},movementY:function(e){return"movementY"in e?e.movementY:nl}}),Ri=Ne(Pa),Rf=H({},Pa,{dataTransfer:0}),If=Ne(Rf),Of=H({},mr,{relatedTarget:0}),rl=Ne(Of),Af=H({},yn,{animationName:0,elapsedTime:0,pseudoElement:0}),Df=Ne(Af),Uf=H({},yn,{clipboardData:function(e){return"clipboardData"in e?e.clipboardData:window.clipboardData}}),$f=Ne(Uf),Bf=H({},yn,{data:0}),Ii=Ne(Bf),Vf={Esc:"Escape",Spacebar:" ",Left:"ArrowLeft",Up:"ArrowUp",Right:"ArrowRight",Down:"ArrowDown",Del:"Delete",Win:"OS",Menu:"ContextMenu",Apps:"ContextMenu",Scroll:"ScrollLock",MozPrintableKey:"Unidentified"},Wf={8:"Backspace",9:"Tab",12:"Clear",13:"Enter",16:"Shift",17:"Control",18:"Alt",19:"Pause",20:"CapsLock",27:"Escape",32:" ",33:"PageUp",34:"PageDown",35:"End",36:"Home",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown",45:"Insert",46:"Delete",112:"F1",113:"F2",114:"F3",115:"F4",116:"F5",117:"F6",118:"F7",119:"F8",120:"F9",121:"F10",122:"F11",123:"F12",144:"NumLock",145:"ScrollLock",224:"Meta"},Hf={Alt:"altKey",Control:"ctrlKey",Meta:"metaKey",Shift:"shiftKey"};function Qf(e){var t=this.nativeEvent;return t.getModifierState?t.getModifierState(e):(e=Hf[e])?!!t[e]:!1}function Rs(){return Qf}var qf=H({},mr,{key:function(e){if(e.key){var t=Vf[e.key]||e.key;if(t!=="Unidentified")return t}return e.type==="keypress"?(e=qr(e),e===13?"Enter":String.fromCharCode(e)):e.type==="keydown"||e.type==="keyup"?Wf[e.keyCode]||"Unidentified":""},code:0,location:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,repeat:0,locale:0,getModifierState:Rs,charCode:function(e){return e.type==="keypress"?qr(e):0},keyCode:function(e){return e.type==="keydown"||e.type==="keyup"?e.keyCode:0},which:function(e){return e.type==="keypress"?qr(e):e.type==="keydown"||e.type==="keyup"?e.keyCode:0}}),Yf=Ne(qf),Kf=H({},Pa,{pointerId:0,width:0,height:0,pressure:0,tangentialPressure:0,tiltX:0,tiltY:0,twist:0,pointerType:0,isPrimary:0}),Oi=Ne(Kf),Xf=H({},mr,{touches:0,targetTouches:0,changedTouches:0,altKey:0,metaKey:0,ctrlKey:0,shiftKey:0,getModifierState:Rs}),Gf=Ne(Xf),Zf=H({},yn,{propertyName:0,elapsedTime:0,pseudoElement:0}),Jf=Ne(Zf),ep=H({},Pa,{deltaX:function(e){return"deltaX"in e?e.deltaX:"wheelDeltaX"in e?-e.wheelDeltaX:0},deltaY:function(e){return"deltaY"in e?e.deltaY:"wheelDeltaY"in e?-e.wheelDeltaY:"wheelDelta"in e?-e.wheelDelta:0},deltaZ:0,deltaMode:0}),tp=Ne(ep),np=[9,13,27,32],Is=Ze&&"CompositionEvent"in window,Dn=null;Ze&&"documentMode"in document&&(Dn=document.documentMode);var rp=Ze&&"TextEvent"in window&&!Dn,Ic=Ze&&(!Is||Dn&&8<Dn&&11>=Dn),Ai=" ",Di=!1;function Oc(e,t){switch(e){case"keyup":return np.indexOf(t.keyCode)!==-1;case"keydown":return t.keyCode!==229;case"keypress":case"mousedown":case"focusout":return!0;default:return!1}}function Ac(e){return e=e.detail,typeof e=="object"&&"data"in e?e.data:null}var qt=!1;function ap(e,t){switch(e){case"compositionend":return Ac(t);case"keypress":return t.which!==32?null:(Di=!0,Ai);case"textInput":return e=t.data,e===Ai&&Di?null:e;default:return null}}function lp(e,t){if(qt)return e==="compositionend"||!Is&&Oc(e,t)?(e=Rc(),Qr=Ms=ot=null,qt=!1,e):null;switch(e){case"paste":return null;case"keypress":if(!(t.ctrlKey||t.altKey||t.metaKey)||t.ctrlKey&&t.altKey){if(t.char&&1<t.char.length)return t.char;if(t.which)return String.fromCharCode(t.which)}return null;case"compositionend":return Ic&&t.locale!=="ko"?null:t.data;default:return null}}var sp={color:!0,date:!0,datetime:!0,"datetime-local":!0,email:!0,month:!0,number:!0,password:!0,range:!0,search:!0,tel:!0,text:!0,time:!0,url:!0,week:!0};function Ui(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t==="input"?!!sp[e.type]:t==="textarea"}function Dc(e,t,n,r){xc(r),t=oa(t,"onChange"),0<t.length&&(n=new Ts("onChange","change",null,n,r),e.push({event:n,listeners:t}))}var Un=null,Zn=null;function ip(e){Xc(e,0)}function Fa(e){var t=Xt(e);if(cc(t))return e}function op(e,t){if(e==="change")return t}var Uc=!1;if(Ze){var al;if(Ze){var ll="oninput"in document;if(!ll){var $i=document.createElement("div");$i.setAttribute("oninput","return;"),ll=typeof $i.oninput=="function"}al=ll}else al=!1;Uc=al&&(!document.documentMode||9<document.documentMode)}function Bi(){Un&&(Un.detachEvent("onpropertychange",$c),Zn=Un=null)}function $c(e){if(e.propertyName==="value"&&Fa(Zn)){var t=[];Dc(t,Zn,e,Es(e)),vc(ip,t)}}function cp(e,t,n){e==="focusin"?(Bi(),Un=t,Zn=n,Un.attachEvent("onpropertychange",$c)):e==="focusout"&&Bi()}function up(e){if(e==="selectionchange"||e==="keyup"||e==="keydown")return Fa(Zn)}function dp(e,t){if(e==="click")return Fa(t)}function fp(e,t){if(e==="input"||e==="change")return Fa(t)}function pp(e,t){return e===t&&(e!==0||1/e===1/t)||e!==e&&t!==t}var De=typeof Object.is=="function"?Object.is:pp;function Jn(e,t){if(De(e,t))return!0;if(typeof e!="object"||e===null||typeof t!="object"||t===null)return!1;var n=Object.keys(e),r=Object.keys(t);if(n.length!==r.length)return!1;for(r=0;r<n.length;r++){var a=n[r];if(!jl.call(t,a)||!De(e[a],t[a]))return!1}return!0}function Vi(e){for(;e&&e.firstChild;)e=e.firstChild;return e}function Wi(e,t){var n=Vi(e);e=0;for(var r;n;){if(n.nodeType===3){if(r=e+n.textContent.length,e<=t&&r>=t)return{node:n,offset:t-e};e=r}e:{for(;n;){if(n.nextSibling){n=n.nextSibling;break e}n=n.parentNode}n=void 0}n=Vi(n)}}function Bc(e,t){return e&&t?e===t?!0:e&&e.nodeType===3?!1:t&&t.nodeType===3?Bc(e,t.parentNode):"contains"in e?e.contains(t):e.compareDocumentPosition?!!(e.compareDocumentPosition(t)&16):!1:!1}function Vc(){for(var e=window,t=ta();t instanceof e.HTMLIFrameElement;){try{var n=typeof t.contentWindow.location.href=="string"}catch{n=!1}if(n)e=t.contentWindow;else break;t=ta(e.document)}return t}function Os(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t&&(t==="input"&&(e.type==="text"||e.type==="search"||e.type==="tel"||e.type==="url"||e.type==="password")||t==="textarea"||e.contentEditable==="true")}function hp(e){var t=Vc(),n=e.focusedElem,r=e.selectionRange;if(t!==n&&n&&n.ownerDocument&&Bc(n.ownerDocument.documentElement,n)){if(r!==null&&Os(n)){if(t=r.start,e=r.end,e===void 0&&(e=t),"selectionStart"in n)n.selectionStart=t,n.selectionEnd=Math.min(e,n.value.length);else if(e=(t=n.ownerDocument||document)&&t.defaultView||window,e.getSelection){e=e.getSelection();var a=n.textContent.length,s=Math.min(r.start,a);r=r.end===void 0?s:Math.min(r.end,a),!e.extend&&s>r&&(a=r,r=s,s=a),a=Wi(n,s);var i=Wi(n,r);a&&i&&(e.rangeCount!==1||e.anchorNode!==a.node||e.anchorOffset!==a.offset||e.focusNode!==i.node||e.focusOffset!==i.offset)&&(t=t.createRange(),t.setStart(a.node,a.offset),e.removeAllRanges(),s>r?(e.addRange(t),e.extend(i.node,i.offset)):(t.setEnd(i.node,i.offset),e.addRange(t)))}}for(t=[],e=n;e=e.parentNode;)e.nodeType===1&&t.push({element:e,left:e.scrollLeft,top:e.scrollTop});for(typeof n.focus=="function"&&n.focus(),n=0;n<t.length;n++)e=t[n],e.element.scrollLeft=e.left,e.element.scrollTop=e.top}}var mp=Ze&&"documentMode"in document&&11>=document.documentMode,Yt=null,Bl=null,$n=null,Vl=!1;function Hi(e,t,n){var r=n.window===n?n.document:n.nodeType===9?n:n.ownerDocument;Vl||Yt==null||Yt!==ta(r)||(r=Yt,"selectionStart"in r&&Os(r)?r={start:r.selectionStart,end:r.selectionEnd}:(r=(r.ownerDocument&&r.ownerDocument.defaultView||window).getSelection(),r={anchorNode:r.anchorNode,anchorOffset:r.anchorOffset,focusNode:r.focusNode,focusOffset:r.focusOffset}),$n&&Jn($n,r)||($n=r,r=oa(Bl,"onSelect"),0<r.length&&(t=new Ts("onSelect","select",null,t,n),e.push({event:t,listeners:r}),t.target=Yt)))}function Lr(e,t){var n={};return n[e.toLowerCase()]=t.toLowerCase(),n["Webkit"+e]="webkit"+t,n["Moz"+e]="moz"+t,n}var Kt={animationend:Lr("Animation","AnimationEnd"),animationiteration:Lr("Animation","AnimationIteration"),animationstart:Lr("Animation","AnimationStart"),transitionend:Lr("Transition","TransitionEnd")},sl={},Wc={};Ze&&(Wc=document.createElement("div").style,"AnimationEvent"in window||(delete Kt.animationend.animation,delete Kt.animationiteration.animation,delete Kt.animationstart.animation),"TransitionEvent"in window||delete Kt.transitionend.transition);function La(e){if(sl[e])return sl[e];if(!Kt[e])return e;var t=Kt[e],n;for(n in t)if(t.hasOwnProperty(n)&&n in Wc)return sl[e]=t[n];return e}var Hc=La("animationend"),Qc=La("animationiteration"),qc=La("animationstart"),Yc=La("transitionend"),Kc=new Map,Qi="abort auxClick cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel".split(" ");function kt(e,t){Kc.set(e,t),Bt(t,[e])}for(var il=0;il<Qi.length;il++){var ol=Qi[il],xp=ol.toLowerCase(),gp=ol[0].toUpperCase()+ol.slice(1);kt(xp,"on"+gp)}kt(Hc,"onAnimationEnd");kt(Qc,"onAnimationIteration");kt(qc,"onAnimationStart");kt("dblclick","onDoubleClick");kt("focusin","onFocus");kt("focusout","onBlur");kt(Yc,"onTransitionEnd");dn("onMouseEnter",["mouseout","mouseover"]);dn("onMouseLeave",["mouseout","mouseover"]);dn("onPointerEnter",["pointerout","pointerover"]);dn("onPointerLeave",["pointerout","pointerover"]);Bt("onChange","change click focusin focusout input keydown keyup selectionchange".split(" "));Bt("onSelect","focusout contextmenu dragend focusin keydown keyup mousedown mouseup selectionchange".split(" "));Bt("onBeforeInput",["compositionend","keypress","textInput","paste"]);Bt("onCompositionEnd","compositionend focusout keydown keypress keyup mousedown".split(" "));Bt("onCompositionStart","compositionstart focusout keydown keypress keyup mousedown".split(" "));Bt("onCompositionUpdate","compositionupdate focusout keydown keypress keyup mousedown".split(" "));var In="abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting".split(" "),bp=new Set("cancel close invalid load scroll toggle".split(" ").concat(In));function qi(e,t,n){var r=e.type||"unknown-event";e.currentTarget=n,xf(r,t,void 0,e),e.currentTarget=null}function Xc(e,t){t=(t&4)!==0;for(var n=0;n<e.length;n++){var r=e[n],a=r.event;r=r.listeners;e:{var s=void 0;if(t)for(var i=r.length-1;0<=i;i--){var c=r[i],o=c.instance,u=c.currentTarget;if(c=c.listener,o!==s&&a.isPropagationStopped())break e;qi(a,c,u),s=o}else for(i=0;i<r.length;i++){if(c=r[i],o=c.instance,u=c.currentTarget,c=c.listener,o!==s&&a.isPropagationStopped())break e;qi(a,c,u),s=o}}}if(ra)throw e=Al,ra=!1,Al=null,e}function D(e,t){var n=t[Yl];n===void 0&&(n=t[Yl]=new Set);var r=e+"__bubble";n.has(r)||(Gc(t,e,2,!1),n.add(r))}function cl(e,t,n){var r=0;t&&(r|=4),Gc(n,e,r,t)}var Mr="_reactListening"+Math.random().toString(36).slice(2);function er(e){if(!e[Mr]){e[Mr]=!0,ac.forEach(function(n){n!=="selectionchange"&&(bp.has(n)||cl(n,!1,e),cl(n,!0,e))});var t=e.nodeType===9?e:e.ownerDocument;t===null||t[Mr]||(t[Mr]=!0,cl("selectionchange",!1,t))}}function Gc(e,t,n,r){switch(Tc(t)){case 1:var a=Lf;break;case 4:a=Mf;break;default:a=Ls}n=a.bind(null,t,n,e),a=void 0,!Ol||t!=="touchstart"&&t!=="touchmove"&&t!=="wheel"||(a=!0),r?a!==void 0?e.addEventListener(t,n,{capture:!0,passive:a}):e.addEventListener(t,n,!0):a!==void 0?e.addEventListener(t,n,{passive:a}):e.addEventListener(t,n,!1)}function ul(e,t,n,r,a){var s=r;if(!(t&1)&&!(t&2)&&r!==null)e:for(;;){if(r===null)return;var i=r.tag;if(i===3||i===4){var c=r.stateNode.containerInfo;if(c===a||c.nodeType===8&&c.parentNode===a)break;if(i===4)for(i=r.return;i!==null;){var o=i.tag;if((o===3||o===4)&&(o=i.stateNode.containerInfo,o===a||o.nodeType===8&&o.parentNode===a))return;i=i.return}for(;c!==null;){if(i=Ft(c),i===null)return;if(o=i.tag,o===5||o===6){r=s=i;continue e}c=c.parentNode}}r=r.return}vc(function(){var u=s,x=Es(n),f=[];e:{var p=Kc.get(e);if(p!==void 0){var y=Ts,v=e;switch(e){case"keypress":if(qr(n)===0)break e;case"keydown":case"keyup":y=Yf;break;case"focusin":v="focus",y=rl;break;case"focusout":v="blur",y=rl;break;case"beforeblur":case"afterblur":y=rl;break;case"click":if(n.button===2)break e;case"auxclick":case"dblclick":case"mousedown":case"mousemove":case"mouseup":case"mouseout":case"mouseover":case"contextmenu":y=Ri;break;case"drag":case"dragend":case"dragenter":case"dragexit":case"dragleave":case"dragover":case"dragstart":case"drop":y=If;break;case"touchcancel":case"touchend":case"touchmove":case"touchstart":y=Gf;break;case Hc:case Qc:case qc:y=Df;break;case Yc:y=Jf;break;case"scroll":y=Tf;break;case"wheel":y=tp;break;case"copy":case"cut":case"paste":y=$f;break;case"gotpointercapture":case"lostpointercapture":case"pointercancel":case"pointerdown":case"pointermove":case"pointerout":case"pointerover":case"pointerup":y=Oi}var g=(t&4)!==0,_=!g&&e==="scroll",h=g?p!==null?p+"Capture":null:p;g=[];for(var d=u,m;d!==null;){m=d;var w=m.stateNode;if(m.tag===5&&w!==null&&(m=w,h!==null&&(w=Yn(d,h),w!=null&&g.push(tr(d,w,m)))),_)break;d=d.return}0<g.length&&(p=new y(p,v,null,n,x),f.push({event:p,listeners:g}))}}if(!(t&7)){e:{if(p=e==="mouseover"||e==="pointerover",y=e==="mouseout"||e==="pointerout",p&&n!==Rl&&(v=n.relatedTarget||n.fromElement)&&(Ft(v)||v[Je]))break e;if((y||p)&&(p=x.window===x?x:(p=x.ownerDocument)?p.defaultView||p.parentWindow:window,y?(v=n.relatedTarget||n.toElement,y=u,v=v?Ft(v):null,v!==null&&(_=Vt(v),v!==_||v.tag!==5&&v.tag!==6)&&(v=null)):(y=null,v=u),y!==v)){if(g=Ri,w="onMouseLeave",h="onMouseEnter",d="mouse",(e==="pointerout"||e==="pointerover")&&(g=Oi,w="onPointerLeave",h="onPointerEnter",d="pointer"),_=y==null?p:Xt(y),m=v==null?p:Xt(v),p=new g(w,d+"leave",y,n,x),p.target=_,p.relatedTarget=m,w=null,Ft(x)===u&&(g=new g(h,d+"enter",v,n,x),g.target=m,g.relatedTarget=_,w=g),_=w,y&&v)t:{for(g=y,h=v,d=0,m=g;m;m=Wt(m))d++;for(m=0,w=h;w;w=Wt(w))m++;for(;0<d-m;)g=Wt(g),d--;for(;0<m-d;)h=Wt(h),m--;for(;d--;){if(g===h||h!==null&&g===h.alternate)break t;g=Wt(g),h=Wt(h)}g=null}else g=null;y!==null&&Yi(f,p,y,g,!1),v!==null&&_!==null&&Yi(f,_,v,g,!0)}}e:{if(p=u?Xt(u):window,y=p.nodeName&&p.nodeName.toLowerCase(),y==="select"||y==="input"&&p.type==="file")var C=op;else if(Ui(p))if(Uc)C=fp;else{C=up;var N=cp}else(y=p.nodeName)&&y.toLowerCase()==="input"&&(p.type==="checkbox"||p.type==="radio")&&(C=dp);if(C&&(C=C(e,u))){Dc(f,C,n,x);break e}N&&N(e,p,u),e==="focusout"&&(N=p._wrapperState)&&N.controlled&&p.type==="number"&&Pl(p,"number",p.value)}switch(N=u?Xt(u):window,e){case"focusin":(Ui(N)||N.contentEditable==="true")&&(Yt=N,Bl=u,$n=null);break;case"focusout":$n=Bl=Yt=null;break;case"mousedown":Vl=!0;break;case"contextmenu":case"mouseup":case"dragend":Vl=!1,Hi(f,n,x);break;case"selectionchange":if(mp)break;case"keydown":case"keyup":Hi(f,n,x)}var z;if(Is)e:{switch(e){case"compositionstart":var F="onCompositionStart";break e;case"compositionend":F="onCompositionEnd";break e;case"compositionupdate":F="onCompositionUpdate";break e}F=void 0}else qt?Oc(e,n)&&(F="onCompositionEnd"):e==="keydown"&&n.keyCode===229&&(F="onCompositionStart");F&&(Ic&&n.locale!=="ko"&&(qt||F!=="onCompositionStart"?F==="onCompositionEnd"&&qt&&(z=Rc()):(ot=x,Ms="value"in ot?ot.value:ot.textContent,qt=!0)),N=oa(u,F),0<N.length&&(F=new Ii(F,e,null,n,x),f.push({event:F,listeners:N}),z?F.data=z:(z=Ac(n),z!==null&&(F.data=z)))),(z=rp?ap(e,n):lp(e,n))&&(u=oa(u,"onBeforeInput"),0<u.length&&(x=new Ii("onBeforeInput","beforeinput",null,n,x),f.push({event:x,listeners:u}),x.data=z))}Xc(f,t)})}function tr(e,t,n){return{instance:e,listener:t,currentTarget:n}}function oa(e,t){for(var n=t+"Capture",r=[];e!==null;){var a=e,s=a.stateNode;a.tag===5&&s!==null&&(a=s,s=Yn(e,n),s!=null&&r.unshift(tr(e,s,a)),s=Yn(e,t),s!=null&&r.push(tr(e,s,a))),e=e.return}return r}function Wt(e){if(e===null)return null;do e=e.return;while(e&&e.tag!==5);return e||null}function Yi(e,t,n,r,a){for(var s=t._reactName,i=[];n!==null&&n!==r;){var c=n,o=c.alternate,u=c.stateNode;if(o!==null&&o===r)break;c.tag===5&&u!==null&&(c=u,a?(o=Yn(n,s),o!=null&&i.unshift(tr(n,o,c))):a||(o=Yn(n,s),o!=null&&i.push(tr(n,o,c)))),n=n.return}i.length!==0&&e.push({event:t,listeners:i})}var yp=/\r\n?/g,vp=/\u0000|\uFFFD/g;function Ki(e){return(typeof e=="string"?e:""+e).replace(yp,`
-`).replace(vp,"")}function Tr(e,t,n){if(t=Ki(t),Ki(e)!==t&&n)throw Error(j(425))}function ca(){}var Wl=null,Hl=null;function Ql(e,t){return e==="textarea"||e==="noscript"||typeof t.children=="string"||typeof t.children=="number"||typeof t.dangerouslySetInnerHTML=="object"&&t.dangerouslySetInnerHTML!==null&&t.dangerouslySetInnerHTML.__html!=null}var ql=typeof setTimeout=="function"?setTimeout:void 0,wp=typeof clearTimeout=="function"?clearTimeout:void 0,Xi=typeof Promise=="function"?Promise:void 0,kp=typeof queueMicrotask=="function"?queueMicrotask:typeof Xi<"u"?function(e){return Xi.resolve(null).then(e).catch(jp)}:ql;function jp(e){setTimeout(function(){throw e})}function dl(e,t){var n=t,r=0;do{var a=n.nextSibling;if(e.removeChild(n),a&&a.nodeType===8)if(n=a.data,n==="/$"){if(r===0){e.removeChild(a),Gn(t);return}r--}else n!=="$"&&n!=="$?"&&n!=="$!"||r++;n=a}while(n);Gn(t)}function mt(e){for(;e!=null;e=e.nextSibling){var t=e.nodeType;if(t===1||t===3)break;if(t===8){if(t=e.data,t==="$"||t==="$!"||t==="$?")break;if(t==="/$")return null}}return e}function Gi(e){e=e.previousSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n==="$"||n==="$!"||n==="$?"){if(t===0)return e;t--}else n==="/$"&&t++}e=e.previousSibling}return null}var vn=Math.random().toString(36).slice(2),Ve="__reactFiber$"+vn,nr="__reactProps$"+vn,Je="__reactContainer$"+vn,Yl="__reactEvents$"+vn,Np="__reactListeners$"+vn,_p="__reactHandles$"+vn;function Ft(e){var t=e[Ve];if(t)return t;for(var n=e.parentNode;n;){if(t=n[Je]||n[Ve]){if(n=t.alternate,t.child!==null||n!==null&&n.child!==null)for(e=Gi(e);e!==null;){if(n=e[Ve])return n;e=Gi(e)}return t}e=n,n=e.parentNode}return null}function xr(e){return e=e[Ve]||e[Je],!e||e.tag!==5&&e.tag!==6&&e.tag!==13&&e.tag!==3?null:e}function Xt(e){if(e.tag===5||e.tag===6)return e.stateNode;throw Error(j(33))}function Ma(e){return e[nr]||null}var Kl=[],Gt=-1;function jt(e){return{current:e}}function U(e){0>Gt||(e.current=Kl[Gt],Kl[Gt]=null,Gt--)}function A(e,t){Gt++,Kl[Gt]=e.current,e.current=t}var wt={},oe=jt(wt),me=jt(!1),Ot=wt;function fn(e,t){var n=e.type.contextTypes;if(!n)return wt;var r=e.stateNode;if(r&&r.__reactInternalMemoizedUnmaskedChildContext===t)return r.__reactInternalMemoizedMaskedChildContext;var a={},s;for(s in n)a[s]=t[s];return r&&(e=e.stateNode,e.__reactInternalMemoizedUnmaskedChildContext=t,e.__reactInternalMemoizedMaskedChildContext=a),a}function xe(e){return e=e.childContextTypes,e!=null}function ua(){U(me),U(oe)}function Zi(e,t,n){if(oe.current!==wt)throw Error(j(168));A(oe,t),A(me,n)}function Zc(e,t,n){var r=e.stateNode;if(t=t.childContextTypes,typeof r.getChildContext!="function")return n;r=r.getChildContext();for(var a in r)if(!(a in t))throw Error(j(108,cf(e)||"Unknown",a));return H({},n,r)}function da(e){return e=(e=e.stateNode)&&e.__reactInternalMemoizedMergedChildContext||wt,Ot=oe.current,A(oe,e),A(me,me.current),!0}function Ji(e,t,n){var r=e.stateNode;if(!r)throw Error(j(169));n?(e=Zc(e,t,Ot),r.__reactInternalMemoizedMergedChildContext=e,U(me),U(oe),A(oe,e)):U(me),A(me,n)}var Ye=null,Ta=!1,fl=!1;function Jc(e){Ye===null?Ye=[e]:Ye.push(e)}function Cp(e){Ta=!0,Jc(e)}function Nt(){if(!fl&&Ye!==null){fl=!0;var e=0,t=O;try{var n=Ye;for(O=1;e<n.length;e++){var r=n[e];do r=r(!0);while(r!==null)}Ye=null,Ta=!1}catch(a){throw Ye!==null&&(Ye=Ye.slice(e+1)),Nc(zs,Nt),a}finally{O=t,fl=!1}}return null}var Zt=[],Jt=0,fa=null,pa=0,_e=[],Ce=0,At=null,Ke=1,Xe="";function zt(e,t){Zt[Jt++]=pa,Zt[Jt++]=fa,fa=e,pa=t}function eu(e,t,n){_e[Ce++]=Ke,_e[Ce++]=Xe,_e[Ce++]=At,At=e;var r=Ke;e=Xe;var a=32-Oe(r)-1;r&=~(1<<a),n+=1;var s=32-Oe(t)+a;if(30<s){var i=a-a%5;s=(r&(1<<i)-1).toString(32),r>>=i,a-=i,Ke=1<<32-Oe(t)+a|n<<a|r,Xe=s+e}else Ke=1<<s|n<<a|r,Xe=e}function As(e){e.return!==null&&(zt(e,1),eu(e,1,0))}function Ds(e){for(;e===fa;)fa=Zt[--Jt],Zt[Jt]=null,pa=Zt[--Jt],Zt[Jt]=null;for(;e===At;)At=_e[--Ce],_e[Ce]=null,Xe=_e[--Ce],_e[Ce]=null,Ke=_e[--Ce],_e[Ce]=null}var we=null,ve=null,$=!1,Ie=null;function tu(e,t){var n=Se(5,null,null,0);n.elementType="DELETED",n.stateNode=t,n.return=e,t=e.deletions,t===null?(e.deletions=[n],e.flags|=16):t.push(n)}function eo(e,t){switch(e.tag){case 5:var n=e.type;return t=t.nodeType!==1||n.toLowerCase()!==t.nodeName.toLowerCase()?null:t,t!==null?(e.stateNode=t,we=e,ve=mt(t.firstChild),!0):!1;case 6:return t=e.pendingProps===""||t.nodeType!==3?null:t,t!==null?(e.stateNode=t,we=e,ve=null,!0):!1;case 13:return t=t.nodeType!==8?null:t,t!==null?(n=At!==null?{id:Ke,overflow:Xe}:null,e.memoizedState={dehydrated:t,treeContext:n,retryLane:1073741824},n=Se(18,null,null,0),n.stateNode=t,n.return=e,e.child=n,we=e,ve=null,!0):!1;default:return!1}}function Xl(e){return(e.mode&1)!==0&&(e.flags&128)===0}function Gl(e){if($){var t=ve;if(t){var n=t;if(!eo(e,t)){if(Xl(e))throw Error(j(418));t=mt(n.nextSibling);var r=we;t&&eo(e,t)?tu(r,n):(e.flags=e.flags&-4097|2,$=!1,we=e)}}else{if(Xl(e))throw Error(j(418));e.flags=e.flags&-4097|2,$=!1,we=e}}}function to(e){for(e=e.return;e!==null&&e.tag!==5&&e.tag!==3&&e.tag!==13;)e=e.return;we=e}function Rr(e){if(e!==we)return!1;if(!$)return to(e),$=!0,!1;var t;if((t=e.tag!==3)&&!(t=e.tag!==5)&&(t=e.type,t=t!=="head"&&t!=="body"&&!Ql(e.type,e.memoizedProps)),t&&(t=ve)){if(Xl(e))throw nu(),Error(j(418));for(;t;)tu(e,t),t=mt(t.nextSibling)}if(to(e),e.tag===13){if(e=e.memoizedState,e=e!==null?e.dehydrated:null,!e)throw Error(j(317));e:{for(e=e.nextSibling,t=0;e;){if(e.nodeType===8){var n=e.data;if(n==="/$"){if(t===0){ve=mt(e.nextSibling);break e}t--}else n!=="$"&&n!=="$!"&&n!=="$?"||t++}e=e.nextSibling}ve=null}}else ve=we?mt(e.stateNode.nextSibling):null;return!0}function nu(){for(var e=ve;e;)e=mt(e.nextSibling)}function pn(){ve=we=null,$=!1}function Us(e){Ie===null?Ie=[e]:Ie.push(e)}var Sp=nt.ReactCurrentBatchConfig;function Pn(e,t,n){if(e=n.ref,e!==null&&typeof e!="function"&&typeof e!="object"){if(n._owner){if(n=n._owner,n){if(n.tag!==1)throw Error(j(309));var r=n.stateNode}if(!r)throw Error(j(147,e));var a=r,s=""+e;return t!==null&&t.ref!==null&&typeof t.ref=="function"&&t.ref._stringRef===s?t.ref:(t=function(i){var c=a.refs;i===null?delete c[s]:c[s]=i},t._stringRef=s,t)}if(typeof e!="string")throw Error(j(284));if(!n._owner)throw Error(j(290,e))}return e}function Ir(e,t){throw e=Object.prototype.toString.call(t),Error(j(31,e==="[object Object]"?"object with keys {"+Object.keys(t).join(", ")+"}":e))}function no(e){var t=e._init;return t(e._payload)}function ru(e){function t(h,d){if(e){var m=h.deletions;m===null?(h.deletions=[d],h.flags|=16):m.push(d)}}function n(h,d){if(!e)return null;for(;d!==null;)t(h,d),d=d.sibling;return null}function r(h,d){for(h=new Map;d!==null;)d.key!==null?h.set(d.key,d):h.set(d.index,d),d=d.sibling;return h}function a(h,d){return h=yt(h,d),h.index=0,h.sibling=null,h}function s(h,d,m){return h.index=m,e?(m=h.alternate,m!==null?(m=m.index,m<d?(h.flags|=2,d):m):(h.flags|=2,d)):(h.flags|=1048576,d)}function i(h){return e&&h.alternate===null&&(h.flags|=2),h}function c(h,d,m,w){return d===null||d.tag!==6?(d=yl(m,h.mode,w),d.return=h,d):(d=a(d,m),d.return=h,d)}function o(h,d,m,w){var C=m.type;return C===Qt?x(h,d,m.props.children,w,m.key):d!==null&&(d.elementType===C||typeof C=="object"&&C!==null&&C.$$typeof===at&&no(C)===d.type)?(w=a(d,m.props),w.ref=Pn(h,d,m),w.return=h,w):(w=ea(m.type,m.key,m.props,null,h.mode,w),w.ref=Pn(h,d,m),w.return=h,w)}function u(h,d,m,w){return d===null||d.tag!==4||d.stateNode.containerInfo!==m.containerInfo||d.stateNode.implementation!==m.implementation?(d=vl(m,h.mode,w),d.return=h,d):(d=a(d,m.children||[]),d.return=h,d)}function x(h,d,m,w,C){return d===null||d.tag!==7?(d=Rt(m,h.mode,w,C),d.return=h,d):(d=a(d,m),d.return=h,d)}function f(h,d,m){if(typeof d=="string"&&d!==""||typeof d=="number")return d=yl(""+d,h.mode,m),d.return=h,d;if(typeof d=="object"&&d!==null){switch(d.$$typeof){case _r:return m=ea(d.type,d.key,d.props,null,h.mode,m),m.ref=Pn(h,null,d),m.return=h,m;case Ht:return d=vl(d,h.mode,m),d.return=h,d;case at:var w=d._init;return f(h,w(d._payload),m)}if(Tn(d)||_n(d))return d=Rt(d,h.mode,m,null),d.return=h,d;Ir(h,d)}return null}function p(h,d,m,w){var C=d!==null?d.key:null;if(typeof m=="string"&&m!==""||typeof m=="number")return C!==null?null:c(h,d,""+m,w);if(typeof m=="object"&&m!==null){switch(m.$$typeof){case _r:return m.key===C?o(h,d,m,w):null;case Ht:return m.key===C?u(h,d,m,w):null;case at:return C=m._init,p(h,d,C(m._payload),w)}if(Tn(m)||_n(m))return C!==null?null:x(h,d,m,w,null);Ir(h,m)}return null}function y(h,d,m,w,C){if(typeof w=="string"&&w!==""||typeof w=="number")return h=h.get(m)||null,c(d,h,""+w,C);if(typeof w=="object"&&w!==null){switch(w.$$typeof){case _r:return h=h.get(w.key===null?m:w.key)||null,o(d,h,w,C);case Ht:return h=h.get(w.key===null?m:w.key)||null,u(d,h,w,C);case at:var N=w._init;return y(h,d,m,N(w._payload),C)}if(Tn(w)||_n(w))return h=h.get(m)||null,x(d,h,w,C,null);Ir(d,w)}return null}function v(h,d,m,w){for(var C=null,N=null,z=d,F=d=0,B=null;z!==null&&F<m.length;F++){z.index>F?(B=z,z=null):B=z.sibling;var b=p(h,z,m[F],w);if(b===null){z===null&&(z=B);break}e&&z&&b.alternate===null&&t(h,z),d=s(b,d,F),N===null?C=b:N.sibling=b,N=b,z=B}if(F===m.length)return n(h,z),$&&zt(h,F),C;if(z===null){for(;F<m.length;F++)z=f(h,m[F],w),z!==null&&(d=s(z,d,F),N===null?C=z:N.sibling=z,N=z);return $&&zt(h,F),C}for(z=r(h,z);F<m.length;F++)B=y(z,h,F,m[F],w),B!==null&&(e&&B.alternate!==null&&z.delete(B.key===null?F:B.key),d=s(B,d,F),N===null?C=B:N.sibling=B,N=B);return e&&z.forEach(function(P){return t(h,P)}),$&&zt(h,F),C}function g(h,d,m,w){var C=_n(m);if(typeof C!="function")throw Error(j(150));if(m=C.call(m),m==null)throw Error(j(151));for(var N=C=null,z=d,F=d=0,B=null,b=m.next();z!==null&&!b.done;F++,b=m.next()){z.index>F?(B=z,z=null):B=z.sibling;var P=p(h,z,b.value,w);if(P===null){z===null&&(z=B);break}e&&z&&P.alternate===null&&t(h,z),d=s(P,d,F),N===null?C=P:N.sibling=P,N=P,z=B}if(b.done)return n(h,z),$&&zt(h,F),C;if(z===null){for(;!b.done;F++,b=m.next())b=f(h,b.value,w),b!==null&&(d=s(b,d,F),N===null?C=b:N.sibling=b,N=b);return $&&zt(h,F),C}for(z=r(h,z);!b.done;F++,b=m.next())b=y(z,h,F,b.value,w),b!==null&&(e&&b.alternate!==null&&z.delete(b.key===null?F:b.key),d=s(b,d,F),N===null?C=b:N.sibling=b,N=b);return e&&z.forEach(function(be){return t(h,be)}),$&&zt(h,F),C}function _(h,d,m,w){if(typeof m=="object"&&m!==null&&m.type===Qt&&m.key===null&&(m=m.props.children),typeof m=="object"&&m!==null){switch(m.$$typeof){case _r:e:{for(var C=m.key,N=d;N!==null;){if(N.key===C){if(C=m.type,C===Qt){if(N.tag===7){n(h,N.sibling),d=a(N,m.props.children),d.return=h,h=d;break e}}else if(N.elementType===C||typeof C=="object"&&C!==null&&C.$$typeof===at&&no(C)===N.type){n(h,N.sibling),d=a(N,m.props),d.ref=Pn(h,N,m),d.return=h,h=d;break e}n(h,N);break}else t(h,N);N=N.sibling}m.type===Qt?(d=Rt(m.props.children,h.mode,w,m.key),d.return=h,h=d):(w=ea(m.type,m.key,m.props,null,h.mode,w),w.ref=Pn(h,d,m),w.return=h,h=w)}return i(h);case Ht:e:{for(N=m.key;d!==null;){if(d.key===N)if(d.tag===4&&d.stateNode.containerInfo===m.containerInfo&&d.stateNode.implementation===m.implementation){n(h,d.sibling),d=a(d,m.children||[]),d.return=h,h=d;break e}else{n(h,d);break}else t(h,d);d=d.sibling}d=vl(m,h.mode,w),d.return=h,h=d}return i(h);case at:return N=m._init,_(h,d,N(m._payload),w)}if(Tn(m))return v(h,d,m,w);if(_n(m))return g(h,d,m,w);Ir(h,m)}return typeof m=="string"&&m!==""||typeof m=="number"?(m=""+m,d!==null&&d.tag===6?(n(h,d.sibling),d=a(d,m),d.return=h,h=d):(n(h,d),d=yl(m,h.mode,w),d.return=h,h=d),i(h)):n(h,d)}return _}var hn=ru(!0),au=ru(!1),ha=jt(null),ma=null,en=null,$s=null;function Bs(){$s=en=ma=null}function Vs(e){var t=ha.current;U(ha),e._currentValue=t}function Zl(e,t,n){for(;e!==null;){var r=e.alternate;if((e.childLanes&t)!==t?(e.childLanes|=t,r!==null&&(r.childLanes|=t)):r!==null&&(r.childLanes&t)!==t&&(r.childLanes|=t),e===n)break;e=e.return}}function on(e,t){ma=e,$s=en=null,e=e.dependencies,e!==null&&e.firstContext!==null&&(e.lanes&t&&(he=!0),e.firstContext=null)}function ze(e){var t=e._currentValue;if($s!==e)if(e={context:e,memoizedValue:t,next:null},en===null){if(ma===null)throw Error(j(308));en=e,ma.dependencies={lanes:0,firstContext:e}}else en=en.next=e;return t}var Lt=null;function Ws(e){Lt===null?Lt=[e]:Lt.push(e)}function lu(e,t,n,r){var a=t.interleaved;return a===null?(n.next=n,Ws(t)):(n.next=a.next,a.next=n),t.interleaved=n,et(e,r)}function et(e,t){e.lanes|=t;var n=e.alternate;for(n!==null&&(n.lanes|=t),n=e,e=e.return;e!==null;)e.childLanes|=t,n=e.alternate,n!==null&&(n.childLanes|=t),n=e,e=e.return;return n.tag===3?n.stateNode:null}var lt=!1;function Hs(e){e.updateQueue={baseState:e.memoizedState,firstBaseUpdate:null,lastBaseUpdate:null,shared:{pending:null,interleaved:null,lanes:0},effects:null}}function su(e,t){e=e.updateQueue,t.updateQueue===e&&(t.updateQueue={baseState:e.baseState,firstBaseUpdate:e.firstBaseUpdate,lastBaseUpdate:e.lastBaseUpdate,shared:e.shared,effects:e.effects})}function Ge(e,t){return{eventTime:e,lane:t,tag:0,payload:null,callback:null,next:null}}function xt(e,t,n){var r=e.updateQueue;if(r===null)return null;if(r=r.shared,I&2){var a=r.pending;return a===null?t.next=t:(t.next=a.next,a.next=t),r.pending=t,et(e,n)}return a=r.interleaved,a===null?(t.next=t,Ws(r)):(t.next=a.next,a.next=t),r.interleaved=t,et(e,n)}function Yr(e,t,n){if(t=t.updateQueue,t!==null&&(t=t.shared,(n&4194240)!==0)){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,Ps(e,n)}}function ro(e,t){var n=e.updateQueue,r=e.alternate;if(r!==null&&(r=r.updateQueue,n===r)){var a=null,s=null;if(n=n.firstBaseUpdate,n!==null){do{var i={eventTime:n.eventTime,lane:n.lane,tag:n.tag,payload:n.payload,callback:n.callback,next:null};s===null?a=s=i:s=s.next=i,n=n.next}while(n!==null);s===null?a=s=t:s=s.next=t}else a=s=t;n={baseState:r.baseState,firstBaseUpdate:a,lastBaseUpdate:s,shared:r.shared,effects:r.effects},e.updateQueue=n;return}e=n.lastBaseUpdate,e===null?n.firstBaseUpdate=t:e.next=t,n.lastBaseUpdate=t}function xa(e,t,n,r){var a=e.updateQueue;lt=!1;var s=a.firstBaseUpdate,i=a.lastBaseUpdate,c=a.shared.pending;if(c!==null){a.shared.pending=null;var o=c,u=o.next;o.next=null,i===null?s=u:i.next=u,i=o;var x=e.alternate;x!==null&&(x=x.updateQueue,c=x.lastBaseUpdate,c!==i&&(c===null?x.firstBaseUpdate=u:c.next=u,x.lastBaseUpdate=o))}if(s!==null){var f=a.baseState;i=0,x=u=o=null,c=s;do{var p=c.lane,y=c.eventTime;if((r&p)===p){x!==null&&(x=x.next={eventTime:y,lane:0,tag:c.tag,payload:c.payload,callback:c.callback,next:null});e:{var v=e,g=c;switch(p=t,y=n,g.tag){case 1:if(v=g.payload,typeof v=="function"){f=v.call(y,f,p);break e}f=v;break e;case 3:v.flags=v.flags&-65537|128;case 0:if(v=g.payload,p=typeof v=="function"?v.call(y,f,p):v,p==null)break e;f=H({},f,p);break e;case 2:lt=!0}}c.callback!==null&&c.lane!==0&&(e.flags|=64,p=a.effects,p===null?a.effects=[c]:p.push(c))}else y={eventTime:y,lane:p,tag:c.tag,payload:c.payload,callback:c.callback,next:null},x===null?(u=x=y,o=f):x=x.next=y,i|=p;if(c=c.next,c===null){if(c=a.shared.pending,c===null)break;p=c,c=p.next,p.next=null,a.lastBaseUpdate=p,a.shared.pending=null}}while(!0);if(x===null&&(o=f),a.baseState=o,a.firstBaseUpdate=u,a.lastBaseUpdate=x,t=a.shared.interleaved,t!==null){a=t;do i|=a.lane,a=a.next;while(a!==t)}else s===null&&(a.shared.lanes=0);Ut|=i,e.lanes=i,e.memoizedState=f}}function ao(e,t,n){if(e=t.effects,t.effects=null,e!==null)for(t=0;t<e.length;t++){var r=e[t],a=r.callback;if(a!==null){if(r.callback=null,r=n,typeof a!="function")throw Error(j(191,a));a.call(r)}}}var gr={},He=jt(gr),rr=jt(gr),ar=jt(gr);function Mt(e){if(e===gr)throw Error(j(174));return e}function Qs(e,t){switch(A(ar,t),A(rr,e),A(He,gr),e=t.nodeType,e){case 9:case 11:t=(t=t.documentElement)?t.namespaceURI:Ll(null,"");break;default:e=e===8?t.parentNode:t,t=e.namespaceURI||null,e=e.tagName,t=Ll(t,e)}U(He),A(He,t)}function mn(){U(He),U(rr),U(ar)}function iu(e){Mt(ar.current);var t=Mt(He.current),n=Ll(t,e.type);t!==n&&(A(rr,e),A(He,n))}function qs(e){rr.current===e&&(U(He),U(rr))}var V=jt(0);function ga(e){for(var t=e;t!==null;){if(t.tag===13){var n=t.memoizedState;if(n!==null&&(n=n.dehydrated,n===null||n.data==="$?"||n.data==="$!"))return t}else if(t.tag===19&&t.memoizedProps.revealOrder!==void 0){if(t.flags&128)return t}else if(t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return null;t=t.return}t.sibling.return=t.return,t=t.sibling}return null}var pl=[];function Ys(){for(var e=0;e<pl.length;e++)pl[e]._workInProgressVersionPrimary=null;pl.length=0}var Kr=nt.ReactCurrentDispatcher,hl=nt.ReactCurrentBatchConfig,Dt=0,W=null,G=null,ee=null,ba=!1,Bn=!1,lr=0,Ep=0;function le(){throw Error(j(321))}function Ks(e,t){if(t===null)return!1;for(var n=0;n<t.length&&n<e.length;n++)if(!De(e[n],t[n]))return!1;return!0}function Xs(e,t,n,r,a,s){if(Dt=s,W=t,t.memoizedState=null,t.updateQueue=null,t.lanes=0,Kr.current=e===null||e.memoizedState===null?Lp:Mp,e=n(r,a),Bn){s=0;do{if(Bn=!1,lr=0,25<=s)throw Error(j(301));s+=1,ee=G=null,t.updateQueue=null,Kr.current=Tp,e=n(r,a)}while(Bn)}if(Kr.current=ya,t=G!==null&&G.next!==null,Dt=0,ee=G=W=null,ba=!1,t)throw Error(j(300));return e}function Gs(){var e=lr!==0;return lr=0,e}function Be(){var e={memoizedState:null,baseState:null,baseQueue:null,queue:null,next:null};return ee===null?W.memoizedState=ee=e:ee=ee.next=e,ee}function Pe(){if(G===null){var e=W.alternate;e=e!==null?e.memoizedState:null}else e=G.next;var t=ee===null?W.memoizedState:ee.next;if(t!==null)ee=t,G=e;else{if(e===null)throw Error(j(310));G=e,e={memoizedState:G.memoizedState,baseState:G.baseState,baseQueue:G.baseQueue,queue:G.queue,next:null},ee===null?W.memoizedState=ee=e:ee=ee.next=e}return ee}function sr(e,t){return typeof t=="function"?t(e):t}function ml(e){var t=Pe(),n=t.queue;if(n===null)throw Error(j(311));n.lastRenderedReducer=e;var r=G,a=r.baseQueue,s=n.pending;if(s!==null){if(a!==null){var i=a.next;a.next=s.next,s.next=i}r.baseQueue=a=s,n.pending=null}if(a!==null){s=a.next,r=r.baseState;var c=i=null,o=null,u=s;do{var x=u.lane;if((Dt&x)===x)o!==null&&(o=o.next={lane:0,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null}),r=u.hasEagerState?u.eagerState:e(r,u.action);else{var f={lane:x,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null};o===null?(c=o=f,i=r):o=o.next=f,W.lanes|=x,Ut|=x}u=u.next}while(u!==null&&u!==s);o===null?i=r:o.next=c,De(r,t.memoizedState)||(he=!0),t.memoizedState=r,t.baseState=i,t.baseQueue=o,n.lastRenderedState=r}if(e=n.interleaved,e!==null){a=e;do s=a.lane,W.lanes|=s,Ut|=s,a=a.next;while(a!==e)}else a===null&&(n.lanes=0);return[t.memoizedState,n.dispatch]}function xl(e){var t=Pe(),n=t.queue;if(n===null)throw Error(j(311));n.lastRenderedReducer=e;var r=n.dispatch,a=n.pending,s=t.memoizedState;if(a!==null){n.pending=null;var i=a=a.next;do s=e(s,i.action),i=i.next;while(i!==a);De(s,t.memoizedState)||(he=!0),t.memoizedState=s,t.baseQueue===null&&(t.baseState=s),n.lastRenderedState=s}return[s,r]}function ou(){}function cu(e,t){var n=W,r=Pe(),a=t(),s=!De(r.memoizedState,a);if(s&&(r.memoizedState=a,he=!0),r=r.queue,Zs(fu.bind(null,n,r,e),[e]),r.getSnapshot!==t||s||ee!==null&&ee.memoizedState.tag&1){if(n.flags|=2048,ir(9,du.bind(null,n,r,a,t),void 0,null),te===null)throw Error(j(349));Dt&30||uu(n,t,a)}return a}function uu(e,t,n){e.flags|=16384,e={getSnapshot:t,value:n},t=W.updateQueue,t===null?(t={lastEffect:null,stores:null},W.updateQueue=t,t.stores=[e]):(n=t.stores,n===null?t.stores=[e]:n.push(e))}function du(e,t,n,r){t.value=n,t.getSnapshot=r,pu(t)&&hu(e)}function fu(e,t,n){return n(function(){pu(t)&&hu(e)})}function pu(e){var t=e.getSnapshot;e=e.value;try{var n=t();return!De(e,n)}catch{return!0}}function hu(e){var t=et(e,1);t!==null&&Ae(t,e,1,-1)}function lo(e){var t=Be();return typeof e=="function"&&(e=e()),t.memoizedState=t.baseState=e,e={pending:null,interleaved:null,lanes:0,dispatch:null,lastRenderedReducer:sr,lastRenderedState:e},t.queue=e,e=e.dispatch=Fp.bind(null,W,e),[t.memoizedState,e]}function ir(e,t,n,r){return e={tag:e,create:t,destroy:n,deps:r,next:null},t=W.updateQueue,t===null?(t={lastEffect:null,stores:null},W.updateQueue=t,t.lastEffect=e.next=e):(n=t.lastEffect,n===null?t.lastEffect=e.next=e:(r=n.next,n.next=e,e.next=r,t.lastEffect=e)),e}function mu(){return Pe().memoizedState}function Xr(e,t,n,r){var a=Be();W.flags|=e,a.memoizedState=ir(1|t,n,void 0,r===void 0?null:r)}function Ra(e,t,n,r){var a=Pe();r=r===void 0?null:r;var s=void 0;if(G!==null){var i=G.memoizedState;if(s=i.destroy,r!==null&&Ks(r,i.deps)){a.memoizedState=ir(t,n,s,r);return}}W.flags|=e,a.memoizedState=ir(1|t,n,s,r)}function so(e,t){return Xr(8390656,8,e,t)}function Zs(e,t){return Ra(2048,8,e,t)}function xu(e,t){return Ra(4,2,e,t)}function gu(e,t){return Ra(4,4,e,t)}function bu(e,t){if(typeof t=="function")return e=e(),t(e),function(){t(null)};if(t!=null)return e=e(),t.current=e,function(){t.current=null}}function yu(e,t,n){return n=n!=null?n.concat([e]):null,Ra(4,4,bu.bind(null,t,e),n)}function Js(){}function vu(e,t){var n=Pe();t=t===void 0?null:t;var r=n.memoizedState;return r!==null&&t!==null&&Ks(t,r[1])?r[0]:(n.memoizedState=[e,t],e)}function wu(e,t){var n=Pe();t=t===void 0?null:t;var r=n.memoizedState;return r!==null&&t!==null&&Ks(t,r[1])?r[0]:(e=e(),n.memoizedState=[e,t],e)}function ku(e,t,n){return Dt&21?(De(n,t)||(n=Sc(),W.lanes|=n,Ut|=n,e.baseState=!0),t):(e.baseState&&(e.baseState=!1,he=!0),e.memoizedState=n)}function zp(e,t){var n=O;O=n!==0&&4>n?n:4,e(!0);var r=hl.transition;hl.transition={};try{e(!1),t()}finally{O=n,hl.transition=r}}function ju(){return Pe().memoizedState}function Pp(e,t,n){var r=bt(e);if(n={lane:r,action:n,hasEagerState:!1,eagerState:null,next:null},Nu(e))_u(t,n);else if(n=lu(e,t,n,r),n!==null){var a=ue();Ae(n,e,r,a),Cu(n,t,r)}}function Fp(e,t,n){var r=bt(e),a={lane:r,action:n,hasEagerState:!1,eagerState:null,next:null};if(Nu(e))_u(t,a);else{var s=e.alternate;if(e.lanes===0&&(s===null||s.lanes===0)&&(s=t.lastRenderedReducer,s!==null))try{var i=t.lastRenderedState,c=s(i,n);if(a.hasEagerState=!0,a.eagerState=c,De(c,i)){var o=t.interleaved;o===null?(a.next=a,Ws(t)):(a.next=o.next,o.next=a),t.interleaved=a;return}}catch{}finally{}n=lu(e,t,a,r),n!==null&&(a=ue(),Ae(n,e,r,a),Cu(n,t,r))}}function Nu(e){var t=e.alternate;return e===W||t!==null&&t===W}function _u(e,t){Bn=ba=!0;var n=e.pending;n===null?t.next=t:(t.next=n.next,n.next=t),e.pending=t}function Cu(e,t,n){if(n&4194240){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,Ps(e,n)}}var ya={readContext:ze,useCallback:le,useContext:le,useEffect:le,useImperativeHandle:le,useInsertionEffect:le,useLayoutEffect:le,useMemo:le,useReducer:le,useRef:le,useState:le,useDebugValue:le,useDeferredValue:le,useTransition:le,useMutableSource:le,useSyncExternalStore:le,useId:le,unstable_isNewReconciler:!1},Lp={readContext:ze,useCallback:function(e,t){return Be().memoizedState=[e,t===void 0?null:t],e},useContext:ze,useEffect:so,useImperativeHandle:function(e,t,n){return n=n!=null?n.concat([e]):null,Xr(4194308,4,bu.bind(null,t,e),n)},useLayoutEffect:function(e,t){return Xr(4194308,4,e,t)},useInsertionEffect:function(e,t){return Xr(4,2,e,t)},useMemo:function(e,t){var n=Be();return t=t===void 0?null:t,e=e(),n.memoizedState=[e,t],e},useReducer:function(e,t,n){var r=Be();return t=n!==void 0?n(t):t,r.memoizedState=r.baseState=t,e={pending:null,interleaved:null,lanes:0,dispatch:null,lastRenderedReducer:e,lastRenderedState:t},r.queue=e,e=e.dispatch=Pp.bind(null,W,e),[r.memoizedState,e]},useRef:function(e){var t=Be();return e={current:e},t.memoizedState=e},useState:lo,useDebugValue:Js,useDeferredValue:function(e){return Be().memoizedState=e},useTransition:function(){var e=lo(!1),t=e[0];return e=zp.bind(null,e[1]),Be().memoizedState=e,[t,e]},useMutableSource:function(){},useSyncExternalStore:function(e,t,n){var r=W,a=Be();if($){if(n===void 0)throw Error(j(407));n=n()}else{if(n=t(),te===null)throw Error(j(349));Dt&30||uu(r,t,n)}a.memoizedState=n;var s={value:n,getSnapshot:t};return a.queue=s,so(fu.bind(null,r,s,e),[e]),r.flags|=2048,ir(9,du.bind(null,r,s,n,t),void 0,null),n},useId:function(){var e=Be(),t=te.identifierPrefix;if($){var n=Xe,r=Ke;n=(r&~(1<<32-Oe(r)-1)).toString(32)+n,t=":"+t+"R"+n,n=lr++,0<n&&(t+="H"+n.toString(32)),t+=":"}else n=Ep++,t=":"+t+"r"+n.toString(32)+":";return e.memoizedState=t},unstable_isNewReconciler:!1},Mp={readContext:ze,useCallback:vu,useContext:ze,useEffect:Zs,useImperativeHandle:yu,useInsertionEffect:xu,useLayoutEffect:gu,useMemo:wu,useReducer:ml,useRef:mu,useState:function(){return ml(sr)},useDebugValue:Js,useDeferredValue:function(e){var t=Pe();return ku(t,G.memoizedState,e)},useTransition:function(){var e=ml(sr)[0],t=Pe().memoizedState;return[e,t]},useMutableSource:ou,useSyncExternalStore:cu,useId:ju,unstable_isNewReconciler:!1},Tp={readContext:ze,useCallback:vu,useContext:ze,useEffect:Zs,useImperativeHandle:yu,useInsertionEffect:xu,useLayoutEffect:gu,useMemo:wu,useReducer:xl,useRef:mu,useState:function(){return xl(sr)},useDebugValue:Js,useDeferredValue:function(e){var t=Pe();return G===null?t.memoizedState=e:ku(t,G.memoizedState,e)},useTransition:function(){var e=xl(sr)[0],t=Pe().memoizedState;return[e,t]},useMutableSource:ou,useSyncExternalStore:cu,useId:ju,unstable_isNewReconciler:!1};function Te(e,t){if(e&&e.defaultProps){t=H({},t),e=e.defaultProps;for(var n in e)t[n]===void 0&&(t[n]=e[n]);return t}return t}function Jl(e,t,n,r){t=e.memoizedState,n=n(r,t),n=n==null?t:H({},t,n),e.memoizedState=n,e.lanes===0&&(e.updateQueue.baseState=n)}var Ia={isMounted:function(e){return(e=e._reactInternals)?Vt(e)===e:!1},enqueueSetState:function(e,t,n){e=e._reactInternals;var r=ue(),a=bt(e),s=Ge(r,a);s.payload=t,n!=null&&(s.callback=n),t=xt(e,s,a),t!==null&&(Ae(t,e,a,r),Yr(t,e,a))},enqueueReplaceState:function(e,t,n){e=e._reactInternals;var r=ue(),a=bt(e),s=Ge(r,a);s.tag=1,s.payload=t,n!=null&&(s.callback=n),t=xt(e,s,a),t!==null&&(Ae(t,e,a,r),Yr(t,e,a))},enqueueForceUpdate:function(e,t){e=e._reactInternals;var n=ue(),r=bt(e),a=Ge(n,r);a.tag=2,t!=null&&(a.callback=t),t=xt(e,a,r),t!==null&&(Ae(t,e,r,n),Yr(t,e,r))}};function io(e,t,n,r,a,s,i){return e=e.stateNode,typeof e.shouldComponentUpdate=="function"?e.shouldComponentUpdate(r,s,i):t.prototype&&t.prototype.isPureReactComponent?!Jn(n,r)||!Jn(a,s):!0}function Su(e,t,n){var r=!1,a=wt,s=t.contextType;return typeof s=="object"&&s!==null?s=ze(s):(a=xe(t)?Ot:oe.current,r=t.contextTypes,s=(r=r!=null)?fn(e,a):wt),t=new t(n,s),e.memoizedState=t.state!==null&&t.state!==void 0?t.state:null,t.updater=Ia,e.stateNode=t,t._reactInternals=e,r&&(e=e.stateNode,e.__reactInternalMemoizedUnmaskedChildContext=a,e.__reactInternalMemoizedMaskedChildContext=s),t}function oo(e,t,n,r){e=t.state,typeof t.componentWillReceiveProps=="function"&&t.componentWillReceiveProps(n,r),typeof t.UNSAFE_componentWillReceiveProps=="function"&&t.UNSAFE_componentWillReceiveProps(n,r),t.state!==e&&Ia.enqueueReplaceState(t,t.state,null)}function es(e,t,n,r){var a=e.stateNode;a.props=n,a.state=e.memoizedState,a.refs={},Hs(e);var s=t.contextType;typeof s=="object"&&s!==null?a.context=ze(s):(s=xe(t)?Ot:oe.current,a.context=fn(e,s)),a.state=e.memoizedState,s=t.getDerivedStateFromProps,typeof s=="function"&&(Jl(e,t,s,n),a.state=e.memoizedState),typeof t.getDerivedStateFromProps=="function"||typeof a.getSnapshotBeforeUpdate=="function"||typeof a.UNSAFE_componentWillMount!="function"&&typeof a.componentWillMount!="function"||(t=a.state,typeof a.componentWillMount=="function"&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount=="function"&&a.UNSAFE_componentWillMount(),t!==a.state&&Ia.enqueueReplaceState(a,a.state,null),xa(e,n,a,r),a.state=e.memoizedState),typeof a.componentDidMount=="function"&&(e.flags|=4194308)}function xn(e,t){try{var n="",r=t;do n+=of(r),r=r.return;while(r);var a=n}catch(s){a=`
-Error generating stack: `+s.message+`
-`+s.stack}return{value:e,source:t,stack:a,digest:null}}function gl(e,t,n){return{value:e,source:null,stack:n??null,digest:t??null}}function ts(e,t){try{console.error(t.value)}catch(n){setTimeout(function(){throw n})}}var Rp=typeof WeakMap=="function"?WeakMap:Map;function Eu(e,t,n){n=Ge(-1,n),n.tag=3,n.payload={element:null};var r=t.value;return n.callback=function(){wa||(wa=!0,us=r),ts(e,t)},n}function zu(e,t,n){n=Ge(-1,n),n.tag=3;var r=e.type.getDerivedStateFromError;if(typeof r=="function"){var a=t.value;n.payload=function(){return r(a)},n.callback=function(){ts(e,t)}}var s=e.stateNode;return s!==null&&typeof s.componentDidCatch=="function"&&(n.callback=function(){ts(e,t),typeof r!="function"&&(gt===null?gt=new Set([this]):gt.add(this));var i=t.stack;this.componentDidCatch(t.value,{componentStack:i!==null?i:""})}),n}function co(e,t,n){var r=e.pingCache;if(r===null){r=e.pingCache=new Rp;var a=new Set;r.set(t,a)}else a=r.get(t),a===void 0&&(a=new Set,r.set(t,a));a.has(n)||(a.add(n),e=Kp.bind(null,e,t,n),t.then(e,e))}function uo(e){do{var t;if((t=e.tag===13)&&(t=e.memoizedState,t=t!==null?t.dehydrated!==null:!0),t)return e;e=e.return}while(e!==null);return null}function fo(e,t,n,r,a){return e.mode&1?(e.flags|=65536,e.lanes=a,e):(e===t?e.flags|=65536:(e.flags|=128,n.flags|=131072,n.flags&=-52805,n.tag===1&&(n.alternate===null?n.tag=17:(t=Ge(-1,1),t.tag=2,xt(n,t,1))),n.lanes|=1),e)}var Ip=nt.ReactCurrentOwner,he=!1;function ce(e,t,n,r){t.child=e===null?au(t,null,n,r):hn(t,e.child,n,r)}function po(e,t,n,r,a){n=n.render;var s=t.ref;return on(t,a),r=Xs(e,t,n,r,s,a),n=Gs(),e!==null&&!he?(t.updateQueue=e.updateQueue,t.flags&=-2053,e.lanes&=~a,tt(e,t,a)):($&&n&&As(t),t.flags|=1,ce(e,t,r,a),t.child)}function ho(e,t,n,r,a){if(e===null){var s=n.type;return typeof s=="function"&&!ii(s)&&s.defaultProps===void 0&&n.compare===null&&n.defaultProps===void 0?(t.tag=15,t.type=s,Pu(e,t,s,r,a)):(e=ea(n.type,null,r,t,t.mode,a),e.ref=t.ref,e.return=t,t.child=e)}if(s=e.child,!(e.lanes&a)){var i=s.memoizedProps;if(n=n.compare,n=n!==null?n:Jn,n(i,r)&&e.ref===t.ref)return tt(e,t,a)}return t.flags|=1,e=yt(s,r),e.ref=t.ref,e.return=t,t.child=e}function Pu(e,t,n,r,a){if(e!==null){var s=e.memoizedProps;if(Jn(s,r)&&e.ref===t.ref)if(he=!1,t.pendingProps=r=s,(e.lanes&a)!==0)e.flags&131072&&(he=!0);else return t.lanes=e.lanes,tt(e,t,a)}return ns(e,t,n,r,a)}function Fu(e,t,n){var r=t.pendingProps,a=r.children,s=e!==null?e.memoizedState:null;if(r.mode==="hidden")if(!(t.mode&1))t.memoizedState={baseLanes:0,cachePool:null,transitions:null},A(nn,ye),ye|=n;else{if(!(n&1073741824))return e=s!==null?s.baseLanes|n:n,t.lanes=t.childLanes=1073741824,t.memoizedState={baseLanes:e,cachePool:null,transitions:null},t.updateQueue=null,A(nn,ye),ye|=e,null;t.memoizedState={baseLanes:0,cachePool:null,transitions:null},r=s!==null?s.baseLanes:n,A(nn,ye),ye|=r}else s!==null?(r=s.baseLanes|n,t.memoizedState=null):r=n,A(nn,ye),ye|=r;return ce(e,t,a,n),t.child}function Lu(e,t){var n=t.ref;(e===null&&n!==null||e!==null&&e.ref!==n)&&(t.flags|=512,t.flags|=2097152)}function ns(e,t,n,r,a){var s=xe(n)?Ot:oe.current;return s=fn(t,s),on(t,a),n=Xs(e,t,n,r,s,a),r=Gs(),e!==null&&!he?(t.updateQueue=e.updateQueue,t.flags&=-2053,e.lanes&=~a,tt(e,t,a)):($&&r&&As(t),t.flags|=1,ce(e,t,n,a),t.child)}function mo(e,t,n,r,a){if(xe(n)){var s=!0;da(t)}else s=!1;if(on(t,a),t.stateNode===null)Gr(e,t),Su(t,n,r),es(t,n,r,a),r=!0;else if(e===null){var i=t.stateNode,c=t.memoizedProps;i.props=c;var o=i.context,u=n.contextType;typeof u=="object"&&u!==null?u=ze(u):(u=xe(n)?Ot:oe.current,u=fn(t,u));var x=n.getDerivedStateFromProps,f=typeof x=="function"||typeof i.getSnapshotBeforeUpdate=="function";f||typeof i.UNSAFE_componentWillReceiveProps!="function"&&typeof i.componentWillReceiveProps!="function"||(c!==r||o!==u)&&oo(t,i,r,u),lt=!1;var p=t.memoizedState;i.state=p,xa(t,r,i,a),o=t.memoizedState,c!==r||p!==o||me.current||lt?(typeof x=="function"&&(Jl(t,n,x,r),o=t.memoizedState),(c=lt||io(t,n,c,r,p,o,u))?(f||typeof i.UNSAFE_componentWillMount!="function"&&typeof i.componentWillMount!="function"||(typeof i.componentWillMount=="function"&&i.componentWillMount(),typeof i.UNSAFE_componentWillMount=="function"&&i.UNSAFE_componentWillMount()),typeof i.componentDidMount=="function"&&(t.flags|=4194308)):(typeof i.componentDidMount=="function"&&(t.flags|=4194308),t.memoizedProps=r,t.memoizedState=o),i.props=r,i.state=o,i.context=u,r=c):(typeof i.componentDidMount=="function"&&(t.flags|=4194308),r=!1)}else{i=t.stateNode,su(e,t),c=t.memoizedProps,u=t.type===t.elementType?c:Te(t.type,c),i.props=u,f=t.pendingProps,p=i.context,o=n.contextType,typeof o=="object"&&o!==null?o=ze(o):(o=xe(n)?Ot:oe.current,o=fn(t,o));var y=n.getDerivedStateFromProps;(x=typeof y=="function"||typeof i.getSnapshotBeforeUpdate=="function")||typeof i.UNSAFE_componentWillReceiveProps!="function"&&typeof i.componentWillReceiveProps!="function"||(c!==f||p!==o)&&oo(t,i,r,o),lt=!1,p=t.memoizedState,i.state=p,xa(t,r,i,a);var v=t.memoizedState;c!==f||p!==v||me.current||lt?(typeof y=="function"&&(Jl(t,n,y,r),v=t.memoizedState),(u=lt||io(t,n,u,r,p,v,o)||!1)?(x||typeof i.UNSAFE_componentWillUpdate!="function"&&typeof i.componentWillUpdate!="function"||(typeof i.componentWillUpdate=="function"&&i.componentWillUpdate(r,v,o),typeof i.UNSAFE_componentWillUpdate=="function"&&i.UNSAFE_componentWillUpdate(r,v,o)),typeof i.componentDidUpdate=="function"&&(t.flags|=4),typeof i.getSnapshotBeforeUpdate=="function"&&(t.flags|=1024)):(typeof i.componentDidUpdate!="function"||c===e.memoizedProps&&p===e.memoizedState||(t.flags|=4),typeof i.getSnapshotBeforeUpdate!="function"||c===e.memoizedProps&&p===e.memoizedState||(t.flags|=1024),t.memoizedProps=r,t.memoizedState=v),i.props=r,i.state=v,i.context=o,r=u):(typeof i.componentDidUpdate!="function"||c===e.memoizedProps&&p===e.memoizedState||(t.flags|=4),typeof i.getSnapshotBeforeUpdate!="function"||c===e.memoizedProps&&p===e.memoizedState||(t.flags|=1024),r=!1)}return rs(e,t,n,r,s,a)}function rs(e,t,n,r,a,s){Lu(e,t);var i=(t.flags&128)!==0;if(!r&&!i)return a&&Ji(t,n,!1),tt(e,t,s);r=t.stateNode,Ip.current=t;var c=i&&typeof n.getDerivedStateFromError!="function"?null:r.render();return t.flags|=1,e!==null&&i?(t.child=hn(t,e.child,null,s),t.child=hn(t,null,c,s)):ce(e,t,c,s),t.memoizedState=r.state,a&&Ji(t,n,!0),t.child}function Mu(e){var t=e.stateNode;t.pendingContext?Zi(e,t.pendingContext,t.pendingContext!==t.context):t.context&&Zi(e,t.context,!1),Qs(e,t.containerInfo)}function xo(e,t,n,r,a){return pn(),Us(a),t.flags|=256,ce(e,t,n,r),t.child}var as={dehydrated:null,treeContext:null,retryLane:0};function ls(e){return{baseLanes:e,cachePool:null,transitions:null}}function Tu(e,t,n){var r=t.pendingProps,a=V.current,s=!1,i=(t.flags&128)!==0,c;if((c=i)||(c=e!==null&&e.memoizedState===null?!1:(a&2)!==0),c?(s=!0,t.flags&=-129):(e===null||e.memoizedState!==null)&&(a|=1),A(V,a&1),e===null)return Gl(t),e=t.memoizedState,e!==null&&(e=e.dehydrated,e!==null)?(t.mode&1?e.data==="$!"?t.lanes=8:t.lanes=1073741824:t.lanes=1,null):(i=r.children,e=r.fallback,s?(r=t.mode,s=t.child,i={mode:"hidden",children:i},!(r&1)&&s!==null?(s.childLanes=0,s.pendingProps=i):s=Da(i,r,0,null),e=Rt(e,r,n,null),s.return=t,e.return=t,s.sibling=e,t.child=s,t.child.memoizedState=ls(n),t.memoizedState=as,e):ei(t,i));if(a=e.memoizedState,a!==null&&(c=a.dehydrated,c!==null))return Op(e,t,i,r,c,a,n);if(s){s=r.fallback,i=t.mode,a=e.child,c=a.sibling;var o={mode:"hidden",children:r.children};return!(i&1)&&t.child!==a?(r=t.child,r.childLanes=0,r.pendingProps=o,t.deletions=null):(r=yt(a,o),r.subtreeFlags=a.subtreeFlags&14680064),c!==null?s=yt(c,s):(s=Rt(s,i,n,null),s.flags|=2),s.return=t,r.return=t,r.sibling=s,t.child=r,r=s,s=t.child,i=e.child.memoizedState,i=i===null?ls(n):{baseLanes:i.baseLanes|n,cachePool:null,transitions:i.transitions},s.memoizedState=i,s.childLanes=e.childLanes&~n,t.memoizedState=as,r}return s=e.child,e=s.sibling,r=yt(s,{mode:"visible",children:r.children}),!(t.mode&1)&&(r.lanes=n),r.return=t,r.sibling=null,e!==null&&(n=t.deletions,n===null?(t.deletions=[e],t.flags|=16):n.push(e)),t.child=r,t.memoizedState=null,r}function ei(e,t){return t=Da({mode:"visible",children:t},e.mode,0,null),t.return=e,e.child=t}function Or(e,t,n,r){return r!==null&&Us(r),hn(t,e.child,null,n),e=ei(t,t.pendingProps.children),e.flags|=2,t.memoizedState=null,e}function Op(e,t,n,r,a,s,i){if(n)return t.flags&256?(t.flags&=-257,r=gl(Error(j(422))),Or(e,t,i,r)):t.memoizedState!==null?(t.child=e.child,t.flags|=128,null):(s=r.fallback,a=t.mode,r=Da({mode:"visible",children:r.children},a,0,null),s=Rt(s,a,i,null),s.flags|=2,r.return=t,s.return=t,r.sibling=s,t.child=r,t.mode&1&&hn(t,e.child,null,i),t.child.memoizedState=ls(i),t.memoizedState=as,s);if(!(t.mode&1))return Or(e,t,i,null);if(a.data==="$!"){if(r=a.nextSibling&&a.nextSibling.dataset,r)var c=r.dgst;return r=c,s=Error(j(419)),r=gl(s,r,void 0),Or(e,t,i,r)}if(c=(i&e.childLanes)!==0,he||c){if(r=te,r!==null){switch(i&-i){case 4:a=2;break;case 16:a=8;break;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:a=32;break;case 536870912:a=268435456;break;default:a=0}a=a&(r.suspendedLanes|i)?0:a,a!==0&&a!==s.retryLane&&(s.retryLane=a,et(e,a),Ae(r,e,a,-1))}return si(),r=gl(Error(j(421))),Or(e,t,i,r)}return a.data==="$?"?(t.flags|=128,t.child=e.child,t=Xp.bind(null,e),a._reactRetry=t,null):(e=s.treeContext,ve=mt(a.nextSibling),we=t,$=!0,Ie=null,e!==null&&(_e[Ce++]=Ke,_e[Ce++]=Xe,_e[Ce++]=At,Ke=e.id,Xe=e.overflow,At=t),t=ei(t,r.children),t.flags|=4096,t)}function go(e,t,n){e.lanes|=t;var r=e.alternate;r!==null&&(r.lanes|=t),Zl(e.return,t,n)}function bl(e,t,n,r,a){var s=e.memoizedState;s===null?e.memoizedState={isBackwards:t,rendering:null,renderingStartTime:0,last:r,tail:n,tailMode:a}:(s.isBackwards=t,s.rendering=null,s.renderingStartTime=0,s.last=r,s.tail=n,s.tailMode=a)}function Ru(e,t,n){var r=t.pendingProps,a=r.revealOrder,s=r.tail;if(ce(e,t,r.children,n),r=V.current,r&2)r=r&1|2,t.flags|=128;else{if(e!==null&&e.flags&128)e:for(e=t.child;e!==null;){if(e.tag===13)e.memoizedState!==null&&go(e,n,t);else if(e.tag===19)go(e,n,t);else if(e.child!==null){e.child.return=e,e=e.child;continue}if(e===t)break e;for(;e.sibling===null;){if(e.return===null||e.return===t)break e;e=e.return}e.sibling.return=e.return,e=e.sibling}r&=1}if(A(V,r),!(t.mode&1))t.memoizedState=null;else switch(a){case"forwards":for(n=t.child,a=null;n!==null;)e=n.alternate,e!==null&&ga(e)===null&&(a=n),n=n.sibling;n=a,n===null?(a=t.child,t.child=null):(a=n.sibling,n.sibling=null),bl(t,!1,a,n,s);break;case"backwards":for(n=null,a=t.child,t.child=null;a!==null;){if(e=a.alternate,e!==null&&ga(e)===null){t.child=a;break}e=a.sibling,a.sibling=n,n=a,a=e}bl(t,!0,n,null,s);break;case"together":bl(t,!1,null,null,void 0);break;default:t.memoizedState=null}return t.child}function Gr(e,t){!(t.mode&1)&&e!==null&&(e.alternate=null,t.alternate=null,t.flags|=2)}function tt(e,t,n){if(e!==null&&(t.dependencies=e.dependencies),Ut|=t.lanes,!(n&t.childLanes))return null;if(e!==null&&t.child!==e.child)throw Error(j(153));if(t.child!==null){for(e=t.child,n=yt(e,e.pendingProps),t.child=n,n.return=t;e.sibling!==null;)e=e.sibling,n=n.sibling=yt(e,e.pendingProps),n.return=t;n.sibling=null}return t.child}function Ap(e,t,n){switch(t.tag){case 3:Mu(t),pn();break;case 5:iu(t);break;case 1:xe(t.type)&&da(t);break;case 4:Qs(t,t.stateNode.containerInfo);break;case 10:var r=t.type._context,a=t.memoizedProps.value;A(ha,r._currentValue),r._currentValue=a;break;case 13:if(r=t.memoizedState,r!==null)return r.dehydrated!==null?(A(V,V.current&1),t.flags|=128,null):n&t.child.childLanes?Tu(e,t,n):(A(V,V.current&1),e=tt(e,t,n),e!==null?e.sibling:null);A(V,V.current&1);break;case 19:if(r=(n&t.childLanes)!==0,e.flags&128){if(r)return Ru(e,t,n);t.flags|=128}if(a=t.memoizedState,a!==null&&(a.rendering=null,a.tail=null,a.lastEffect=null),A(V,V.current),r)break;return null;case 22:case 23:return t.lanes=0,Fu(e,t,n)}return tt(e,t,n)}var Iu,ss,Ou,Au;Iu=function(e,t){for(var n=t.child;n!==null;){if(n.tag===5||n.tag===6)e.appendChild(n.stateNode);else if(n.tag!==4&&n.child!==null){n.child.return=n,n=n.child;continue}if(n===t)break;for(;n.sibling===null;){if(n.return===null||n.return===t)return;n=n.return}n.sibling.return=n.return,n=n.sibling}};ss=function(){};Ou=function(e,t,n,r){var a=e.memoizedProps;if(a!==r){e=t.stateNode,Mt(He.current);var s=null;switch(n){case"input":a=El(e,a),r=El(e,r),s=[];break;case"select":a=H({},a,{value:void 0}),r=H({},r,{value:void 0}),s=[];break;case"textarea":a=Fl(e,a),r=Fl(e,r),s=[];break;default:typeof a.onClick!="function"&&typeof r.onClick=="function"&&(e.onclick=ca)}Ml(n,r);var i;n=null;for(u in a)if(!r.hasOwnProperty(u)&&a.hasOwnProperty(u)&&a[u]!=null)if(u==="style"){var c=a[u];for(i in c)c.hasOwnProperty(i)&&(n||(n={}),n[i]="")}else u!=="dangerouslySetInnerHTML"&&u!=="children"&&u!=="suppressContentEditableWarning"&&u!=="suppressHydrationWarning"&&u!=="autoFocus"&&(Qn.hasOwnProperty(u)?s||(s=[]):(s=s||[]).push(u,null));for(u in r){var o=r[u];if(c=a!=null?a[u]:void 0,r.hasOwnProperty(u)&&o!==c&&(o!=null||c!=null))if(u==="style")if(c){for(i in c)!c.hasOwnProperty(i)||o&&o.hasOwnProperty(i)||(n||(n={}),n[i]="");for(i in o)o.hasOwnProperty(i)&&c[i]!==o[i]&&(n||(n={}),n[i]=o[i])}else n||(s||(s=[]),s.push(u,n)),n=o;else u==="dangerouslySetInnerHTML"?(o=o?o.__html:void 0,c=c?c.__html:void 0,o!=null&&c!==o&&(s=s||[]).push(u,o)):u==="children"?typeof o!="string"&&typeof o!="number"||(s=s||[]).push(u,""+o):u!=="suppressContentEditableWarning"&&u!=="suppressHydrationWarning"&&(Qn.hasOwnProperty(u)?(o!=null&&u==="onScroll"&&D("scroll",e),s||c===o||(s=[])):(s=s||[]).push(u,o))}n&&(s=s||[]).push("style",n);var u=s;(t.updateQueue=u)&&(t.flags|=4)}};Au=function(e,t,n,r){n!==r&&(t.flags|=4)};function Fn(e,t){if(!$)switch(e.tailMode){case"hidden":t=e.tail;for(var n=null;t!==null;)t.alternate!==null&&(n=t),t=t.sibling;n===null?e.tail=null:n.sibling=null;break;case"collapsed":n=e.tail;for(var r=null;n!==null;)n.alternate!==null&&(r=n),n=n.sibling;r===null?t||e.tail===null?e.tail=null:e.tail.sibling=null:r.sibling=null}}function se(e){var t=e.alternate!==null&&e.alternate.child===e.child,n=0,r=0;if(t)for(var a=e.child;a!==null;)n|=a.lanes|a.childLanes,r|=a.subtreeFlags&14680064,r|=a.flags&14680064,a.return=e,a=a.sibling;else for(a=e.child;a!==null;)n|=a.lanes|a.childLanes,r|=a.subtreeFlags,r|=a.flags,a.return=e,a=a.sibling;return e.subtreeFlags|=r,e.childLanes=n,t}function Dp(e,t,n){var r=t.pendingProps;switch(Ds(t),t.tag){case 2:case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return se(t),null;case 1:return xe(t.type)&&ua(),se(t),null;case 3:return r=t.stateNode,mn(),U(me),U(oe),Ys(),r.pendingContext&&(r.context=r.pendingContext,r.pendingContext=null),(e===null||e.child===null)&&(Rr(t)?t.flags|=4:e===null||e.memoizedState.isDehydrated&&!(t.flags&256)||(t.flags|=1024,Ie!==null&&(ps(Ie),Ie=null))),ss(e,t),se(t),null;case 5:qs(t);var a=Mt(ar.current);if(n=t.type,e!==null&&t.stateNode!=null)Ou(e,t,n,r,a),e.ref!==t.ref&&(t.flags|=512,t.flags|=2097152);else{if(!r){if(t.stateNode===null)throw Error(j(166));return se(t),null}if(e=Mt(He.current),Rr(t)){r=t.stateNode,n=t.type;var s=t.memoizedProps;switch(r[Ve]=t,r[nr]=s,e=(t.mode&1)!==0,n){case"dialog":D("cancel",r),D("close",r);break;case"iframe":case"object":case"embed":D("load",r);break;case"video":case"audio":for(a=0;a<In.length;a++)D(In[a],r);break;case"source":D("error",r);break;case"img":case"image":case"link":D("error",r),D("load",r);break;case"details":D("toggle",r);break;case"input":_i(r,s),D("invalid",r);break;case"select":r._wrapperState={wasMultiple:!!s.multiple},D("invalid",r);break;case"textarea":Si(r,s),D("invalid",r)}Ml(n,s),a=null;for(var i in s)if(s.hasOwnProperty(i)){var c=s[i];i==="children"?typeof c=="string"?r.textContent!==c&&(s.suppressHydrationWarning!==!0&&Tr(r.textContent,c,e),a=["children",c]):typeof c=="number"&&r.textContent!==""+c&&(s.suppressHydrationWarning!==!0&&Tr(r.textContent,c,e),a=["children",""+c]):Qn.hasOwnProperty(i)&&c!=null&&i==="onScroll"&&D("scroll",r)}switch(n){case"input":Cr(r),Ci(r,s,!0);break;case"textarea":Cr(r),Ei(r);break;case"select":case"option":break;default:typeof s.onClick=="function"&&(r.onclick=ca)}r=a,t.updateQueue=r,r!==null&&(t.flags|=4)}else{i=a.nodeType===9?a:a.ownerDocument,e==="http://www.w3.org/1999/xhtml"&&(e=fc(n)),e==="http://www.w3.org/1999/xhtml"?n==="script"?(e=i.createElement("div"),e.innerHTML="<script><\/script>",e=e.removeChild(e.firstChild)):typeof r.is=="string"?e=i.createElement(n,{is:r.is}):(e=i.createElement(n),n==="select"&&(i=e,r.multiple?i.multiple=!0:r.size&&(i.size=r.size))):e=i.createElementNS(e,n),e[Ve]=t,e[nr]=r,Iu(e,t,!1,!1),t.stateNode=e;e:{switch(i=Tl(n,r),n){case"dialog":D("cancel",e),D("close",e),a=r;break;case"iframe":case"object":case"embed":D("load",e),a=r;break;case"video":case"audio":for(a=0;a<In.length;a++)D(In[a],e);a=r;break;case"source":D("error",e),a=r;break;case"img":case"image":case"link":D("error",e),D("load",e),a=r;break;case"details":D("toggle",e),a=r;break;case"input":_i(e,r),a=El(e,r),D("invalid",e);break;case"option":a=r;break;case"select":e._wrapperState={wasMultiple:!!r.multiple},a=H({},r,{value:void 0}),D("invalid",e);break;case"textarea":Si(e,r),a=Fl(e,r),D("invalid",e);break;default:a=r}Ml(n,a),c=a;for(s in c)if(c.hasOwnProperty(s)){var o=c[s];s==="style"?mc(e,o):s==="dangerouslySetInnerHTML"?(o=o?o.__html:void 0,o!=null&&pc(e,o)):s==="children"?typeof o=="string"?(n!=="textarea"||o!=="")&&qn(e,o):typeof o=="number"&&qn(e,""+o):s!=="suppressContentEditableWarning"&&s!=="suppressHydrationWarning"&&s!=="autoFocus"&&(Qn.hasOwnProperty(s)?o!=null&&s==="onScroll"&&D("scroll",e):o!=null&&Ns(e,s,o,i))}switch(n){case"input":Cr(e),Ci(e,r,!1);break;case"textarea":Cr(e),Ei(e);break;case"option":r.value!=null&&e.setAttribute("value",""+vt(r.value));break;case"select":e.multiple=!!r.multiple,s=r.value,s!=null?rn(e,!!r.multiple,s,!1):r.defaultValue!=null&&rn(e,!!r.multiple,r.defaultValue,!0);break;default:typeof a.onClick=="function"&&(e.onclick=ca)}switch(n){case"button":case"input":case"select":case"textarea":r=!!r.autoFocus;break e;case"img":r=!0;break e;default:r=!1}}r&&(t.flags|=4)}t.ref!==null&&(t.flags|=512,t.flags|=2097152)}return se(t),null;case 6:if(e&&t.stateNode!=null)Au(e,t,e.memoizedProps,r);else{if(typeof r!="string"&&t.stateNode===null)throw Error(j(166));if(n=Mt(ar.current),Mt(He.current),Rr(t)){if(r=t.stateNode,n=t.memoizedProps,r[Ve]=t,(s=r.nodeValue!==n)&&(e=we,e!==null))switch(e.tag){case 3:Tr(r.nodeValue,n,(e.mode&1)!==0);break;case 5:e.memoizedProps.suppressHydrationWarning!==!0&&Tr(r.nodeValue,n,(e.mode&1)!==0)}s&&(t.flags|=4)}else r=(n.nodeType===9?n:n.ownerDocument).createTextNode(r),r[Ve]=t,t.stateNode=r}return se(t),null;case 13:if(U(V),r=t.memoizedState,e===null||e.memoizedState!==null&&e.memoizedState.dehydrated!==null){if($&&ve!==null&&t.mode&1&&!(t.flags&128))nu(),pn(),t.flags|=98560,s=!1;else if(s=Rr(t),r!==null&&r.dehydrated!==null){if(e===null){if(!s)throw Error(j(318));if(s=t.memoizedState,s=s!==null?s.dehydrated:null,!s)throw Error(j(317));s[Ve]=t}else pn(),!(t.flags&128)&&(t.memoizedState=null),t.flags|=4;se(t),s=!1}else Ie!==null&&(ps(Ie),Ie=null),s=!0;if(!s)return t.flags&65536?t:null}return t.flags&128?(t.lanes=n,t):(r=r!==null,r!==(e!==null&&e.memoizedState!==null)&&r&&(t.child.flags|=8192,t.mode&1&&(e===null||V.current&1?Z===0&&(Z=3):si())),t.updateQueue!==null&&(t.flags|=4),se(t),null);case 4:return mn(),ss(e,t),e===null&&er(t.stateNode.containerInfo),se(t),null;case 10:return Vs(t.type._context),se(t),null;case 17:return xe(t.type)&&ua(),se(t),null;case 19:if(U(V),s=t.memoizedState,s===null)return se(t),null;if(r=(t.flags&128)!==0,i=s.rendering,i===null)if(r)Fn(s,!1);else{if(Z!==0||e!==null&&e.flags&128)for(e=t.child;e!==null;){if(i=ga(e),i!==null){for(t.flags|=128,Fn(s,!1),r=i.updateQueue,r!==null&&(t.updateQueue=r,t.flags|=4),t.subtreeFlags=0,r=n,n=t.child;n!==null;)s=n,e=r,s.flags&=14680066,i=s.alternate,i===null?(s.childLanes=0,s.lanes=e,s.child=null,s.subtreeFlags=0,s.memoizedProps=null,s.memoizedState=null,s.updateQueue=null,s.dependencies=null,s.stateNode=null):(s.childLanes=i.childLanes,s.lanes=i.lanes,s.child=i.child,s.subtreeFlags=0,s.deletions=null,s.memoizedProps=i.memoizedProps,s.memoizedState=i.memoizedState,s.updateQueue=i.updateQueue,s.type=i.type,e=i.dependencies,s.dependencies=e===null?null:{lanes:e.lanes,firstContext:e.firstContext}),n=n.sibling;return A(V,V.current&1|2),t.child}e=e.sibling}s.tail!==null&&Y()>gn&&(t.flags|=128,r=!0,Fn(s,!1),t.lanes=4194304)}else{if(!r)if(e=ga(i),e!==null){if(t.flags|=128,r=!0,n=e.updateQueue,n!==null&&(t.updateQueue=n,t.flags|=4),Fn(s,!0),s.tail===null&&s.tailMode==="hidden"&&!i.alternate&&!$)return se(t),null}else 2*Y()-s.renderingStartTime>gn&&n!==1073741824&&(t.flags|=128,r=!0,Fn(s,!1),t.lanes=4194304);s.isBackwards?(i.sibling=t.child,t.child=i):(n=s.last,n!==null?n.sibling=i:t.child=i,s.last=i)}return s.tail!==null?(t=s.tail,s.rendering=t,s.tail=t.sibling,s.renderingStartTime=Y(),t.sibling=null,n=V.current,A(V,r?n&1|2:n&1),t):(se(t),null);case 22:case 23:return li(),r=t.memoizedState!==null,e!==null&&e.memoizedState!==null!==r&&(t.flags|=8192),r&&t.mode&1?ye&1073741824&&(se(t),t.subtreeFlags&6&&(t.flags|=8192)):se(t),null;case 24:return null;case 25:return null}throw Error(j(156,t.tag))}function Up(e,t){switch(Ds(t),t.tag){case 1:return xe(t.type)&&ua(),e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 3:return mn(),U(me),U(oe),Ys(),e=t.flags,e&65536&&!(e&128)?(t.flags=e&-65537|128,t):null;case 5:return qs(t),null;case 13:if(U(V),e=t.memoizedState,e!==null&&e.dehydrated!==null){if(t.alternate===null)throw Error(j(340));pn()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 19:return U(V),null;case 4:return mn(),null;case 10:return Vs(t.type._context),null;case 22:case 23:return li(),null;case 24:return null;default:return null}}var Ar=!1,ie=!1,$p=typeof WeakSet=="function"?WeakSet:Set,S=null;function tn(e,t){var n=e.ref;if(n!==null)if(typeof n=="function")try{n(null)}catch(r){Q(e,t,r)}else n.current=null}function Du(e,t,n){try{n()}catch(r){Q(e,t,r)}}var bo=!1;function Bp(e,t){if(Wl=sa,e=Vc(),Os(e)){if("selectionStart"in e)var n={start:e.selectionStart,end:e.selectionEnd};else e:{n=(n=e.ownerDocument)&&n.defaultView||window;var r=n.getSelection&&n.getSelection();if(r&&r.rangeCount!==0){n=r.anchorNode;var a=r.anchorOffset,s=r.focusNode;r=r.focusOffset;try{n.nodeType,s.nodeType}catch{n=null;break e}var i=0,c=-1,o=-1,u=0,x=0,f=e,p=null;t:for(;;){for(var y;f!==n||a!==0&&f.nodeType!==3||(c=i+a),f!==s||r!==0&&f.nodeType!==3||(o=i+r),f.nodeType===3&&(i+=f.nodeValue.length),(y=f.firstChild)!==null;)p=f,f=y;for(;;){if(f===e)break t;if(p===n&&++u===a&&(c=i),p===s&&++x===r&&(o=i),(y=f.nextSibling)!==null)break;f=p,p=f.parentNode}f=y}n=c===-1||o===-1?null:{start:c,end:o}}else n=null}n=n||{start:0,end:0}}else n=null;for(Hl={focusedElem:e,selectionRange:n},sa=!1,S=t;S!==null;)if(t=S,e=t.child,(t.subtreeFlags&1028)!==0&&e!==null)e.return=t,S=e;else for(;S!==null;){t=S;try{var v=t.alternate;if(t.flags&1024)switch(t.tag){case 0:case 11:case 15:break;case 1:if(v!==null){var g=v.memoizedProps,_=v.memoizedState,h=t.stateNode,d=h.getSnapshotBeforeUpdate(t.elementType===t.type?g:Te(t.type,g),_);h.__reactInternalSnapshotBeforeUpdate=d}break;case 3:var m=t.stateNode.containerInfo;m.nodeType===1?m.textContent="":m.nodeType===9&&m.documentElement&&m.removeChild(m.documentElement);break;case 5:case 6:case 4:case 17:break;default:throw Error(j(163))}}catch(w){Q(t,t.return,w)}if(e=t.sibling,e!==null){e.return=t.return,S=e;break}S=t.return}return v=bo,bo=!1,v}function Vn(e,t,n){var r=t.updateQueue;if(r=r!==null?r.lastEffect:null,r!==null){var a=r=r.next;do{if((a.tag&e)===e){var s=a.destroy;a.destroy=void 0,s!==void 0&&Du(t,n,s)}a=a.next}while(a!==r)}}function Oa(e,t){if(t=t.updateQueue,t=t!==null?t.lastEffect:null,t!==null){var n=t=t.next;do{if((n.tag&e)===e){var r=n.create;n.destroy=r()}n=n.next}while(n!==t)}}function is(e){var t=e.ref;if(t!==null){var n=e.stateNode;switch(e.tag){case 5:e=n;break;default:e=n}typeof t=="function"?t(e):t.current=e}}function Uu(e){var t=e.alternate;t!==null&&(e.alternate=null,Uu(t)),e.child=null,e.deletions=null,e.sibling=null,e.tag===5&&(t=e.stateNode,t!==null&&(delete t[Ve],delete t[nr],delete t[Yl],delete t[Np],delete t[_p])),e.stateNode=null,e.return=null,e.dependencies=null,e.memoizedProps=null,e.memoizedState=null,e.pendingProps=null,e.stateNode=null,e.updateQueue=null}function $u(e){return e.tag===5||e.tag===3||e.tag===4}function yo(e){e:for(;;){for(;e.sibling===null;){if(e.return===null||$u(e.return))return null;e=e.return}for(e.sibling.return=e.return,e=e.sibling;e.tag!==5&&e.tag!==6&&e.tag!==18;){if(e.flags&2||e.child===null||e.tag===4)continue e;e.child.return=e,e=e.child}if(!(e.flags&2))return e.stateNode}}function os(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?n.nodeType===8?n.parentNode.insertBefore(e,t):n.insertBefore(e,t):(n.nodeType===8?(t=n.parentNode,t.insertBefore(e,n)):(t=n,t.appendChild(e)),n=n._reactRootContainer,n!=null||t.onclick!==null||(t.onclick=ca));else if(r!==4&&(e=e.child,e!==null))for(os(e,t,n),e=e.sibling;e!==null;)os(e,t,n),e=e.sibling}function cs(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?n.insertBefore(e,t):n.appendChild(e);else if(r!==4&&(e=e.child,e!==null))for(cs(e,t,n),e=e.sibling;e!==null;)cs(e,t,n),e=e.sibling}var ne=null,Re=!1;function rt(e,t,n){for(n=n.child;n!==null;)Bu(e,t,n),n=n.sibling}function Bu(e,t,n){if(We&&typeof We.onCommitFiberUnmount=="function")try{We.onCommitFiberUnmount(za,n)}catch{}switch(n.tag){case 5:ie||tn(n,t);case 6:var r=ne,a=Re;ne=null,rt(e,t,n),ne=r,Re=a,ne!==null&&(Re?(e=ne,n=n.stateNode,e.nodeType===8?e.parentNode.removeChild(n):e.removeChild(n)):ne.removeChild(n.stateNode));break;case 18:ne!==null&&(Re?(e=ne,n=n.stateNode,e.nodeType===8?dl(e.parentNode,n):e.nodeType===1&&dl(e,n),Gn(e)):dl(ne,n.stateNode));break;case 4:r=ne,a=Re,ne=n.stateNode.containerInfo,Re=!0,rt(e,t,n),ne=r,Re=a;break;case 0:case 11:case 14:case 15:if(!ie&&(r=n.updateQueue,r!==null&&(r=r.lastEffect,r!==null))){a=r=r.next;do{var s=a,i=s.destroy;s=s.tag,i!==void 0&&(s&2||s&4)&&Du(n,t,i),a=a.next}while(a!==r)}rt(e,t,n);break;case 1:if(!ie&&(tn(n,t),r=n.stateNode,typeof r.componentWillUnmount=="function"))try{r.props=n.memoizedProps,r.state=n.memoizedState,r.componentWillUnmount()}catch(c){Q(n,t,c)}rt(e,t,n);break;case 21:rt(e,t,n);break;case 22:n.mode&1?(ie=(r=ie)||n.memoizedState!==null,rt(e,t,n),ie=r):rt(e,t,n);break;default:rt(e,t,n)}}function vo(e){var t=e.updateQueue;if(t!==null){e.updateQueue=null;var n=e.stateNode;n===null&&(n=e.stateNode=new $p),t.forEach(function(r){var a=Gp.bind(null,e,r);n.has(r)||(n.add(r),r.then(a,a))})}}function Le(e,t){var n=t.deletions;if(n!==null)for(var r=0;r<n.length;r++){var a=n[r];try{var s=e,i=t,c=i;e:for(;c!==null;){switch(c.tag){case 5:ne=c.stateNode,Re=!1;break e;case 3:ne=c.stateNode.containerInfo,Re=!0;break e;case 4:ne=c.stateNode.containerInfo,Re=!0;break e}c=c.return}if(ne===null)throw Error(j(160));Bu(s,i,a),ne=null,Re=!1;var o=a.alternate;o!==null&&(o.return=null),a.return=null}catch(u){Q(a,t,u)}}if(t.subtreeFlags&12854)for(t=t.child;t!==null;)Vu(t,e),t=t.sibling}function Vu(e,t){var n=e.alternate,r=e.flags;switch(e.tag){case 0:case 11:case 14:case 15:if(Le(t,e),$e(e),r&4){try{Vn(3,e,e.return),Oa(3,e)}catch(g){Q(e,e.return,g)}try{Vn(5,e,e.return)}catch(g){Q(e,e.return,g)}}break;case 1:Le(t,e),$e(e),r&512&&n!==null&&tn(n,n.return);break;case 5:if(Le(t,e),$e(e),r&512&&n!==null&&tn(n,n.return),e.flags&32){var a=e.stateNode;try{qn(a,"")}catch(g){Q(e,e.return,g)}}if(r&4&&(a=e.stateNode,a!=null)){var s=e.memoizedProps,i=n!==null?n.memoizedProps:s,c=e.type,o=e.updateQueue;if(e.updateQueue=null,o!==null)try{c==="input"&&s.type==="radio"&&s.name!=null&&uc(a,s),Tl(c,i);var u=Tl(c,s);for(i=0;i<o.length;i+=2){var x=o[i],f=o[i+1];x==="style"?mc(a,f):x==="dangerouslySetInnerHTML"?pc(a,f):x==="children"?qn(a,f):Ns(a,x,f,u)}switch(c){case"input":zl(a,s);break;case"textarea":dc(a,s);break;case"select":var p=a._wrapperState.wasMultiple;a._wrapperState.wasMultiple=!!s.multiple;var y=s.value;y!=null?rn(a,!!s.multiple,y,!1):p!==!!s.multiple&&(s.defaultValue!=null?rn(a,!!s.multiple,s.defaultValue,!0):rn(a,!!s.multiple,s.multiple?[]:"",!1))}a[nr]=s}catch(g){Q(e,e.return,g)}}break;case 6:if(Le(t,e),$e(e),r&4){if(e.stateNode===null)throw Error(j(162));a=e.stateNode,s=e.memoizedProps;try{a.nodeValue=s}catch(g){Q(e,e.return,g)}}break;case 3:if(Le(t,e),$e(e),r&4&&n!==null&&n.memoizedState.isDehydrated)try{Gn(t.containerInfo)}catch(g){Q(e,e.return,g)}break;case 4:Le(t,e),$e(e);break;case 13:Le(t,e),$e(e),a=e.child,a.flags&8192&&(s=a.memoizedState!==null,a.stateNode.isHidden=s,!s||a.alternate!==null&&a.alternate.memoizedState!==null||(ri=Y())),r&4&&vo(e);break;case 22:if(x=n!==null&&n.memoizedState!==null,e.mode&1?(ie=(u=ie)||x,Le(t,e),ie=u):Le(t,e),$e(e),r&8192){if(u=e.memoizedState!==null,(e.stateNode.isHidden=u)&&!x&&e.mode&1)for(S=e,x=e.child;x!==null;){for(f=S=x;S!==null;){switch(p=S,y=p.child,p.tag){case 0:case 11:case 14:case 15:Vn(4,p,p.return);break;case 1:tn(p,p.return);var v=p.stateNode;if(typeof v.componentWillUnmount=="function"){r=p,n=p.return;try{t=r,v.props=t.memoizedProps,v.state=t.memoizedState,v.componentWillUnmount()}catch(g){Q(r,n,g)}}break;case 5:tn(p,p.return);break;case 22:if(p.memoizedState!==null){ko(f);continue}}y!==null?(y.return=p,S=y):ko(f)}x=x.sibling}e:for(x=null,f=e;;){if(f.tag===5){if(x===null){x=f;try{a=f.stateNode,u?(s=a.style,typeof s.setProperty=="function"?s.setProperty("display","none","important"):s.display="none"):(c=f.stateNode,o=f.memoizedProps.style,i=o!=null&&o.hasOwnProperty("display")?o.display:null,c.style.display=hc("display",i))}catch(g){Q(e,e.return,g)}}}else if(f.tag===6){if(x===null)try{f.stateNode.nodeValue=u?"":f.memoizedProps}catch(g){Q(e,e.return,g)}}else if((f.tag!==22&&f.tag!==23||f.memoizedState===null||f===e)&&f.child!==null){f.child.return=f,f=f.child;continue}if(f===e)break e;for(;f.sibling===null;){if(f.return===null||f.return===e)break e;x===f&&(x=null),f=f.return}x===f&&(x=null),f.sibling.return=f.return,f=f.sibling}}break;case 19:Le(t,e),$e(e),r&4&&vo(e);break;case 21:break;default:Le(t,e),$e(e)}}function $e(e){var t=e.flags;if(t&2){try{e:{for(var n=e.return;n!==null;){if($u(n)){var r=n;break e}n=n.return}throw Error(j(160))}switch(r.tag){case 5:var a=r.stateNode;r.flags&32&&(qn(a,""),r.flags&=-33);var s=yo(e);cs(e,s,a);break;case 3:case 4:var i=r.stateNode.containerInfo,c=yo(e);os(e,c,i);break;default:throw Error(j(161))}}catch(o){Q(e,e.return,o)}e.flags&=-3}t&4096&&(e.flags&=-4097)}function Vp(e,t,n){S=e,Wu(e)}function Wu(e,t,n){for(var r=(e.mode&1)!==0;S!==null;){var a=S,s=a.child;if(a.tag===22&&r){var i=a.memoizedState!==null||Ar;if(!i){var c=a.alternate,o=c!==null&&c.memoizedState!==null||ie;c=Ar;var u=ie;if(Ar=i,(ie=o)&&!u)for(S=a;S!==null;)i=S,o=i.child,i.tag===22&&i.memoizedState!==null?jo(a):o!==null?(o.return=i,S=o):jo(a);for(;s!==null;)S=s,Wu(s),s=s.sibling;S=a,Ar=c,ie=u}wo(e)}else a.subtreeFlags&8772&&s!==null?(s.return=a,S=s):wo(e)}}function wo(e){for(;S!==null;){var t=S;if(t.flags&8772){var n=t.alternate;try{if(t.flags&8772)switch(t.tag){case 0:case 11:case 15:ie||Oa(5,t);break;case 1:var r=t.stateNode;if(t.flags&4&&!ie)if(n===null)r.componentDidMount();else{var a=t.elementType===t.type?n.memoizedProps:Te(t.type,n.memoizedProps);r.componentDidUpdate(a,n.memoizedState,r.__reactInternalSnapshotBeforeUpdate)}var s=t.updateQueue;s!==null&&ao(t,s,r);break;case 3:var i=t.updateQueue;if(i!==null){if(n=null,t.child!==null)switch(t.child.tag){case 5:n=t.child.stateNode;break;case 1:n=t.child.stateNode}ao(t,i,n)}break;case 5:var c=t.stateNode;if(n===null&&t.flags&4){n=c;var o=t.memoizedProps;switch(t.type){case"button":case"input":case"select":case"textarea":o.autoFocus&&n.focus();break;case"img":o.src&&(n.src=o.src)}}break;case 6:break;case 4:break;case 12:break;case 13:if(t.memoizedState===null){var u=t.alternate;if(u!==null){var x=u.memoizedState;if(x!==null){var f=x.dehydrated;f!==null&&Gn(f)}}}break;case 19:case 17:case 21:case 22:case 23:case 25:break;default:throw Error(j(163))}ie||t.flags&512&&is(t)}catch(p){Q(t,t.return,p)}}if(t===e){S=null;break}if(n=t.sibling,n!==null){n.return=t.return,S=n;break}S=t.return}}function ko(e){for(;S!==null;){var t=S;if(t===e){S=null;break}var n=t.sibling;if(n!==null){n.return=t.return,S=n;break}S=t.return}}function jo(e){for(;S!==null;){var t=S;try{switch(t.tag){case 0:case 11:case 15:var n=t.return;try{Oa(4,t)}catch(o){Q(t,n,o)}break;case 1:var r=t.stateNode;if(typeof r.componentDidMount=="function"){var a=t.return;try{r.componentDidMount()}catch(o){Q(t,a,o)}}var s=t.return;try{is(t)}catch(o){Q(t,s,o)}break;case 5:var i=t.return;try{is(t)}catch(o){Q(t,i,o)}}}catch(o){Q(t,t.return,o)}if(t===e){S=null;break}var c=t.sibling;if(c!==null){c.return=t.return,S=c;break}S=t.return}}var Wp=Math.ceil,va=nt.ReactCurrentDispatcher,ti=nt.ReactCurrentOwner,Ee=nt.ReactCurrentBatchConfig,I=0,te=null,K=null,re=0,ye=0,nn=jt(0),Z=0,or=null,Ut=0,Aa=0,ni=0,Wn=null,pe=null,ri=0,gn=1/0,qe=null,wa=!1,us=null,gt=null,Dr=!1,ct=null,ka=0,Hn=0,ds=null,Zr=-1,Jr=0;function ue(){return I&6?Y():Zr!==-1?Zr:Zr=Y()}function bt(e){return e.mode&1?I&2&&re!==0?re&-re:Sp.transition!==null?(Jr===0&&(Jr=Sc()),Jr):(e=O,e!==0||(e=window.event,e=e===void 0?16:Tc(e.type)),e):1}function Ae(e,t,n,r){if(50<Hn)throw Hn=0,ds=null,Error(j(185));hr(e,n,r),(!(I&2)||e!==te)&&(e===te&&(!(I&2)&&(Aa|=n),Z===4&&it(e,re)),ge(e,r),n===1&&I===0&&!(t.mode&1)&&(gn=Y()+500,Ta&&Nt()))}function ge(e,t){var n=e.callbackNode;Sf(e,t);var r=la(e,e===te?re:0);if(r===0)n!==null&&Fi(n),e.callbackNode=null,e.callbackPriority=0;else if(t=r&-r,e.callbackPriority!==t){if(n!=null&&Fi(n),t===1)e.tag===0?Cp(No.bind(null,e)):Jc(No.bind(null,e)),kp(function(){!(I&6)&&Nt()}),n=null;else{switch(Ec(r)){case 1:n=zs;break;case 4:n=_c;break;case 16:n=aa;break;case 536870912:n=Cc;break;default:n=aa}n=Zu(n,Hu.bind(null,e))}e.callbackPriority=t,e.callbackNode=n}}function Hu(e,t){if(Zr=-1,Jr=0,I&6)throw Error(j(327));var n=e.callbackNode;if(cn()&&e.callbackNode!==n)return null;var r=la(e,e===te?re:0);if(r===0)return null;if(r&30||r&e.expiredLanes||t)t=ja(e,r);else{t=r;var a=I;I|=2;var s=qu();(te!==e||re!==t)&&(qe=null,gn=Y()+500,Tt(e,t));do try{qp();break}catch(c){Qu(e,c)}while(!0);Bs(),va.current=s,I=a,K!==null?t=0:(te=null,re=0,t=Z)}if(t!==0){if(t===2&&(a=Dl(e),a!==0&&(r=a,t=fs(e,a))),t===1)throw n=or,Tt(e,0),it(e,r),ge(e,Y()),n;if(t===6)it(e,r);else{if(a=e.current.alternate,!(r&30)&&!Hp(a)&&(t=ja(e,r),t===2&&(s=Dl(e),s!==0&&(r=s,t=fs(e,s))),t===1))throw n=or,Tt(e,0),it(e,r),ge(e,Y()),n;switch(e.finishedWork=a,e.finishedLanes=r,t){case 0:case 1:throw Error(j(345));case 2:Pt(e,pe,qe);break;case 3:if(it(e,r),(r&130023424)===r&&(t=ri+500-Y(),10<t)){if(la(e,0)!==0)break;if(a=e.suspendedLanes,(a&r)!==r){ue(),e.pingedLanes|=e.suspendedLanes&a;break}e.timeoutHandle=ql(Pt.bind(null,e,pe,qe),t);break}Pt(e,pe,qe);break;case 4:if(it(e,r),(r&4194240)===r)break;for(t=e.eventTimes,a=-1;0<r;){var i=31-Oe(r);s=1<<i,i=t[i],i>a&&(a=i),r&=~s}if(r=a,r=Y()-r,r=(120>r?120:480>r?480:1080>r?1080:1920>r?1920:3e3>r?3e3:4320>r?4320:1960*Wp(r/1960))-r,10<r){e.timeoutHandle=ql(Pt.bind(null,e,pe,qe),r);break}Pt(e,pe,qe);break;case 5:Pt(e,pe,qe);break;default:throw Error(j(329))}}}return ge(e,Y()),e.callbackNode===n?Hu.bind(null,e):null}function fs(e,t){var n=Wn;return e.current.memoizedState.isDehydrated&&(Tt(e,t).flags|=256),e=ja(e,t),e!==2&&(t=pe,pe=n,t!==null&&ps(t)),e}function ps(e){pe===null?pe=e:pe.push.apply(pe,e)}function Hp(e){for(var t=e;;){if(t.flags&16384){var n=t.updateQueue;if(n!==null&&(n=n.stores,n!==null))for(var r=0;r<n.length;r++){var a=n[r],s=a.getSnapshot;a=a.value;try{if(!De(s(),a))return!1}catch{return!1}}}if(n=t.child,t.subtreeFlags&16384&&n!==null)n.return=t,t=n;else{if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return!0;t=t.return}t.sibling.return=t.return,t=t.sibling}}return!0}function it(e,t){for(t&=~ni,t&=~Aa,e.suspendedLanes|=t,e.pingedLanes&=~t,e=e.expirationTimes;0<t;){var n=31-Oe(t),r=1<<n;e[n]=-1,t&=~r}}function No(e){if(I&6)throw Error(j(327));cn();var t=la(e,0);if(!(t&1))return ge(e,Y()),null;var n=ja(e,t);if(e.tag!==0&&n===2){var r=Dl(e);r!==0&&(t=r,n=fs(e,r))}if(n===1)throw n=or,Tt(e,0),it(e,t),ge(e,Y()),n;if(n===6)throw Error(j(345));return e.finishedWork=e.current.alternate,e.finishedLanes=t,Pt(e,pe,qe),ge(e,Y()),null}function ai(e,t){var n=I;I|=1;try{return e(t)}finally{I=n,I===0&&(gn=Y()+500,Ta&&Nt())}}function $t(e){ct!==null&&ct.tag===0&&!(I&6)&&cn();var t=I;I|=1;var n=Ee.transition,r=O;try{if(Ee.transition=null,O=1,e)return e()}finally{O=r,Ee.transition=n,I=t,!(I&6)&&Nt()}}function li(){ye=nn.current,U(nn)}function Tt(e,t){e.finishedWork=null,e.finishedLanes=0;var n=e.timeoutHandle;if(n!==-1&&(e.timeoutHandle=-1,wp(n)),K!==null)for(n=K.return;n!==null;){var r=n;switch(Ds(r),r.tag){case 1:r=r.type.childContextTypes,r!=null&&ua();break;case 3:mn(),U(me),U(oe),Ys();break;case 5:qs(r);break;case 4:mn();break;case 13:U(V);break;case 19:U(V);break;case 10:Vs(r.type._context);break;case 22:case 23:li()}n=n.return}if(te=e,K=e=yt(e.current,null),re=ye=t,Z=0,or=null,ni=Aa=Ut=0,pe=Wn=null,Lt!==null){for(t=0;t<Lt.length;t++)if(n=Lt[t],r=n.interleaved,r!==null){n.interleaved=null;var a=r.next,s=n.pending;if(s!==null){var i=s.next;s.next=a,r.next=i}n.pending=r}Lt=null}return e}function Qu(e,t){do{var n=K;try{if(Bs(),Kr.current=ya,ba){for(var r=W.memoizedState;r!==null;){var a=r.queue;a!==null&&(a.pending=null),r=r.next}ba=!1}if(Dt=0,ee=G=W=null,Bn=!1,lr=0,ti.current=null,n===null||n.return===null){Z=1,or=t,K=null;break}e:{var s=e,i=n.return,c=n,o=t;if(t=re,c.flags|=32768,o!==null&&typeof o=="object"&&typeof o.then=="function"){var u=o,x=c,f=x.tag;if(!(x.mode&1)&&(f===0||f===11||f===15)){var p=x.alternate;p?(x.updateQueue=p.updateQueue,x.memoizedState=p.memoizedState,x.lanes=p.lanes):(x.updateQueue=null,x.memoizedState=null)}var y=uo(i);if(y!==null){y.flags&=-257,fo(y,i,c,s,t),y.mode&1&&co(s,u,t),t=y,o=u;var v=t.updateQueue;if(v===null){var g=new Set;g.add(o),t.updateQueue=g}else v.add(o);break e}else{if(!(t&1)){co(s,u,t),si();break e}o=Error(j(426))}}else if($&&c.mode&1){var _=uo(i);if(_!==null){!(_.flags&65536)&&(_.flags|=256),fo(_,i,c,s,t),Us(xn(o,c));break e}}s=o=xn(o,c),Z!==4&&(Z=2),Wn===null?Wn=[s]:Wn.push(s),s=i;do{switch(s.tag){case 3:s.flags|=65536,t&=-t,s.lanes|=t;var h=Eu(s,o,t);ro(s,h);break e;case 1:c=o;var d=s.type,m=s.stateNode;if(!(s.flags&128)&&(typeof d.getDerivedStateFromError=="function"||m!==null&&typeof m.componentDidCatch=="function"&&(gt===null||!gt.has(m)))){s.flags|=65536,t&=-t,s.lanes|=t;var w=zu(s,c,t);ro(s,w);break e}}s=s.return}while(s!==null)}Ku(n)}catch(C){t=C,K===n&&n!==null&&(K=n=n.return);continue}break}while(!0)}function qu(){var e=va.current;return va.current=ya,e===null?ya:e}function si(){(Z===0||Z===3||Z===2)&&(Z=4),te===null||!(Ut&268435455)&&!(Aa&268435455)||it(te,re)}function ja(e,t){var n=I;I|=2;var r=qu();(te!==e||re!==t)&&(qe=null,Tt(e,t));do try{Qp();break}catch(a){Qu(e,a)}while(!0);if(Bs(),I=n,va.current=r,K!==null)throw Error(j(261));return te=null,re=0,Z}function Qp(){for(;K!==null;)Yu(K)}function qp(){for(;K!==null&&!bf();)Yu(K)}function Yu(e){var t=Gu(e.alternate,e,ye);e.memoizedProps=e.pendingProps,t===null?Ku(e):K=t,ti.current=null}function Ku(e){var t=e;do{var n=t.alternate;if(e=t.return,t.flags&32768){if(n=Up(n,t),n!==null){n.flags&=32767,K=n;return}if(e!==null)e.flags|=32768,e.subtreeFlags=0,e.deletions=null;else{Z=6,K=null;return}}else if(n=Dp(n,t,ye),n!==null){K=n;return}if(t=t.sibling,t!==null){K=t;return}K=t=e}while(t!==null);Z===0&&(Z=5)}function Pt(e,t,n){var r=O,a=Ee.transition;try{Ee.transition=null,O=1,Yp(e,t,n,r)}finally{Ee.transition=a,O=r}return null}function Yp(e,t,n,r){do cn();while(ct!==null);if(I&6)throw Error(j(327));n=e.finishedWork;var a=e.finishedLanes;if(n===null)return null;if(e.finishedWork=null,e.finishedLanes=0,n===e.current)throw Error(j(177));e.callbackNode=null,e.callbackPriority=0;var s=n.lanes|n.childLanes;if(Ef(e,s),e===te&&(K=te=null,re=0),!(n.subtreeFlags&2064)&&!(n.flags&2064)||Dr||(Dr=!0,Zu(aa,function(){return cn(),null})),s=(n.flags&15990)!==0,n.subtreeFlags&15990||s){s=Ee.transition,Ee.transition=null;var i=O;O=1;var c=I;I|=4,ti.current=null,Bp(e,n),Vu(n,e),hp(Hl),sa=!!Wl,Hl=Wl=null,e.current=n,Vp(n),yf(),I=c,O=i,Ee.transition=s}else e.current=n;if(Dr&&(Dr=!1,ct=e,ka=a),s=e.pendingLanes,s===0&&(gt=null),kf(n.stateNode),ge(e,Y()),t!==null)for(r=e.onRecoverableError,n=0;n<t.length;n++)a=t[n],r(a.value,{componentStack:a.stack,digest:a.digest});if(wa)throw wa=!1,e=us,us=null,e;return ka&1&&e.tag!==0&&cn(),s=e.pendingLanes,s&1?e===ds?Hn++:(Hn=0,ds=e):Hn=0,Nt(),null}function cn(){if(ct!==null){var e=Ec(ka),t=Ee.transition,n=O;try{if(Ee.transition=null,O=16>e?16:e,ct===null)var r=!1;else{if(e=ct,ct=null,ka=0,I&6)throw Error(j(331));var a=I;for(I|=4,S=e.current;S!==null;){var s=S,i=s.child;if(S.flags&16){var c=s.deletions;if(c!==null){for(var o=0;o<c.length;o++){var u=c[o];for(S=u;S!==null;){var x=S;switch(x.tag){case 0:case 11:case 15:Vn(8,x,s)}var f=x.child;if(f!==null)f.return=x,S=f;else for(;S!==null;){x=S;var p=x.sibling,y=x.return;if(Uu(x),x===u){S=null;break}if(p!==null){p.return=y,S=p;break}S=y}}}var v=s.alternate;if(v!==null){var g=v.child;if(g!==null){v.child=null;do{var _=g.sibling;g.sibling=null,g=_}while(g!==null)}}S=s}}if(s.subtreeFlags&2064&&i!==null)i.return=s,S=i;else e:for(;S!==null;){if(s=S,s.flags&2048)switch(s.tag){case 0:case 11:case 15:Vn(9,s,s.return)}var h=s.sibling;if(h!==null){h.return=s.return,S=h;break e}S=s.return}}var d=e.current;for(S=d;S!==null;){i=S;var m=i.child;if(i.subtreeFlags&2064&&m!==null)m.return=i,S=m;else e:for(i=d;S!==null;){if(c=S,c.flags&2048)try{switch(c.tag){case 0:case 11:case 15:Oa(9,c)}}catch(C){Q(c,c.return,C)}if(c===i){S=null;break e}var w=c.sibling;if(w!==null){w.return=c.return,S=w;break e}S=c.return}}if(I=a,Nt(),We&&typeof We.onPostCommitFiberRoot=="function")try{We.onPostCommitFiberRoot(za,e)}catch{}r=!0}return r}finally{O=n,Ee.transition=t}}return!1}function _o(e,t,n){t=xn(n,t),t=Eu(e,t,1),e=xt(e,t,1),t=ue(),e!==null&&(hr(e,1,t),ge(e,t))}function Q(e,t,n){if(e.tag===3)_o(e,e,n);else for(;t!==null;){if(t.tag===3){_o(t,e,n);break}else if(t.tag===1){var r=t.stateNode;if(typeof t.type.getDerivedStateFromError=="function"||typeof r.componentDidCatch=="function"&&(gt===null||!gt.has(r))){e=xn(n,e),e=zu(t,e,1),t=xt(t,e,1),e=ue(),t!==null&&(hr(t,1,e),ge(t,e));break}}t=t.return}}function Kp(e,t,n){var r=e.pingCache;r!==null&&r.delete(t),t=ue(),e.pingedLanes|=e.suspendedLanes&n,te===e&&(re&n)===n&&(Z===4||Z===3&&(re&130023424)===re&&500>Y()-ri?Tt(e,0):ni|=n),ge(e,t)}function Xu(e,t){t===0&&(e.mode&1?(t=zr,zr<<=1,!(zr&130023424)&&(zr=4194304)):t=1);var n=ue();e=et(e,t),e!==null&&(hr(e,t,n),ge(e,n))}function Xp(e){var t=e.memoizedState,n=0;t!==null&&(n=t.retryLane),Xu(e,n)}function Gp(e,t){var n=0;switch(e.tag){case 13:var r=e.stateNode,a=e.memoizedState;a!==null&&(n=a.retryLane);break;case 19:r=e.stateNode;break;default:throw Error(j(314))}r!==null&&r.delete(t),Xu(e,n)}var Gu;Gu=function(e,t,n){if(e!==null)if(e.memoizedProps!==t.pendingProps||me.current)he=!0;else{if(!(e.lanes&n)&&!(t.flags&128))return he=!1,Ap(e,t,n);he=!!(e.flags&131072)}else he=!1,$&&t.flags&1048576&&eu(t,pa,t.index);switch(t.lanes=0,t.tag){case 2:var r=t.type;Gr(e,t),e=t.pendingProps;var a=fn(t,oe.current);on(t,n),a=Xs(null,t,r,e,a,n);var s=Gs();return t.flags|=1,typeof a=="object"&&a!==null&&typeof a.render=="function"&&a.$$typeof===void 0?(t.tag=1,t.memoizedState=null,t.updateQueue=null,xe(r)?(s=!0,da(t)):s=!1,t.memoizedState=a.state!==null&&a.state!==void 0?a.state:null,Hs(t),a.updater=Ia,t.stateNode=a,a._reactInternals=t,es(t,r,e,n),t=rs(null,t,r,!0,s,n)):(t.tag=0,$&&s&&As(t),ce(null,t,a,n),t=t.child),t;case 16:r=t.elementType;e:{switch(Gr(e,t),e=t.pendingProps,a=r._init,r=a(r._payload),t.type=r,a=t.tag=Jp(r),e=Te(r,e),a){case 0:t=ns(null,t,r,e,n);break e;case 1:t=mo(null,t,r,e,n);break e;case 11:t=po(null,t,r,e,n);break e;case 14:t=ho(null,t,r,Te(r.type,e),n);break e}throw Error(j(306,r,""))}return t;case 0:return r=t.type,a=t.pendingProps,a=t.elementType===r?a:Te(r,a),ns(e,t,r,a,n);case 1:return r=t.type,a=t.pendingProps,a=t.elementType===r?a:Te(r,a),mo(e,t,r,a,n);case 3:e:{if(Mu(t),e===null)throw Error(j(387));r=t.pendingProps,s=t.memoizedState,a=s.element,su(e,t),xa(t,r,null,n);var i=t.memoizedState;if(r=i.element,s.isDehydrated)if(s={element:r,isDehydrated:!1,cache:i.cache,pendingSuspenseBoundaries:i.pendingSuspenseBoundaries,transitions:i.transitions},t.updateQueue.baseState=s,t.memoizedState=s,t.flags&256){a=xn(Error(j(423)),t),t=xo(e,t,r,n,a);break e}else if(r!==a){a=xn(Error(j(424)),t),t=xo(e,t,r,n,a);break e}else for(ve=mt(t.stateNode.containerInfo.firstChild),we=t,$=!0,Ie=null,n=au(t,null,r,n),t.child=n;n;)n.flags=n.flags&-3|4096,n=n.sibling;else{if(pn(),r===a){t=tt(e,t,n);break e}ce(e,t,r,n)}t=t.child}return t;case 5:return iu(t),e===null&&Gl(t),r=t.type,a=t.pendingProps,s=e!==null?e.memoizedProps:null,i=a.children,Ql(r,a)?i=null:s!==null&&Ql(r,s)&&(t.flags|=32),Lu(e,t),ce(e,t,i,n),t.child;case 6:return e===null&&Gl(t),null;case 13:return Tu(e,t,n);case 4:return Qs(t,t.stateNode.containerInfo),r=t.pendingProps,e===null?t.child=hn(t,null,r,n):ce(e,t,r,n),t.child;case 11:return r=t.type,a=t.pendingProps,a=t.elementType===r?a:Te(r,a),po(e,t,r,a,n);case 7:return ce(e,t,t.pendingProps,n),t.child;case 8:return ce(e,t,t.pendingProps.children,n),t.child;case 12:return ce(e,t,t.pendingProps.children,n),t.child;case 10:e:{if(r=t.type._context,a=t.pendingProps,s=t.memoizedProps,i=a.value,A(ha,r._currentValue),r._currentValue=i,s!==null)if(De(s.value,i)){if(s.children===a.children&&!me.current){t=tt(e,t,n);break e}}else for(s=t.child,s!==null&&(s.return=t);s!==null;){var c=s.dependencies;if(c!==null){i=s.child;for(var o=c.firstContext;o!==null;){if(o.context===r){if(s.tag===1){o=Ge(-1,n&-n),o.tag=2;var u=s.updateQueue;if(u!==null){u=u.shared;var x=u.pending;x===null?o.next=o:(o.next=x.next,x.next=o),u.pending=o}}s.lanes|=n,o=s.alternate,o!==null&&(o.lanes|=n),Zl(s.return,n,t),c.lanes|=n;break}o=o.next}}else if(s.tag===10)i=s.type===t.type?null:s.child;else if(s.tag===18){if(i=s.return,i===null)throw Error(j(341));i.lanes|=n,c=i.alternate,c!==null&&(c.lanes|=n),Zl(i,n,t),i=s.sibling}else i=s.child;if(i!==null)i.return=s;else for(i=s;i!==null;){if(i===t){i=null;break}if(s=i.sibling,s!==null){s.return=i.return,i=s;break}i=i.return}s=i}ce(e,t,a.children,n),t=t.child}return t;case 9:return a=t.type,r=t.pendingProps.children,on(t,n),a=ze(a),r=r(a),t.flags|=1,ce(e,t,r,n),t.child;case 14:return r=t.type,a=Te(r,t.pendingProps),a=Te(r.type,a),ho(e,t,r,a,n);case 15:return Pu(e,t,t.type,t.pendingProps,n);case 17:return r=t.type,a=t.pendingProps,a=t.elementType===r?a:Te(r,a),Gr(e,t),t.tag=1,xe(r)?(e=!0,da(t)):e=!1,on(t,n),Su(t,r,a),es(t,r,a,n),rs(null,t,r,!0,e,n);case 19:return Ru(e,t,n);case 22:return Fu(e,t,n)}throw Error(j(156,t.tag))};function Zu(e,t){return Nc(e,t)}function Zp(e,t,n,r){this.tag=e,this.key=n,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.ref=null,this.pendingProps=t,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=r,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function Se(e,t,n,r){return new Zp(e,t,n,r)}function ii(e){return e=e.prototype,!(!e||!e.isReactComponent)}function Jp(e){if(typeof e=="function")return ii(e)?1:0;if(e!=null){if(e=e.$$typeof,e===Cs)return 11;if(e===Ss)return 14}return 2}function yt(e,t){var n=e.alternate;return n===null?(n=Se(e.tag,t,e.key,e.mode),n.elementType=e.elementType,n.type=e.type,n.stateNode=e.stateNode,n.alternate=e,e.alternate=n):(n.pendingProps=t,n.type=e.type,n.flags=0,n.subtreeFlags=0,n.deletions=null),n.flags=e.flags&14680064,n.childLanes=e.childLanes,n.lanes=e.lanes,n.child=e.child,n.memoizedProps=e.memoizedProps,n.memoizedState=e.memoizedState,n.updateQueue=e.updateQueue,t=e.dependencies,n.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext},n.sibling=e.sibling,n.index=e.index,n.ref=e.ref,n}function ea(e,t,n,r,a,s){var i=2;if(r=e,typeof e=="function")ii(e)&&(i=1);else if(typeof e=="string")i=5;else e:switch(e){case Qt:return Rt(n.children,a,s,t);case _s:i=8,a|=8;break;case Nl:return e=Se(12,n,t,a|2),e.elementType=Nl,e.lanes=s,e;case _l:return e=Se(13,n,t,a),e.elementType=_l,e.lanes=s,e;case Cl:return e=Se(19,n,t,a),e.elementType=Cl,e.lanes=s,e;case ic:return Da(n,a,s,t);default:if(typeof e=="object"&&e!==null)switch(e.$$typeof){case lc:i=10;break e;case sc:i=9;break e;case Cs:i=11;break e;case Ss:i=14;break e;case at:i=16,r=null;break e}throw Error(j(130,e==null?e:typeof e,""))}return t=Se(i,n,t,a),t.elementType=e,t.type=r,t.lanes=s,t}function Rt(e,t,n,r){return e=Se(7,e,r,t),e.lanes=n,e}function Da(e,t,n,r){return e=Se(22,e,r,t),e.elementType=ic,e.lanes=n,e.stateNode={isHidden:!1},e}function yl(e,t,n){return e=Se(6,e,null,t),e.lanes=n,e}function vl(e,t,n){return t=Se(4,e.children!==null?e.children:[],e.key,t),t.lanes=n,t.stateNode={containerInfo:e.containerInfo,pendingChildren:null,implementation:e.implementation},t}function eh(e,t,n,r,a){this.tag=t,this.containerInfo=e,this.finishedWork=this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.pendingContext=this.context=null,this.callbackPriority=0,this.eventTimes=el(0),this.expirationTimes=el(-1),this.entangledLanes=this.finishedLanes=this.mutableReadLanes=this.expiredLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=el(0),this.identifierPrefix=r,this.onRecoverableError=a,this.mutableSourceEagerHydrationData=null}function oi(e,t,n,r,a,s,i,c,o){return e=new eh(e,t,n,c,o),t===1?(t=1,s===!0&&(t|=8)):t=0,s=Se(3,null,null,t),e.current=s,s.stateNode=e,s.memoizedState={element:r,isDehydrated:n,cache:null,transitions:null,pendingSuspenseBoundaries:null},Hs(s),e}function th(e,t,n){var r=3<arguments.length&&arguments[3]!==void 0?arguments[3]:null;return{$$typeof:Ht,key:r==null?null:""+r,children:e,containerInfo:t,implementation:n}}function Ju(e){if(!e)return wt;e=e._reactInternals;e:{if(Vt(e)!==e||e.tag!==1)throw Error(j(170));var t=e;do{switch(t.tag){case 3:t=t.stateNode.context;break e;case 1:if(xe(t.type)){t=t.stateNode.__reactInternalMemoizedMergedChildContext;break e}}t=t.return}while(t!==null);throw Error(j(171))}if(e.tag===1){var n=e.type;if(xe(n))return Zc(e,n,t)}return t}function ed(e,t,n,r,a,s,i,c,o){return e=oi(n,r,!0,e,a,s,i,c,o),e.context=Ju(null),n=e.current,r=ue(),a=bt(n),s=Ge(r,a),s.callback=t??null,xt(n,s,a),e.current.lanes=a,hr(e,a,r),ge(e,r),e}function Ua(e,t,n,r){var a=t.current,s=ue(),i=bt(a);return n=Ju(n),t.context===null?t.context=n:t.pendingContext=n,t=Ge(s,i),t.payload={element:e},r=r===void 0?null:r,r!==null&&(t.callback=r),e=xt(a,t,i),e!==null&&(Ae(e,a,i,s),Yr(e,a,i)),i}function Na(e){if(e=e.current,!e.child)return null;switch(e.child.tag){case 5:return e.child.stateNode;default:return e.child.stateNode}}function Co(e,t){if(e=e.memoizedState,e!==null&&e.dehydrated!==null){var n=e.retryLane;e.retryLane=n!==0&&n<t?n:t}}function ci(e,t){Co(e,t),(e=e.alternate)&&Co(e,t)}function nh(){return null}var td=typeof reportError=="function"?reportError:function(e){console.error(e)};function ui(e){this._internalRoot=e}$a.prototype.render=ui.prototype.render=function(e){var t=this._internalRoot;if(t===null)throw Error(j(409));Ua(e,t,null,null)};$a.prototype.unmount=ui.prototype.unmount=function(){var e=this._internalRoot;if(e!==null){this._internalRoot=null;var t=e.containerInfo;$t(function(){Ua(null,e,null,null)}),t[Je]=null}};function $a(e){this._internalRoot=e}$a.prototype.unstable_scheduleHydration=function(e){if(e){var t=Fc();e={blockedOn:null,target:e,priority:t};for(var n=0;n<st.length&&t!==0&&t<st[n].priority;n++);st.splice(n,0,e),n===0&&Mc(e)}};function di(e){return!(!e||e.nodeType!==1&&e.nodeType!==9&&e.nodeType!==11)}function Ba(e){return!(!e||e.nodeType!==1&&e.nodeType!==9&&e.nodeType!==11&&(e.nodeType!==8||e.nodeValue!==" react-mount-point-unstable "))}function So(){}function rh(e,t,n,r,a){if(a){if(typeof r=="function"){var s=r;r=function(){var u=Na(i);s.call(u)}}var i=ed(t,r,e,0,null,!1,!1,"",So);return e._reactRootContainer=i,e[Je]=i.current,er(e.nodeType===8?e.parentNode:e),$t(),i}for(;a=e.lastChild;)e.removeChild(a);if(typeof r=="function"){var c=r;r=function(){var u=Na(o);c.call(u)}}var o=oi(e,0,!1,null,null,!1,!1,"",So);return e._reactRootContainer=o,e[Je]=o.current,er(e.nodeType===8?e.parentNode:e),$t(function(){Ua(t,o,n,r)}),o}function Va(e,t,n,r,a){var s=n._reactRootContainer;if(s){var i=s;if(typeof a=="function"){var c=a;a=function(){var o=Na(i);c.call(o)}}Ua(t,i,e,a)}else i=rh(n,t,e,a,r);return Na(i)}zc=function(e){switch(e.tag){case 3:var t=e.stateNode;if(t.current.memoizedState.isDehydrated){var n=Rn(t.pendingLanes);n!==0&&(Ps(t,n|1),ge(t,Y()),!(I&6)&&(gn=Y()+500,Nt()))}break;case 13:$t(function(){var r=et(e,1);if(r!==null){var a=ue();Ae(r,e,1,a)}}),ci(e,1)}};Fs=function(e){if(e.tag===13){var t=et(e,134217728);if(t!==null){var n=ue();Ae(t,e,134217728,n)}ci(e,134217728)}};Pc=function(e){if(e.tag===13){var t=bt(e),n=et(e,t);if(n!==null){var r=ue();Ae(n,e,t,r)}ci(e,t)}};Fc=function(){return O};Lc=function(e,t){var n=O;try{return O=e,t()}finally{O=n}};Il=function(e,t,n){switch(t){case"input":if(zl(e,n),t=n.name,n.type==="radio"&&t!=null){for(n=e;n.parentNode;)n=n.parentNode;for(n=n.querySelectorAll("input[name="+JSON.stringify(""+t)+'][type="radio"]'),t=0;t<n.length;t++){var r=n[t];if(r!==e&&r.form===e.form){var a=Ma(r);if(!a)throw Error(j(90));cc(r),zl(r,a)}}}break;case"textarea":dc(e,n);break;case"select":t=n.value,t!=null&&rn(e,!!n.multiple,t,!1)}};bc=ai;yc=$t;var ah={usingClientEntryPoint:!1,Events:[xr,Xt,Ma,xc,gc,ai]},Ln={findFiberByHostInstance:Ft,bundleType:0,version:"18.3.1",rendererPackageName:"react-dom"},lh={bundleType:Ln.bundleType,version:Ln.version,rendererPackageName:Ln.rendererPackageName,rendererConfig:Ln.rendererConfig,overrideHookState:null,overrideHookStateDeletePath:null,overrideHookStateRenamePath:null,overrideProps:null,overridePropsDeletePath:null,overridePropsRenamePath:null,setErrorHandler:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:nt.ReactCurrentDispatcher,findHostInstanceByFiber:function(e){return e=kc(e),e===null?null:e.stateNode},findFiberByHostInstance:Ln.findFiberByHostInstance||nh,findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null,reconcilerVersion:"18.3.1-next-f1338f8080-20240426"};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<"u"){var Ur=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!Ur.isDisabled&&Ur.supportsFiber)try{za=Ur.inject(lh),We=Ur}catch{}}je.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=ah;je.createPortal=function(e,t){var n=2<arguments.length&&arguments[2]!==void 0?arguments[2]:null;if(!di(t))throw Error(j(200));return th(e,t,null,n)};je.createRoot=function(e,t){if(!di(e))throw Error(j(299));var n=!1,r="",a=td;return t!=null&&(t.unstable_strictMode===!0&&(n=!0),t.identifierPrefix!==void 0&&(r=t.identifierPrefix),t.onRecoverableError!==void 0&&(a=t.onRecoverableError)),t=oi(e,1,!1,null,null,n,!1,r,a),e[Je]=t.current,er(e.nodeType===8?e.parentNode:e),new ui(t)};je.findDOMNode=function(e){if(e==null)return null;if(e.nodeType===1)return e;var t=e._reactInternals;if(t===void 0)throw typeof e.render=="function"?Error(j(188)):(e=Object.keys(e).join(","),Error(j(268,e)));return e=kc(t),e=e===null?null:e.stateNode,e};je.flushSync=function(e){return $t(e)};je.hydrate=function(e,t,n){if(!Ba(t))throw Error(j(200));return Va(null,e,t,!0,n)};je.hydrateRoot=function(e,t,n){if(!di(e))throw Error(j(405));var r=n!=null&&n.hydratedSources||null,a=!1,s="",i=td;if(n!=null&&(n.unstable_strictMode===!0&&(a=!0),n.identifierPrefix!==void 0&&(s=n.identifierPrefix),n.onRecoverableError!==void 0&&(i=n.onRecoverableError)),t=ed(t,null,e,1,n??null,a,!1,s,i),e[Je]=t.current,er(e),r)for(e=0;e<r.length;e++)n=r[e],a=n._getVersion,a=a(n._source),t.mutableSourceEagerHydrationData==null?t.mutableSourceEagerHydrationData=[n,a]:t.mutableSourceEagerHydrationData.push(n,a);return new $a(t)};je.render=function(e,t,n){if(!Ba(t))throw Error(j(200));return Va(null,e,t,!1,n)};je.unmountComponentAtNode=function(e){if(!Ba(e))throw Error(j(40));return e._reactRootContainer?($t(function(){Va(null,null,e,!1,function(){e._reactRootContainer=null,e[Je]=null})}),!0):!1};je.unstable_batchedUpdates=ai;je.unstable_renderSubtreeIntoContainer=function(e,t,n,r){if(!Ba(n))throw Error(j(200));if(e==null||e._reactInternals===void 0)throw Error(j(38));return Va(e,t,n,!1,r)};je.version="18.3.1-next-f1338f8080-20240426";function nd(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>"u"||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!="function"))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(nd)}catch(e){console.error(e)}}nd(),tc.exports=je;var sh=tc.exports,rd,Eo=sh;rd=Eo.createRoot,Eo.hydrateRoot;/**
-* @remix-run/router v1.23.3
-*
-* Copyright (c) Remix Software Inc.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE.md file in the root directory of this source tree.
-*
-* @license MIT
-*/function cr(){return cr=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)({}).hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},cr.apply(null,arguments)}var ut;(function(e){e.Pop="POP",e.Push="PUSH",e.Replace="REPLACE"})(ut||(ut={}));const zo="popstate";function ih(e){e===void 0&&(e={});function t(r,a){let{pathname:s,search:i,hash:c}=r.location;return hs("",{pathname:s,search:i,hash:c},a.state&&a.state.usr||null,a.state&&a.state.key||"default")}function n(r,a){return typeof a=="string"?a:ad(a)}return ch(t,n,null,e)}function X(e,t){if(e===!1||e===null||typeof e>"u")throw new Error(t)}function fi(e,t){if(!e){typeof console<"u"&&console.warn(t);try{throw new Error(t)}catch{}}}function oh(){return Math.random().toString(36).substr(2,8)}function Po(e,t){return{usr:e.state,key:e.key,idx:t}}function hs(e,t,n,r){return n===void 0&&(n=null),cr({pathname:typeof e=="string"?e:e.pathname,search:"",hash:""},typeof t=="string"?wn(t):t,{state:n,key:t&&t.key||r||oh()})}function ad(e){let{pathname:t="/",search:n="",hash:r=""}=e;return n&&n!=="?"&&(t+=n.charAt(0)==="?"?n:"?"+n),r&&r!=="#"&&(t+=r.charAt(0)==="#"?r:"#"+r),t}function wn(e){let t={};if(e){let n=e.indexOf("#");n>=0&&(t.hash=e.substr(n),e=e.substr(0,n));let r=e.indexOf("?");r>=0&&(t.search=e.substr(r),e=e.substr(0,r)),e&&(t.pathname=e)}return t}function ch(e,t,n,r){r===void 0&&(r={});let{window:a=document.defaultView,v5Compat:s=!1}=r,i=a.history,c=ut.Pop,o=null,u=x();u==null&&(u=0,i.replaceState(cr({},i.state,{idx:u}),""));function x(){return(i.state||{idx:null}).idx}function f(){c=ut.Pop;let _=x(),h=_==null?null:_-u;u=_,o&&o({action:c,location:g.location,delta:h})}function p(_,h){c=ut.Push;let d=hs(g.location,_,h);u=x()+1;let m=Po(d,u),w=g.createHref(d);try{i.pushState(m,"",w)}catch(C){if(C instanceof DOMException&&C.name==="DataCloneError")throw C;a.location.assign(w)}s&&o&&o({action:c,location:g.location,delta:1})}function y(_,h){c=ut.Replace;let d=hs(g.location,_,h);u=x();let m=Po(d,u),w=g.createHref(d);i.replaceState(m,"",w),s&&o&&o({action:c,location:g.location,delta:0})}function v(_){let h=a.location.origin!=="null"?a.location.origin:a.location.href,d=typeof _=="string"?_:ad(_);return d=d.replace(/ $/,"%20"),X(h,"No window.location.(origin|href) available to create URL for href: "+d),new URL(d,h)}let g={get action(){return c},get location(){return e(a,i)},listen(_){if(o)throw new Error("A history only accepts one active listener");return a.addEventListener(zo,f),o=_,()=>{a.removeEventListener(zo,f),o=null}},createHref(_){return t(a,_)},createURL:v,encodeLocation(_){let h=v(_);return{pathname:h.pathname,search:h.search,hash:h.hash}},push:p,replace:y,go(_){return i.go(_)}};return g}var Fo;(function(e){e.data="data",e.deferred="deferred",e.redirect="redirect",e.error="error"})(Fo||(Fo={}));function uh(e,t,n){return n===void 0&&(n="/"),dh(e,t,n)}function dh(e,t,n,r){let a=typeof t=="string"?wn(t):t,s=id(a.pathname||"/",n);if(s==null)return null;let i=ld(e);fh(i);let c=null,o=Nh(s);for(let u=0;c==null&&u<i.length;++u)c=wh(i[u],o);return c}function ld(e,t,n,r){t===void 0&&(t=[]),n===void 0&&(n=[]),r===void 0&&(r="");let a=(s,i,c)=>{let o={relativePath:c===void 0?s.path||"":c,caseSensitive:s.caseSensitive===!0,childrenIndex:i,route:s};o.relativePath.startsWith("/")&&(X(o.relativePath.startsWith(r),'Absolute route path "'+o.relativePath+'" nested under path '+('"'+r+'" is not valid. An absolute child route path ')+"must start with the combined path of all its parent routes."),o.relativePath=o.relativePath.slice(r.length));let u=It([r,o.relativePath]),x=n.concat(o);s.children&&s.children.length>0&&(X(s.index!==!0,"Index routes must not have child routes. Please remove "+('all child routes from route path "'+u+'".')),ld(s.children,t,x,u)),!(s.path==null&&!s.index)&&t.push({path:u,score:yh(u,s.index),routesMeta:x})};return e.forEach((s,i)=>{var c;if(s.path===""||!((c=s.path)!=null&&c.includes("?")))a(s,i);else for(let o of sd(s.path))a(s,i,o)}),t}function sd(e){let t=e.split("/");if(t.length===0)return[];let[n,...r]=t,a=n.endsWith("?"),s=n.replace(/\?$/,"");if(r.length===0)return a?[s,""]:[s];let i=sd(r.join("/")),c=[];return c.push(...i.map(o=>o===""?s:[s,o].join("/"))),a&&c.push(...i),c.map(o=>e.startsWith("/")&&o===""?"/":o)}function fh(e){e.sort((t,n)=>t.score!==n.score?n.score-t.score:vh(t.routesMeta.map(r=>r.childrenIndex),n.routesMeta.map(r=>r.childrenIndex)))}const ph=/^:[\w-]+$/,hh=3,mh=2,xh=1,gh=10,bh=-2,Lo=e=>e==="*";function yh(e,t){let n=e.split("/"),r=n.length;return n.some(Lo)&&(r+=bh),t&&(r+=mh),n.filter(a=>!Lo(a)).reduce((a,s)=>a+(ph.test(s)?hh:s===""?xh:gh),r)}function vh(e,t){return e.length===t.length&&e.slice(0,-1).every((n,r)=>n===t[r])?e[e.length-1]-t[t.length-1]:0}function wh(e,t,n){let{routesMeta:r}=e,a={},s="/",i=[];for(let c=0;c<r.length;++c){let o=r[c],u=c===r.length-1,x=s==="/"?t:t.slice(s.length)||"/",f=kh({path:o.relativePath,caseSensitive:o.caseSensitive,end:u},x),p=o.route;if(!f)return null;Object.assign(a,f.params),i.push({params:a,pathname:It([s,f.pathname]),pathnameBase:zh(It([s,f.pathnameBase])),route:p}),f.pathnameBase!=="/"&&(s=It([s,f.pathnameBase]))}return i}function kh(e,t){typeof e=="string"&&(e={path:e,caseSensitive:!1,end:!0});let[n,r]=jh(e.path,e.caseSensitive,e.end),a=t.match(n);if(!a)return null;let s=a[0],i=s.replace(/(.)\/+$/,"$1"),c=a.slice(1);return{params:r.reduce((o,u,x)=>{let{paramName:f,isOptional:p}=u;if(f==="*"){let v=c[x]||"";i=s.slice(0,s.length-v.length).replace(/(.)\/+$/,"$1")}const y=c[x];return p&&!y?o[f]=void 0:o[f]=(y||"").replace(/%2F/g,"/"),o},{}),pathname:s,pathnameBase:i,pattern:e}}function jh(e,t,n){t===void 0&&(t=!1),n===void 0&&(n=!0),fi(e==="*"||!e.endsWith("*")||e.endsWith("/*"),'Route path "'+e+'" will be treated as if it were '+('"'+e.replace(/\*$/,"/*")+'" because the `*` character must ')+"always follow a `/` in the pattern. To get rid of this warning, "+('please change the route path to "'+e.replace(/\*$/,"/*")+'".'));let r=[],a="^"+e.replace(/\/*\*?$/,"").replace(/^\/*/,"/").replace(/[\\.*+^${}|()[\]]/g,"\\$&").replace(/\/:([\w-]+)(\?)?/g,(s,i,c)=>(r.push({paramName:i,isOptional:c!=null}),c?"/?([^\\/]+)?":"/([^\\/]+)"));return e.endsWith("*")?(r.push({paramName:"*"}),a+=e==="*"||e==="/*"?"(.*)$":"(?:\\/(.+)|\\/*)$"):n?a+="\\/*$":e!==""&&e!=="/"&&(a+="(?:(?=\\/|$))"),[new RegExp(a,t?void 0:"i"),r]}function Nh(e){try{return e.split("/").map(t=>decodeURIComponent(t).replace(/\//g,"%2F")).join("/")}catch(t){return fi(!1,'The URL path "'+e+'" could not be decoded because it is is a malformed URL segment. This is probably due to a bad percent '+("encoding ("+t+").")),e}}function id(e,t){if(t==="/")return e;if(!e.toLowerCase().startsWith(t.toLowerCase()))return null;let n=t.endsWith("/")?t.length-1:t.length,r=e.charAt(n);return r&&r!=="/"?null:e.slice(n)||"/"}const _h=/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,Ch=e=>_h.test(e);function Sh(e,t){t===void 0&&(t="/");let{pathname:n,search:r="",hash:a=""}=typeof e=="string"?wn(e):e,s;if(n)if(Ch(n))s=n;else{if(n.includes("//")){let i=n;n=ud(n),fi(!1,"Pathnames cannot have embedded double slashes - normalizing "+(i+" -> "+n))}n.startsWith("/")?s=Mo(n.substring(1),"/"):s=Mo(n,t)}else s=t;return{pathname:s,search:Ph(r),hash:Fh(a)}}function Mo(e,t){let n=t.replace(/\/+$/,"").split("/");return e.split("/").forEach(r=>{r===".."?n.length>1&&n.pop():r!=="."&&n.push(r)}),n.length>1?n.join("/"):"/"}function wl(e,t,n,r){return"Cannot include a '"+e+"' character in a manually specified "+("`to."+t+"` field ["+JSON.stringify(r)+"].  Please separate it out to the ")+("`to."+n+"` field. Alternatively you may provide the full path as ")+'a string in <Link to="..."> and the router will parse it for you.'}function Eh(e){return e.filter((t,n)=>n===0||t.route.path&&t.route.path.length>0)}function od(e,t){let n=Eh(e);return t?n.map((r,a)=>a===n.length-1?r.pathname:r.pathnameBase):n.map(r=>r.pathnameBase)}function cd(e,t,n,r){r===void 0&&(r=!1);let a;typeof e=="string"?a=wn(e):(a=cr({},e),X(!a.pathname||!a.pathname.includes("?"),wl("?","pathname","search",a)),X(!a.pathname||!a.pathname.includes("#"),wl("#","pathname","hash",a)),X(!a.search||!a.search.includes("#"),wl("#","search","hash",a)));let s=e===""||a.pathname==="",i=s?"/":a.pathname,c;if(i==null)c=n;else{let f=t.length-1;if(!r&&i.startsWith("..")){let p=i.split("/");for(;p[0]==="..";)p.shift(),f-=1;a.pathname=p.join("/")}c=f>=0?t[f]:"/"}let o=Sh(a,c),u=i&&i!=="/"&&i.endsWith("/"),x=(s||i===".")&&n.endsWith("/");return!o.pathname.endsWith("/")&&(u||x)&&(o.pathname+="/"),o}const ud=e=>e.replace(/\/\/+/g,"/"),It=e=>ud(e.join("/")),zh=e=>e.replace(/\/+$/,"").replace(/^\/*/,"/"),Ph=e=>!e||e==="?"?"":e.startsWith("?")?e:"?"+e,Fh=e=>!e||e==="#"?"":e.startsWith("#")?e:"#"+e;function Lh(e){return e!=null&&typeof e.status=="number"&&typeof e.statusText=="string"&&typeof e.internal=="boolean"&&"data"in e}const dd=["post","put","patch","delete"];new Set(dd);const Mh=["get",...dd];new Set(Mh);/**
-* React Router v6.30.4
-*
-* Copyright (c) Remix Software Inc.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE.md file in the root directory of this source tree.
-*
-* @license MIT
-*/function ur(){return ur=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)({}).hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},ur.apply(null,arguments)}const pi=k.createContext(null),Th=k.createContext(null),br=k.createContext(null),Wa=k.createContext(null),_t=k.createContext({outlet:null,matches:[],isDataRoute:!1}),fd=k.createContext(null);function yr(){return k.useContext(Wa)!=null}function Ha(){return yr()||X(!1),k.useContext(Wa).location}function pd(e){k.useContext(br).static||k.useLayoutEffect(e)}function Ue(){let{isDataRoute:e}=k.useContext(_t);return e?Yh():Rh()}function Rh(){yr()||X(!1);let e=k.useContext(pi),{basename:t,future:n,navigator:r}=k.useContext(br),{matches:a}=k.useContext(_t),{pathname:s}=Ha(),i=JSON.stringify(od(a,n.v7_relativeSplatPath)),c=k.useRef(!1);return pd(()=>{c.current=!0}),k.useCallback(function(o,u){if(u===void 0&&(u={}),!c.current)return;if(typeof o=="number"){r.go(o);return}let x=cd(o,JSON.parse(i),s,u.relative==="path");e==null&&t!=="/"&&(x.pathname=x.pathname==="/"?t:It([t,x.pathname])),(u.replace?r.replace:r.push)(x,u.state,u)},[t,r,i,s,e])}function Ih(){let{matches:e}=k.useContext(_t),t=e[e.length-1];return t?t.params:{}}function Oh(e,t){return Ah(e,t)}function Ah(e,t,n,r){yr()||X(!1);let{navigator:a}=k.useContext(br),{matches:s}=k.useContext(_t),i=s[s.length-1],c=i?i.params:{};i&&i.pathname;let o=i?i.pathnameBase:"/";i&&i.route;let u=Ha(),x;if(t){var f;let _=typeof t=="string"?wn(t):t;o==="/"||(f=_.pathname)!=null&&f.startsWith(o)||X(!1),x=_}else x=u;let p=x.pathname||"/",y=p;if(o!=="/"){let _=o.replace(/^\//,"").split("/");y="/"+p.replace(/^\//,"").split("/").slice(_.length).join("/")}let v=uh(e,{pathname:y}),g=Vh(v&&v.map(_=>Object.assign({},_,{params:Object.assign({},c,_.params),pathname:It([o,a.encodeLocation?a.encodeLocation(_.pathname).pathname:_.pathname]),pathnameBase:_.pathnameBase==="/"?o:It([o,a.encodeLocation?a.encodeLocation(_.pathnameBase).pathname:_.pathnameBase])})),s,n,r);return t&&g?k.createElement(Wa.Provider,{value:{location:ur({pathname:"/",search:"",hash:"",state:null,key:"default"},x),navigationType:ut.Pop}},g):g}function Dh(){let e=qh(),t=Lh(e)?e.status+" "+e.statusText:e instanceof Error?e.message:JSON.stringify(e),n=e instanceof Error?e.stack:null,r={padding:"0.5rem",backgroundColor:"rgba(200,200,200, 0.5)"};return k.createElement(k.Fragment,null,k.createElement("h2",null,"Unexpected Application Error!"),k.createElement("h3",{style:{fontStyle:"italic"}},t),n?k.createElement("pre",{style:r},n):null,null)}const Uh=k.createElement(Dh,null);class $h extends k.Component{constructor(t){super(t),this.state={location:t.location,revalidation:t.revalidation,error:t.error}}static getDerivedStateFromError(t){return{error:t}}static getDerivedStateFromProps(t,n){return n.location!==t.location||n.revalidation!=="idle"&&t.revalidation==="idle"?{error:t.error,location:t.location,revalidation:t.revalidation}:{error:t.error!==void 0?t.error:n.error,location:n.location,revalidation:t.revalidation||n.revalidation}}componentDidCatch(t,n){console.error("React Router caught the following error during render",t,n)}render(){return this.state.error!==void 0?k.createElement(_t.Provider,{value:this.props.routeContext},k.createElement(fd.Provider,{value:this.state.error,children:this.props.component})):this.props.children}}function Bh(e){let{routeContext:t,match:n,children:r}=e,a=k.useContext(pi);return a&&a.static&&a.staticContext&&(n.route.errorElement||n.route.ErrorBoundary)&&(a.staticContext._deepestRenderedBoundaryId=n.route.id),k.createElement(_t.Provider,{value:t},r)}function Vh(e,t,n,r){var a;if(t===void 0&&(t=[]),n===void 0&&(n=null),r===void 0&&(r=null),e==null){var s;if(!n)return null;if(n.errors)e=n.matches;else if((s=r)!=null&&s.v7_partialHydration&&t.length===0&&!n.initialized&&n.matches.length>0)e=n.matches;else return null}let i=e,c=(a=n)==null?void 0:a.errors;if(c!=null){let x=i.findIndex(f=>f.route.id&&(c==null?void 0:c[f.route.id])!==void 0);x>=0||X(!1),i=i.slice(0,Math.min(i.length,x+1))}let o=!1,u=-1;if(n&&r&&r.v7_partialHydration)for(let x=0;x<i.length;x++){let f=i[x];if((f.route.HydrateFallback||f.route.hydrateFallbackElement)&&(u=x),f.route.id){let{loaderData:p,errors:y}=n,v=f.route.loader&&p[f.route.id]===void 0&&(!y||y[f.route.id]===void 0);if(f.route.lazy||v){o=!0,u>=0?i=i.slice(0,u+1):i=[i[0]];break}}}return i.reduceRight((x,f,p)=>{let y,v=!1,g=null,_=null;n&&(y=c&&f.route.id?c[f.route.id]:void 0,g=f.route.errorElement||Uh,o&&(u<0&&p===0?(Kh("route-fallback"),v=!0,_=null):u===p&&(v=!0,_=f.route.hydrateFallbackElement||null)));let h=t.concat(i.slice(0,p+1)),d=()=>{let m;return y?m=g:v?m=_:f.route.Component?m=k.createElement(f.route.Component,null):f.route.element?m=f.route.element:m=x,k.createElement(Bh,{match:f,routeContext:{outlet:x,matches:h,isDataRoute:n!=null},children:m})};return n&&(f.route.ErrorBoundary||f.route.errorElement||p===0)?k.createElement($h,{location:n.location,revalidation:n.revalidation,component:g,error:y,children:d(),routeContext:{outlet:null,matches:h,isDataRoute:!0}}):d()},null)}var hd=function(e){return e.UseBlocker="useBlocker",e.UseRevalidator="useRevalidator",e.UseNavigateStable="useNavigate",e}(hd||{}),md=function(e){return e.UseBlocker="useBlocker",e.UseLoaderData="useLoaderData",e.UseActionData="useActionData",e.UseRouteError="useRouteError",e.UseNavigation="useNavigation",e.UseRouteLoaderData="useRouteLoaderData",e.UseMatches="useMatches",e.UseRevalidator="useRevalidator",e.UseNavigateStable="useNavigate",e.UseRouteId="useRouteId",e}(md||{});function Wh(e){let t=k.useContext(pi);return t||X(!1),t}function Hh(e){let t=k.useContext(Th);return t||X(!1),t}function Qh(e){let t=k.useContext(_t);return t||X(!1),t}function xd(e){let t=Qh(),n=t.matches[t.matches.length-1];return n.route.id||X(!1),n.route.id}function qh(){var e;let t=k.useContext(fd),n=Hh(),r=xd();return t!==void 0?t:(e=n.errors)==null?void 0:e[r]}function Yh(){let{router:e}=Wh(hd.UseNavigateStable),t=xd(md.UseNavigateStable),n=k.useRef(!1);return pd(()=>{n.current=!0}),k.useCallback(function(r,a){a===void 0&&(a={}),n.current&&(typeof r=="number"?e.navigate(r):e.navigate(r,ur({fromRouteId:t},a)))},[e,t])}const To={};function Kh(e,t,n){To[e]||(To[e]=!0)}function Xh(e,t){e==null||e.v7_startTransition,e==null||e.v7_relativeSplatPath}function Gh(e){let{to:t,replace:n,state:r,relative:a}=e;yr()||X(!1);let{future:s,static:i}=k.useContext(br),{matches:c}=k.useContext(_t),{pathname:o}=Ha(),u=Ue(),x=cd(t,od(c,s.v7_relativeSplatPath),o,a==="path"),f=JSON.stringify(x);return k.useEffect(()=>u(JSON.parse(f),{replace:n,state:r,relative:a}),[u,f,a,n,r]),null}function Me(e){X(!1)}function Zh(e){let{basename:t="/",children:n=null,location:r,navigationType:a=ut.Pop,navigator:s,static:i=!1,future:c}=e;yr()&&X(!1);let o=t.replace(/^\/*/,"/"),u=k.useMemo(()=>({basename:o,navigator:s,static:i,future:ur({v7_relativeSplatPath:!1},c)}),[o,c,s,i]);typeof r=="string"&&(r=wn(r));let{pathname:x="/",search:f="",hash:p="",state:y=null,key:v="default"}=r,g=k.useMemo(()=>{let _=id(x,o);return _==null?null:{location:{pathname:_,search:f,hash:p,state:y,key:v},navigationType:a}},[o,x,f,p,y,v,a]);return g==null?null:k.createElement(br.Provider,{value:u},k.createElement(Wa.Provider,{children:n,value:g}))}function Jh(e){let{children:t,location:n}=e;return Oh(ms(t),n)}new Promise(()=>{});function ms(e,t){t===void 0&&(t=[]);let n=[];return k.Children.forEach(e,(r,a)=>{if(!k.isValidElement(r))return;let s=[...t,a];if(r.type===k.Fragment){n.push.apply(n,ms(r.props.children,s));return}r.type!==Me&&X(!1),!r.props.index||!r.props.children||X(!1);let i={id:r.props.id||s.join("-"),caseSensitive:r.props.caseSensitive,element:r.props.element,Component:r.props.Component,index:r.props.index,path:r.props.path,loader:r.props.loader,action:r.props.action,errorElement:r.props.errorElement,ErrorBoundary:r.props.ErrorBoundary,hasErrorBoundary:r.props.ErrorBoundary!=null||r.props.errorElement!=null,shouldRevalidate:r.props.shouldRevalidate,handle:r.props.handle,lazy:r.props.lazy};r.props.children&&(i.children=ms(r.props.children,s)),n.push(i)}),n}/**
-* React Router DOM v6.30.4
-*
-* Copyright (c) Remix Software Inc.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE.md file in the root directory of this source tree.
-*
-* @license MIT
-*/const em="6";try{window.__reactRouterVersion=em}catch{}const tm="startTransition",Ro=Yd[tm];function nm(e){let{basename:t,children:n,future:r,window:a}=e,s=k.useRef();s.current==null&&(s.current=ih({window:a,v5Compat:!0}));let i=s.current,[c,o]=k.useState({action:i.action,location:i.location}),{v7_startTransition:u}=r||{},x=k.useCallback(f=>{u&&Ro?Ro(()=>o(f)):o(f)},[o,u]);return k.useLayoutEffect(()=>i.listen(x),[i,x]),k.useEffect(()=>Xh(r),[r]),k.createElement(Zh,{basename:t,children:n,location:c.location,navigationType:c.action,navigator:i,future:r})}var Io;(function(e){e.UseScrollRestoration="useScrollRestoration",e.UseSubmit="useSubmit",e.UseSubmitFetcher="useSubmitFetcher",e.UseFetcher="useFetcher",e.useViewTransitionState="useViewTransitionState"})(Io||(Io={}));var Oo;(function(e){e.UseFetcher="useFetcher",e.UseFetchers="useFetchers",e.UseScrollRestoration="useScrollRestoration"})(Oo||(Oo={}));const gd=k.createContext();function rm({children:e}){const[t,n]=k.useState([]),[r,a]=k.useState(!1),s=k.useCallback((y,v=1)=>{n(g=>g.find(_=>_.id===y.id)?g.map(_=>_.id===y.id?{..._,qty:_.qty+v}:_):[...g,{...y,qty:v}])},[]),i=k.useCallback(y=>{n(v=>v.filter(g=>g.id!==y))},[]),c=k.useCallback((y,v)=>{v<=0?n(g=>g.filter(_=>_.id!==y)):n(g=>g.map(_=>_.id===y?{..._,qty:v}:_))},[]),o=k.useCallback(()=>n([]),[]),u=t.reduce((y,v)=>y+v.qty,0),x=t.reduce((y,v)=>y+v.price*v.qty,0),f=x>=200?0:15,p=x+f;return l.jsx(gd.Provider,{value:{items:t,addItem:s,removeItem:i,updateQty:c,clearCart:o,totalItems:u,subtotal:x,deliveryFee:f,total:p,isOpen:r,setIsOpen:a},children:e})}const kn=()=>k.useContext(gd),am={ar:{storeName:"أبو دغش",storeTagline:"أجود اللحوم الطازجة",startShopping:"ابدأ التسوق",categories:"الفئات",ourProducts:"منتجاتنا",addToCart:"أضف للسلة",cart:"السلة",emptyCart:"السلة فارغة",subtotal:"المجموع الفرعي",delivery:"التوصيل",total:"الإجمالي",checkout:"إتمام الشراء",suggestedItems:"قد يعجبك أيضاً",signUp:"إنشاء حساب",login:"تسجيل الدخول",phone:"رقم الهاتف",password:"كلمة المرور",confirmPassword:"تأكيد كلمة المرور",fullName:"الاسم الكامل",continueAsGuest:"المتابعة كضيف",haveAccount:"لديك حساب؟",noAccount:"ليس لديك حساب؟",paymentMethod:"طريقة الدفع",selectPayment:"اختر طريقة الدفع",creditCard:"بطاقة ائتمان / ڤيزا",applePay:"Apple Pay",googlePay:"Google Pay",cash:"دفع نقدي عند الاستلام",placeOrder:"تأكيد الطلب",orderConfirmed:"تم تأكيد طلبك!",orderId:"رقم الطلب",estimatedDelivery:"وقت التوصيل المتوقع",backToShopping:"العودة للتسوق",items:"منتجات",gram:"غرام",perKg:"/كغ",nis:"₪",free:"مجاني",adminPanel:"لوحة الإدارة",manageCategories:"إدارة الفئات",manageProducts:"إدارة المنتجات",manageOrders:"إدارة الطلبات",addCategory:"إضافة فئة",addProduct:"إضافة منتج",categoryName:"اسم الفئة",productName:"اسم المنتج",price:"السعر",description:"الوصف",uploadImage:"رفع صورة",save:"حفظ",cancel:"إلغاء",delete:"حذف",edit:"تعديل",viewAll:"عرض الكل",fresh:"طازج",halal:"حلال",quantity:"الكمية",remove:"حذف",address:"العنوان",city:"المدينة",notes:"ملاحظات",deliveryTime:"وقت التوصيل",minutes:"دقيقة",orderDetails:"تفاصيل الطلب",status:"الحالة",pending:"قيد الانتظار",preparing:"جاري التحضير",onTheWay:"في الطريق",delivered:"تم التوصيل",aboutUs:"من نحن",ourStory:"قصتنا",ourValues:"قيمنا",customerReviews:"آراء عملائنا",deliveryPanel:"بوابة المندوب",myDeliveries:"توصيلاتي",activeDelivery:"التوصيل الحالي",completedDeliveries:"التوصيلات المكتملة",startDelivery:"بدء التوصيل",completeDelivery:"إتمام التوصيل",callCustomer:"اتصل بالعميل",navigate:"التنقل"},he:{storeName:"אבו דגש",storeTagline:"הבשר הטרי הטוב ביותר",startShopping:"התחל לקנות",categories:"קטגוריות",ourProducts:"המוצרים שלנו",addToCart:"הוסף לעגלה",cart:"עגלה",emptyCart:"העגלה ריקה",subtotal:"סכום ביניים",delivery:"משלוח",total:'סה"כ',checkout:"לתשלום",suggestedItems:"אולי תאהב גם",signUp:"הרשמה",login:"התחברות",phone:"מספר טלפון",password:"סיסמה",confirmPassword:"אשר סיסמה",fullName:"שם מלא",continueAsGuest:"המשך כאורח",haveAccount:"יש לך חשבון?",noAccount:"אין לך חשבון?",paymentMethod:"אמצעי תשלום",selectPayment:"בחר אמצעי תשלום",creditCard:"כרטיס אשראי / ויזה",applePay:"Apple Pay",googlePay:"Google Pay",cash:"תשלום במזומן",placeOrder:"אשר הזמנה",orderConfirmed:"ההזמנה אושרה!",orderId:"מספר הזמנה",estimatedDelivery:"זמן אספקה משוער",backToShopping:"חזור לקניות",items:"פריטים",gram:"גרם",perKg:'/ק"ג',nis:"₪",free:"חינם",adminPanel:"פאנל ניהול",manageCategories:"ניהול קטגוריות",manageProducts:"ניהול מוצרים",manageOrders:"ניהול הזמנות",addCategory:"הוסף קטגוריה",addProduct:"הוסף מוצר",categoryName:"שם קטגוריה",productName:"שם מוצר",price:"מחיר",description:"תיאור",uploadImage:"העלה תמונה",save:"שמור",cancel:"ביטול",delete:"מחק",edit:"ערוך",viewAll:"הצג הכל",fresh:"טרי",halal:"חלאל",quantity:"כמות",remove:"הסר",address:"כתובת",city:"עיר",notes:"הערות",deliveryTime:"זמן משלוח",minutes:"דקות",orderDetails:"פרטי הזמנה",status:"סטטוס",pending:"ממתין",preparing:"בהכנה",onTheWay:"בדרך",delivered:"נמסר",aboutUs:"אודותינו",ourStory:"הסיפור שלנו",ourValues:"הערכים שלנו",customerReviews:"חוות דעת לקוחות",deliveryPanel:"פורטל שליח",myDeliveries:"המשלוחים שלי",activeDelivery:"משלוח פעיל",completedDeliveries:"משלוחים שהושלמו",startDelivery:"התחל משלוח",completeDelivery:"השלם משלוח",callCustomer:"התקשר ללקוח",navigate:"ניווט"}},_a=[{id:1,name_ar:"لحم بقري",name_he:"בקר",image:"https://images.unsplash.com/photo-1588347785102-2944afe78c95?w=400&h=300&fit=crop",count:12,tag_ar:"الأكثر مبيعاً",tag_he:"הנמכר ביותר"},{id:2,name_ar:"لحم غنم",name_he:"כבש",image:"https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop",count:8,tag_ar:"",tag_he:""},{id:3,name_ar:"دجاج طازج",name_he:"עוף טרי",image:"https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400&h=300&fit=crop",count:10,tag_ar:"جديد",tag_he:"חדש"},{id:4,name_ar:"لحم عجل",name_he:"עגל",image:"https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?w=400&h=300&fit=crop",count:6,tag_ar:"",tag_he:""},{id:5,name_ar:"أسماك وأحياء بحرية",name_he:"דגים ופירות ים",image:"https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=400&h=300&fit=crop",count:9,tag_ar:"",tag_he:""},{id:6,name_ar:"منتجات مصنعة",name_he:"מוצרים מעובדים",image:"https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?w=400&h=300&fit=crop",count:15,tag_ar:"عرض خاص",tag_he:"מבצע"}],dr=[{id:1,categoryId:1,name_ar:"ستيك ريبس عالي الجودة",name_he:"ריב-איי סטייק",description_ar:"ستيك ريبس طازج ممتاز، مثالي للشواء. قطع سميكة من أجود أنواع اللحم البقري.",description_he:"ריב-איי סטייק טרי ומעולה, מושלם לגריל. פרוסות עבות מהבשר הטוב ביותר.",price:89,unit:"kg",image:"https://images.unsplash.com/photo-1588347785102-2944afe78c95?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"الأكثر طلباً",badge_he:"הנדרש ביותר",rating:4.9,reviews:128},{id:2,categoryId:1,name_ar:"لحم مفروم ممتاز",name_he:"בשר טחון מעולה",description_ar:"لحم مفروم طازج 100%، مناسب للكفتة والبرغر والمعجنات.",description_he:"100% בשר טחון טרי, מתאים לקציצות, המבורגר ומאפים.",price:45,unit:"kg",image:"https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop",isFeatured:!1,badge_ar:"",badge_he:"",rating:4.7,reviews:89},{id:3,categoryId:1,name_ar:"انتريكوت بقري",name_he:"אנטריקוט בקר",description_ar:"قطعة أنتريكوت طازجة لذيذة، مثالية للشواء والمشوي.",description_he:"אנטריקוט טרי וטעים, מושלם לגריל ולצלייה.",price:75,unit:"kg",image:"https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"طازج اليوم",badge_he:"טרי היום",rating:4.8,reviews:64},{id:4,categoryId:1,name_ar:"فيليه بقري فاخر",name_he:"פילה בקר יוקרתי",description_ar:"فيليه بقري طري فاخر، أرق قطعة في جسم الحيوان.",description_he:"פילה בקר רך ויוקרתי, הנתח הרך ביותר.",price:120,unit:"kg",image:"https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"فاخر",badge_he:"יוקרתי",rating:5,reviews:47},{id:5,categoryId:2,name_ar:"فخذ غنم كاملة",name_he:"כרע כבש שלמה",description_ar:"فخذ غنم طازجة كاملة، مثالية للمشاوي والطواجن والأطباق الاحتفالية.",description_he:"כרע כבש טרי שלמה, מושלמת לגריל, תבשילים ומאכלים חגיגיים.",price:65,unit:"kg",image:"https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"",badge_he:"",rating:4.6,reviews:45},{id:6,categoryId:2,name_ar:"كتف غنم طازج",name_he:"כתף כבש טרי",description_ar:"كتف غنم طازج مثالي للطهي البطيء والشواء.",description_he:"כתף כבש טרי מושלם לבישול איטי ולגריל.",price:55,unit:"kg",image:"https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&h=300&fit=crop",isFeatured:!1,badge_ar:"طازج",badge_he:"טרי",rating:4.5,reviews:38},{id:7,categoryId:3,name_ar:"دجاجة كاملة طازجة",name_he:"עוף שלם טרי",description_ar:"دجاجة كاملة طازجة حلال، معبأة بعناية للحفاظ على نضارتها.",description_he:"עוף שלם טרי חלאל, ארוז בקפידה לשמירה על טריות.",price:28,unit:"kg",image:"https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400&h=300&fit=crop",isFeatured:!1,badge_ar:"",badge_he:"",rating:4.5,reviews:203},{id:8,categoryId:3,name_ar:"صدر دجاج طازج",name_he:"חזה עוף טרי",description_ar:"صدر دجاج طازج منزوع العظم والجلد، غني بالبروتين.",description_he:"חזה עוף טרי ללא עצם ועור, עשיר בחלבון.",price:35,unit:"kg",image:"https://images.unsplash.com/photo-1618897996318-5a901fa0b5cc?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"خالي من الدهون",badge_he:"דל שומן",rating:4.7,reviews:156},{id:9,categoryId:3,name_ar:"أفخاذ دجاج مشوية",name_he:"ירכי עוף לגריל",description_ar:"أفخاذ دجاج طازجة بالتتبيلة الشرقية الأصيلة.",description_he:"ירכי עוף טריות עם מרינדה מזרחית מקורית.",price:32,unit:"kg",image:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"محضر طازج",badge_he:"טרי מוכן",rating:4.8,reviews:92},{id:10,categoryId:4,name_ar:"اسكالوب عجل",name_he:"אסקלופ עגל",description_ar:"شرائح عجل رفيعة طرية، مثالية للطبخ السريع والمقلي.",description_he:"פרוסות עגל דקות ורכות, מושלמות לבישול מהיר וטיגון.",price:95,unit:"kg",image:"https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?w=400&h=300&fit=crop",isFeatured:!1,badge_ar:"فاخر",badge_he:"יוקרתי",rating:4.9,reviews:32},{id:11,categoryId:4,name_ar:"كوتيليت عجل",name_he:"קוטלט עגל",description_ar:"كوتيليت عجل بالعظم، طري وشهي.",description_he:"קוטלט עגל עם עצם, רך וטעים.",price:85,unit:"kg",image:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=300&fit=crop",isFeatured:!1,badge_ar:"",badge_he:"",rating:4.6,reviews:19},{id:12,categoryId:5,name_ar:"سمك سلمون طازج",name_he:"סלמון טרי",description_ar:"سمك سلمون طازج عالي الجودة، غني بأوميغا 3.",description_he:"סלמון טרי באיכות גבוהה, עשיר באומגה 3.",price:78,unit:"kg",image:"https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"صحي",badge_he:"בריא",rating:4.8,reviews:61},{id:13,categoryId:5,name_ar:"جمبري طازج كبير",name_he:"שרימפס טרי גדול",description_ar:"جمبري طازج حجم كبير، مناسب للشواء والمقلي.",description_he:"שרימפס טרי גדול, מתאים לגריל ולטיגון.",price:95,unit:"kg",image:"https://images.unsplash.com/photo-1565680018434-b6b9e5f37456?w=400&h=300&fit=crop",isFeatured:!1,badge_ar:"",badge_he:"",rating:4.7,reviews:44},{id:14,categoryId:6,name_ar:"سجق عربي حلال",name_he:"נקניקיות ערביות חלאל",description_ar:"سجق عربي بالتوابل الشرقية الأصيلة، مثالي للشواء.",description_he:"נקניקיות ערביות עם תבלינים מזרחיים מקוריים, מושלמות לגריל.",price:42,unit:"kg",image:"https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"عرض خاص",badge_he:"מבצע",rating:4.6,reviews:78},{id:15,categoryId:6,name_ar:"كباب مشكل",name_he:"קבב מעורב",description_ar:"كباب مشكل بالتوابل العربية الأصيلة، جاهز للشواء.",description_he:"קבב מעורב עם תבלינים ערביים מקוריים, מוכן לגריל.",price:58,unit:"kg",image:"https://images.unsplash.com/photo-1544025162-d76594e8efa5?w=400&h=300&fit=crop",isFeatured:!0,badge_ar:"جاهز للشواء",badge_he:"מוכן לגריל",rating:4.9,reviews:113},{id:16,categoryId:6,name_ar:"شاورما دجاج",name_he:"שווארמה עוף",description_ar:"شاورما دجاج مبهرة بالتوابل الشرقية، جاهزة للطهي.",description_he:"שווארמה עוף מתובלת בתבלינים מזרחיים, מוכנה לבישול.",price:38,unit:"kg",image:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400&h=300&fit=crop",isFeatured:!1,badge_ar:"مبهر",badge_he:"מתובל",rating:4.7,reviews:88}],bd=[{id:"ORD-1001",customer:"محمد أحمد",phone:"050-1234567",total:285,status:"delivering",time:"14:32",items:4},{id:"ORD-1002",customer:"سارة خالد",phone:"052-9876543",total:147,status:"preparing",time:"14:10",items:2},{id:"ORD-1003",customer:"أحمد نصر",phone:"054-5554443",total:320,status:"pending",time:"14:55",items:5},{id:"ORD-1004",customer:"فاطمة عمر",phone:"050-7778889",total:95,status:"delivered",time:"13:22",items:1},{id:"ORD-1005",customer:"خالد سعيد",phone:"053-1112223",total:210,status:"confirmed",time:"15:01",items:3}],lm=[{id:1,name_ar:"محمد الحسن",name_he:"מוחמד אלחסן",image:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",rating:5,text_ar:"أفضل لحوم جربتها في حياتي! الجودة عالية جداً والتوصيل سريع. أنصح الجميع بالطلب من أبو دغش.",text_he:"הבשר הטוב ביותר שאי פעם טעמתי! איכות גבוהה מאוד והמשלוח מהיר. אני ממליץ לכולם.",date_ar:"منذ أسبوع",date_he:"לפני שבוע"},{id:2,name_ar:"سارة إبراهيم",name_he:"שרה איברהים",image:"https://images.unsplash.com/photo-1494790108755-2616b612b5e5?w=100&h=100&fit=crop&crop=face",rating:5,text_ar:"لحوم طازجة يومياً، المذاق رائع والأسعار معقولة. التوصيل وصل في وقته تماماً.",text_he:"בשר טרי כל יום, הטעם נהדר והמחירים סבירים. המשלוח הגיע בזמן.",date_ar:"منذ 3 أيام",date_he:"לפני 3 ימים"},{id:3,name_ar:"أحمد يوسف",name_he:"אחמד יוסף",image:"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",rating:5,text_ar:"ستيك الريبس كان استثنائياً! طرية جداً وطعمها لا يوصف. سأطلب مرة أخرى بالتأكيد.",text_he:"ריב-איי היה יוצא דופן! רך מאוד וטעמו לשבח. בהחלט אזמין שוב.",date_ar:"منذ يومين",date_he:"לפני יומיים"},{id:4,name_ar:"فاطمة عمر",name_he:"פאטמה עומר",image:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",rating:4,text_ar:"الدجاج الحلال طازج جداً، العائلة كلها أعجبها. خدمة ممتازة وسرعة في التوصيل.",text_he:"עוף החלאל טרי מאוד, כל המשפחה אהבה. שירות מעולה ומשלוח מהיר.",date_ar:"منذ 5 أيام",date_he:"לפני 5 ימים"},{id:5,name_ar:"خالد محمود",name_he:"חאלד מחמוד",image:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",rating:5,text_ar:"الكباب المشكل أشهى ما أكلته، التتبيل مثالي والنكهة شرقية أصيلة.",text_he:"הקבב המעורב הכי טעים שאכלתי, התיבול מושלם והטעם מזרחי אותנטי.",date_ar:"منذ أسبوع",date_he:"לפני שבוע"},{id:6,name_ar:"ليلى حسن",name_he:"ליילא חסן",image:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",rating:5,text_ar:"أبو دغش هو المتجر الوحيد الذي أثق به للحوم الطازجة. جودة لا تُضاهى!",text_he:"אבו דגש הוא החנות היחידה שאני סומכת עליה לבשר טרי. איכות שאין שני לה!",date_ar:"منذ 4 أيام",date_he:"לפני 4 ימים"}],yd=k.createContext();function sm({children:e}){const[t,n]=k.useState("ar"),r=am[t];k.useEffect(()=>{document.documentElement.lang=t,document.documentElement.dir="rtl"},[t]);const a=()=>n(u=>u==="ar"?"he":"ar"),s=u=>t==="ar"?u.name_ar:u.name_he,i=u=>t==="ar"?u.description_ar:u.description_he,c=u=>t==="ar"?u.badge_ar:u.badge_he,o=u=>t==="ar"?u.tag_ar:u.tag_he;return l.jsx(yd.Provider,{value:{lang:t,toggleLang:a,t:r,name:s,desc:i,badge:c,tag:o},children:e})}const Fe=()=>k.useContext(yd);function im(){const{t:e,toggleLang:t,lang:n}=Fe(),r=Ue(),[a,s]=k.useState(0);return k.useEffect(()=>{const i=[setTimeout(()=>s(1),300),setTimeout(()=>s(2),900),setTimeout(()=>s(3),1600),setTimeout(()=>s(4),2400)];return()=>i.forEach(clearTimeout)},[]),l.jsxs("div",{className:"relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-black",children:[l.jsxs("div",{className:"absolute inset-0 overflow-hidden",children:[l.jsx("div",{className:"absolute inset-0 opacity-20",style:{background:"radial-gradient(ellipse 80% 60% at 50% 40%, #CC0000 0%, transparent 70%)",animation:"pulse 4s ease-in-out infinite"}}),l.jsx("div",{className:"absolute -top-20 -left-20 w-96 h-96 rounded-full opacity-10",style:{background:"#CC0000",filter:"blur(80px)",animation:"float 6s ease-in-out infinite"}}),l.jsx("div",{className:"absolute -bottom-20 -right-20 w-80 h-80 rounded-full opacity-10",style:{background:"#CC0000",filter:"blur(80px)",animation:"float 8s ease-in-out infinite reverse"}}),[...Array(8)].map((i,c)=>l.jsx("div",{className:"absolute opacity-5",style:{width:"100%",height:"1px",background:"linear-gradient(90deg, transparent, #CC0000, transparent)",top:`${12+c*12}%`,animation:`shimmer ${2+c*.3}s linear infinite`}},c))]}),l.jsx("button",{onClick:t,className:"absolute top-6 left-6 z-20 glass rounded-full px-4 py-2 text-sm font-bold text-white border border-white/20 hover:border-brand-red transition-colors",children:n==="ar"?"עברית":"العربية"}),l.jsxs("div",{className:"absolute top-6 right-6 z-20 flex gap-2",children:[l.jsx("button",{onClick:()=>r("/about"),className:"glass rounded-full px-3 py-2 text-xs text-brand-gray-light border border-white/10 hover:border-brand-red hover:text-white transition-colors",children:n==="ar"?"من نحن":"אודות"}),l.jsx("button",{onClick:()=>r("/delivery"),className:"glass rounded-full px-3 py-2 text-xs text-orange-400 border border-orange-400/20 hover:border-orange-400 transition-colors",children:n==="ar"?"المندوب":"שליח"}),l.jsx("button",{onClick:()=>r("/admin"),className:"glass rounded-full px-3 py-2 text-xs text-brand-gray-light border border-white/10 hover:border-brand-red hover:text-white transition-colors",children:n==="ar"?"الإدارة":"ניהול"})]}),l.jsx("div",{className:"absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none"}),l.jsx("div",{className:"absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"}),l.jsxs("div",{className:"relative z-20 flex flex-col items-center text-center px-8 max-w-md",children:[l.jsx("div",{className:"mb-6 transition-all duration-700",style:{opacity:a>=1?1:0,transform:a>=1?"scale(1) translateY(0)":"scale(0.5) translateY(20px)"},children:l.jsx("div",{className:"w-32 h-32 rounded-3xl mx-auto mb-4 overflow-hidden",style:{boxShadow:"0 0 40px rgba(204,0,0,0.6), 0 0 80px rgba(204,0,0,0.2)",border:"2px solid rgba(204,0,0,0.5)"},children:l.jsx("img",{src:"/logo.jpeg",alt:"أبو دغش",className:"w-full h-full object-cover"})})}),l.jsxs("div",{className:"transition-all duration-700",style:{opacity:a>=2?1:0,transform:a>=2?"translateY(0)":"translateY(20px)"},children:[l.jsx("h1",{className:"text-6xl font-black mb-2",style:{background:"linear-gradient(135deg, #FFFFFF 30%, #CC0000 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text",textShadow:"none"},children:e.storeName}),l.jsx("p",{className:"text-brand-gray-light text-lg tracking-widest uppercase font-light",children:e.storeTagline})]}),l.jsxs("div",{className:"my-8 flex items-center gap-3 w-full transition-all duration-700",style:{opacity:a>=3?1:0,transform:a>=3?"scaleX(1)":"scaleX(0)"},children:[l.jsx("div",{className:"flex-1 h-px bg-gradient-to-r from-transparent to-brand-red"}),l.jsx("span",{className:"text-brand-red text-xs",children:"◆"}),l.jsx("div",{className:"flex-1 h-px bg-gradient-to-l from-transparent to-brand-red"})]}),l.jsx("div",{className:"flex gap-3 mb-10 flex-wrap justify-center transition-all duration-700",style:{opacity:a>=3?1:0,transform:a>=3?"translateY(0)":"translateY(15px)"},children:["طازج يومياً","توصيل سريع","جودة عالية"].map((i,c)=>l.jsx("span",{className:"glass px-4 py-2 rounded-full text-sm font-semibold text-white border border-white/10",children:i},c))}),l.jsxs("div",{className:"transition-all duration-700",style:{opacity:a>=4?1:0,transform:a>=4?"translateY(0) scale(1)":"translateY(20px) scale(0.9)"},children:[l.jsxs("button",{onClick:()=>r("/categories"),className:"relative group overflow-hidden rounded-full font-black text-xl px-12 py-5 text-white transition-all duration-300 hover:scale-105 active:scale-95",style:{background:"linear-gradient(135deg, #CC0000, #990000)",boxShadow:"0 0 30px rgba(204,0,0,0.5), 0 8px 32px rgba(0,0,0,0.4)"},children:[l.jsxs("span",{className:"relative z-10",children:[e.startShopping," ←"]}),l.jsx("div",{className:"absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300",style:{background:"linear-gradient(135deg, #FF1A1A, #CC0000)"}})]}),l.jsx("p",{className:"text-brand-gray-light text-xs mt-6 opacity-60",children:n==="ar"?"توصيل مجاني للطلبات فوق ₪200":"משלוח חינם להזמנות מעל ₪200"})]})]}),l.jsx("div",{className:"absolute bottom-10 flex gap-2 z-20",children:[0,1,2].map(i=>l.jsx("div",{className:"rounded-full transition-all duration-500",style:{width:i===1?"24px":"6px",height:"6px",background:i===1?"#CC0000":"rgba(255,255,255,0.3)"}},i))}),l.jsx("style",{children:`
+(function () {
+  const t = document.createElement("link").relList;
+  if (t && t.supports && t.supports("modulepreload")) return;
+  for (const a of document.querySelectorAll('link[rel="modulepreload"]')) r(a);
+  new MutationObserver((a) => {
+    for (const s of a)
+      if (s.type === "childList")
+        for (const i of s.addedNodes)
+          i.tagName === "LINK" && i.rel === "modulepreload" && r(i);
+  }).observe(document, { childList: !0, subtree: !0 });
+  function n(a) {
+    const s = {};
+    return (
+      a.integrity && (s.integrity = a.integrity),
+      a.referrerPolicy && (s.referrerPolicy = a.referrerPolicy),
+      a.crossOrigin === "use-credentials"
+        ? (s.credentials = "include")
+        : a.crossOrigin === "anonymous"
+          ? (s.credentials = "omit")
+          : (s.credentials = "same-origin"),
+      s
+    );
+  }
+  function r(a) {
+    if (a.ep) return;
+    a.ep = !0;
+    const s = n(a);
+    fetch(a.href, s);
+  }
+})();
+function Pd(e, t) {
+  for (var n = 0; n < t.length; n++) {
+    const r = t[n];
+    if (typeof r != "string" && !Array.isArray(r)) {
+      for (const a in r)
+        if (a !== "default" && !(a in e)) {
+          const s = Object.getOwnPropertyDescriptor(r, a);
+          s &&
+            Object.defineProperty(
+              e,
+              a,
+              s.get ? s : { enumerable: !0, get: () => r[a] },
+            );
+        }
+    }
+  }
+  return Object.freeze(
+    Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+  );
+}
+(function () {
+  const e = document.createElement("link").relList;
+  if (e && e.supports && e.supports("modulepreload")) return;
+  for (const r of document.querySelectorAll('link[rel="modulepreload"]')) n(r);
+  new MutationObserver((r) => {
+    for (const a of r)
+      if (a.type === "childList")
+        for (const s of a.addedNodes)
+          s.tagName === "LINK" && s.rel === "modulepreload" && n(s);
+  }).observe(document, { childList: !0, subtree: !0 });
+  function t(r) {
+    const a = {};
+    return (
+      r.integrity && (a.integrity = r.integrity),
+      r.referrerPolicy && (a.referrerPolicy = r.referrerPolicy),
+      r.crossOrigin === "use-credentials"
+        ? (a.credentials = "include")
+        : r.crossOrigin === "anonymous"
+          ? (a.credentials = "omit")
+          : (a.credentials = "same-origin"),
+      a
+    );
+  }
+  function n(r) {
+    if (r.ep) return;
+    r.ep = !0;
+    const a = t(r);
+    fetch(r.href, a);
+  }
+})();
+function Fd(e) {
+  return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default")
+    ? e.default
+    : e;
+}
+var Wo = { exports: {} },
+  Ea = {},
+  Ho = { exports: {} },
+  T = {};
+/**
+ * @license React
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var pr = Symbol.for("react.element"),
+  Ld = Symbol.for("react.portal"),
+  Md = Symbol.for("react.fragment"),
+  Td = Symbol.for("react.strict_mode"),
+  Rd = Symbol.for("react.profiler"),
+  Id = Symbol.for("react.provider"),
+  Od = Symbol.for("react.context"),
+  Ad = Symbol.for("react.forward_ref"),
+  Dd = Symbol.for("react.suspense"),
+  Ud = Symbol.for("react.memo"),
+  $d = Symbol.for("react.lazy"),
+  yi = Symbol.iterator;
+function Bd(e) {
+  return e === null || typeof e != "object"
+    ? null
+    : ((e = (yi && e[yi]) || e["@@iterator"]),
+      typeof e == "function" ? e : null);
+}
+var Qo = {
+    isMounted: function () {
+      return !1;
+    },
+    enqueueForceUpdate: function () {},
+    enqueueReplaceState: function () {},
+    enqueueSetState: function () {},
+  },
+  qo = Object.assign,
+  Yo = {};
+function bn(e, t, n) {
+  ((this.props = e),
+    (this.context = t),
+    (this.refs = Yo),
+    (this.updater = n || Qo));
+}
+bn.prototype.isReactComponent = {};
+bn.prototype.setState = function (e, t) {
+  if (typeof e != "object" && typeof e != "function" && e != null)
+    throw Error(
+      "setState(...): takes an object of state variables to update or a function which returns an object of state variables.",
+    );
+  this.updater.enqueueSetState(this, e, t, "setState");
+};
+bn.prototype.forceUpdate = function (e) {
+  this.updater.enqueueForceUpdate(this, e, "forceUpdate");
+};
+function Ko() {}
+Ko.prototype = bn.prototype;
+function bs(e, t, n) {
+  ((this.props = e),
+    (this.context = t),
+    (this.refs = Yo),
+    (this.updater = n || Qo));
+}
+var ys = (bs.prototype = new Ko());
+ys.constructor = bs;
+qo(ys, bn.prototype);
+ys.isPureReactComponent = !0;
+var vi = Array.isArray,
+  Xo = Object.prototype.hasOwnProperty,
+  vs = { current: null },
+  Go = { key: !0, ref: !0, __self: !0, __source: !0 };
+function Zo(e, t, n) {
+  var r,
+    a = {},
+    s = null,
+    i = null;
+  if (t != null)
+    for (r in (t.ref !== void 0 && (i = t.ref),
+    t.key !== void 0 && (s = "" + t.key),
+    t))
+      Xo.call(t, r) && !Go.hasOwnProperty(r) && (a[r] = t[r]);
+  var c = arguments.length - 2;
+  if (c === 1) a.children = n;
+  else if (1 < c) {
+    for (var o = Array(c), u = 0; u < c; u++) o[u] = arguments[u + 2];
+    a.children = o;
+  }
+  if (e && e.defaultProps)
+    for (r in ((c = e.defaultProps), c)) a[r] === void 0 && (a[r] = c[r]);
+  return {
+    $$typeof: pr,
+    type: e,
+    key: s,
+    ref: i,
+    props: a,
+    _owner: vs.current,
+  };
+}
+function Vd(e, t) {
+  return {
+    $$typeof: pr,
+    type: e.type,
+    key: t,
+    ref: e.ref,
+    props: e.props,
+    _owner: e._owner,
+  };
+}
+function ws(e) {
+  return typeof e == "object" && e !== null && e.$$typeof === pr;
+}
+function Wd(e) {
+  var t = { "=": "=0", ":": "=2" };
+  return (
+    "$" +
+    e.replace(/[=:]/g, function (n) {
+      return t[n];
+    })
+  );
+}
+var wi = /\/+/g;
+function Ka(e, t) {
+  return typeof e == "object" && e !== null && e.key != null
+    ? Wd("" + e.key)
+    : t.toString(36);
+}
+function Vr(e, t, n, r, a) {
+  var s = typeof e;
+  (s === "undefined" || s === "boolean") && (e = null);
+  var i = !1;
+  if (e === null) i = !0;
+  else
+    switch (s) {
+      case "string":
+      case "number":
+        i = !0;
+        break;
+      case "object":
+        switch (e.$$typeof) {
+          case pr:
+          case Ld:
+            i = !0;
+        }
+    }
+  if (i)
+    return (
+      (i = e),
+      (a = a(i)),
+      (e = r === "" ? "." + Ka(i, 0) : r),
+      vi(a)
+        ? ((n = ""),
+          e != null && (n = e.replace(wi, "$&/") + "/"),
+          Vr(a, t, n, "", function (u) {
+            return u;
+          }))
+        : a != null &&
+          (ws(a) &&
+            (a = Vd(
+              a,
+              n +
+                (!a.key || (i && i.key === a.key)
+                  ? ""
+                  : ("" + a.key).replace(wi, "$&/") + "/") +
+                e,
+            )),
+          t.push(a)),
+      1
+    );
+  if (((i = 0), (r = r === "" ? "." : r + ":"), vi(e)))
+    for (var c = 0; c < e.length; c++) {
+      s = e[c];
+      var o = r + Ka(s, c);
+      i += Vr(s, t, n, o, a);
+    }
+  else if (((o = Bd(e)), typeof o == "function"))
+    for (e = o.call(e), c = 0; !(s = e.next()).done; )
+      ((s = s.value), (o = r + Ka(s, c++)), (i += Vr(s, t, n, o, a)));
+  else if (s === "object")
+    throw (
+      (t = String(e)),
+      Error(
+        "Objects are not valid as a React child (found: " +
+          (t === "[object Object]"
+            ? "object with keys {" + Object.keys(e).join(", ") + "}"
+            : t) +
+          "). If you meant to render a collection of children, use an array instead.",
+      )
+    );
+  return i;
+}
+function Nr(e, t, n) {
+  if (e == null) return e;
+  var r = [],
+    a = 0;
+  return (
+    Vr(e, r, "", "", function (s) {
+      return t.call(n, s, a++);
+    }),
+    r
+  );
+}
+function Hd(e) {
+  if (e._status === -1) {
+    var t = e._result;
+    ((t = t()),
+      t.then(
+        function (n) {
+          (e._status === 0 || e._status === -1) &&
+            ((e._status = 1), (e._result = n));
+        },
+        function (n) {
+          (e._status === 0 || e._status === -1) &&
+            ((e._status = 2), (e._result = n));
+        },
+      ),
+      e._status === -1 && ((e._status = 0), (e._result = t)));
+  }
+  if (e._status === 1) return e._result.default;
+  throw e._result;
+}
+var de = { current: null },
+  Wr = { transition: null },
+  Qd = {
+    ReactCurrentDispatcher: de,
+    ReactCurrentBatchConfig: Wr,
+    ReactCurrentOwner: vs,
+  };
+function Jo() {
+  throw Error("act(...) is not supported in production builds of React.");
+}
+T.Children = {
+  map: Nr,
+  forEach: function (e, t, n) {
+    Nr(
+      e,
+      function () {
+        t.apply(this, arguments);
+      },
+      n,
+    );
+  },
+  count: function (e) {
+    var t = 0;
+    return (
+      Nr(e, function () {
+        t++;
+      }),
+      t
+    );
+  },
+  toArray: function (e) {
+    return (
+      Nr(e, function (t) {
+        return t;
+      }) || []
+    );
+  },
+  only: function (e) {
+    if (!ws(e))
+      throw Error(
+        "React.Children.only expected to receive a single React element child.",
+      );
+    return e;
+  },
+};
+T.Component = bn;
+T.Fragment = Md;
+T.Profiler = Rd;
+T.PureComponent = bs;
+T.StrictMode = Td;
+T.Suspense = Dd;
+T.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = Qd;
+T.act = Jo;
+T.cloneElement = function (e, t, n) {
+  if (e == null)
+    throw Error(
+      "React.cloneElement(...): The argument must be a React element, but you passed " +
+        e +
+        ".",
+    );
+  var r = qo({}, e.props),
+    a = e.key,
+    s = e.ref,
+    i = e._owner;
+  if (t != null) {
+    if (
+      (t.ref !== void 0 && ((s = t.ref), (i = vs.current)),
+      t.key !== void 0 && (a = "" + t.key),
+      e.type && e.type.defaultProps)
+    )
+      var c = e.type.defaultProps;
+    for (o in t)
+      Xo.call(t, o) &&
+        !Go.hasOwnProperty(o) &&
+        (r[o] = t[o] === void 0 && c !== void 0 ? c[o] : t[o]);
+  }
+  var o = arguments.length - 2;
+  if (o === 1) r.children = n;
+  else if (1 < o) {
+    c = Array(o);
+    for (var u = 0; u < o; u++) c[u] = arguments[u + 2];
+    r.children = c;
+  }
+  return { $$typeof: pr, type: e.type, key: a, ref: s, props: r, _owner: i };
+};
+T.createContext = function (e) {
+  return (
+    (e = {
+      $$typeof: Od,
+      _currentValue: e,
+      _currentValue2: e,
+      _threadCount: 0,
+      Provider: null,
+      Consumer: null,
+      _defaultValue: null,
+      _globalName: null,
+    }),
+    (e.Provider = { $$typeof: Id, _context: e }),
+    (e.Consumer = e)
+  );
+};
+T.createElement = Zo;
+T.createFactory = function (e) {
+  var t = Zo.bind(null, e);
+  return ((t.type = e), t);
+};
+T.createRef = function () {
+  return { current: null };
+};
+T.forwardRef = function (e) {
+  return { $$typeof: Ad, render: e };
+};
+T.isValidElement = ws;
+T.lazy = function (e) {
+  return { $$typeof: $d, _payload: { _status: -1, _result: e }, _init: Hd };
+};
+T.memo = function (e, t) {
+  return { $$typeof: Ud, type: e, compare: t === void 0 ? null : t };
+};
+T.startTransition = function (e) {
+  var t = Wr.transition;
+  Wr.transition = {};
+  try {
+    e();
+  } finally {
+    Wr.transition = t;
+  }
+};
+T.unstable_act = Jo;
+T.useCallback = function (e, t) {
+  return de.current.useCallback(e, t);
+};
+T.useContext = function (e) {
+  return de.current.useContext(e);
+};
+T.useDebugValue = function () {};
+T.useDeferredValue = function (e) {
+  return de.current.useDeferredValue(e);
+};
+T.useEffect = function (e, t) {
+  return de.current.useEffect(e, t);
+};
+T.useId = function () {
+  return de.current.useId();
+};
+T.useImperativeHandle = function (e, t, n) {
+  return de.current.useImperativeHandle(e, t, n);
+};
+T.useInsertionEffect = function (e, t) {
+  return de.current.useInsertionEffect(e, t);
+};
+T.useLayoutEffect = function (e, t) {
+  return de.current.useLayoutEffect(e, t);
+};
+T.useMemo = function (e, t) {
+  return de.current.useMemo(e, t);
+};
+T.useReducer = function (e, t, n) {
+  return de.current.useReducer(e, t, n);
+};
+T.useRef = function (e) {
+  return de.current.useRef(e);
+};
+T.useState = function (e) {
+  return de.current.useState(e);
+};
+T.useSyncExternalStore = function (e, t, n) {
+  return de.current.useSyncExternalStore(e, t, n);
+};
+T.useTransition = function () {
+  return de.current.useTransition();
+};
+T.version = "18.3.1";
+Ho.exports = T;
+var k = Ho.exports;
+const qd = Fd(k),
+  Yd = Pd({ __proto__: null, default: qd }, [k]);
+/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var Kd = k,
+  Xd = Symbol.for("react.element"),
+  Gd = Symbol.for("react.fragment"),
+  Zd = Object.prototype.hasOwnProperty,
+  Jd = Kd.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,
+  ef = { key: !0, ref: !0, __self: !0, __source: !0 };
+function ec(e, t, n) {
+  var r,
+    a = {},
+    s = null,
+    i = null;
+  (n !== void 0 && (s = "" + n),
+    t.key !== void 0 && (s = "" + t.key),
+    t.ref !== void 0 && (i = t.ref));
+  for (r in t) Zd.call(t, r) && !ef.hasOwnProperty(r) && (a[r] = t[r]);
+  if (e && e.defaultProps)
+    for (r in ((t = e.defaultProps), t)) a[r] === void 0 && (a[r] = t[r]);
+  return {
+    $$typeof: Xd,
+    type: e,
+    key: s,
+    ref: i,
+    props: a,
+    _owner: Jd.current,
+  };
+}
+Ea.Fragment = Gd;
+Ea.jsx = ec;
+Ea.jsxs = ec;
+Wo.exports = Ea;
+var l = Wo.exports,
+  tc = { exports: {} },
+  je = {},
+  nc = { exports: {} },
+  rc = {};
+/**
+ * @license React
+ * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ (function (e) {
+  function t(E, L) {
+    var M = E.length;
+    E.push(L);
+    e: for (; 0 < M; ) {
+      var q = (M - 1) >>> 1,
+        J = E[q];
+      if (0 < a(J, L)) ((E[q] = L), (E[M] = J), (M = q));
+      else break e;
+    }
+  }
+  function n(E) {
+    return E.length === 0 ? null : E[0];
+  }
+  function r(E) {
+    if (E.length === 0) return null;
+    var L = E[0],
+      M = E.pop();
+    if (M !== L) {
+      E[0] = M;
+      e: for (var q = 0, J = E.length, kr = J >>> 1; q < kr; ) {
+        var Ct = 2 * (q + 1) - 1,
+          Ya = E[Ct],
+          St = Ct + 1,
+          jr = E[St];
+        if (0 > a(Ya, M))
+          St < J && 0 > a(jr, Ya)
+            ? ((E[q] = jr), (E[St] = M), (q = St))
+            : ((E[q] = Ya), (E[Ct] = M), (q = Ct));
+        else if (St < J && 0 > a(jr, M)) ((E[q] = jr), (E[St] = M), (q = St));
+        else break e;
+      }
+    }
+    return L;
+  }
+  function a(E, L) {
+    var M = E.sortIndex - L.sortIndex;
+    return M !== 0 ? M : E.id - L.id;
+  }
+  if (typeof performance == "object" && typeof performance.now == "function") {
+    var s = performance;
+    e.unstable_now = function () {
+      return s.now();
+    };
+  } else {
+    var i = Date,
+      c = i.now();
+    e.unstable_now = function () {
+      return i.now() - c;
+    };
+  }
+  var o = [],
+    u = [],
+    x = 1,
+    f = null,
+    p = 3,
+    y = !1,
+    v = !1,
+    g = !1,
+    _ = typeof setTimeout == "function" ? setTimeout : null,
+    h = typeof clearTimeout == "function" ? clearTimeout : null,
+    d = typeof setImmediate < "u" ? setImmediate : null;
+  typeof navigator < "u" &&
+    navigator.scheduling !== void 0 &&
+    navigator.scheduling.isInputPending !== void 0 &&
+    navigator.scheduling.isInputPending.bind(navigator.scheduling);
+  function m(E) {
+    for (var L = n(u); L !== null; ) {
+      if (L.callback === null) r(u);
+      else if (L.startTime <= E)
+        (r(u), (L.sortIndex = L.expirationTime), t(o, L));
+      else break;
+      L = n(u);
+    }
+  }
+  function w(E) {
+    if (((g = !1), m(E), !v))
+      if (n(o) !== null) ((v = !0), Qa(C));
+      else {
+        var L = n(u);
+        L !== null && qa(w, L.startTime - E);
+      }
+  }
+  function C(E, L) {
+    ((v = !1), g && ((g = !1), h(F), (F = -1)), (y = !0));
+    var M = p;
+    try {
+      for (
+        m(L), f = n(o);
+        f !== null && (!(f.expirationTime > L) || (E && !P()));
+      ) {
+        var q = f.callback;
+        if (typeof q == "function") {
+          ((f.callback = null), (p = f.priorityLevel));
+          var J = q(f.expirationTime <= L);
+          ((L = e.unstable_now()),
+            typeof J == "function" ? (f.callback = J) : f === n(o) && r(o),
+            m(L));
+        } else r(o);
+        f = n(o);
+      }
+      if (f !== null) var kr = !0;
+      else {
+        var Ct = n(u);
+        (Ct !== null && qa(w, Ct.startTime - L), (kr = !1));
+      }
+      return kr;
+    } finally {
+      ((f = null), (p = M), (y = !1));
+    }
+  }
+  var N = !1,
+    z = null,
+    F = -1,
+    B = 5,
+    b = -1;
+  function P() {
+    return !(e.unstable_now() - b < B);
+  }
+  function be() {
+    if (z !== null) {
+      var E = e.unstable_now();
+      b = E;
+      var L = !0;
+      try {
+        L = z(!0, E);
+      } finally {
+        L ? Qe() : ((N = !1), (z = null));
+      }
+    } else N = !1;
+  }
+  var Qe;
+  if (typeof d == "function")
+    Qe = function () {
+      d(be);
+    };
+  else if (typeof MessageChannel < "u") {
+    var bi = new MessageChannel(),
+      zd = bi.port2;
+    ((bi.port1.onmessage = be),
+      (Qe = function () {
+        zd.postMessage(null);
+      }));
+  } else
+    Qe = function () {
+      _(be, 0);
+    };
+  function Qa(E) {
+    ((z = E), N || ((N = !0), Qe()));
+  }
+  function qa(E, L) {
+    F = _(function () {
+      E(e.unstable_now());
+    }, L);
+  }
+  ((e.unstable_IdlePriority = 5),
+    (e.unstable_ImmediatePriority = 1),
+    (e.unstable_LowPriority = 4),
+    (e.unstable_NormalPriority = 3),
+    (e.unstable_Profiling = null),
+    (e.unstable_UserBlockingPriority = 2),
+    (e.unstable_cancelCallback = function (E) {
+      E.callback = null;
+    }),
+    (e.unstable_continueExecution = function () {
+      v || y || ((v = !0), Qa(C));
+    }),
+    (e.unstable_forceFrameRate = function (E) {
+      0 > E || 125 < E
+        ? console.error(
+            "forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported",
+          )
+        : (B = 0 < E ? Math.floor(1e3 / E) : 5);
+    }),
+    (e.unstable_getCurrentPriorityLevel = function () {
+      return p;
+    }),
+    (e.unstable_getFirstCallbackNode = function () {
+      return n(o);
+    }),
+    (e.unstable_next = function (E) {
+      switch (p) {
+        case 1:
+        case 2:
+        case 3:
+          var L = 3;
+          break;
+        default:
+          L = p;
+      }
+      var M = p;
+      p = L;
+      try {
+        return E();
+      } finally {
+        p = M;
+      }
+    }),
+    (e.unstable_pauseExecution = function () {}),
+    (e.unstable_requestPaint = function () {}),
+    (e.unstable_runWithPriority = function (E, L) {
+      switch (E) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+          break;
+        default:
+          E = 3;
+      }
+      var M = p;
+      p = E;
+      try {
+        return L();
+      } finally {
+        p = M;
+      }
+    }),
+    (e.unstable_scheduleCallback = function (E, L, M) {
+      var q = e.unstable_now();
+      switch (
+        (typeof M == "object" && M !== null
+          ? ((M = M.delay), (M = typeof M == "number" && 0 < M ? q + M : q))
+          : (M = q),
+        E)
+      ) {
+        case 1:
+          var J = -1;
+          break;
+        case 2:
+          J = 250;
+          break;
+        case 5:
+          J = 1073741823;
+          break;
+        case 4:
+          J = 1e4;
+          break;
+        default:
+          J = 5e3;
+      }
+      return (
+        (J = M + J),
+        (E = {
+          id: x++,
+          callback: L,
+          priorityLevel: E,
+          startTime: M,
+          expirationTime: J,
+          sortIndex: -1,
+        }),
+        M > q
+          ? ((E.sortIndex = M),
+            t(u, E),
+            n(o) === null &&
+              E === n(u) &&
+              (g ? (h(F), (F = -1)) : (g = !0), qa(w, M - q)))
+          : ((E.sortIndex = J), t(o, E), v || y || ((v = !0), Qa(C))),
+        E
+      );
+    }),
+    (e.unstable_shouldYield = P),
+    (e.unstable_wrapCallback = function (E) {
+      var L = p;
+      return function () {
+        var M = p;
+        p = L;
+        try {
+          return E.apply(this, arguments);
+        } finally {
+          p = M;
+        }
+      };
+    }));
+})(rc);
+nc.exports = rc;
+var tf = nc.exports;
+/**
+ * @license React
+ * react-dom.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var nf = k,
+  ke = tf;
+function j(e) {
+  for (
+    var t = "https://reactjs.org/docs/error-decoder.html?invariant=" + e, n = 1;
+    n < arguments.length;
+    n++
+  )
+    t += "&args[]=" + encodeURIComponent(arguments[n]);
+  return (
+    "Minified React error #" +
+    e +
+    "; visit " +
+    t +
+    " for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+  );
+}
+var ac = new Set(),
+  Qn = {};
+function Bt(e, t) {
+  (dn(e, t), dn(e + "Capture", t));
+}
+function dn(e, t) {
+  for (Qn[e] = t, e = 0; e < t.length; e++) ac.add(t[e]);
+}
+var Ze = !(
+    typeof window > "u" ||
+    typeof window.document > "u" ||
+    typeof window.document.createElement > "u"
+  ),
+  jl = Object.prototype.hasOwnProperty,
+  rf =
+    /^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,
+  ki = {},
+  ji = {};
+function af(e) {
+  return jl.call(ji, e)
+    ? !0
+    : jl.call(ki, e)
+      ? !1
+      : rf.test(e)
+        ? (ji[e] = !0)
+        : ((ki[e] = !0), !1);
+}
+function lf(e, t, n, r) {
+  if (n !== null && n.type === 0) return !1;
+  switch (typeof t) {
+    case "function":
+    case "symbol":
+      return !0;
+    case "boolean":
+      return r
+        ? !1
+        : n !== null
+          ? !n.acceptsBooleans
+          : ((e = e.toLowerCase().slice(0, 5)), e !== "data-" && e !== "aria-");
+    default:
+      return !1;
+  }
+}
+function sf(e, t, n, r) {
+  if (t === null || typeof t > "u" || lf(e, t, n, r)) return !0;
+  if (r) return !1;
+  if (n !== null)
+    switch (n.type) {
+      case 3:
+        return !t;
+      case 4:
+        return t === !1;
+      case 5:
+        return isNaN(t);
+      case 6:
+        return isNaN(t) || 1 > t;
+    }
+  return !1;
+}
+function fe(e, t, n, r, a, s, i) {
+  ((this.acceptsBooleans = t === 2 || t === 3 || t === 4),
+    (this.attributeName = r),
+    (this.attributeNamespace = a),
+    (this.mustUseProperty = n),
+    (this.propertyName = e),
+    (this.type = t),
+    (this.sanitizeURL = s),
+    (this.removeEmptyString = i));
+}
+var ae = {};
+"children dangerouslySetInnerHTML defaultValue defaultChecked innerHTML suppressContentEditableWarning suppressHydrationWarning style"
+  .split(" ")
+  .forEach(function (e) {
+    ae[e] = new fe(e, 0, !1, e, null, !1, !1);
+  });
+[
+  ["acceptCharset", "accept-charset"],
+  ["className", "class"],
+  ["htmlFor", "for"],
+  ["httpEquiv", "http-equiv"],
+].forEach(function (e) {
+  var t = e[0];
+  ae[t] = new fe(t, 1, !1, e[1], null, !1, !1);
+});
+["contentEditable", "draggable", "spellCheck", "value"].forEach(function (e) {
+  ae[e] = new fe(e, 2, !1, e.toLowerCase(), null, !1, !1);
+});
+[
+  "autoReverse",
+  "externalResourcesRequired",
+  "focusable",
+  "preserveAlpha",
+].forEach(function (e) {
+  ae[e] = new fe(e, 2, !1, e, null, !1, !1);
+});
+"allowFullScreen async autoFocus autoPlay controls default defer disabled disablePictureInPicture disableRemotePlayback formNoValidate hidden loop noModule noValidate open playsInline readOnly required reversed scoped seamless itemScope"
+  .split(" ")
+  .forEach(function (e) {
+    ae[e] = new fe(e, 3, !1, e.toLowerCase(), null, !1, !1);
+  });
+["checked", "multiple", "muted", "selected"].forEach(function (e) {
+  ae[e] = new fe(e, 3, !0, e, null, !1, !1);
+});
+["capture", "download"].forEach(function (e) {
+  ae[e] = new fe(e, 4, !1, e, null, !1, !1);
+});
+["cols", "rows", "size", "span"].forEach(function (e) {
+  ae[e] = new fe(e, 6, !1, e, null, !1, !1);
+});
+["rowSpan", "start"].forEach(function (e) {
+  ae[e] = new fe(e, 5, !1, e.toLowerCase(), null, !1, !1);
+});
+var ks = /[\-:]([a-z])/g;
+function js(e) {
+  return e[1].toUpperCase();
+}
+"accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clip-rule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fill-rule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity stroke-width text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height"
+  .split(" ")
+  .forEach(function (e) {
+    var t = e.replace(ks, js);
+    ae[t] = new fe(t, 1, !1, e, null, !1, !1);
+  });
+"xlink:actuate xlink:arcrole xlink:role xlink:show xlink:title xlink:type"
+  .split(" ")
+  .forEach(function (e) {
+    var t = e.replace(ks, js);
+    ae[t] = new fe(t, 1, !1, e, "http://www.w3.org/1999/xlink", !1, !1);
+  });
+["xml:base", "xml:lang", "xml:space"].forEach(function (e) {
+  var t = e.replace(ks, js);
+  ae[t] = new fe(t, 1, !1, e, "http://www.w3.org/XML/1998/namespace", !1, !1);
+});
+["tabIndex", "crossOrigin"].forEach(function (e) {
+  ae[e] = new fe(e, 1, !1, e.toLowerCase(), null, !1, !1);
+});
+ae.xlinkHref = new fe(
+  "xlinkHref",
+  1,
+  !1,
+  "xlink:href",
+  "http://www.w3.org/1999/xlink",
+  !0,
+  !1,
+);
+["src", "href", "action", "formAction"].forEach(function (e) {
+  ae[e] = new fe(e, 1, !1, e.toLowerCase(), null, !0, !0);
+});
+function Ns(e, t, n, r) {
+  var a = ae.hasOwnProperty(t) ? ae[t] : null;
+  (a !== null
+    ? a.type !== 0
+    : r ||
+      !(2 < t.length) ||
+      (t[0] !== "o" && t[0] !== "O") ||
+      (t[1] !== "n" && t[1] !== "N")) &&
+    (sf(t, n, a, r) && (n = null),
+    r || a === null
+      ? af(t) && (n === null ? e.removeAttribute(t) : e.setAttribute(t, "" + n))
+      : a.mustUseProperty
+        ? (e[a.propertyName] = n === null ? (a.type === 3 ? !1 : "") : n)
+        : ((t = a.attributeName),
+          (r = a.attributeNamespace),
+          n === null
+            ? e.removeAttribute(t)
+            : ((a = a.type),
+              (n = a === 3 || (a === 4 && n === !0) ? "" : "" + n),
+              r ? e.setAttributeNS(r, t, n) : e.setAttribute(t, n))));
+}
+var nt = nf.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
+  _r = Symbol.for("react.element"),
+  Ht = Symbol.for("react.portal"),
+  Qt = Symbol.for("react.fragment"),
+  _s = Symbol.for("react.strict_mode"),
+  Nl = Symbol.for("react.profiler"),
+  lc = Symbol.for("react.provider"),
+  sc = Symbol.for("react.context"),
+  Cs = Symbol.for("react.forward_ref"),
+  _l = Symbol.for("react.suspense"),
+  Cl = Symbol.for("react.suspense_list"),
+  Ss = Symbol.for("react.memo"),
+  at = Symbol.for("react.lazy"),
+  ic = Symbol.for("react.offscreen"),
+  Ni = Symbol.iterator;
+function _n(e) {
+  return e === null || typeof e != "object"
+    ? null
+    : ((e = (Ni && e[Ni]) || e["@@iterator"]),
+      typeof e == "function" ? e : null);
+}
+var H = Object.assign,
+  Xa;
+function Mn(e) {
+  if (Xa === void 0)
+    try {
+      throw Error();
+    } catch (n) {
+      var t = n.stack.trim().match(/\n( *(at )?)/);
+      Xa = (t && t[1]) || "";
+    }
+  return (
+    `
+` +
+    Xa +
+    e
+  );
+}
+var Ga = !1;
+function Za(e, t) {
+  if (!e || Ga) return "";
+  Ga = !0;
+  var n = Error.prepareStackTrace;
+  Error.prepareStackTrace = void 0;
+  try {
+    if (t)
+      if (
+        ((t = function () {
+          throw Error();
+        }),
+        Object.defineProperty(t.prototype, "props", {
+          set: function () {
+            throw Error();
+          },
+        }),
+        typeof Reflect == "object" && Reflect.construct)
+      ) {
+        try {
+          Reflect.construct(t, []);
+        } catch (u) {
+          var r = u;
+        }
+        Reflect.construct(e, [], t);
+      } else {
+        try {
+          t.call();
+        } catch (u) {
+          r = u;
+        }
+        e.call(t.prototype);
+      }
+    else {
+      try {
+        throw Error();
+      } catch (u) {
+        r = u;
+      }
+      e();
+    }
+  } catch (u) {
+    if (u && r && typeof u.stack == "string") {
+      for (
+        var a = u.stack.split(`
+`),
+          s = r.stack.split(`
+`),
+          i = a.length - 1,
+          c = s.length - 1;
+        1 <= i && 0 <= c && a[i] !== s[c];
+      )
+        c--;
+      for (; 1 <= i && 0 <= c; i--, c--)
+        if (a[i] !== s[c]) {
+          if (i !== 1 || c !== 1)
+            do
+              if ((i--, c--, 0 > c || a[i] !== s[c])) {
+                var o =
+                  `
+` + a[i].replace(" at new ", " at ");
+                return (
+                  e.displayName &&
+                    o.includes("<anonymous>") &&
+                    (o = o.replace("<anonymous>", e.displayName)),
+                  o
+                );
+              }
+            while (1 <= i && 0 <= c);
+          break;
+        }
+    }
+  } finally {
+    ((Ga = !1), (Error.prepareStackTrace = n));
+  }
+  return (e = e ? e.displayName || e.name : "") ? Mn(e) : "";
+}
+function of(e) {
+  switch (e.tag) {
+    case 5:
+      return Mn(e.type);
+    case 16:
+      return Mn("Lazy");
+    case 13:
+      return Mn("Suspense");
+    case 19:
+      return Mn("SuspenseList");
+    case 0:
+    case 2:
+    case 15:
+      return ((e = Za(e.type, !1)), e);
+    case 11:
+      return ((e = Za(e.type.render, !1)), e);
+    case 1:
+      return ((e = Za(e.type, !0)), e);
+    default:
+      return "";
+  }
+}
+function Sl(e) {
+  if (e == null) return null;
+  if (typeof e == "function") return e.displayName || e.name || null;
+  if (typeof e == "string") return e;
+  switch (e) {
+    case Qt:
+      return "Fragment";
+    case Ht:
+      return "Portal";
+    case Nl:
+      return "Profiler";
+    case _s:
+      return "StrictMode";
+    case _l:
+      return "Suspense";
+    case Cl:
+      return "SuspenseList";
+  }
+  if (typeof e == "object")
+    switch (e.$$typeof) {
+      case sc:
+        return (e.displayName || "Context") + ".Consumer";
+      case lc:
+        return (e._context.displayName || "Context") + ".Provider";
+      case Cs:
+        var t = e.render;
+        return (
+          (e = e.displayName),
+          e ||
+            ((e = t.displayName || t.name || ""),
+            (e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef")),
+          e
+        );
+      case Ss:
+        return (
+          (t = e.displayName || null),
+          t !== null ? t : Sl(e.type) || "Memo"
+        );
+      case at:
+        ((t = e._payload), (e = e._init));
+        try {
+          return Sl(e(t));
+        } catch {}
+    }
+  return null;
+}
+function cf(e) {
+  var t = e.type;
+  switch (e.tag) {
+    case 24:
+      return "Cache";
+    case 9:
+      return (t.displayName || "Context") + ".Consumer";
+    case 10:
+      return (t._context.displayName || "Context") + ".Provider";
+    case 18:
+      return "DehydratedFragment";
+    case 11:
+      return (
+        (e = t.render),
+        (e = e.displayName || e.name || ""),
+        t.displayName || (e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef")
+      );
+    case 7:
+      return "Fragment";
+    case 5:
+      return t;
+    case 4:
+      return "Portal";
+    case 3:
+      return "Root";
+    case 6:
+      return "Text";
+    case 16:
+      return Sl(t);
+    case 8:
+      return t === _s ? "StrictMode" : "Mode";
+    case 22:
+      return "Offscreen";
+    case 12:
+      return "Profiler";
+    case 21:
+      return "Scope";
+    case 13:
+      return "Suspense";
+    case 19:
+      return "SuspenseList";
+    case 25:
+      return "TracingMarker";
+    case 1:
+    case 0:
+    case 17:
+    case 2:
+    case 14:
+    case 15:
+      if (typeof t == "function") return t.displayName || t.name || null;
+      if (typeof t == "string") return t;
+  }
+  return null;
+}
+function vt(e) {
+  switch (typeof e) {
+    case "boolean":
+    case "number":
+    case "string":
+    case "undefined":
+      return e;
+    case "object":
+      return e;
+    default:
+      return "";
+  }
+}
+function oc(e) {
+  var t = e.type;
+  return (
+    (e = e.nodeName) &&
+    e.toLowerCase() === "input" &&
+    (t === "checkbox" || t === "radio")
+  );
+}
+function uf(e) {
+  var t = oc(e) ? "checked" : "value",
+    n = Object.getOwnPropertyDescriptor(e.constructor.prototype, t),
+    r = "" + e[t];
+  if (
+    !e.hasOwnProperty(t) &&
+    typeof n < "u" &&
+    typeof n.get == "function" &&
+    typeof n.set == "function"
+  ) {
+    var a = n.get,
+      s = n.set;
+    return (
+      Object.defineProperty(e, t, {
+        configurable: !0,
+        get: function () {
+          return a.call(this);
+        },
+        set: function (i) {
+          ((r = "" + i), s.call(this, i));
+        },
+      }),
+      Object.defineProperty(e, t, { enumerable: n.enumerable }),
+      {
+        getValue: function () {
+          return r;
+        },
+        setValue: function (i) {
+          r = "" + i;
+        },
+        stopTracking: function () {
+          ((e._valueTracker = null), delete e[t]);
+        },
+      }
+    );
+  }
+}
+function Cr(e) {
+  e._valueTracker || (e._valueTracker = uf(e));
+}
+function cc(e) {
+  if (!e) return !1;
+  var t = e._valueTracker;
+  if (!t) return !0;
+  var n = t.getValue(),
+    r = "";
+  return (
+    e && (r = oc(e) ? (e.checked ? "true" : "false") : e.value),
+    (e = r),
+    e !== n ? (t.setValue(e), !0) : !1
+  );
+}
+function ta(e) {
+  if (((e = e || (typeof document < "u" ? document : void 0)), typeof e > "u"))
+    return null;
+  try {
+    return e.activeElement || e.body;
+  } catch {
+    return e.body;
+  }
+}
+function El(e, t) {
+  var n = t.checked;
+  return H({}, t, {
+    defaultChecked: void 0,
+    defaultValue: void 0,
+    value: void 0,
+    checked: n ?? e._wrapperState.initialChecked,
+  });
+}
+function _i(e, t) {
+  var n = t.defaultValue == null ? "" : t.defaultValue,
+    r = t.checked != null ? t.checked : t.defaultChecked;
+  ((n = vt(t.value != null ? t.value : n)),
+    (e._wrapperState = {
+      initialChecked: r,
+      initialValue: n,
+      controlled:
+        t.type === "checkbox" || t.type === "radio"
+          ? t.checked != null
+          : t.value != null,
+    }));
+}
+function uc(e, t) {
+  ((t = t.checked), t != null && Ns(e, "checked", t, !1));
+}
+function zl(e, t) {
+  uc(e, t);
+  var n = vt(t.value),
+    r = t.type;
+  if (n != null)
+    r === "number"
+      ? ((n === 0 && e.value === "") || e.value != n) && (e.value = "" + n)
+      : e.value !== "" + n && (e.value = "" + n);
+  else if (r === "submit" || r === "reset") {
+    e.removeAttribute("value");
+    return;
+  }
+  (t.hasOwnProperty("value")
+    ? Pl(e, t.type, n)
+    : t.hasOwnProperty("defaultValue") && Pl(e, t.type, vt(t.defaultValue)),
+    t.checked == null &&
+      t.defaultChecked != null &&
+      (e.defaultChecked = !!t.defaultChecked));
+}
+function Ci(e, t, n) {
+  if (t.hasOwnProperty("value") || t.hasOwnProperty("defaultValue")) {
+    var r = t.type;
+    if (
+      !(
+        (r !== "submit" && r !== "reset") ||
+        (t.value !== void 0 && t.value !== null)
+      )
+    )
+      return;
+    ((t = "" + e._wrapperState.initialValue),
+      n || t === e.value || (e.value = t),
+      (e.defaultValue = t));
+  }
+  ((n = e.name),
+    n !== "" && (e.name = ""),
+    (e.defaultChecked = !!e._wrapperState.initialChecked),
+    n !== "" && (e.name = n));
+}
+function Pl(e, t, n) {
+  (t !== "number" || ta(e.ownerDocument) !== e) &&
+    (n == null
+      ? (e.defaultValue = "" + e._wrapperState.initialValue)
+      : e.defaultValue !== "" + n && (e.defaultValue = "" + n));
+}
+var Tn = Array.isArray;
+function rn(e, t, n, r) {
+  if (((e = e.options), t)) {
+    t = {};
+    for (var a = 0; a < n.length; a++) t["$" + n[a]] = !0;
+    for (n = 0; n < e.length; n++)
+      ((a = t.hasOwnProperty("$" + e[n].value)),
+        e[n].selected !== a && (e[n].selected = a),
+        a && r && (e[n].defaultSelected = !0));
+  } else {
+    for (n = "" + vt(n), t = null, a = 0; a < e.length; a++) {
+      if (e[a].value === n) {
+        ((e[a].selected = !0), r && (e[a].defaultSelected = !0));
+        return;
+      }
+      t !== null || e[a].disabled || (t = e[a]);
+    }
+    t !== null && (t.selected = !0);
+  }
+}
+function Fl(e, t) {
+  if (t.dangerouslySetInnerHTML != null) throw Error(j(91));
+  return H({}, t, {
+    value: void 0,
+    defaultValue: void 0,
+    children: "" + e._wrapperState.initialValue,
+  });
+}
+function Si(e, t) {
+  var n = t.value;
+  if (n == null) {
+    if (((n = t.children), (t = t.defaultValue), n != null)) {
+      if (t != null) throw Error(j(92));
+      if (Tn(n)) {
+        if (1 < n.length) throw Error(j(93));
+        n = n[0];
+      }
+      t = n;
+    }
+    (t == null && (t = ""), (n = t));
+  }
+  e._wrapperState = { initialValue: vt(n) };
+}
+function dc(e, t) {
+  var n = vt(t.value),
+    r = vt(t.defaultValue);
+  (n != null &&
+    ((n = "" + n),
+    n !== e.value && (e.value = n),
+    t.defaultValue == null && e.defaultValue !== n && (e.defaultValue = n)),
+    r != null && (e.defaultValue = "" + r));
+}
+function Ei(e) {
+  var t = e.textContent;
+  t === e._wrapperState.initialValue && t !== "" && t !== null && (e.value = t);
+}
+function fc(e) {
+  switch (e) {
+    case "svg":
+      return "http://www.w3.org/2000/svg";
+    case "math":
+      return "http://www.w3.org/1998/Math/MathML";
+    default:
+      return "http://www.w3.org/1999/xhtml";
+  }
+}
+function Ll(e, t) {
+  return e == null || e === "http://www.w3.org/1999/xhtml"
+    ? fc(t)
+    : e === "http://www.w3.org/2000/svg" && t === "foreignObject"
+      ? "http://www.w3.org/1999/xhtml"
+      : e;
+}
+var Sr,
+  pc = (function (e) {
+    return typeof MSApp < "u" && MSApp.execUnsafeLocalFunction
+      ? function (t, n, r, a) {
+          MSApp.execUnsafeLocalFunction(function () {
+            return e(t, n, r, a);
+          });
+        }
+      : e;
+  })(function (e, t) {
+    if (e.namespaceURI !== "http://www.w3.org/2000/svg" || "innerHTML" in e)
+      e.innerHTML = t;
+    else {
+      for (
+        Sr = Sr || document.createElement("div"),
+          Sr.innerHTML = "<svg>" + t.valueOf().toString() + "</svg>",
+          t = Sr.firstChild;
+        e.firstChild;
+      )
+        e.removeChild(e.firstChild);
+      for (; t.firstChild; ) e.appendChild(t.firstChild);
+    }
+  });
+function qn(e, t) {
+  if (t) {
+    var n = e.firstChild;
+    if (n && n === e.lastChild && n.nodeType === 3) {
+      n.nodeValue = t;
+      return;
+    }
+  }
+  e.textContent = t;
+}
+var On = {
+    animationIterationCount: !0,
+    aspectRatio: !0,
+    borderImageOutset: !0,
+    borderImageSlice: !0,
+    borderImageWidth: !0,
+    boxFlex: !0,
+    boxFlexGroup: !0,
+    boxOrdinalGroup: !0,
+    columnCount: !0,
+    columns: !0,
+    flex: !0,
+    flexGrow: !0,
+    flexPositive: !0,
+    flexShrink: !0,
+    flexNegative: !0,
+    flexOrder: !0,
+    gridArea: !0,
+    gridRow: !0,
+    gridRowEnd: !0,
+    gridRowSpan: !0,
+    gridRowStart: !0,
+    gridColumn: !0,
+    gridColumnEnd: !0,
+    gridColumnSpan: !0,
+    gridColumnStart: !0,
+    fontWeight: !0,
+    lineClamp: !0,
+    lineHeight: !0,
+    opacity: !0,
+    order: !0,
+    orphans: !0,
+    tabSize: !0,
+    widows: !0,
+    zIndex: !0,
+    zoom: !0,
+    fillOpacity: !0,
+    floodOpacity: !0,
+    stopOpacity: !0,
+    strokeDasharray: !0,
+    strokeDashoffset: !0,
+    strokeMiterlimit: !0,
+    strokeOpacity: !0,
+    strokeWidth: !0,
+  },
+  df = ["Webkit", "ms", "Moz", "O"];
+Object.keys(On).forEach(function (e) {
+  df.forEach(function (t) {
+    ((t = t + e.charAt(0).toUpperCase() + e.substring(1)), (On[t] = On[e]));
+  });
+});
+function hc(e, t, n) {
+  return t == null || typeof t == "boolean" || t === ""
+    ? ""
+    : n || typeof t != "number" || t === 0 || (On.hasOwnProperty(e) && On[e])
+      ? ("" + t).trim()
+      : t + "px";
+}
+function mc(e, t) {
+  e = e.style;
+  for (var n in t)
+    if (t.hasOwnProperty(n)) {
+      var r = n.indexOf("--") === 0,
+        a = hc(n, t[n], r);
+      (n === "float" && (n = "cssFloat"), r ? e.setProperty(n, a) : (e[n] = a));
+    }
+}
+var ff = H(
+  { menuitem: !0 },
+  {
+    area: !0,
+    base: !0,
+    br: !0,
+    col: !0,
+    embed: !0,
+    hr: !0,
+    img: !0,
+    input: !0,
+    keygen: !0,
+    link: !0,
+    meta: !0,
+    param: !0,
+    source: !0,
+    track: !0,
+    wbr: !0,
+  },
+);
+function Ml(e, t) {
+  if (t) {
+    if (ff[e] && (t.children != null || t.dangerouslySetInnerHTML != null))
+      throw Error(j(137, e));
+    if (t.dangerouslySetInnerHTML != null) {
+      if (t.children != null) throw Error(j(60));
+      if (
+        typeof t.dangerouslySetInnerHTML != "object" ||
+        !("__html" in t.dangerouslySetInnerHTML)
+      )
+        throw Error(j(61));
+    }
+    if (t.style != null && typeof t.style != "object") throw Error(j(62));
+  }
+}
+function Tl(e, t) {
+  if (e.indexOf("-") === -1) return typeof t.is == "string";
+  switch (e) {
+    case "annotation-xml":
+    case "color-profile":
+    case "font-face":
+    case "font-face-src":
+    case "font-face-uri":
+    case "font-face-format":
+    case "font-face-name":
+    case "missing-glyph":
+      return !1;
+    default:
+      return !0;
+  }
+}
+var Rl = null;
+function Es(e) {
+  return (
+    (e = e.target || e.srcElement || window),
+    e.correspondingUseElement && (e = e.correspondingUseElement),
+    e.nodeType === 3 ? e.parentNode : e
+  );
+}
+var Il = null,
+  an = null,
+  ln = null;
+function zi(e) {
+  if ((e = xr(e))) {
+    if (typeof Il != "function") throw Error(j(280));
+    var t = e.stateNode;
+    t && ((t = Ma(t)), Il(e.stateNode, e.type, t));
+  }
+}
+function xc(e) {
+  an ? (ln ? ln.push(e) : (ln = [e])) : (an = e);
+}
+function gc() {
+  if (an) {
+    var e = an,
+      t = ln;
+    if (((ln = an = null), zi(e), t)) for (e = 0; e < t.length; e++) zi(t[e]);
+  }
+}
+function bc(e, t) {
+  return e(t);
+}
+function yc() {}
+var Ja = !1;
+function vc(e, t, n) {
+  if (Ja) return e(t, n);
+  Ja = !0;
+  try {
+    return bc(e, t, n);
+  } finally {
+    ((Ja = !1), (an !== null || ln !== null) && (yc(), gc()));
+  }
+}
+function Yn(e, t) {
+  var n = e.stateNode;
+  if (n === null) return null;
+  var r = Ma(n);
+  if (r === null) return null;
+  n = r[t];
+  e: switch (t) {
+    case "onClick":
+    case "onClickCapture":
+    case "onDoubleClick":
+    case "onDoubleClickCapture":
+    case "onMouseDown":
+    case "onMouseDownCapture":
+    case "onMouseMove":
+    case "onMouseMoveCapture":
+    case "onMouseUp":
+    case "onMouseUpCapture":
+    case "onMouseEnter":
+      ((r = !r.disabled) ||
+        ((e = e.type),
+        (r = !(
+          e === "button" ||
+          e === "input" ||
+          e === "select" ||
+          e === "textarea"
+        ))),
+        (e = !r));
+      break e;
+    default:
+      e = !1;
+  }
+  if (e) return null;
+  if (n && typeof n != "function") throw Error(j(231, t, typeof n));
+  return n;
+}
+var Ol = !1;
+if (Ze)
+  try {
+    var Cn = {};
+    (Object.defineProperty(Cn, "passive", {
+      get: function () {
+        Ol = !0;
+      },
+    }),
+      window.addEventListener("test", Cn, Cn),
+      window.removeEventListener("test", Cn, Cn));
+  } catch {
+    Ol = !1;
+  }
+function pf(e, t, n, r, a, s, i, c, o) {
+  var u = Array.prototype.slice.call(arguments, 3);
+  try {
+    t.apply(n, u);
+  } catch (x) {
+    this.onError(x);
+  }
+}
+var An = !1,
+  na = null,
+  ra = !1,
+  Al = null,
+  hf = {
+    onError: function (e) {
+      ((An = !0), (na = e));
+    },
+  };
+function mf(e, t, n, r, a, s, i, c, o) {
+  ((An = !1), (na = null), pf.apply(hf, arguments));
+}
+function xf(e, t, n, r, a, s, i, c, o) {
+  if ((mf.apply(this, arguments), An)) {
+    if (An) {
+      var u = na;
+      ((An = !1), (na = null));
+    } else throw Error(j(198));
+    ra || ((ra = !0), (Al = u));
+  }
+}
+function Vt(e) {
+  var t = e,
+    n = e;
+  if (e.alternate) for (; t.return; ) t = t.return;
+  else {
+    e = t;
+    do ((t = e), t.flags & 4098 && (n = t.return), (e = t.return));
+    while (e);
+  }
+  return t.tag === 3 ? n : null;
+}
+function wc(e) {
+  if (e.tag === 13) {
+    var t = e.memoizedState;
+    if (
+      (t === null && ((e = e.alternate), e !== null && (t = e.memoizedState)),
+      t !== null)
+    )
+      return t.dehydrated;
+  }
+  return null;
+}
+function Pi(e) {
+  if (Vt(e) !== e) throw Error(j(188));
+}
+function gf(e) {
+  var t = e.alternate;
+  if (!t) {
+    if (((t = Vt(e)), t === null)) throw Error(j(188));
+    return t !== e ? null : e;
+  }
+  for (var n = e, r = t; ; ) {
+    var a = n.return;
+    if (a === null) break;
+    var s = a.alternate;
+    if (s === null) {
+      if (((r = a.return), r !== null)) {
+        n = r;
+        continue;
+      }
+      break;
+    }
+    if (a.child === s.child) {
+      for (s = a.child; s; ) {
+        if (s === n) return (Pi(a), e);
+        if (s === r) return (Pi(a), t);
+        s = s.sibling;
+      }
+      throw Error(j(188));
+    }
+    if (n.return !== r.return) ((n = a), (r = s));
+    else {
+      for (var i = !1, c = a.child; c; ) {
+        if (c === n) {
+          ((i = !0), (n = a), (r = s));
+          break;
+        }
+        if (c === r) {
+          ((i = !0), (r = a), (n = s));
+          break;
+        }
+        c = c.sibling;
+      }
+      if (!i) {
+        for (c = s.child; c; ) {
+          if (c === n) {
+            ((i = !0), (n = s), (r = a));
+            break;
+          }
+          if (c === r) {
+            ((i = !0), (r = s), (n = a));
+            break;
+          }
+          c = c.sibling;
+        }
+        if (!i) throw Error(j(189));
+      }
+    }
+    if (n.alternate !== r) throw Error(j(190));
+  }
+  if (n.tag !== 3) throw Error(j(188));
+  return n.stateNode.current === n ? e : t;
+}
+function kc(e) {
+  return ((e = gf(e)), e !== null ? jc(e) : null);
+}
+function jc(e) {
+  if (e.tag === 5 || e.tag === 6) return e;
+  for (e = e.child; e !== null; ) {
+    var t = jc(e);
+    if (t !== null) return t;
+    e = e.sibling;
+  }
+  return null;
+}
+var Nc = ke.unstable_scheduleCallback,
+  Fi = ke.unstable_cancelCallback,
+  bf = ke.unstable_shouldYield,
+  yf = ke.unstable_requestPaint,
+  Y = ke.unstable_now,
+  vf = ke.unstable_getCurrentPriorityLevel,
+  zs = ke.unstable_ImmediatePriority,
+  _c = ke.unstable_UserBlockingPriority,
+  aa = ke.unstable_NormalPriority,
+  wf = ke.unstable_LowPriority,
+  Cc = ke.unstable_IdlePriority,
+  za = null,
+  We = null;
+function kf(e) {
+  if (We && typeof We.onCommitFiberRoot == "function")
+    try {
+      We.onCommitFiberRoot(za, e, void 0, (e.current.flags & 128) === 128);
+    } catch {}
+}
+var Oe = Math.clz32 ? Math.clz32 : _f,
+  jf = Math.log,
+  Nf = Math.LN2;
+function _f(e) {
+  return ((e >>>= 0), e === 0 ? 32 : (31 - ((jf(e) / Nf) | 0)) | 0);
+}
+var Er = 64,
+  zr = 4194304;
+function Rn(e) {
+  switch (e & -e) {
+    case 1:
+      return 1;
+    case 2:
+      return 2;
+    case 4:
+      return 4;
+    case 8:
+      return 8;
+    case 16:
+      return 16;
+    case 32:
+      return 32;
+    case 64:
+    case 128:
+    case 256:
+    case 512:
+    case 1024:
+    case 2048:
+    case 4096:
+    case 8192:
+    case 16384:
+    case 32768:
+    case 65536:
+    case 131072:
+    case 262144:
+    case 524288:
+    case 1048576:
+    case 2097152:
+      return e & 4194240;
+    case 4194304:
+    case 8388608:
+    case 16777216:
+    case 33554432:
+    case 67108864:
+      return e & 130023424;
+    case 134217728:
+      return 134217728;
+    case 268435456:
+      return 268435456;
+    case 536870912:
+      return 536870912;
+    case 1073741824:
+      return 1073741824;
+    default:
+      return e;
+  }
+}
+function la(e, t) {
+  var n = e.pendingLanes;
+  if (n === 0) return 0;
+  var r = 0,
+    a = e.suspendedLanes,
+    s = e.pingedLanes,
+    i = n & 268435455;
+  if (i !== 0) {
+    var c = i & ~a;
+    c !== 0 ? (r = Rn(c)) : ((s &= i), s !== 0 && (r = Rn(s)));
+  } else ((i = n & ~a), i !== 0 ? (r = Rn(i)) : s !== 0 && (r = Rn(s)));
+  if (r === 0) return 0;
+  if (
+    t !== 0 &&
+    t !== r &&
+    !(t & a) &&
+    ((a = r & -r), (s = t & -t), a >= s || (a === 16 && (s & 4194240) !== 0))
+  )
+    return t;
+  if ((r & 4 && (r |= n & 16), (t = e.entangledLanes), t !== 0))
+    for (e = e.entanglements, t &= r; 0 < t; )
+      ((n = 31 - Oe(t)), (a = 1 << n), (r |= e[n]), (t &= ~a));
+  return r;
+}
+function Cf(e, t) {
+  switch (e) {
+    case 1:
+    case 2:
+    case 4:
+      return t + 250;
+    case 8:
+    case 16:
+    case 32:
+    case 64:
+    case 128:
+    case 256:
+    case 512:
+    case 1024:
+    case 2048:
+    case 4096:
+    case 8192:
+    case 16384:
+    case 32768:
+    case 65536:
+    case 131072:
+    case 262144:
+    case 524288:
+    case 1048576:
+    case 2097152:
+      return t + 5e3;
+    case 4194304:
+    case 8388608:
+    case 16777216:
+    case 33554432:
+    case 67108864:
+      return -1;
+    case 134217728:
+    case 268435456:
+    case 536870912:
+    case 1073741824:
+      return -1;
+    default:
+      return -1;
+  }
+}
+function Sf(e, t) {
+  for (
+    var n = e.suspendedLanes,
+      r = e.pingedLanes,
+      a = e.expirationTimes,
+      s = e.pendingLanes;
+    0 < s;
+  ) {
+    var i = 31 - Oe(s),
+      c = 1 << i,
+      o = a[i];
+    (o === -1
+      ? (!(c & n) || c & r) && (a[i] = Cf(c, t))
+      : o <= t && (e.expiredLanes |= c),
+      (s &= ~c));
+  }
+}
+function Dl(e) {
+  return (
+    (e = e.pendingLanes & -1073741825),
+    e !== 0 ? e : e & 1073741824 ? 1073741824 : 0
+  );
+}
+function Sc() {
+  var e = Er;
+  return ((Er <<= 1), !(Er & 4194240) && (Er = 64), e);
+}
+function el(e) {
+  for (var t = [], n = 0; 31 > n; n++) t.push(e);
+  return t;
+}
+function hr(e, t, n) {
+  ((e.pendingLanes |= t),
+    t !== 536870912 && ((e.suspendedLanes = 0), (e.pingedLanes = 0)),
+    (e = e.eventTimes),
+    (t = 31 - Oe(t)),
+    (e[t] = n));
+}
+function Ef(e, t) {
+  var n = e.pendingLanes & ~t;
+  ((e.pendingLanes = t),
+    (e.suspendedLanes = 0),
+    (e.pingedLanes = 0),
+    (e.expiredLanes &= t),
+    (e.mutableReadLanes &= t),
+    (e.entangledLanes &= t),
+    (t = e.entanglements));
+  var r = e.eventTimes;
+  for (e = e.expirationTimes; 0 < n; ) {
+    var a = 31 - Oe(n),
+      s = 1 << a;
+    ((t[a] = 0), (r[a] = -1), (e[a] = -1), (n &= ~s));
+  }
+}
+function Ps(e, t) {
+  var n = (e.entangledLanes |= t);
+  for (e = e.entanglements; n; ) {
+    var r = 31 - Oe(n),
+      a = 1 << r;
+    ((a & t) | (e[r] & t) && (e[r] |= t), (n &= ~a));
+  }
+}
+var O = 0;
+function Ec(e) {
+  return (
+    (e &= -e),
+    1 < e ? (4 < e ? (e & 268435455 ? 16 : 536870912) : 4) : 1
+  );
+}
+var zc,
+  Fs,
+  Pc,
+  Fc,
+  Lc,
+  Ul = !1,
+  Pr = [],
+  ft = null,
+  pt = null,
+  ht = null,
+  Kn = new Map(),
+  Xn = new Map(),
+  st = [],
+  zf =
+    "mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset submit".split(
+      " ",
+    );
+function Li(e, t) {
+  switch (e) {
+    case "focusin":
+    case "focusout":
+      ft = null;
+      break;
+    case "dragenter":
+    case "dragleave":
+      pt = null;
+      break;
+    case "mouseover":
+    case "mouseout":
+      ht = null;
+      break;
+    case "pointerover":
+    case "pointerout":
+      Kn.delete(t.pointerId);
+      break;
+    case "gotpointercapture":
+    case "lostpointercapture":
+      Xn.delete(t.pointerId);
+  }
+}
+function Sn(e, t, n, r, a, s) {
+  return e === null || e.nativeEvent !== s
+    ? ((e = {
+        blockedOn: t,
+        domEventName: n,
+        eventSystemFlags: r,
+        nativeEvent: s,
+        targetContainers: [a],
+      }),
+      t !== null && ((t = xr(t)), t !== null && Fs(t)),
+      e)
+    : ((e.eventSystemFlags |= r),
+      (t = e.targetContainers),
+      a !== null && t.indexOf(a) === -1 && t.push(a),
+      e);
+}
+function Pf(e, t, n, r, a) {
+  switch (t) {
+    case "focusin":
+      return ((ft = Sn(ft, e, t, n, r, a)), !0);
+    case "dragenter":
+      return ((pt = Sn(pt, e, t, n, r, a)), !0);
+    case "mouseover":
+      return ((ht = Sn(ht, e, t, n, r, a)), !0);
+    case "pointerover":
+      var s = a.pointerId;
+      return (Kn.set(s, Sn(Kn.get(s) || null, e, t, n, r, a)), !0);
+    case "gotpointercapture":
+      return (
+        (s = a.pointerId),
+        Xn.set(s, Sn(Xn.get(s) || null, e, t, n, r, a)),
+        !0
+      );
+  }
+  return !1;
+}
+function Mc(e) {
+  var t = Ft(e.target);
+  if (t !== null) {
+    var n = Vt(t);
+    if (n !== null) {
+      if (((t = n.tag), t === 13)) {
+        if (((t = wc(n)), t !== null)) {
+          ((e.blockedOn = t),
+            Lc(e.priority, function () {
+              Pc(n);
+            }));
+          return;
+        }
+      } else if (t === 3 && n.stateNode.current.memoizedState.isDehydrated) {
+        e.blockedOn = n.tag === 3 ? n.stateNode.containerInfo : null;
+        return;
+      }
+    }
+  }
+  e.blockedOn = null;
+}
+function Hr(e) {
+  if (e.blockedOn !== null) return !1;
+  for (var t = e.targetContainers; 0 < t.length; ) {
+    var n = $l(e.domEventName, e.eventSystemFlags, t[0], e.nativeEvent);
+    if (n === null) {
+      n = e.nativeEvent;
+      var r = new n.constructor(n.type, n);
+      ((Rl = r), n.target.dispatchEvent(r), (Rl = null));
+    } else return ((t = xr(n)), t !== null && Fs(t), (e.blockedOn = n), !1);
+    t.shift();
+  }
+  return !0;
+}
+function Mi(e, t, n) {
+  Hr(e) && n.delete(t);
+}
+function Ff() {
+  ((Ul = !1),
+    ft !== null && Hr(ft) && (ft = null),
+    pt !== null && Hr(pt) && (pt = null),
+    ht !== null && Hr(ht) && (ht = null),
+    Kn.forEach(Mi),
+    Xn.forEach(Mi));
+}
+function En(e, t) {
+  e.blockedOn === t &&
+    ((e.blockedOn = null),
+    Ul ||
+      ((Ul = !0),
+      ke.unstable_scheduleCallback(ke.unstable_NormalPriority, Ff)));
+}
+function Gn(e) {
+  function t(a) {
+    return En(a, e);
+  }
+  if (0 < Pr.length) {
+    En(Pr[0], e);
+    for (var n = 1; n < Pr.length; n++) {
+      var r = Pr[n];
+      r.blockedOn === e && (r.blockedOn = null);
+    }
+  }
+  for (
+    ft !== null && En(ft, e),
+      pt !== null && En(pt, e),
+      ht !== null && En(ht, e),
+      Kn.forEach(t),
+      Xn.forEach(t),
+      n = 0;
+    n < st.length;
+    n++
+  )
+    ((r = st[n]), r.blockedOn === e && (r.blockedOn = null));
+  for (; 0 < st.length && ((n = st[0]), n.blockedOn === null); )
+    (Mc(n), n.blockedOn === null && st.shift());
+}
+var sn = nt.ReactCurrentBatchConfig,
+  sa = !0;
+function Lf(e, t, n, r) {
+  var a = O,
+    s = sn.transition;
+  sn.transition = null;
+  try {
+    ((O = 1), Ls(e, t, n, r));
+  } finally {
+    ((O = a), (sn.transition = s));
+  }
+}
+function Mf(e, t, n, r) {
+  var a = O,
+    s = sn.transition;
+  sn.transition = null;
+  try {
+    ((O = 4), Ls(e, t, n, r));
+  } finally {
+    ((O = a), (sn.transition = s));
+  }
+}
+function Ls(e, t, n, r) {
+  if (sa) {
+    var a = $l(e, t, n, r);
+    if (a === null) (ul(e, t, r, ia, n), Li(e, r));
+    else if (Pf(a, e, t, n, r)) r.stopPropagation();
+    else if ((Li(e, r), t & 4 && -1 < zf.indexOf(e))) {
+      for (; a !== null; ) {
+        var s = xr(a);
+        if (
+          (s !== null && zc(s),
+          (s = $l(e, t, n, r)),
+          s === null && ul(e, t, r, ia, n),
+          s === a)
+        )
+          break;
+        a = s;
+      }
+      a !== null && r.stopPropagation();
+    } else ul(e, t, r, null, n);
+  }
+}
+var ia = null;
+function $l(e, t, n, r) {
+  if (((ia = null), (e = Es(r)), (e = Ft(e)), e !== null))
+    if (((t = Vt(e)), t === null)) e = null;
+    else if (((n = t.tag), n === 13)) {
+      if (((e = wc(t)), e !== null)) return e;
+      e = null;
+    } else if (n === 3) {
+      if (t.stateNode.current.memoizedState.isDehydrated)
+        return t.tag === 3 ? t.stateNode.containerInfo : null;
+      e = null;
+    } else t !== e && (e = null);
+  return ((ia = e), null);
+}
+function Tc(e) {
+  switch (e) {
+    case "cancel":
+    case "click":
+    case "close":
+    case "contextmenu":
+    case "copy":
+    case "cut":
+    case "auxclick":
+    case "dblclick":
+    case "dragend":
+    case "dragstart":
+    case "drop":
+    case "focusin":
+    case "focusout":
+    case "input":
+    case "invalid":
+    case "keydown":
+    case "keypress":
+    case "keyup":
+    case "mousedown":
+    case "mouseup":
+    case "paste":
+    case "pause":
+    case "play":
+    case "pointercancel":
+    case "pointerdown":
+    case "pointerup":
+    case "ratechange":
+    case "reset":
+    case "resize":
+    case "seeked":
+    case "submit":
+    case "touchcancel":
+    case "touchend":
+    case "touchstart":
+    case "volumechange":
+    case "change":
+    case "selectionchange":
+    case "textInput":
+    case "compositionstart":
+    case "compositionend":
+    case "compositionupdate":
+    case "beforeblur":
+    case "afterblur":
+    case "beforeinput":
+    case "blur":
+    case "fullscreenchange":
+    case "focus":
+    case "hashchange":
+    case "popstate":
+    case "select":
+    case "selectstart":
+      return 1;
+    case "drag":
+    case "dragenter":
+    case "dragexit":
+    case "dragleave":
+    case "dragover":
+    case "mousemove":
+    case "mouseout":
+    case "mouseover":
+    case "pointermove":
+    case "pointerout":
+    case "pointerover":
+    case "scroll":
+    case "toggle":
+    case "touchmove":
+    case "wheel":
+    case "mouseenter":
+    case "mouseleave":
+    case "pointerenter":
+    case "pointerleave":
+      return 4;
+    case "message":
+      switch (vf()) {
+        case zs:
+          return 1;
+        case _c:
+          return 4;
+        case aa:
+        case wf:
+          return 16;
+        case Cc:
+          return 536870912;
+        default:
+          return 16;
+      }
+    default:
+      return 16;
+  }
+}
+var ot = null,
+  Ms = null,
+  Qr = null;
+function Rc() {
+  if (Qr) return Qr;
+  var e,
+    t = Ms,
+    n = t.length,
+    r,
+    a = "value" in ot ? ot.value : ot.textContent,
+    s = a.length;
+  for (e = 0; e < n && t[e] === a[e]; e++);
+  var i = n - e;
+  for (r = 1; r <= i && t[n - r] === a[s - r]; r++);
+  return (Qr = a.slice(e, 1 < r ? 1 - r : void 0));
+}
+function qr(e) {
+  var t = e.keyCode;
+  return (
+    "charCode" in e
+      ? ((e = e.charCode), e === 0 && t === 13 && (e = 13))
+      : (e = t),
+    e === 10 && (e = 13),
+    32 <= e || e === 13 ? e : 0
+  );
+}
+function Fr() {
+  return !0;
+}
+function Ti() {
+  return !1;
+}
+function Ne(e) {
+  function t(n, r, a, s, i) {
+    ((this._reactName = n),
+      (this._targetInst = a),
+      (this.type = r),
+      (this.nativeEvent = s),
+      (this.target = i),
+      (this.currentTarget = null));
+    for (var c in e)
+      e.hasOwnProperty(c) && ((n = e[c]), (this[c] = n ? n(s) : s[c]));
+    return (
+      (this.isDefaultPrevented = (
+        s.defaultPrevented != null ? s.defaultPrevented : s.returnValue === !1
+      )
+        ? Fr
+        : Ti),
+      (this.isPropagationStopped = Ti),
+      this
+    );
+  }
+  return (
+    H(t.prototype, {
+      preventDefault: function () {
+        this.defaultPrevented = !0;
+        var n = this.nativeEvent;
+        n &&
+          (n.preventDefault
+            ? n.preventDefault()
+            : typeof n.returnValue != "unknown" && (n.returnValue = !1),
+          (this.isDefaultPrevented = Fr));
+      },
+      stopPropagation: function () {
+        var n = this.nativeEvent;
+        n &&
+          (n.stopPropagation
+            ? n.stopPropagation()
+            : typeof n.cancelBubble != "unknown" && (n.cancelBubble = !0),
+          (this.isPropagationStopped = Fr));
+      },
+      persist: function () {},
+      isPersistent: Fr,
+    }),
+    t
+  );
+}
+var yn = {
+    eventPhase: 0,
+    bubbles: 0,
+    cancelable: 0,
+    timeStamp: function (e) {
+      return e.timeStamp || Date.now();
+    },
+    defaultPrevented: 0,
+    isTrusted: 0,
+  },
+  Ts = Ne(yn),
+  mr = H({}, yn, { view: 0, detail: 0 }),
+  Tf = Ne(mr),
+  tl,
+  nl,
+  zn,
+  Pa = H({}, mr, {
+    screenX: 0,
+    screenY: 0,
+    clientX: 0,
+    clientY: 0,
+    pageX: 0,
+    pageY: 0,
+    ctrlKey: 0,
+    shiftKey: 0,
+    altKey: 0,
+    metaKey: 0,
+    getModifierState: Rs,
+    button: 0,
+    buttons: 0,
+    relatedTarget: function (e) {
+      return e.relatedTarget === void 0
+        ? e.fromElement === e.srcElement
+          ? e.toElement
+          : e.fromElement
+        : e.relatedTarget;
+    },
+    movementX: function (e) {
+      return "movementX" in e
+        ? e.movementX
+        : (e !== zn &&
+            (zn && e.type === "mousemove"
+              ? ((tl = e.screenX - zn.screenX), (nl = e.screenY - zn.screenY))
+              : (nl = tl = 0),
+            (zn = e)),
+          tl);
+    },
+    movementY: function (e) {
+      return "movementY" in e ? e.movementY : nl;
+    },
+  }),
+  Ri = Ne(Pa),
+  Rf = H({}, Pa, { dataTransfer: 0 }),
+  If = Ne(Rf),
+  Of = H({}, mr, { relatedTarget: 0 }),
+  rl = Ne(Of),
+  Af = H({}, yn, { animationName: 0, elapsedTime: 0, pseudoElement: 0 }),
+  Df = Ne(Af),
+  Uf = H({}, yn, {
+    clipboardData: function (e) {
+      return "clipboardData" in e ? e.clipboardData : window.clipboardData;
+    },
+  }),
+  $f = Ne(Uf),
+  Bf = H({}, yn, { data: 0 }),
+  Ii = Ne(Bf),
+  Vf = {
+    Esc: "Escape",
+    Spacebar: " ",
+    Left: "ArrowLeft",
+    Up: "ArrowUp",
+    Right: "ArrowRight",
+    Down: "ArrowDown",
+    Del: "Delete",
+    Win: "OS",
+    Menu: "ContextMenu",
+    Apps: "ContextMenu",
+    Scroll: "ScrollLock",
+    MozPrintableKey: "Unidentified",
+  },
+  Wf = {
+    8: "Backspace",
+    9: "Tab",
+    12: "Clear",
+    13: "Enter",
+    16: "Shift",
+    17: "Control",
+    18: "Alt",
+    19: "Pause",
+    20: "CapsLock",
+    27: "Escape",
+    32: " ",
+    33: "PageUp",
+    34: "PageDown",
+    35: "End",
+    36: "Home",
+    37: "ArrowLeft",
+    38: "ArrowUp",
+    39: "ArrowRight",
+    40: "ArrowDown",
+    45: "Insert",
+    46: "Delete",
+    112: "F1",
+    113: "F2",
+    114: "F3",
+    115: "F4",
+    116: "F5",
+    117: "F6",
+    118: "F7",
+    119: "F8",
+    120: "F9",
+    121: "F10",
+    122: "F11",
+    123: "F12",
+    144: "NumLock",
+    145: "ScrollLock",
+    224: "Meta",
+  },
+  Hf = {
+    Alt: "altKey",
+    Control: "ctrlKey",
+    Meta: "metaKey",
+    Shift: "shiftKey",
+  };
+function Qf(e) {
+  var t = this.nativeEvent;
+  return t.getModifierState ? t.getModifierState(e) : (e = Hf[e]) ? !!t[e] : !1;
+}
+function Rs() {
+  return Qf;
+}
+var qf = H({}, mr, {
+    key: function (e) {
+      if (e.key) {
+        var t = Vf[e.key] || e.key;
+        if (t !== "Unidentified") return t;
+      }
+      return e.type === "keypress"
+        ? ((e = qr(e)), e === 13 ? "Enter" : String.fromCharCode(e))
+        : e.type === "keydown" || e.type === "keyup"
+          ? Wf[e.keyCode] || "Unidentified"
+          : "";
+    },
+    code: 0,
+    location: 0,
+    ctrlKey: 0,
+    shiftKey: 0,
+    altKey: 0,
+    metaKey: 0,
+    repeat: 0,
+    locale: 0,
+    getModifierState: Rs,
+    charCode: function (e) {
+      return e.type === "keypress" ? qr(e) : 0;
+    },
+    keyCode: function (e) {
+      return e.type === "keydown" || e.type === "keyup" ? e.keyCode : 0;
+    },
+    which: function (e) {
+      return e.type === "keypress"
+        ? qr(e)
+        : e.type === "keydown" || e.type === "keyup"
+          ? e.keyCode
+          : 0;
+    },
+  }),
+  Yf = Ne(qf),
+  Kf = H({}, Pa, {
+    pointerId: 0,
+    width: 0,
+    height: 0,
+    pressure: 0,
+    tangentialPressure: 0,
+    tiltX: 0,
+    tiltY: 0,
+    twist: 0,
+    pointerType: 0,
+    isPrimary: 0,
+  }),
+  Oi = Ne(Kf),
+  Xf = H({}, mr, {
+    touches: 0,
+    targetTouches: 0,
+    changedTouches: 0,
+    altKey: 0,
+    metaKey: 0,
+    ctrlKey: 0,
+    shiftKey: 0,
+    getModifierState: Rs,
+  }),
+  Gf = Ne(Xf),
+  Zf = H({}, yn, { propertyName: 0, elapsedTime: 0, pseudoElement: 0 }),
+  Jf = Ne(Zf),
+  ep = H({}, Pa, {
+    deltaX: function (e) {
+      return "deltaX" in e ? e.deltaX : "wheelDeltaX" in e ? -e.wheelDeltaX : 0;
+    },
+    deltaY: function (e) {
+      return "deltaY" in e
+        ? e.deltaY
+        : "wheelDeltaY" in e
+          ? -e.wheelDeltaY
+          : "wheelDelta" in e
+            ? -e.wheelDelta
+            : 0;
+    },
+    deltaZ: 0,
+    deltaMode: 0,
+  }),
+  tp = Ne(ep),
+  np = [9, 13, 27, 32],
+  Is = Ze && "CompositionEvent" in window,
+  Dn = null;
+Ze && "documentMode" in document && (Dn = document.documentMode);
+var rp = Ze && "TextEvent" in window && !Dn,
+  Ic = Ze && (!Is || (Dn && 8 < Dn && 11 >= Dn)),
+  Ai = " ",
+  Di = !1;
+function Oc(e, t) {
+  switch (e) {
+    case "keyup":
+      return np.indexOf(t.keyCode) !== -1;
+    case "keydown":
+      return t.keyCode !== 229;
+    case "keypress":
+    case "mousedown":
+    case "focusout":
+      return !0;
+    default:
+      return !1;
+  }
+}
+function Ac(e) {
+  return ((e = e.detail), typeof e == "object" && "data" in e ? e.data : null);
+}
+var qt = !1;
+function ap(e, t) {
+  switch (e) {
+    case "compositionend":
+      return Ac(t);
+    case "keypress":
+      return t.which !== 32 ? null : ((Di = !0), Ai);
+    case "textInput":
+      return ((e = t.data), e === Ai && Di ? null : e);
+    default:
+      return null;
+  }
+}
+function lp(e, t) {
+  if (qt)
+    return e === "compositionend" || (!Is && Oc(e, t))
+      ? ((e = Rc()), (Qr = Ms = ot = null), (qt = !1), e)
+      : null;
+  switch (e) {
+    case "paste":
+      return null;
+    case "keypress":
+      if (!(t.ctrlKey || t.altKey || t.metaKey) || (t.ctrlKey && t.altKey)) {
+        if (t.char && 1 < t.char.length) return t.char;
+        if (t.which) return String.fromCharCode(t.which);
+      }
+      return null;
+    case "compositionend":
+      return Ic && t.locale !== "ko" ? null : t.data;
+    default:
+      return null;
+  }
+}
+var sp = {
+  color: !0,
+  date: !0,
+  datetime: !0,
+  "datetime-local": !0,
+  email: !0,
+  month: !0,
+  number: !0,
+  password: !0,
+  range: !0,
+  search: !0,
+  tel: !0,
+  text: !0,
+  time: !0,
+  url: !0,
+  week: !0,
+};
+function Ui(e) {
+  var t = e && e.nodeName && e.nodeName.toLowerCase();
+  return t === "input" ? !!sp[e.type] : t === "textarea";
+}
+function Dc(e, t, n, r) {
+  (xc(r),
+    (t = oa(t, "onChange")),
+    0 < t.length &&
+      ((n = new Ts("onChange", "change", null, n, r)),
+      e.push({ event: n, listeners: t })));
+}
+var Un = null,
+  Zn = null;
+function ip(e) {
+  Xc(e, 0);
+}
+function Fa(e) {
+  var t = Xt(e);
+  if (cc(t)) return e;
+}
+function op(e, t) {
+  if (e === "change") return t;
+}
+var Uc = !1;
+if (Ze) {
+  var al;
+  if (Ze) {
+    var ll = "oninput" in document;
+    if (!ll) {
+      var $i = document.createElement("div");
+      ($i.setAttribute("oninput", "return;"),
+        (ll = typeof $i.oninput == "function"));
+    }
+    al = ll;
+  } else al = !1;
+  Uc = al && (!document.documentMode || 9 < document.documentMode);
+}
+function Bi() {
+  Un && (Un.detachEvent("onpropertychange", $c), (Zn = Un = null));
+}
+function $c(e) {
+  if (e.propertyName === "value" && Fa(Zn)) {
+    var t = [];
+    (Dc(t, Zn, e, Es(e)), vc(ip, t));
+  }
+}
+function cp(e, t, n) {
+  e === "focusin"
+    ? (Bi(), (Un = t), (Zn = n), Un.attachEvent("onpropertychange", $c))
+    : e === "focusout" && Bi();
+}
+function up(e) {
+  if (e === "selectionchange" || e === "keyup" || e === "keydown")
+    return Fa(Zn);
+}
+function dp(e, t) {
+  if (e === "click") return Fa(t);
+}
+function fp(e, t) {
+  if (e === "input" || e === "change") return Fa(t);
+}
+function pp(e, t) {
+  return (e === t && (e !== 0 || 1 / e === 1 / t)) || (e !== e && t !== t);
+}
+var De = typeof Object.is == "function" ? Object.is : pp;
+function Jn(e, t) {
+  if (De(e, t)) return !0;
+  if (typeof e != "object" || e === null || typeof t != "object" || t === null)
+    return !1;
+  var n = Object.keys(e),
+    r = Object.keys(t);
+  if (n.length !== r.length) return !1;
+  for (r = 0; r < n.length; r++) {
+    var a = n[r];
+    if (!jl.call(t, a) || !De(e[a], t[a])) return !1;
+  }
+  return !0;
+}
+function Vi(e) {
+  for (; e && e.firstChild; ) e = e.firstChild;
+  return e;
+}
+function Wi(e, t) {
+  var n = Vi(e);
+  e = 0;
+  for (var r; n; ) {
+    if (n.nodeType === 3) {
+      if (((r = e + n.textContent.length), e <= t && r >= t))
+        return { node: n, offset: t - e };
+      e = r;
+    }
+    e: {
+      for (; n; ) {
+        if (n.nextSibling) {
+          n = n.nextSibling;
+          break e;
+        }
+        n = n.parentNode;
+      }
+      n = void 0;
+    }
+    n = Vi(n);
+  }
+}
+function Bc(e, t) {
+  return e && t
+    ? e === t
+      ? !0
+      : e && e.nodeType === 3
+        ? !1
+        : t && t.nodeType === 3
+          ? Bc(e, t.parentNode)
+          : "contains" in e
+            ? e.contains(t)
+            : e.compareDocumentPosition
+              ? !!(e.compareDocumentPosition(t) & 16)
+              : !1
+    : !1;
+}
+function Vc() {
+  for (var e = window, t = ta(); t instanceof e.HTMLIFrameElement; ) {
+    try {
+      var n = typeof t.contentWindow.location.href == "string";
+    } catch {
+      n = !1;
+    }
+    if (n) e = t.contentWindow;
+    else break;
+    t = ta(e.document);
+  }
+  return t;
+}
+function Os(e) {
+  var t = e && e.nodeName && e.nodeName.toLowerCase();
+  return (
+    t &&
+    ((t === "input" &&
+      (e.type === "text" ||
+        e.type === "search" ||
+        e.type === "tel" ||
+        e.type === "url" ||
+        e.type === "password")) ||
+      t === "textarea" ||
+      e.contentEditable === "true")
+  );
+}
+function hp(e) {
+  var t = Vc(),
+    n = e.focusedElem,
+    r = e.selectionRange;
+  if (
+    t !== n &&
+    n &&
+    n.ownerDocument &&
+    Bc(n.ownerDocument.documentElement, n)
+  ) {
+    if (r !== null && Os(n)) {
+      if (
+        ((t = r.start),
+        (e = r.end),
+        e === void 0 && (e = t),
+        "selectionStart" in n)
+      )
+        ((n.selectionStart = t),
+          (n.selectionEnd = Math.min(e, n.value.length)));
+      else if (
+        ((e = ((t = n.ownerDocument || document) && t.defaultView) || window),
+        e.getSelection)
+      ) {
+        e = e.getSelection();
+        var a = n.textContent.length,
+          s = Math.min(r.start, a);
+        ((r = r.end === void 0 ? s : Math.min(r.end, a)),
+          !e.extend && s > r && ((a = r), (r = s), (s = a)),
+          (a = Wi(n, s)));
+        var i = Wi(n, r);
+        a &&
+          i &&
+          (e.rangeCount !== 1 ||
+            e.anchorNode !== a.node ||
+            e.anchorOffset !== a.offset ||
+            e.focusNode !== i.node ||
+            e.focusOffset !== i.offset) &&
+          ((t = t.createRange()),
+          t.setStart(a.node, a.offset),
+          e.removeAllRanges(),
+          s > r
+            ? (e.addRange(t), e.extend(i.node, i.offset))
+            : (t.setEnd(i.node, i.offset), e.addRange(t)));
+      }
+    }
+    for (t = [], e = n; (e = e.parentNode); )
+      e.nodeType === 1 &&
+        t.push({ element: e, left: e.scrollLeft, top: e.scrollTop });
+    for (typeof n.focus == "function" && n.focus(), n = 0; n < t.length; n++)
+      ((e = t[n]),
+        (e.element.scrollLeft = e.left),
+        (e.element.scrollTop = e.top));
+  }
+}
+var mp = Ze && "documentMode" in document && 11 >= document.documentMode,
+  Yt = null,
+  Bl = null,
+  $n = null,
+  Vl = !1;
+function Hi(e, t, n) {
+  var r = n.window === n ? n.document : n.nodeType === 9 ? n : n.ownerDocument;
+  Vl ||
+    Yt == null ||
+    Yt !== ta(r) ||
+    ((r = Yt),
+    "selectionStart" in r && Os(r)
+      ? (r = { start: r.selectionStart, end: r.selectionEnd })
+      : ((r = (
+          (r.ownerDocument && r.ownerDocument.defaultView) ||
+          window
+        ).getSelection()),
+        (r = {
+          anchorNode: r.anchorNode,
+          anchorOffset: r.anchorOffset,
+          focusNode: r.focusNode,
+          focusOffset: r.focusOffset,
+        })),
+    ($n && Jn($n, r)) ||
+      (($n = r),
+      (r = oa(Bl, "onSelect")),
+      0 < r.length &&
+        ((t = new Ts("onSelect", "select", null, t, n)),
+        e.push({ event: t, listeners: r }),
+        (t.target = Yt))));
+}
+function Lr(e, t) {
+  var n = {};
+  return (
+    (n[e.toLowerCase()] = t.toLowerCase()),
+    (n["Webkit" + e] = "webkit" + t),
+    (n["Moz" + e] = "moz" + t),
+    n
+  );
+}
+var Kt = {
+    animationend: Lr("Animation", "AnimationEnd"),
+    animationiteration: Lr("Animation", "AnimationIteration"),
+    animationstart: Lr("Animation", "AnimationStart"),
+    transitionend: Lr("Transition", "TransitionEnd"),
+  },
+  sl = {},
+  Wc = {};
+Ze &&
+  ((Wc = document.createElement("div").style),
+  "AnimationEvent" in window ||
+    (delete Kt.animationend.animation,
+    delete Kt.animationiteration.animation,
+    delete Kt.animationstart.animation),
+  "TransitionEvent" in window || delete Kt.transitionend.transition);
+function La(e) {
+  if (sl[e]) return sl[e];
+  if (!Kt[e]) return e;
+  var t = Kt[e],
+    n;
+  for (n in t) if (t.hasOwnProperty(n) && n in Wc) return (sl[e] = t[n]);
+  return e;
+}
+var Hc = La("animationend"),
+  Qc = La("animationiteration"),
+  qc = La("animationstart"),
+  Yc = La("transitionend"),
+  Kc = new Map(),
+  Qi =
+    "abort auxClick cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel".split(
+      " ",
+    );
+function kt(e, t) {
+  (Kc.set(e, t), Bt(t, [e]));
+}
+for (var il = 0; il < Qi.length; il++) {
+  var ol = Qi[il],
+    xp = ol.toLowerCase(),
+    gp = ol[0].toUpperCase() + ol.slice(1);
+  kt(xp, "on" + gp);
+}
+kt(Hc, "onAnimationEnd");
+kt(Qc, "onAnimationIteration");
+kt(qc, "onAnimationStart");
+kt("dblclick", "onDoubleClick");
+kt("focusin", "onFocus");
+kt("focusout", "onBlur");
+kt(Yc, "onTransitionEnd");
+dn("onMouseEnter", ["mouseout", "mouseover"]);
+dn("onMouseLeave", ["mouseout", "mouseover"]);
+dn("onPointerEnter", ["pointerout", "pointerover"]);
+dn("onPointerLeave", ["pointerout", "pointerover"]);
+Bt(
+  "onChange",
+  "change click focusin focusout input keydown keyup selectionchange".split(
+    " ",
+  ),
+);
+Bt(
+  "onSelect",
+  "focusout contextmenu dragend focusin keydown keyup mousedown mouseup selectionchange".split(
+    " ",
+  ),
+);
+Bt("onBeforeInput", ["compositionend", "keypress", "textInput", "paste"]);
+Bt(
+  "onCompositionEnd",
+  "compositionend focusout keydown keypress keyup mousedown".split(" "),
+);
+Bt(
+  "onCompositionStart",
+  "compositionstart focusout keydown keypress keyup mousedown".split(" "),
+);
+Bt(
+  "onCompositionUpdate",
+  "compositionupdate focusout keydown keypress keyup mousedown".split(" "),
+);
+var In =
+    "abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting".split(
+      " ",
+    ),
+  bp = new Set("cancel close invalid load scroll toggle".split(" ").concat(In));
+function qi(e, t, n) {
+  var r = e.type || "unknown-event";
+  ((e.currentTarget = n), xf(r, t, void 0, e), (e.currentTarget = null));
+}
+function Xc(e, t) {
+  t = (t & 4) !== 0;
+  for (var n = 0; n < e.length; n++) {
+    var r = e[n],
+      a = r.event;
+    r = r.listeners;
+    e: {
+      var s = void 0;
+      if (t)
+        for (var i = r.length - 1; 0 <= i; i--) {
+          var c = r[i],
+            o = c.instance,
+            u = c.currentTarget;
+          if (((c = c.listener), o !== s && a.isPropagationStopped())) break e;
+          (qi(a, c, u), (s = o));
+        }
+      else
+        for (i = 0; i < r.length; i++) {
+          if (
+            ((c = r[i]),
+            (o = c.instance),
+            (u = c.currentTarget),
+            (c = c.listener),
+            o !== s && a.isPropagationStopped())
+          )
+            break e;
+          (qi(a, c, u), (s = o));
+        }
+    }
+  }
+  if (ra) throw ((e = Al), (ra = !1), (Al = null), e);
+}
+function D(e, t) {
+  var n = t[Yl];
+  n === void 0 && (n = t[Yl] = new Set());
+  var r = e + "__bubble";
+  n.has(r) || (Gc(t, e, 2, !1), n.add(r));
+}
+function cl(e, t, n) {
+  var r = 0;
+  (t && (r |= 4), Gc(n, e, r, t));
+}
+var Mr = "_reactListening" + Math.random().toString(36).slice(2);
+function er(e) {
+  if (!e[Mr]) {
+    ((e[Mr] = !0),
+      ac.forEach(function (n) {
+        n !== "selectionchange" && (bp.has(n) || cl(n, !1, e), cl(n, !0, e));
+      }));
+    var t = e.nodeType === 9 ? e : e.ownerDocument;
+    t === null || t[Mr] || ((t[Mr] = !0), cl("selectionchange", !1, t));
+  }
+}
+function Gc(e, t, n, r) {
+  switch (Tc(t)) {
+    case 1:
+      var a = Lf;
+      break;
+    case 4:
+      a = Mf;
+      break;
+    default:
+      a = Ls;
+  }
+  ((n = a.bind(null, t, n, e)),
+    (a = void 0),
+    !Ol ||
+      (t !== "touchstart" && t !== "touchmove" && t !== "wheel") ||
+      (a = !0),
+    r
+      ? a !== void 0
+        ? e.addEventListener(t, n, { capture: !0, passive: a })
+        : e.addEventListener(t, n, !0)
+      : a !== void 0
+        ? e.addEventListener(t, n, { passive: a })
+        : e.addEventListener(t, n, !1));
+}
+function ul(e, t, n, r, a) {
+  var s = r;
+  if (!(t & 1) && !(t & 2) && r !== null)
+    e: for (;;) {
+      if (r === null) return;
+      var i = r.tag;
+      if (i === 3 || i === 4) {
+        var c = r.stateNode.containerInfo;
+        if (c === a || (c.nodeType === 8 && c.parentNode === a)) break;
+        if (i === 4)
+          for (i = r.return; i !== null; ) {
+            var o = i.tag;
+            if (
+              (o === 3 || o === 4) &&
+              ((o = i.stateNode.containerInfo),
+              o === a || (o.nodeType === 8 && o.parentNode === a))
+            )
+              return;
+            i = i.return;
+          }
+        for (; c !== null; ) {
+          if (((i = Ft(c)), i === null)) return;
+          if (((o = i.tag), o === 5 || o === 6)) {
+            r = s = i;
+            continue e;
+          }
+          c = c.parentNode;
+        }
+      }
+      r = r.return;
+    }
+  vc(function () {
+    var u = s,
+      x = Es(n),
+      f = [];
+    e: {
+      var p = Kc.get(e);
+      if (p !== void 0) {
+        var y = Ts,
+          v = e;
+        switch (e) {
+          case "keypress":
+            if (qr(n) === 0) break e;
+          case "keydown":
+          case "keyup":
+            y = Yf;
+            break;
+          case "focusin":
+            ((v = "focus"), (y = rl));
+            break;
+          case "focusout":
+            ((v = "blur"), (y = rl));
+            break;
+          case "beforeblur":
+          case "afterblur":
+            y = rl;
+            break;
+          case "click":
+            if (n.button === 2) break e;
+          case "auxclick":
+          case "dblclick":
+          case "mousedown":
+          case "mousemove":
+          case "mouseup":
+          case "mouseout":
+          case "mouseover":
+          case "contextmenu":
+            y = Ri;
+            break;
+          case "drag":
+          case "dragend":
+          case "dragenter":
+          case "dragexit":
+          case "dragleave":
+          case "dragover":
+          case "dragstart":
+          case "drop":
+            y = If;
+            break;
+          case "touchcancel":
+          case "touchend":
+          case "touchmove":
+          case "touchstart":
+            y = Gf;
+            break;
+          case Hc:
+          case Qc:
+          case qc:
+            y = Df;
+            break;
+          case Yc:
+            y = Jf;
+            break;
+          case "scroll":
+            y = Tf;
+            break;
+          case "wheel":
+            y = tp;
+            break;
+          case "copy":
+          case "cut":
+          case "paste":
+            y = $f;
+            break;
+          case "gotpointercapture":
+          case "lostpointercapture":
+          case "pointercancel":
+          case "pointerdown":
+          case "pointermove":
+          case "pointerout":
+          case "pointerover":
+          case "pointerup":
+            y = Oi;
+        }
+        var g = (t & 4) !== 0,
+          _ = !g && e === "scroll",
+          h = g ? (p !== null ? p + "Capture" : null) : p;
+        g = [];
+        for (var d = u, m; d !== null; ) {
+          m = d;
+          var w = m.stateNode;
+          if (
+            (m.tag === 5 &&
+              w !== null &&
+              ((m = w),
+              h !== null && ((w = Yn(d, h)), w != null && g.push(tr(d, w, m)))),
+            _)
+          )
+            break;
+          d = d.return;
+        }
+        0 < g.length &&
+          ((p = new y(p, v, null, n, x)), f.push({ event: p, listeners: g }));
+      }
+    }
+    if (!(t & 7)) {
+      e: {
+        if (
+          ((p = e === "mouseover" || e === "pointerover"),
+          (y = e === "mouseout" || e === "pointerout"),
+          p &&
+            n !== Rl &&
+            (v = n.relatedTarget || n.fromElement) &&
+            (Ft(v) || v[Je]))
+        )
+          break e;
+        if (
+          (y || p) &&
+          ((p =
+            x.window === x
+              ? x
+              : (p = x.ownerDocument)
+                ? p.defaultView || p.parentWindow
+                : window),
+          y
+            ? ((v = n.relatedTarget || n.toElement),
+              (y = u),
+              (v = v ? Ft(v) : null),
+              v !== null &&
+                ((_ = Vt(v)), v !== _ || (v.tag !== 5 && v.tag !== 6)) &&
+                (v = null))
+            : ((y = null), (v = u)),
+          y !== v)
+        ) {
+          if (
+            ((g = Ri),
+            (w = "onMouseLeave"),
+            (h = "onMouseEnter"),
+            (d = "mouse"),
+            (e === "pointerout" || e === "pointerover") &&
+              ((g = Oi),
+              (w = "onPointerLeave"),
+              (h = "onPointerEnter"),
+              (d = "pointer")),
+            (_ = y == null ? p : Xt(y)),
+            (m = v == null ? p : Xt(v)),
+            (p = new g(w, d + "leave", y, n, x)),
+            (p.target = _),
+            (p.relatedTarget = m),
+            (w = null),
+            Ft(x) === u &&
+              ((g = new g(h, d + "enter", v, n, x)),
+              (g.target = m),
+              (g.relatedTarget = _),
+              (w = g)),
+            (_ = w),
+            y && v)
+          )
+            t: {
+              for (g = y, h = v, d = 0, m = g; m; m = Wt(m)) d++;
+              for (m = 0, w = h; w; w = Wt(w)) m++;
+              for (; 0 < d - m; ) ((g = Wt(g)), d--);
+              for (; 0 < m - d; ) ((h = Wt(h)), m--);
+              for (; d--; ) {
+                if (g === h || (h !== null && g === h.alternate)) break t;
+                ((g = Wt(g)), (h = Wt(h)));
+              }
+              g = null;
+            }
+          else g = null;
+          (y !== null && Yi(f, p, y, g, !1),
+            v !== null && _ !== null && Yi(f, _, v, g, !0));
+        }
+      }
+      e: {
+        if (
+          ((p = u ? Xt(u) : window),
+          (y = p.nodeName && p.nodeName.toLowerCase()),
+          y === "select" || (y === "input" && p.type === "file"))
+        )
+          var C = op;
+        else if (Ui(p))
+          if (Uc) C = fp;
+          else {
+            C = up;
+            var N = cp;
+          }
+        else
+          (y = p.nodeName) &&
+            y.toLowerCase() === "input" &&
+            (p.type === "checkbox" || p.type === "radio") &&
+            (C = dp);
+        if (C && (C = C(e, u))) {
+          Dc(f, C, n, x);
+          break e;
+        }
+        (N && N(e, p, u),
+          e === "focusout" &&
+            (N = p._wrapperState) &&
+            N.controlled &&
+            p.type === "number" &&
+            Pl(p, "number", p.value));
+      }
+      switch (((N = u ? Xt(u) : window), e)) {
+        case "focusin":
+          (Ui(N) || N.contentEditable === "true") &&
+            ((Yt = N), (Bl = u), ($n = null));
+          break;
+        case "focusout":
+          $n = Bl = Yt = null;
+          break;
+        case "mousedown":
+          Vl = !0;
+          break;
+        case "contextmenu":
+        case "mouseup":
+        case "dragend":
+          ((Vl = !1), Hi(f, n, x));
+          break;
+        case "selectionchange":
+          if (mp) break;
+        case "keydown":
+        case "keyup":
+          Hi(f, n, x);
+      }
+      var z;
+      if (Is)
+        e: {
+          switch (e) {
+            case "compositionstart":
+              var F = "onCompositionStart";
+              break e;
+            case "compositionend":
+              F = "onCompositionEnd";
+              break e;
+            case "compositionupdate":
+              F = "onCompositionUpdate";
+              break e;
+          }
+          F = void 0;
+        }
+      else
+        qt
+          ? Oc(e, n) && (F = "onCompositionEnd")
+          : e === "keydown" && n.keyCode === 229 && (F = "onCompositionStart");
+      (F &&
+        (Ic &&
+          n.locale !== "ko" &&
+          (qt || F !== "onCompositionStart"
+            ? F === "onCompositionEnd" && qt && (z = Rc())
+            : ((ot = x),
+              (Ms = "value" in ot ? ot.value : ot.textContent),
+              (qt = !0))),
+        (N = oa(u, F)),
+        0 < N.length &&
+          ((F = new Ii(F, e, null, n, x)),
+          f.push({ event: F, listeners: N }),
+          z ? (F.data = z) : ((z = Ac(n)), z !== null && (F.data = z)))),
+        (z = rp ? ap(e, n) : lp(e, n)) &&
+          ((u = oa(u, "onBeforeInput")),
+          0 < u.length &&
+            ((x = new Ii("onBeforeInput", "beforeinput", null, n, x)),
+            f.push({ event: x, listeners: u }),
+            (x.data = z))));
+    }
+    Xc(f, t);
+  });
+}
+function tr(e, t, n) {
+  return { instance: e, listener: t, currentTarget: n };
+}
+function oa(e, t) {
+  for (var n = t + "Capture", r = []; e !== null; ) {
+    var a = e,
+      s = a.stateNode;
+    (a.tag === 5 &&
+      s !== null &&
+      ((a = s),
+      (s = Yn(e, n)),
+      s != null && r.unshift(tr(e, s, a)),
+      (s = Yn(e, t)),
+      s != null && r.push(tr(e, s, a))),
+      (e = e.return));
+  }
+  return r;
+}
+function Wt(e) {
+  if (e === null) return null;
+  do e = e.return;
+  while (e && e.tag !== 5);
+  return e || null;
+}
+function Yi(e, t, n, r, a) {
+  for (var s = t._reactName, i = []; n !== null && n !== r; ) {
+    var c = n,
+      o = c.alternate,
+      u = c.stateNode;
+    if (o !== null && o === r) break;
+    (c.tag === 5 &&
+      u !== null &&
+      ((c = u),
+      a
+        ? ((o = Yn(n, s)), o != null && i.unshift(tr(n, o, c)))
+        : a || ((o = Yn(n, s)), o != null && i.push(tr(n, o, c)))),
+      (n = n.return));
+  }
+  i.length !== 0 && e.push({ event: t, listeners: i });
+}
+var yp = /\r\n?/g,
+  vp = /\u0000|\uFFFD/g;
+function Ki(e) {
+  return (typeof e == "string" ? e : "" + e)
+    .replace(
+      yp,
+      `
+`,
+    )
+    .replace(vp, "");
+}
+function Tr(e, t, n) {
+  if (((t = Ki(t)), Ki(e) !== t && n)) throw Error(j(425));
+}
+function ca() {}
+var Wl = null,
+  Hl = null;
+function Ql(e, t) {
+  return (
+    e === "textarea" ||
+    e === "noscript" ||
+    typeof t.children == "string" ||
+    typeof t.children == "number" ||
+    (typeof t.dangerouslySetInnerHTML == "object" &&
+      t.dangerouslySetInnerHTML !== null &&
+      t.dangerouslySetInnerHTML.__html != null)
+  );
+}
+var ql = typeof setTimeout == "function" ? setTimeout : void 0,
+  wp = typeof clearTimeout == "function" ? clearTimeout : void 0,
+  Xi = typeof Promise == "function" ? Promise : void 0,
+  kp =
+    typeof queueMicrotask == "function"
+      ? queueMicrotask
+      : typeof Xi < "u"
+        ? function (e) {
+            return Xi.resolve(null).then(e).catch(jp);
+          }
+        : ql;
+function jp(e) {
+  setTimeout(function () {
+    throw e;
+  });
+}
+function dl(e, t) {
+  var n = t,
+    r = 0;
+  do {
+    var a = n.nextSibling;
+    if ((e.removeChild(n), a && a.nodeType === 8))
+      if (((n = a.data), n === "/$")) {
+        if (r === 0) {
+          (e.removeChild(a), Gn(t));
+          return;
+        }
+        r--;
+      } else (n !== "$" && n !== "$?" && n !== "$!") || r++;
+    n = a;
+  } while (n);
+  Gn(t);
+}
+function mt(e) {
+  for (; e != null; e = e.nextSibling) {
+    var t = e.nodeType;
+    if (t === 1 || t === 3) break;
+    if (t === 8) {
+      if (((t = e.data), t === "$" || t === "$!" || t === "$?")) break;
+      if (t === "/$") return null;
+    }
+  }
+  return e;
+}
+function Gi(e) {
+  e = e.previousSibling;
+  for (var t = 0; e; ) {
+    if (e.nodeType === 8) {
+      var n = e.data;
+      if (n === "$" || n === "$!" || n === "$?") {
+        if (t === 0) return e;
+        t--;
+      } else n === "/$" && t++;
+    }
+    e = e.previousSibling;
+  }
+  return null;
+}
+var vn = Math.random().toString(36).slice(2),
+  Ve = "__reactFiber$" + vn,
+  nr = "__reactProps$" + vn,
+  Je = "__reactContainer$" + vn,
+  Yl = "__reactEvents$" + vn,
+  Np = "__reactListeners$" + vn,
+  _p = "__reactHandles$" + vn;
+function Ft(e) {
+  var t = e[Ve];
+  if (t) return t;
+  for (var n = e.parentNode; n; ) {
+    if ((t = n[Je] || n[Ve])) {
+      if (
+        ((n = t.alternate),
+        t.child !== null || (n !== null && n.child !== null))
+      )
+        for (e = Gi(e); e !== null; ) {
+          if ((n = e[Ve])) return n;
+          e = Gi(e);
+        }
+      return t;
+    }
+    ((e = n), (n = e.parentNode));
+  }
+  return null;
+}
+function xr(e) {
+  return (
+    (e = e[Ve] || e[Je]),
+    !e || (e.tag !== 5 && e.tag !== 6 && e.tag !== 13 && e.tag !== 3) ? null : e
+  );
+}
+function Xt(e) {
+  if (e.tag === 5 || e.tag === 6) return e.stateNode;
+  throw Error(j(33));
+}
+function Ma(e) {
+  return e[nr] || null;
+}
+var Kl = [],
+  Gt = -1;
+function jt(e) {
+  return { current: e };
+}
+function U(e) {
+  0 > Gt || ((e.current = Kl[Gt]), (Kl[Gt] = null), Gt--);
+}
+function A(e, t) {
+  (Gt++, (Kl[Gt] = e.current), (e.current = t));
+}
+var wt = {},
+  oe = jt(wt),
+  me = jt(!1),
+  Ot = wt;
+function fn(e, t) {
+  var n = e.type.contextTypes;
+  if (!n) return wt;
+  var r = e.stateNode;
+  if (r && r.__reactInternalMemoizedUnmaskedChildContext === t)
+    return r.__reactInternalMemoizedMaskedChildContext;
+  var a = {},
+    s;
+  for (s in n) a[s] = t[s];
+  return (
+    r &&
+      ((e = e.stateNode),
+      (e.__reactInternalMemoizedUnmaskedChildContext = t),
+      (e.__reactInternalMemoizedMaskedChildContext = a)),
+    a
+  );
+}
+function xe(e) {
+  return ((e = e.childContextTypes), e != null);
+}
+function ua() {
+  (U(me), U(oe));
+}
+function Zi(e, t, n) {
+  if (oe.current !== wt) throw Error(j(168));
+  (A(oe, t), A(me, n));
+}
+function Zc(e, t, n) {
+  var r = e.stateNode;
+  if (((t = t.childContextTypes), typeof r.getChildContext != "function"))
+    return n;
+  r = r.getChildContext();
+  for (var a in r) if (!(a in t)) throw Error(j(108, cf(e) || "Unknown", a));
+  return H({}, n, r);
+}
+function da(e) {
+  return (
+    (e =
+      ((e = e.stateNode) && e.__reactInternalMemoizedMergedChildContext) || wt),
+    (Ot = oe.current),
+    A(oe, e),
+    A(me, me.current),
+    !0
+  );
+}
+function Ji(e, t, n) {
+  var r = e.stateNode;
+  if (!r) throw Error(j(169));
+  (n
+    ? ((e = Zc(e, t, Ot)),
+      (r.__reactInternalMemoizedMergedChildContext = e),
+      U(me),
+      U(oe),
+      A(oe, e))
+    : U(me),
+    A(me, n));
+}
+var Ye = null,
+  Ta = !1,
+  fl = !1;
+function Jc(e) {
+  Ye === null ? (Ye = [e]) : Ye.push(e);
+}
+function Cp(e) {
+  ((Ta = !0), Jc(e));
+}
+function Nt() {
+  if (!fl && Ye !== null) {
+    fl = !0;
+    var e = 0,
+      t = O;
+    try {
+      var n = Ye;
+      for (O = 1; e < n.length; e++) {
+        var r = n[e];
+        do r = r(!0);
+        while (r !== null);
+      }
+      ((Ye = null), (Ta = !1));
+    } catch (a) {
+      throw (Ye !== null && (Ye = Ye.slice(e + 1)), Nc(zs, Nt), a);
+    } finally {
+      ((O = t), (fl = !1));
+    }
+  }
+  return null;
+}
+var Zt = [],
+  Jt = 0,
+  fa = null,
+  pa = 0,
+  _e = [],
+  Ce = 0,
+  At = null,
+  Ke = 1,
+  Xe = "";
+function zt(e, t) {
+  ((Zt[Jt++] = pa), (Zt[Jt++] = fa), (fa = e), (pa = t));
+}
+function eu(e, t, n) {
+  ((_e[Ce++] = Ke), (_e[Ce++] = Xe), (_e[Ce++] = At), (At = e));
+  var r = Ke;
+  e = Xe;
+  var a = 32 - Oe(r) - 1;
+  ((r &= ~(1 << a)), (n += 1));
+  var s = 32 - Oe(t) + a;
+  if (30 < s) {
+    var i = a - (a % 5);
+    ((s = (r & ((1 << i) - 1)).toString(32)),
+      (r >>= i),
+      (a -= i),
+      (Ke = (1 << (32 - Oe(t) + a)) | (n << a) | r),
+      (Xe = s + e));
+  } else ((Ke = (1 << s) | (n << a) | r), (Xe = e));
+}
+function As(e) {
+  e.return !== null && (zt(e, 1), eu(e, 1, 0));
+}
+function Ds(e) {
+  for (; e === fa; )
+    ((fa = Zt[--Jt]), (Zt[Jt] = null), (pa = Zt[--Jt]), (Zt[Jt] = null));
+  for (; e === At; )
+    ((At = _e[--Ce]),
+      (_e[Ce] = null),
+      (Xe = _e[--Ce]),
+      (_e[Ce] = null),
+      (Ke = _e[--Ce]),
+      (_e[Ce] = null));
+}
+var we = null,
+  ve = null,
+  $ = !1,
+  Ie = null;
+function tu(e, t) {
+  var n = Se(5, null, null, 0);
+  ((n.elementType = "DELETED"),
+    (n.stateNode = t),
+    (n.return = e),
+    (t = e.deletions),
+    t === null ? ((e.deletions = [n]), (e.flags |= 16)) : t.push(n));
+}
+function eo(e, t) {
+  switch (e.tag) {
+    case 5:
+      var n = e.type;
+      return (
+        (t =
+          t.nodeType !== 1 || n.toLowerCase() !== t.nodeName.toLowerCase()
+            ? null
+            : t),
+        t !== null
+          ? ((e.stateNode = t), (we = e), (ve = mt(t.firstChild)), !0)
+          : !1
+      );
+    case 6:
+      return (
+        (t = e.pendingProps === "" || t.nodeType !== 3 ? null : t),
+        t !== null ? ((e.stateNode = t), (we = e), (ve = null), !0) : !1
+      );
+    case 13:
+      return (
+        (t = t.nodeType !== 8 ? null : t),
+        t !== null
+          ? ((n = At !== null ? { id: Ke, overflow: Xe } : null),
+            (e.memoizedState = {
+              dehydrated: t,
+              treeContext: n,
+              retryLane: 1073741824,
+            }),
+            (n = Se(18, null, null, 0)),
+            (n.stateNode = t),
+            (n.return = e),
+            (e.child = n),
+            (we = e),
+            (ve = null),
+            !0)
+          : !1
+      );
+    default:
+      return !1;
+  }
+}
+function Xl(e) {
+  return (e.mode & 1) !== 0 && (e.flags & 128) === 0;
+}
+function Gl(e) {
+  if ($) {
+    var t = ve;
+    if (t) {
+      var n = t;
+      if (!eo(e, t)) {
+        if (Xl(e)) throw Error(j(418));
+        t = mt(n.nextSibling);
+        var r = we;
+        t && eo(e, t)
+          ? tu(r, n)
+          : ((e.flags = (e.flags & -4097) | 2), ($ = !1), (we = e));
+      }
+    } else {
+      if (Xl(e)) throw Error(j(418));
+      ((e.flags = (e.flags & -4097) | 2), ($ = !1), (we = e));
+    }
+  }
+}
+function to(e) {
+  for (e = e.return; e !== null && e.tag !== 5 && e.tag !== 3 && e.tag !== 13; )
+    e = e.return;
+  we = e;
+}
+function Rr(e) {
+  if (e !== we) return !1;
+  if (!$) return (to(e), ($ = !0), !1);
+  var t;
+  if (
+    ((t = e.tag !== 3) &&
+      !(t = e.tag !== 5) &&
+      ((t = e.type),
+      (t = t !== "head" && t !== "body" && !Ql(e.type, e.memoizedProps))),
+    t && (t = ve))
+  ) {
+    if (Xl(e)) throw (nu(), Error(j(418)));
+    for (; t; ) (tu(e, t), (t = mt(t.nextSibling)));
+  }
+  if ((to(e), e.tag === 13)) {
+    if (((e = e.memoizedState), (e = e !== null ? e.dehydrated : null), !e))
+      throw Error(j(317));
+    e: {
+      for (e = e.nextSibling, t = 0; e; ) {
+        if (e.nodeType === 8) {
+          var n = e.data;
+          if (n === "/$") {
+            if (t === 0) {
+              ve = mt(e.nextSibling);
+              break e;
+            }
+            t--;
+          } else (n !== "$" && n !== "$!" && n !== "$?") || t++;
+        }
+        e = e.nextSibling;
+      }
+      ve = null;
+    }
+  } else ve = we ? mt(e.stateNode.nextSibling) : null;
+  return !0;
+}
+function nu() {
+  for (var e = ve; e; ) e = mt(e.nextSibling);
+}
+function pn() {
+  ((ve = we = null), ($ = !1));
+}
+function Us(e) {
+  Ie === null ? (Ie = [e]) : Ie.push(e);
+}
+var Sp = nt.ReactCurrentBatchConfig;
+function Pn(e, t, n) {
+  if (
+    ((e = n.ref), e !== null && typeof e != "function" && typeof e != "object")
+  ) {
+    if (n._owner) {
+      if (((n = n._owner), n)) {
+        if (n.tag !== 1) throw Error(j(309));
+        var r = n.stateNode;
+      }
+      if (!r) throw Error(j(147, e));
+      var a = r,
+        s = "" + e;
+      return t !== null &&
+        t.ref !== null &&
+        typeof t.ref == "function" &&
+        t.ref._stringRef === s
+        ? t.ref
+        : ((t = function (i) {
+            var c = a.refs;
+            i === null ? delete c[s] : (c[s] = i);
+          }),
+          (t._stringRef = s),
+          t);
+    }
+    if (typeof e != "string") throw Error(j(284));
+    if (!n._owner) throw Error(j(290, e));
+  }
+  return e;
+}
+function Ir(e, t) {
+  throw (
+    (e = Object.prototype.toString.call(t)),
+    Error(
+      j(
+        31,
+        e === "[object Object]"
+          ? "object with keys {" + Object.keys(t).join(", ") + "}"
+          : e,
+      ),
+    )
+  );
+}
+function no(e) {
+  var t = e._init;
+  return t(e._payload);
+}
+function ru(e) {
+  function t(h, d) {
+    if (e) {
+      var m = h.deletions;
+      m === null ? ((h.deletions = [d]), (h.flags |= 16)) : m.push(d);
+    }
+  }
+  function n(h, d) {
+    if (!e) return null;
+    for (; d !== null; ) (t(h, d), (d = d.sibling));
+    return null;
+  }
+  function r(h, d) {
+    for (h = new Map(); d !== null; )
+      (d.key !== null ? h.set(d.key, d) : h.set(d.index, d), (d = d.sibling));
+    return h;
+  }
+  function a(h, d) {
+    return ((h = yt(h, d)), (h.index = 0), (h.sibling = null), h);
+  }
+  function s(h, d, m) {
+    return (
+      (h.index = m),
+      e
+        ? ((m = h.alternate),
+          m !== null
+            ? ((m = m.index), m < d ? ((h.flags |= 2), d) : m)
+            : ((h.flags |= 2), d))
+        : ((h.flags |= 1048576), d)
+    );
+  }
+  function i(h) {
+    return (e && h.alternate === null && (h.flags |= 2), h);
+  }
+  function c(h, d, m, w) {
+    return d === null || d.tag !== 6
+      ? ((d = yl(m, h.mode, w)), (d.return = h), d)
+      : ((d = a(d, m)), (d.return = h), d);
+  }
+  function o(h, d, m, w) {
+    var C = m.type;
+    return C === Qt
+      ? x(h, d, m.props.children, w, m.key)
+      : d !== null &&
+          (d.elementType === C ||
+            (typeof C == "object" &&
+              C !== null &&
+              C.$$typeof === at &&
+              no(C) === d.type))
+        ? ((w = a(d, m.props)), (w.ref = Pn(h, d, m)), (w.return = h), w)
+        : ((w = ea(m.type, m.key, m.props, null, h.mode, w)),
+          (w.ref = Pn(h, d, m)),
+          (w.return = h),
+          w);
+  }
+  function u(h, d, m, w) {
+    return d === null ||
+      d.tag !== 4 ||
+      d.stateNode.containerInfo !== m.containerInfo ||
+      d.stateNode.implementation !== m.implementation
+      ? ((d = vl(m, h.mode, w)), (d.return = h), d)
+      : ((d = a(d, m.children || [])), (d.return = h), d);
+  }
+  function x(h, d, m, w, C) {
+    return d === null || d.tag !== 7
+      ? ((d = Rt(m, h.mode, w, C)), (d.return = h), d)
+      : ((d = a(d, m)), (d.return = h), d);
+  }
+  function f(h, d, m) {
+    if ((typeof d == "string" && d !== "") || typeof d == "number")
+      return ((d = yl("" + d, h.mode, m)), (d.return = h), d);
+    if (typeof d == "object" && d !== null) {
+      switch (d.$$typeof) {
+        case _r:
+          return (
+            (m = ea(d.type, d.key, d.props, null, h.mode, m)),
+            (m.ref = Pn(h, null, d)),
+            (m.return = h),
+            m
+          );
+        case Ht:
+          return ((d = vl(d, h.mode, m)), (d.return = h), d);
+        case at:
+          var w = d._init;
+          return f(h, w(d._payload), m);
+      }
+      if (Tn(d) || _n(d))
+        return ((d = Rt(d, h.mode, m, null)), (d.return = h), d);
+      Ir(h, d);
+    }
+    return null;
+  }
+  function p(h, d, m, w) {
+    var C = d !== null ? d.key : null;
+    if ((typeof m == "string" && m !== "") || typeof m == "number")
+      return C !== null ? null : c(h, d, "" + m, w);
+    if (typeof m == "object" && m !== null) {
+      switch (m.$$typeof) {
+        case _r:
+          return m.key === C ? o(h, d, m, w) : null;
+        case Ht:
+          return m.key === C ? u(h, d, m, w) : null;
+        case at:
+          return ((C = m._init), p(h, d, C(m._payload), w));
+      }
+      if (Tn(m) || _n(m)) return C !== null ? null : x(h, d, m, w, null);
+      Ir(h, m);
+    }
+    return null;
+  }
+  function y(h, d, m, w, C) {
+    if ((typeof w == "string" && w !== "") || typeof w == "number")
+      return ((h = h.get(m) || null), c(d, h, "" + w, C));
+    if (typeof w == "object" && w !== null) {
+      switch (w.$$typeof) {
+        case _r:
+          return (
+            (h = h.get(w.key === null ? m : w.key) || null),
+            o(d, h, w, C)
+          );
+        case Ht:
+          return (
+            (h = h.get(w.key === null ? m : w.key) || null),
+            u(d, h, w, C)
+          );
+        case at:
+          var N = w._init;
+          return y(h, d, m, N(w._payload), C);
+      }
+      if (Tn(w) || _n(w)) return ((h = h.get(m) || null), x(d, h, w, C, null));
+      Ir(d, w);
+    }
+    return null;
+  }
+  function v(h, d, m, w) {
+    for (
+      var C = null, N = null, z = d, F = (d = 0), B = null;
+      z !== null && F < m.length;
+      F++
+    ) {
+      z.index > F ? ((B = z), (z = null)) : (B = z.sibling);
+      var b = p(h, z, m[F], w);
+      if (b === null) {
+        z === null && (z = B);
+        break;
+      }
+      (e && z && b.alternate === null && t(h, z),
+        (d = s(b, d, F)),
+        N === null ? (C = b) : (N.sibling = b),
+        (N = b),
+        (z = B));
+    }
+    if (F === m.length) return (n(h, z), $ && zt(h, F), C);
+    if (z === null) {
+      for (; F < m.length; F++)
+        ((z = f(h, m[F], w)),
+          z !== null &&
+            ((d = s(z, d, F)),
+            N === null ? (C = z) : (N.sibling = z),
+            (N = z)));
+      return ($ && zt(h, F), C);
+    }
+    for (z = r(h, z); F < m.length; F++)
+      ((B = y(z, h, F, m[F], w)),
+        B !== null &&
+          (e && B.alternate !== null && z.delete(B.key === null ? F : B.key),
+          (d = s(B, d, F)),
+          N === null ? (C = B) : (N.sibling = B),
+          (N = B)));
+    return (
+      e &&
+        z.forEach(function (P) {
+          return t(h, P);
+        }),
+      $ && zt(h, F),
+      C
+    );
+  }
+  function g(h, d, m, w) {
+    var C = _n(m);
+    if (typeof C != "function") throw Error(j(150));
+    if (((m = C.call(m)), m == null)) throw Error(j(151));
+    for (
+      var N = (C = null), z = d, F = (d = 0), B = null, b = m.next();
+      z !== null && !b.done;
+      F++, b = m.next()
+    ) {
+      z.index > F ? ((B = z), (z = null)) : (B = z.sibling);
+      var P = p(h, z, b.value, w);
+      if (P === null) {
+        z === null && (z = B);
+        break;
+      }
+      (e && z && P.alternate === null && t(h, z),
+        (d = s(P, d, F)),
+        N === null ? (C = P) : (N.sibling = P),
+        (N = P),
+        (z = B));
+    }
+    if (b.done) return (n(h, z), $ && zt(h, F), C);
+    if (z === null) {
+      for (; !b.done; F++, b = m.next())
+        ((b = f(h, b.value, w)),
+          b !== null &&
+            ((d = s(b, d, F)),
+            N === null ? (C = b) : (N.sibling = b),
+            (N = b)));
+      return ($ && zt(h, F), C);
+    }
+    for (z = r(h, z); !b.done; F++, b = m.next())
+      ((b = y(z, h, F, b.value, w)),
+        b !== null &&
+          (e && b.alternate !== null && z.delete(b.key === null ? F : b.key),
+          (d = s(b, d, F)),
+          N === null ? (C = b) : (N.sibling = b),
+          (N = b)));
+    return (
+      e &&
+        z.forEach(function (be) {
+          return t(h, be);
+        }),
+      $ && zt(h, F),
+      C
+    );
+  }
+  function _(h, d, m, w) {
+    if (
+      (typeof m == "object" &&
+        m !== null &&
+        m.type === Qt &&
+        m.key === null &&
+        (m = m.props.children),
+      typeof m == "object" && m !== null)
+    ) {
+      switch (m.$$typeof) {
+        case _r:
+          e: {
+            for (var C = m.key, N = d; N !== null; ) {
+              if (N.key === C) {
+                if (((C = m.type), C === Qt)) {
+                  if (N.tag === 7) {
+                    (n(h, N.sibling),
+                      (d = a(N, m.props.children)),
+                      (d.return = h),
+                      (h = d));
+                    break e;
+                  }
+                } else if (
+                  N.elementType === C ||
+                  (typeof C == "object" &&
+                    C !== null &&
+                    C.$$typeof === at &&
+                    no(C) === N.type)
+                ) {
+                  (n(h, N.sibling),
+                    (d = a(N, m.props)),
+                    (d.ref = Pn(h, N, m)),
+                    (d.return = h),
+                    (h = d));
+                  break e;
+                }
+                n(h, N);
+                break;
+              } else t(h, N);
+              N = N.sibling;
+            }
+            m.type === Qt
+              ? ((d = Rt(m.props.children, h.mode, w, m.key)),
+                (d.return = h),
+                (h = d))
+              : ((w = ea(m.type, m.key, m.props, null, h.mode, w)),
+                (w.ref = Pn(h, d, m)),
+                (w.return = h),
+                (h = w));
+          }
+          return i(h);
+        case Ht:
+          e: {
+            for (N = m.key; d !== null; ) {
+              if (d.key === N)
+                if (
+                  d.tag === 4 &&
+                  d.stateNode.containerInfo === m.containerInfo &&
+                  d.stateNode.implementation === m.implementation
+                ) {
+                  (n(h, d.sibling),
+                    (d = a(d, m.children || [])),
+                    (d.return = h),
+                    (h = d));
+                  break e;
+                } else {
+                  n(h, d);
+                  break;
+                }
+              else t(h, d);
+              d = d.sibling;
+            }
+            ((d = vl(m, h.mode, w)), (d.return = h), (h = d));
+          }
+          return i(h);
+        case at:
+          return ((N = m._init), _(h, d, N(m._payload), w));
+      }
+      if (Tn(m)) return v(h, d, m, w);
+      if (_n(m)) return g(h, d, m, w);
+      Ir(h, m);
+    }
+    return (typeof m == "string" && m !== "") || typeof m == "number"
+      ? ((m = "" + m),
+        d !== null && d.tag === 6
+          ? (n(h, d.sibling), (d = a(d, m)), (d.return = h), (h = d))
+          : (n(h, d), (d = yl(m, h.mode, w)), (d.return = h), (h = d)),
+        i(h))
+      : n(h, d);
+  }
+  return _;
+}
+var hn = ru(!0),
+  au = ru(!1),
+  ha = jt(null),
+  ma = null,
+  en = null,
+  $s = null;
+function Bs() {
+  $s = en = ma = null;
+}
+function Vs(e) {
+  var t = ha.current;
+  (U(ha), (e._currentValue = t));
+}
+function Zl(e, t, n) {
+  for (; e !== null; ) {
+    var r = e.alternate;
+    if (
+      ((e.childLanes & t) !== t
+        ? ((e.childLanes |= t), r !== null && (r.childLanes |= t))
+        : r !== null && (r.childLanes & t) !== t && (r.childLanes |= t),
+      e === n)
+    )
+      break;
+    e = e.return;
+  }
+}
+function on(e, t) {
+  ((ma = e),
+    ($s = en = null),
+    (e = e.dependencies),
+    e !== null &&
+      e.firstContext !== null &&
+      (e.lanes & t && (he = !0), (e.firstContext = null)));
+}
+function ze(e) {
+  var t = e._currentValue;
+  if ($s !== e)
+    if (((e = { context: e, memoizedValue: t, next: null }), en === null)) {
+      if (ma === null) throw Error(j(308));
+      ((en = e), (ma.dependencies = { lanes: 0, firstContext: e }));
+    } else en = en.next = e;
+  return t;
+}
+var Lt = null;
+function Ws(e) {
+  Lt === null ? (Lt = [e]) : Lt.push(e);
+}
+function lu(e, t, n, r) {
+  var a = t.interleaved;
+  return (
+    a === null ? ((n.next = n), Ws(t)) : ((n.next = a.next), (a.next = n)),
+    (t.interleaved = n),
+    et(e, r)
+  );
+}
+function et(e, t) {
+  e.lanes |= t;
+  var n = e.alternate;
+  for (n !== null && (n.lanes |= t), n = e, e = e.return; e !== null; )
+    ((e.childLanes |= t),
+      (n = e.alternate),
+      n !== null && (n.childLanes |= t),
+      (n = e),
+      (e = e.return));
+  return n.tag === 3 ? n.stateNode : null;
+}
+var lt = !1;
+function Hs(e) {
+  e.updateQueue = {
+    baseState: e.memoizedState,
+    firstBaseUpdate: null,
+    lastBaseUpdate: null,
+    shared: { pending: null, interleaved: null, lanes: 0 },
+    effects: null,
+  };
+}
+function su(e, t) {
+  ((e = e.updateQueue),
+    t.updateQueue === e &&
+      (t.updateQueue = {
+        baseState: e.baseState,
+        firstBaseUpdate: e.firstBaseUpdate,
+        lastBaseUpdate: e.lastBaseUpdate,
+        shared: e.shared,
+        effects: e.effects,
+      }));
+}
+function Ge(e, t) {
+  return {
+    eventTime: e,
+    lane: t,
+    tag: 0,
+    payload: null,
+    callback: null,
+    next: null,
+  };
+}
+function xt(e, t, n) {
+  var r = e.updateQueue;
+  if (r === null) return null;
+  if (((r = r.shared), I & 2)) {
+    var a = r.pending;
+    return (
+      a === null ? (t.next = t) : ((t.next = a.next), (a.next = t)),
+      (r.pending = t),
+      et(e, n)
+    );
+  }
+  return (
+    (a = r.interleaved),
+    a === null ? ((t.next = t), Ws(r)) : ((t.next = a.next), (a.next = t)),
+    (r.interleaved = t),
+    et(e, n)
+  );
+}
+function Yr(e, t, n) {
+  if (
+    ((t = t.updateQueue), t !== null && ((t = t.shared), (n & 4194240) !== 0))
+  ) {
+    var r = t.lanes;
+    ((r &= e.pendingLanes), (n |= r), (t.lanes = n), Ps(e, n));
+  }
+}
+function ro(e, t) {
+  var n = e.updateQueue,
+    r = e.alternate;
+  if (r !== null && ((r = r.updateQueue), n === r)) {
+    var a = null,
+      s = null;
+    if (((n = n.firstBaseUpdate), n !== null)) {
+      do {
+        var i = {
+          eventTime: n.eventTime,
+          lane: n.lane,
+          tag: n.tag,
+          payload: n.payload,
+          callback: n.callback,
+          next: null,
+        };
+        (s === null ? (a = s = i) : (s = s.next = i), (n = n.next));
+      } while (n !== null);
+      s === null ? (a = s = t) : (s = s.next = t);
+    } else a = s = t;
+    ((n = {
+      baseState: r.baseState,
+      firstBaseUpdate: a,
+      lastBaseUpdate: s,
+      shared: r.shared,
+      effects: r.effects,
+    }),
+      (e.updateQueue = n));
+    return;
+  }
+  ((e = n.lastBaseUpdate),
+    e === null ? (n.firstBaseUpdate = t) : (e.next = t),
+    (n.lastBaseUpdate = t));
+}
+function xa(e, t, n, r) {
+  var a = e.updateQueue;
+  lt = !1;
+  var s = a.firstBaseUpdate,
+    i = a.lastBaseUpdate,
+    c = a.shared.pending;
+  if (c !== null) {
+    a.shared.pending = null;
+    var o = c,
+      u = o.next;
+    ((o.next = null), i === null ? (s = u) : (i.next = u), (i = o));
+    var x = e.alternate;
+    x !== null &&
+      ((x = x.updateQueue),
+      (c = x.lastBaseUpdate),
+      c !== i &&
+        (c === null ? (x.firstBaseUpdate = u) : (c.next = u),
+        (x.lastBaseUpdate = o)));
+  }
+  if (s !== null) {
+    var f = a.baseState;
+    ((i = 0), (x = u = o = null), (c = s));
+    do {
+      var p = c.lane,
+        y = c.eventTime;
+      if ((r & p) === p) {
+        x !== null &&
+          (x = x.next =
+            {
+              eventTime: y,
+              lane: 0,
+              tag: c.tag,
+              payload: c.payload,
+              callback: c.callback,
+              next: null,
+            });
+        e: {
+          var v = e,
+            g = c;
+          switch (((p = t), (y = n), g.tag)) {
+            case 1:
+              if (((v = g.payload), typeof v == "function")) {
+                f = v.call(y, f, p);
+                break e;
+              }
+              f = v;
+              break e;
+            case 3:
+              v.flags = (v.flags & -65537) | 128;
+            case 0:
+              if (
+                ((v = g.payload),
+                (p = typeof v == "function" ? v.call(y, f, p) : v),
+                p == null)
+              )
+                break e;
+              f = H({}, f, p);
+              break e;
+            case 2:
+              lt = !0;
+          }
+        }
+        c.callback !== null &&
+          c.lane !== 0 &&
+          ((e.flags |= 64),
+          (p = a.effects),
+          p === null ? (a.effects = [c]) : p.push(c));
+      } else
+        ((y = {
+          eventTime: y,
+          lane: p,
+          tag: c.tag,
+          payload: c.payload,
+          callback: c.callback,
+          next: null,
+        }),
+          x === null ? ((u = x = y), (o = f)) : (x = x.next = y),
+          (i |= p));
+      if (((c = c.next), c === null)) {
+        if (((c = a.shared.pending), c === null)) break;
+        ((p = c),
+          (c = p.next),
+          (p.next = null),
+          (a.lastBaseUpdate = p),
+          (a.shared.pending = null));
+      }
+    } while (!0);
+    if (
+      (x === null && (o = f),
+      (a.baseState = o),
+      (a.firstBaseUpdate = u),
+      (a.lastBaseUpdate = x),
+      (t = a.shared.interleaved),
+      t !== null)
+    ) {
+      a = t;
+      do ((i |= a.lane), (a = a.next));
+      while (a !== t);
+    } else s === null && (a.shared.lanes = 0);
+    ((Ut |= i), (e.lanes = i), (e.memoizedState = f));
+  }
+}
+function ao(e, t, n) {
+  if (((e = t.effects), (t.effects = null), e !== null))
+    for (t = 0; t < e.length; t++) {
+      var r = e[t],
+        a = r.callback;
+      if (a !== null) {
+        if (((r.callback = null), (r = n), typeof a != "function"))
+          throw Error(j(191, a));
+        a.call(r);
+      }
+    }
+}
+var gr = {},
+  He = jt(gr),
+  rr = jt(gr),
+  ar = jt(gr);
+function Mt(e) {
+  if (e === gr) throw Error(j(174));
+  return e;
+}
+function Qs(e, t) {
+  switch ((A(ar, t), A(rr, e), A(He, gr), (e = t.nodeType), e)) {
+    case 9:
+    case 11:
+      t = (t = t.documentElement) ? t.namespaceURI : Ll(null, "");
+      break;
+    default:
+      ((e = e === 8 ? t.parentNode : t),
+        (t = e.namespaceURI || null),
+        (e = e.tagName),
+        (t = Ll(t, e)));
+  }
+  (U(He), A(He, t));
+}
+function mn() {
+  (U(He), U(rr), U(ar));
+}
+function iu(e) {
+  Mt(ar.current);
+  var t = Mt(He.current),
+    n = Ll(t, e.type);
+  t !== n && (A(rr, e), A(He, n));
+}
+function qs(e) {
+  rr.current === e && (U(He), U(rr));
+}
+var V = jt(0);
+function ga(e) {
+  for (var t = e; t !== null; ) {
+    if (t.tag === 13) {
+      var n = t.memoizedState;
+      if (
+        n !== null &&
+        ((n = n.dehydrated), n === null || n.data === "$?" || n.data === "$!")
+      )
+        return t;
+    } else if (t.tag === 19 && t.memoizedProps.revealOrder !== void 0) {
+      if (t.flags & 128) return t;
+    } else if (t.child !== null) {
+      ((t.child.return = t), (t = t.child));
+      continue;
+    }
+    if (t === e) break;
+    for (; t.sibling === null; ) {
+      if (t.return === null || t.return === e) return null;
+      t = t.return;
+    }
+    ((t.sibling.return = t.return), (t = t.sibling));
+  }
+  return null;
+}
+var pl = [];
+function Ys() {
+  for (var e = 0; e < pl.length; e++)
+    pl[e]._workInProgressVersionPrimary = null;
+  pl.length = 0;
+}
+var Kr = nt.ReactCurrentDispatcher,
+  hl = nt.ReactCurrentBatchConfig,
+  Dt = 0,
+  W = null,
+  G = null,
+  ee = null,
+  ba = !1,
+  Bn = !1,
+  lr = 0,
+  Ep = 0;
+function le() {
+  throw Error(j(321));
+}
+function Ks(e, t) {
+  if (t === null) return !1;
+  for (var n = 0; n < t.length && n < e.length; n++)
+    if (!De(e[n], t[n])) return !1;
+  return !0;
+}
+function Xs(e, t, n, r, a, s) {
+  if (
+    ((Dt = s),
+    (W = t),
+    (t.memoizedState = null),
+    (t.updateQueue = null),
+    (t.lanes = 0),
+    (Kr.current = e === null || e.memoizedState === null ? Lp : Mp),
+    (e = n(r, a)),
+    Bn)
+  ) {
+    s = 0;
+    do {
+      if (((Bn = !1), (lr = 0), 25 <= s)) throw Error(j(301));
+      ((s += 1),
+        (ee = G = null),
+        (t.updateQueue = null),
+        (Kr.current = Tp),
+        (e = n(r, a)));
+    } while (Bn);
+  }
+  if (
+    ((Kr.current = ya),
+    (t = G !== null && G.next !== null),
+    (Dt = 0),
+    (ee = G = W = null),
+    (ba = !1),
+    t)
+  )
+    throw Error(j(300));
+  return e;
+}
+function Gs() {
+  var e = lr !== 0;
+  return ((lr = 0), e);
+}
+function Be() {
+  var e = {
+    memoizedState: null,
+    baseState: null,
+    baseQueue: null,
+    queue: null,
+    next: null,
+  };
+  return (ee === null ? (W.memoizedState = ee = e) : (ee = ee.next = e), ee);
+}
+function Pe() {
+  if (G === null) {
+    var e = W.alternate;
+    e = e !== null ? e.memoizedState : null;
+  } else e = G.next;
+  var t = ee === null ? W.memoizedState : ee.next;
+  if (t !== null) ((ee = t), (G = e));
+  else {
+    if (e === null) throw Error(j(310));
+    ((G = e),
+      (e = {
+        memoizedState: G.memoizedState,
+        baseState: G.baseState,
+        baseQueue: G.baseQueue,
+        queue: G.queue,
+        next: null,
+      }),
+      ee === null ? (W.memoizedState = ee = e) : (ee = ee.next = e));
+  }
+  return ee;
+}
+function sr(e, t) {
+  return typeof t == "function" ? t(e) : t;
+}
+function ml(e) {
+  var t = Pe(),
+    n = t.queue;
+  if (n === null) throw Error(j(311));
+  n.lastRenderedReducer = e;
+  var r = G,
+    a = r.baseQueue,
+    s = n.pending;
+  if (s !== null) {
+    if (a !== null) {
+      var i = a.next;
+      ((a.next = s.next), (s.next = i));
+    }
+    ((r.baseQueue = a = s), (n.pending = null));
+  }
+  if (a !== null) {
+    ((s = a.next), (r = r.baseState));
+    var c = (i = null),
+      o = null,
+      u = s;
+    do {
+      var x = u.lane;
+      if ((Dt & x) === x)
+        (o !== null &&
+          (o = o.next =
+            {
+              lane: 0,
+              action: u.action,
+              hasEagerState: u.hasEagerState,
+              eagerState: u.eagerState,
+              next: null,
+            }),
+          (r = u.hasEagerState ? u.eagerState : e(r, u.action)));
+      else {
+        var f = {
+          lane: x,
+          action: u.action,
+          hasEagerState: u.hasEagerState,
+          eagerState: u.eagerState,
+          next: null,
+        };
+        (o === null ? ((c = o = f), (i = r)) : (o = o.next = f),
+          (W.lanes |= x),
+          (Ut |= x));
+      }
+      u = u.next;
+    } while (u !== null && u !== s);
+    (o === null ? (i = r) : (o.next = c),
+      De(r, t.memoizedState) || (he = !0),
+      (t.memoizedState = r),
+      (t.baseState = i),
+      (t.baseQueue = o),
+      (n.lastRenderedState = r));
+  }
+  if (((e = n.interleaved), e !== null)) {
+    a = e;
+    do ((s = a.lane), (W.lanes |= s), (Ut |= s), (a = a.next));
+    while (a !== e);
+  } else a === null && (n.lanes = 0);
+  return [t.memoizedState, n.dispatch];
+}
+function xl(e) {
+  var t = Pe(),
+    n = t.queue;
+  if (n === null) throw Error(j(311));
+  n.lastRenderedReducer = e;
+  var r = n.dispatch,
+    a = n.pending,
+    s = t.memoizedState;
+  if (a !== null) {
+    n.pending = null;
+    var i = (a = a.next);
+    do ((s = e(s, i.action)), (i = i.next));
+    while (i !== a);
+    (De(s, t.memoizedState) || (he = !0),
+      (t.memoizedState = s),
+      t.baseQueue === null && (t.baseState = s),
+      (n.lastRenderedState = s));
+  }
+  return [s, r];
+}
+function ou() {}
+function cu(e, t) {
+  var n = W,
+    r = Pe(),
+    a = t(),
+    s = !De(r.memoizedState, a);
+  if (
+    (s && ((r.memoizedState = a), (he = !0)),
+    (r = r.queue),
+    Zs(fu.bind(null, n, r, e), [e]),
+    r.getSnapshot !== t || s || (ee !== null && ee.memoizedState.tag & 1))
+  ) {
+    if (
+      ((n.flags |= 2048),
+      ir(9, du.bind(null, n, r, a, t), void 0, null),
+      te === null)
+    )
+      throw Error(j(349));
+    Dt & 30 || uu(n, t, a);
+  }
+  return a;
+}
+function uu(e, t, n) {
+  ((e.flags |= 16384),
+    (e = { getSnapshot: t, value: n }),
+    (t = W.updateQueue),
+    t === null
+      ? ((t = { lastEffect: null, stores: null }),
+        (W.updateQueue = t),
+        (t.stores = [e]))
+      : ((n = t.stores), n === null ? (t.stores = [e]) : n.push(e)));
+}
+function du(e, t, n, r) {
+  ((t.value = n), (t.getSnapshot = r), pu(t) && hu(e));
+}
+function fu(e, t, n) {
+  return n(function () {
+    pu(t) && hu(e);
+  });
+}
+function pu(e) {
+  var t = e.getSnapshot;
+  e = e.value;
+  try {
+    var n = t();
+    return !De(e, n);
+  } catch {
+    return !0;
+  }
+}
+function hu(e) {
+  var t = et(e, 1);
+  t !== null && Ae(t, e, 1, -1);
+}
+function lo(e) {
+  var t = Be();
+  return (
+    typeof e == "function" && (e = e()),
+    (t.memoizedState = t.baseState = e),
+    (e = {
+      pending: null,
+      interleaved: null,
+      lanes: 0,
+      dispatch: null,
+      lastRenderedReducer: sr,
+      lastRenderedState: e,
+    }),
+    (t.queue = e),
+    (e = e.dispatch = Fp.bind(null, W, e)),
+    [t.memoizedState, e]
+  );
+}
+function ir(e, t, n, r) {
+  return (
+    (e = { tag: e, create: t, destroy: n, deps: r, next: null }),
+    (t = W.updateQueue),
+    t === null
+      ? ((t = { lastEffect: null, stores: null }),
+        (W.updateQueue = t),
+        (t.lastEffect = e.next = e))
+      : ((n = t.lastEffect),
+        n === null
+          ? (t.lastEffect = e.next = e)
+          : ((r = n.next), (n.next = e), (e.next = r), (t.lastEffect = e))),
+    e
+  );
+}
+function mu() {
+  return Pe().memoizedState;
+}
+function Xr(e, t, n, r) {
+  var a = Be();
+  ((W.flags |= e),
+    (a.memoizedState = ir(1 | t, n, void 0, r === void 0 ? null : r)));
+}
+function Ra(e, t, n, r) {
+  var a = Pe();
+  r = r === void 0 ? null : r;
+  var s = void 0;
+  if (G !== null) {
+    var i = G.memoizedState;
+    if (((s = i.destroy), r !== null && Ks(r, i.deps))) {
+      a.memoizedState = ir(t, n, s, r);
+      return;
+    }
+  }
+  ((W.flags |= e), (a.memoizedState = ir(1 | t, n, s, r)));
+}
+function so(e, t) {
+  return Xr(8390656, 8, e, t);
+}
+function Zs(e, t) {
+  return Ra(2048, 8, e, t);
+}
+function xu(e, t) {
+  return Ra(4, 2, e, t);
+}
+function gu(e, t) {
+  return Ra(4, 4, e, t);
+}
+function bu(e, t) {
+  if (typeof t == "function")
+    return (
+      (e = e()),
+      t(e),
+      function () {
+        t(null);
+      }
+    );
+  if (t != null)
+    return (
+      (e = e()),
+      (t.current = e),
+      function () {
+        t.current = null;
+      }
+    );
+}
+function yu(e, t, n) {
+  return (
+    (n = n != null ? n.concat([e]) : null),
+    Ra(4, 4, bu.bind(null, t, e), n)
+  );
+}
+function Js() {}
+function vu(e, t) {
+  var n = Pe();
+  t = t === void 0 ? null : t;
+  var r = n.memoizedState;
+  return r !== null && t !== null && Ks(t, r[1])
+    ? r[0]
+    : ((n.memoizedState = [e, t]), e);
+}
+function wu(e, t) {
+  var n = Pe();
+  t = t === void 0 ? null : t;
+  var r = n.memoizedState;
+  return r !== null && t !== null && Ks(t, r[1])
+    ? r[0]
+    : ((e = e()), (n.memoizedState = [e, t]), e);
+}
+function ku(e, t, n) {
+  return Dt & 21
+    ? (De(n, t) || ((n = Sc()), (W.lanes |= n), (Ut |= n), (e.baseState = !0)),
+      t)
+    : (e.baseState && ((e.baseState = !1), (he = !0)), (e.memoizedState = n));
+}
+function zp(e, t) {
+  var n = O;
+  ((O = n !== 0 && 4 > n ? n : 4), e(!0));
+  var r = hl.transition;
+  hl.transition = {};
+  try {
+    (e(!1), t());
+  } finally {
+    ((O = n), (hl.transition = r));
+  }
+}
+function ju() {
+  return Pe().memoizedState;
+}
+function Pp(e, t, n) {
+  var r = bt(e);
+  if (
+    ((n = {
+      lane: r,
+      action: n,
+      hasEagerState: !1,
+      eagerState: null,
+      next: null,
+    }),
+    Nu(e))
+  )
+    _u(t, n);
+  else if (((n = lu(e, t, n, r)), n !== null)) {
+    var a = ue();
+    (Ae(n, e, r, a), Cu(n, t, r));
+  }
+}
+function Fp(e, t, n) {
+  var r = bt(e),
+    a = { lane: r, action: n, hasEagerState: !1, eagerState: null, next: null };
+  if (Nu(e)) _u(t, a);
+  else {
+    var s = e.alternate;
+    if (
+      e.lanes === 0 &&
+      (s === null || s.lanes === 0) &&
+      ((s = t.lastRenderedReducer), s !== null)
+    )
+      try {
+        var i = t.lastRenderedState,
+          c = s(i, n);
+        if (((a.hasEagerState = !0), (a.eagerState = c), De(c, i))) {
+          var o = t.interleaved;
+          (o === null
+            ? ((a.next = a), Ws(t))
+            : ((a.next = o.next), (o.next = a)),
+            (t.interleaved = a));
+          return;
+        }
+      } catch {
+      } finally {
+      }
+    ((n = lu(e, t, a, r)),
+      n !== null && ((a = ue()), Ae(n, e, r, a), Cu(n, t, r)));
+  }
+}
+function Nu(e) {
+  var t = e.alternate;
+  return e === W || (t !== null && t === W);
+}
+function _u(e, t) {
+  Bn = ba = !0;
+  var n = e.pending;
+  (n === null ? (t.next = t) : ((t.next = n.next), (n.next = t)),
+    (e.pending = t));
+}
+function Cu(e, t, n) {
+  if (n & 4194240) {
+    var r = t.lanes;
+    ((r &= e.pendingLanes), (n |= r), (t.lanes = n), Ps(e, n));
+  }
+}
+var ya = {
+    readContext: ze,
+    useCallback: le,
+    useContext: le,
+    useEffect: le,
+    useImperativeHandle: le,
+    useInsertionEffect: le,
+    useLayoutEffect: le,
+    useMemo: le,
+    useReducer: le,
+    useRef: le,
+    useState: le,
+    useDebugValue: le,
+    useDeferredValue: le,
+    useTransition: le,
+    useMutableSource: le,
+    useSyncExternalStore: le,
+    useId: le,
+    unstable_isNewReconciler: !1,
+  },
+  Lp = {
+    readContext: ze,
+    useCallback: function (e, t) {
+      return ((Be().memoizedState = [e, t === void 0 ? null : t]), e);
+    },
+    useContext: ze,
+    useEffect: so,
+    useImperativeHandle: function (e, t, n) {
+      return (
+        (n = n != null ? n.concat([e]) : null),
+        Xr(4194308, 4, bu.bind(null, t, e), n)
+      );
+    },
+    useLayoutEffect: function (e, t) {
+      return Xr(4194308, 4, e, t);
+    },
+    useInsertionEffect: function (e, t) {
+      return Xr(4, 2, e, t);
+    },
+    useMemo: function (e, t) {
+      var n = Be();
+      return (
+        (t = t === void 0 ? null : t),
+        (e = e()),
+        (n.memoizedState = [e, t]),
+        e
+      );
+    },
+    useReducer: function (e, t, n) {
+      var r = Be();
+      return (
+        (t = n !== void 0 ? n(t) : t),
+        (r.memoizedState = r.baseState = t),
+        (e = {
+          pending: null,
+          interleaved: null,
+          lanes: 0,
+          dispatch: null,
+          lastRenderedReducer: e,
+          lastRenderedState: t,
+        }),
+        (r.queue = e),
+        (e = e.dispatch = Pp.bind(null, W, e)),
+        [r.memoizedState, e]
+      );
+    },
+    useRef: function (e) {
+      var t = Be();
+      return ((e = { current: e }), (t.memoizedState = e));
+    },
+    useState: lo,
+    useDebugValue: Js,
+    useDeferredValue: function (e) {
+      return (Be().memoizedState = e);
+    },
+    useTransition: function () {
+      var e = lo(!1),
+        t = e[0];
+      return ((e = zp.bind(null, e[1])), (Be().memoizedState = e), [t, e]);
+    },
+    useMutableSource: function () {},
+    useSyncExternalStore: function (e, t, n) {
+      var r = W,
+        a = Be();
+      if ($) {
+        if (n === void 0) throw Error(j(407));
+        n = n();
+      } else {
+        if (((n = t()), te === null)) throw Error(j(349));
+        Dt & 30 || uu(r, t, n);
+      }
+      a.memoizedState = n;
+      var s = { value: n, getSnapshot: t };
+      return (
+        (a.queue = s),
+        so(fu.bind(null, r, s, e), [e]),
+        (r.flags |= 2048),
+        ir(9, du.bind(null, r, s, n, t), void 0, null),
+        n
+      );
+    },
+    useId: function () {
+      var e = Be(),
+        t = te.identifierPrefix;
+      if ($) {
+        var n = Xe,
+          r = Ke;
+        ((n = (r & ~(1 << (32 - Oe(r) - 1))).toString(32) + n),
+          (t = ":" + t + "R" + n),
+          (n = lr++),
+          0 < n && (t += "H" + n.toString(32)),
+          (t += ":"));
+      } else ((n = Ep++), (t = ":" + t + "r" + n.toString(32) + ":"));
+      return (e.memoizedState = t);
+    },
+    unstable_isNewReconciler: !1,
+  },
+  Mp = {
+    readContext: ze,
+    useCallback: vu,
+    useContext: ze,
+    useEffect: Zs,
+    useImperativeHandle: yu,
+    useInsertionEffect: xu,
+    useLayoutEffect: gu,
+    useMemo: wu,
+    useReducer: ml,
+    useRef: mu,
+    useState: function () {
+      return ml(sr);
+    },
+    useDebugValue: Js,
+    useDeferredValue: function (e) {
+      var t = Pe();
+      return ku(t, G.memoizedState, e);
+    },
+    useTransition: function () {
+      var e = ml(sr)[0],
+        t = Pe().memoizedState;
+      return [e, t];
+    },
+    useMutableSource: ou,
+    useSyncExternalStore: cu,
+    useId: ju,
+    unstable_isNewReconciler: !1,
+  },
+  Tp = {
+    readContext: ze,
+    useCallback: vu,
+    useContext: ze,
+    useEffect: Zs,
+    useImperativeHandle: yu,
+    useInsertionEffect: xu,
+    useLayoutEffect: gu,
+    useMemo: wu,
+    useReducer: xl,
+    useRef: mu,
+    useState: function () {
+      return xl(sr);
+    },
+    useDebugValue: Js,
+    useDeferredValue: function (e) {
+      var t = Pe();
+      return G === null ? (t.memoizedState = e) : ku(t, G.memoizedState, e);
+    },
+    useTransition: function () {
+      var e = xl(sr)[0],
+        t = Pe().memoizedState;
+      return [e, t];
+    },
+    useMutableSource: ou,
+    useSyncExternalStore: cu,
+    useId: ju,
+    unstable_isNewReconciler: !1,
+  };
+function Te(e, t) {
+  if (e && e.defaultProps) {
+    ((t = H({}, t)), (e = e.defaultProps));
+    for (var n in e) t[n] === void 0 && (t[n] = e[n]);
+    return t;
+  }
+  return t;
+}
+function Jl(e, t, n, r) {
+  ((t = e.memoizedState),
+    (n = n(r, t)),
+    (n = n == null ? t : H({}, t, n)),
+    (e.memoizedState = n),
+    e.lanes === 0 && (e.updateQueue.baseState = n));
+}
+var Ia = {
+  isMounted: function (e) {
+    return (e = e._reactInternals) ? Vt(e) === e : !1;
+  },
+  enqueueSetState: function (e, t, n) {
+    e = e._reactInternals;
+    var r = ue(),
+      a = bt(e),
+      s = Ge(r, a);
+    ((s.payload = t),
+      n != null && (s.callback = n),
+      (t = xt(e, s, a)),
+      t !== null && (Ae(t, e, a, r), Yr(t, e, a)));
+  },
+  enqueueReplaceState: function (e, t, n) {
+    e = e._reactInternals;
+    var r = ue(),
+      a = bt(e),
+      s = Ge(r, a);
+    ((s.tag = 1),
+      (s.payload = t),
+      n != null && (s.callback = n),
+      (t = xt(e, s, a)),
+      t !== null && (Ae(t, e, a, r), Yr(t, e, a)));
+  },
+  enqueueForceUpdate: function (e, t) {
+    e = e._reactInternals;
+    var n = ue(),
+      r = bt(e),
+      a = Ge(n, r);
+    ((a.tag = 2),
+      t != null && (a.callback = t),
+      (t = xt(e, a, r)),
+      t !== null && (Ae(t, e, r, n), Yr(t, e, r)));
+  },
+};
+function io(e, t, n, r, a, s, i) {
+  return (
+    (e = e.stateNode),
+    typeof e.shouldComponentUpdate == "function"
+      ? e.shouldComponentUpdate(r, s, i)
+      : t.prototype && t.prototype.isPureReactComponent
+        ? !Jn(n, r) || !Jn(a, s)
+        : !0
+  );
+}
+function Su(e, t, n) {
+  var r = !1,
+    a = wt,
+    s = t.contextType;
+  return (
+    typeof s == "object" && s !== null
+      ? (s = ze(s))
+      : ((a = xe(t) ? Ot : oe.current),
+        (r = t.contextTypes),
+        (s = (r = r != null) ? fn(e, a) : wt)),
+    (t = new t(n, s)),
+    (e.memoizedState = t.state !== null && t.state !== void 0 ? t.state : null),
+    (t.updater = Ia),
+    (e.stateNode = t),
+    (t._reactInternals = e),
+    r &&
+      ((e = e.stateNode),
+      (e.__reactInternalMemoizedUnmaskedChildContext = a),
+      (e.__reactInternalMemoizedMaskedChildContext = s)),
+    t
+  );
+}
+function oo(e, t, n, r) {
+  ((e = t.state),
+    typeof t.componentWillReceiveProps == "function" &&
+      t.componentWillReceiveProps(n, r),
+    typeof t.UNSAFE_componentWillReceiveProps == "function" &&
+      t.UNSAFE_componentWillReceiveProps(n, r),
+    t.state !== e && Ia.enqueueReplaceState(t, t.state, null));
+}
+function es(e, t, n, r) {
+  var a = e.stateNode;
+  ((a.props = n), (a.state = e.memoizedState), (a.refs = {}), Hs(e));
+  var s = t.contextType;
+  (typeof s == "object" && s !== null
+    ? (a.context = ze(s))
+    : ((s = xe(t) ? Ot : oe.current), (a.context = fn(e, s))),
+    (a.state = e.memoizedState),
+    (s = t.getDerivedStateFromProps),
+    typeof s == "function" && (Jl(e, t, s, n), (a.state = e.memoizedState)),
+    typeof t.getDerivedStateFromProps == "function" ||
+      typeof a.getSnapshotBeforeUpdate == "function" ||
+      (typeof a.UNSAFE_componentWillMount != "function" &&
+        typeof a.componentWillMount != "function") ||
+      ((t = a.state),
+      typeof a.componentWillMount == "function" && a.componentWillMount(),
+      typeof a.UNSAFE_componentWillMount == "function" &&
+        a.UNSAFE_componentWillMount(),
+      t !== a.state && Ia.enqueueReplaceState(a, a.state, null),
+      xa(e, n, a, r),
+      (a.state = e.memoizedState)),
+    typeof a.componentDidMount == "function" && (e.flags |= 4194308));
+}
+function xn(e, t) {
+  try {
+    var n = "",
+      r = t;
+    do ((n += of(r)), (r = r.return));
+    while (r);
+    var a = n;
+  } catch (s) {
+    a =
+      `
+Error generating stack: ` +
+      s.message +
+      `
+` +
+      s.stack;
+  }
+  return { value: e, source: t, stack: a, digest: null };
+}
+function gl(e, t, n) {
+  return { value: e, source: null, stack: n ?? null, digest: t ?? null };
+}
+function ts(e, t) {
+  try {
+    console.error(t.value);
+  } catch (n) {
+    setTimeout(function () {
+      throw n;
+    });
+  }
+}
+var Rp = typeof WeakMap == "function" ? WeakMap : Map;
+function Eu(e, t, n) {
+  ((n = Ge(-1, n)), (n.tag = 3), (n.payload = { element: null }));
+  var r = t.value;
+  return (
+    (n.callback = function () {
+      (wa || ((wa = !0), (us = r)), ts(e, t));
+    }),
+    n
+  );
+}
+function zu(e, t, n) {
+  ((n = Ge(-1, n)), (n.tag = 3));
+  var r = e.type.getDerivedStateFromError;
+  if (typeof r == "function") {
+    var a = t.value;
+    ((n.payload = function () {
+      return r(a);
+    }),
+      (n.callback = function () {
+        ts(e, t);
+      }));
+  }
+  var s = e.stateNode;
+  return (
+    s !== null &&
+      typeof s.componentDidCatch == "function" &&
+      (n.callback = function () {
+        (ts(e, t),
+          typeof r != "function" &&
+            (gt === null ? (gt = new Set([this])) : gt.add(this)));
+        var i = t.stack;
+        this.componentDidCatch(t.value, {
+          componentStack: i !== null ? i : "",
+        });
+      }),
+    n
+  );
+}
+function co(e, t, n) {
+  var r = e.pingCache;
+  if (r === null) {
+    r = e.pingCache = new Rp();
+    var a = new Set();
+    r.set(t, a);
+  } else ((a = r.get(t)), a === void 0 && ((a = new Set()), r.set(t, a)));
+  a.has(n) || (a.add(n), (e = Kp.bind(null, e, t, n)), t.then(e, e));
+}
+function uo(e) {
+  do {
+    var t;
+    if (
+      ((t = e.tag === 13) &&
+        ((t = e.memoizedState), (t = t !== null ? t.dehydrated !== null : !0)),
+      t)
+    )
+      return e;
+    e = e.return;
+  } while (e !== null);
+  return null;
+}
+function fo(e, t, n, r, a) {
+  return e.mode & 1
+    ? ((e.flags |= 65536), (e.lanes = a), e)
+    : (e === t
+        ? (e.flags |= 65536)
+        : ((e.flags |= 128),
+          (n.flags |= 131072),
+          (n.flags &= -52805),
+          n.tag === 1 &&
+            (n.alternate === null
+              ? (n.tag = 17)
+              : ((t = Ge(-1, 1)), (t.tag = 2), xt(n, t, 1))),
+          (n.lanes |= 1)),
+      e);
+}
+var Ip = nt.ReactCurrentOwner,
+  he = !1;
+function ce(e, t, n, r) {
+  t.child = e === null ? au(t, null, n, r) : hn(t, e.child, n, r);
+}
+function po(e, t, n, r, a) {
+  n = n.render;
+  var s = t.ref;
+  return (
+    on(t, a),
+    (r = Xs(e, t, n, r, s, a)),
+    (n = Gs()),
+    e !== null && !he
+      ? ((t.updateQueue = e.updateQueue),
+        (t.flags &= -2053),
+        (e.lanes &= ~a),
+        tt(e, t, a))
+      : ($ && n && As(t), (t.flags |= 1), ce(e, t, r, a), t.child)
+  );
+}
+function ho(e, t, n, r, a) {
+  if (e === null) {
+    var s = n.type;
+    return typeof s == "function" &&
+      !ii(s) &&
+      s.defaultProps === void 0 &&
+      n.compare === null &&
+      n.defaultProps === void 0
+      ? ((t.tag = 15), (t.type = s), Pu(e, t, s, r, a))
+      : ((e = ea(n.type, null, r, t, t.mode, a)),
+        (e.ref = t.ref),
+        (e.return = t),
+        (t.child = e));
+  }
+  if (((s = e.child), !(e.lanes & a))) {
+    var i = s.memoizedProps;
+    if (
+      ((n = n.compare), (n = n !== null ? n : Jn), n(i, r) && e.ref === t.ref)
+    )
+      return tt(e, t, a);
+  }
+  return (
+    (t.flags |= 1),
+    (e = yt(s, r)),
+    (e.ref = t.ref),
+    (e.return = t),
+    (t.child = e)
+  );
+}
+function Pu(e, t, n, r, a) {
+  if (e !== null) {
+    var s = e.memoizedProps;
+    if (Jn(s, r) && e.ref === t.ref)
+      if (((he = !1), (t.pendingProps = r = s), (e.lanes & a) !== 0))
+        e.flags & 131072 && (he = !0);
+      else return ((t.lanes = e.lanes), tt(e, t, a));
+  }
+  return ns(e, t, n, r, a);
+}
+function Fu(e, t, n) {
+  var r = t.pendingProps,
+    a = r.children,
+    s = e !== null ? e.memoizedState : null;
+  if (r.mode === "hidden")
+    if (!(t.mode & 1))
+      ((t.memoizedState = { baseLanes: 0, cachePool: null, transitions: null }),
+        A(nn, ye),
+        (ye |= n));
+    else {
+      if (!(n & 1073741824))
+        return (
+          (e = s !== null ? s.baseLanes | n : n),
+          (t.lanes = t.childLanes = 1073741824),
+          (t.memoizedState = {
+            baseLanes: e,
+            cachePool: null,
+            transitions: null,
+          }),
+          (t.updateQueue = null),
+          A(nn, ye),
+          (ye |= e),
+          null
+        );
+      ((t.memoizedState = { baseLanes: 0, cachePool: null, transitions: null }),
+        (r = s !== null ? s.baseLanes : n),
+        A(nn, ye),
+        (ye |= r));
+    }
+  else
+    (s !== null ? ((r = s.baseLanes | n), (t.memoizedState = null)) : (r = n),
+      A(nn, ye),
+      (ye |= r));
+  return (ce(e, t, a, n), t.child);
+}
+function Lu(e, t) {
+  var n = t.ref;
+  ((e === null && n !== null) || (e !== null && e.ref !== n)) &&
+    ((t.flags |= 512), (t.flags |= 2097152));
+}
+function ns(e, t, n, r, a) {
+  var s = xe(n) ? Ot : oe.current;
+  return (
+    (s = fn(t, s)),
+    on(t, a),
+    (n = Xs(e, t, n, r, s, a)),
+    (r = Gs()),
+    e !== null && !he
+      ? ((t.updateQueue = e.updateQueue),
+        (t.flags &= -2053),
+        (e.lanes &= ~a),
+        tt(e, t, a))
+      : ($ && r && As(t), (t.flags |= 1), ce(e, t, n, a), t.child)
+  );
+}
+function mo(e, t, n, r, a) {
+  if (xe(n)) {
+    var s = !0;
+    da(t);
+  } else s = !1;
+  if ((on(t, a), t.stateNode === null))
+    (Gr(e, t), Su(t, n, r), es(t, n, r, a), (r = !0));
+  else if (e === null) {
+    var i = t.stateNode,
+      c = t.memoizedProps;
+    i.props = c;
+    var o = i.context,
+      u = n.contextType;
+    typeof u == "object" && u !== null
+      ? (u = ze(u))
+      : ((u = xe(n) ? Ot : oe.current), (u = fn(t, u)));
+    var x = n.getDerivedStateFromProps,
+      f =
+        typeof x == "function" ||
+        typeof i.getSnapshotBeforeUpdate == "function";
+    (f ||
+      (typeof i.UNSAFE_componentWillReceiveProps != "function" &&
+        typeof i.componentWillReceiveProps != "function") ||
+      ((c !== r || o !== u) && oo(t, i, r, u)),
+      (lt = !1));
+    var p = t.memoizedState;
+    ((i.state = p),
+      xa(t, r, i, a),
+      (o = t.memoizedState),
+      c !== r || p !== o || me.current || lt
+        ? (typeof x == "function" && (Jl(t, n, x, r), (o = t.memoizedState)),
+          (c = lt || io(t, n, c, r, p, o, u))
+            ? (f ||
+                (typeof i.UNSAFE_componentWillMount != "function" &&
+                  typeof i.componentWillMount != "function") ||
+                (typeof i.componentWillMount == "function" &&
+                  i.componentWillMount(),
+                typeof i.UNSAFE_componentWillMount == "function" &&
+                  i.UNSAFE_componentWillMount()),
+              typeof i.componentDidMount == "function" && (t.flags |= 4194308))
+            : (typeof i.componentDidMount == "function" && (t.flags |= 4194308),
+              (t.memoizedProps = r),
+              (t.memoizedState = o)),
+          (i.props = r),
+          (i.state = o),
+          (i.context = u),
+          (r = c))
+        : (typeof i.componentDidMount == "function" && (t.flags |= 4194308),
+          (r = !1)));
+  } else {
+    ((i = t.stateNode),
+      su(e, t),
+      (c = t.memoizedProps),
+      (u = t.type === t.elementType ? c : Te(t.type, c)),
+      (i.props = u),
+      (f = t.pendingProps),
+      (p = i.context),
+      (o = n.contextType),
+      typeof o == "object" && o !== null
+        ? (o = ze(o))
+        : ((o = xe(n) ? Ot : oe.current), (o = fn(t, o))));
+    var y = n.getDerivedStateFromProps;
+    ((x =
+      typeof y == "function" ||
+      typeof i.getSnapshotBeforeUpdate == "function") ||
+      (typeof i.UNSAFE_componentWillReceiveProps != "function" &&
+        typeof i.componentWillReceiveProps != "function") ||
+      ((c !== f || p !== o) && oo(t, i, r, o)),
+      (lt = !1),
+      (p = t.memoizedState),
+      (i.state = p),
+      xa(t, r, i, a));
+    var v = t.memoizedState;
+    c !== f || p !== v || me.current || lt
+      ? (typeof y == "function" && (Jl(t, n, y, r), (v = t.memoizedState)),
+        (u = lt || io(t, n, u, r, p, v, o) || !1)
+          ? (x ||
+              (typeof i.UNSAFE_componentWillUpdate != "function" &&
+                typeof i.componentWillUpdate != "function") ||
+              (typeof i.componentWillUpdate == "function" &&
+                i.componentWillUpdate(r, v, o),
+              typeof i.UNSAFE_componentWillUpdate == "function" &&
+                i.UNSAFE_componentWillUpdate(r, v, o)),
+            typeof i.componentDidUpdate == "function" && (t.flags |= 4),
+            typeof i.getSnapshotBeforeUpdate == "function" && (t.flags |= 1024))
+          : (typeof i.componentDidUpdate != "function" ||
+              (c === e.memoizedProps && p === e.memoizedState) ||
+              (t.flags |= 4),
+            typeof i.getSnapshotBeforeUpdate != "function" ||
+              (c === e.memoizedProps && p === e.memoizedState) ||
+              (t.flags |= 1024),
+            (t.memoizedProps = r),
+            (t.memoizedState = v)),
+        (i.props = r),
+        (i.state = v),
+        (i.context = o),
+        (r = u))
+      : (typeof i.componentDidUpdate != "function" ||
+          (c === e.memoizedProps && p === e.memoizedState) ||
+          (t.flags |= 4),
+        typeof i.getSnapshotBeforeUpdate != "function" ||
+          (c === e.memoizedProps && p === e.memoizedState) ||
+          (t.flags |= 1024),
+        (r = !1));
+  }
+  return rs(e, t, n, r, s, a);
+}
+function rs(e, t, n, r, a, s) {
+  Lu(e, t);
+  var i = (t.flags & 128) !== 0;
+  if (!r && !i) return (a && Ji(t, n, !1), tt(e, t, s));
+  ((r = t.stateNode), (Ip.current = t));
+  var c =
+    i && typeof n.getDerivedStateFromError != "function" ? null : r.render();
+  return (
+    (t.flags |= 1),
+    e !== null && i
+      ? ((t.child = hn(t, e.child, null, s)), (t.child = hn(t, null, c, s)))
+      : ce(e, t, c, s),
+    (t.memoizedState = r.state),
+    a && Ji(t, n, !0),
+    t.child
+  );
+}
+function Mu(e) {
+  var t = e.stateNode;
+  (t.pendingContext
+    ? Zi(e, t.pendingContext, t.pendingContext !== t.context)
+    : t.context && Zi(e, t.context, !1),
+    Qs(e, t.containerInfo));
+}
+function xo(e, t, n, r, a) {
+  return (pn(), Us(a), (t.flags |= 256), ce(e, t, n, r), t.child);
+}
+var as = { dehydrated: null, treeContext: null, retryLane: 0 };
+function ls(e) {
+  return { baseLanes: e, cachePool: null, transitions: null };
+}
+function Tu(e, t, n) {
+  var r = t.pendingProps,
+    a = V.current,
+    s = !1,
+    i = (t.flags & 128) !== 0,
+    c;
+  if (
+    ((c = i) ||
+      (c = e !== null && e.memoizedState === null ? !1 : (a & 2) !== 0),
+    c
+      ? ((s = !0), (t.flags &= -129))
+      : (e === null || e.memoizedState !== null) && (a |= 1),
+    A(V, a & 1),
+    e === null)
+  )
+    return (
+      Gl(t),
+      (e = t.memoizedState),
+      e !== null && ((e = e.dehydrated), e !== null)
+        ? (t.mode & 1
+            ? e.data === "$!"
+              ? (t.lanes = 8)
+              : (t.lanes = 1073741824)
+            : (t.lanes = 1),
+          null)
+        : ((i = r.children),
+          (e = r.fallback),
+          s
+            ? ((r = t.mode),
+              (s = t.child),
+              (i = { mode: "hidden", children: i }),
+              !(r & 1) && s !== null
+                ? ((s.childLanes = 0), (s.pendingProps = i))
+                : (s = Da(i, r, 0, null)),
+              (e = Rt(e, r, n, null)),
+              (s.return = t),
+              (e.return = t),
+              (s.sibling = e),
+              (t.child = s),
+              (t.child.memoizedState = ls(n)),
+              (t.memoizedState = as),
+              e)
+            : ei(t, i))
+    );
+  if (((a = e.memoizedState), a !== null && ((c = a.dehydrated), c !== null)))
+    return Op(e, t, i, r, c, a, n);
+  if (s) {
+    ((s = r.fallback), (i = t.mode), (a = e.child), (c = a.sibling));
+    var o = { mode: "hidden", children: r.children };
+    return (
+      !(i & 1) && t.child !== a
+        ? ((r = t.child),
+          (r.childLanes = 0),
+          (r.pendingProps = o),
+          (t.deletions = null))
+        : ((r = yt(a, o)), (r.subtreeFlags = a.subtreeFlags & 14680064)),
+      c !== null ? (s = yt(c, s)) : ((s = Rt(s, i, n, null)), (s.flags |= 2)),
+      (s.return = t),
+      (r.return = t),
+      (r.sibling = s),
+      (t.child = r),
+      (r = s),
+      (s = t.child),
+      (i = e.child.memoizedState),
+      (i =
+        i === null
+          ? ls(n)
+          : {
+              baseLanes: i.baseLanes | n,
+              cachePool: null,
+              transitions: i.transitions,
+            }),
+      (s.memoizedState = i),
+      (s.childLanes = e.childLanes & ~n),
+      (t.memoizedState = as),
+      r
+    );
+  }
+  return (
+    (s = e.child),
+    (e = s.sibling),
+    (r = yt(s, { mode: "visible", children: r.children })),
+    !(t.mode & 1) && (r.lanes = n),
+    (r.return = t),
+    (r.sibling = null),
+    e !== null &&
+      ((n = t.deletions),
+      n === null ? ((t.deletions = [e]), (t.flags |= 16)) : n.push(e)),
+    (t.child = r),
+    (t.memoizedState = null),
+    r
+  );
+}
+function ei(e, t) {
+  return (
+    (t = Da({ mode: "visible", children: t }, e.mode, 0, null)),
+    (t.return = e),
+    (e.child = t)
+  );
+}
+function Or(e, t, n, r) {
+  return (
+    r !== null && Us(r),
+    hn(t, e.child, null, n),
+    (e = ei(t, t.pendingProps.children)),
+    (e.flags |= 2),
+    (t.memoizedState = null),
+    e
+  );
+}
+function Op(e, t, n, r, a, s, i) {
+  if (n)
+    return t.flags & 256
+      ? ((t.flags &= -257), (r = gl(Error(j(422)))), Or(e, t, i, r))
+      : t.memoizedState !== null
+        ? ((t.child = e.child), (t.flags |= 128), null)
+        : ((s = r.fallback),
+          (a = t.mode),
+          (r = Da({ mode: "visible", children: r.children }, a, 0, null)),
+          (s = Rt(s, a, i, null)),
+          (s.flags |= 2),
+          (r.return = t),
+          (s.return = t),
+          (r.sibling = s),
+          (t.child = r),
+          t.mode & 1 && hn(t, e.child, null, i),
+          (t.child.memoizedState = ls(i)),
+          (t.memoizedState = as),
+          s);
+  if (!(t.mode & 1)) return Or(e, t, i, null);
+  if (a.data === "$!") {
+    if (((r = a.nextSibling && a.nextSibling.dataset), r)) var c = r.dgst;
+    return (
+      (r = c),
+      (s = Error(j(419))),
+      (r = gl(s, r, void 0)),
+      Or(e, t, i, r)
+    );
+  }
+  if (((c = (i & e.childLanes) !== 0), he || c)) {
+    if (((r = te), r !== null)) {
+      switch (i & -i) {
+        case 4:
+          a = 2;
+          break;
+        case 16:
+          a = 8;
+          break;
+        case 64:
+        case 128:
+        case 256:
+        case 512:
+        case 1024:
+        case 2048:
+        case 4096:
+        case 8192:
+        case 16384:
+        case 32768:
+        case 65536:
+        case 131072:
+        case 262144:
+        case 524288:
+        case 1048576:
+        case 2097152:
+        case 4194304:
+        case 8388608:
+        case 16777216:
+        case 33554432:
+        case 67108864:
+          a = 32;
+          break;
+        case 536870912:
+          a = 268435456;
+          break;
+        default:
+          a = 0;
+      }
+      ((a = a & (r.suspendedLanes | i) ? 0 : a),
+        a !== 0 &&
+          a !== s.retryLane &&
+          ((s.retryLane = a), et(e, a), Ae(r, e, a, -1)));
+    }
+    return (si(), (r = gl(Error(j(421)))), Or(e, t, i, r));
+  }
+  return a.data === "$?"
+    ? ((t.flags |= 128),
+      (t.child = e.child),
+      (t = Xp.bind(null, e)),
+      (a._reactRetry = t),
+      null)
+    : ((e = s.treeContext),
+      (ve = mt(a.nextSibling)),
+      (we = t),
+      ($ = !0),
+      (Ie = null),
+      e !== null &&
+        ((_e[Ce++] = Ke),
+        (_e[Ce++] = Xe),
+        (_e[Ce++] = At),
+        (Ke = e.id),
+        (Xe = e.overflow),
+        (At = t)),
+      (t = ei(t, r.children)),
+      (t.flags |= 4096),
+      t);
+}
+function go(e, t, n) {
+  e.lanes |= t;
+  var r = e.alternate;
+  (r !== null && (r.lanes |= t), Zl(e.return, t, n));
+}
+function bl(e, t, n, r, a) {
+  var s = e.memoizedState;
+  s === null
+    ? (e.memoizedState = {
+        isBackwards: t,
+        rendering: null,
+        renderingStartTime: 0,
+        last: r,
+        tail: n,
+        tailMode: a,
+      })
+    : ((s.isBackwards = t),
+      (s.rendering = null),
+      (s.renderingStartTime = 0),
+      (s.last = r),
+      (s.tail = n),
+      (s.tailMode = a));
+}
+function Ru(e, t, n) {
+  var r = t.pendingProps,
+    a = r.revealOrder,
+    s = r.tail;
+  if ((ce(e, t, r.children, n), (r = V.current), r & 2))
+    ((r = (r & 1) | 2), (t.flags |= 128));
+  else {
+    if (e !== null && e.flags & 128)
+      e: for (e = t.child; e !== null; ) {
+        if (e.tag === 13) e.memoizedState !== null && go(e, n, t);
+        else if (e.tag === 19) go(e, n, t);
+        else if (e.child !== null) {
+          ((e.child.return = e), (e = e.child));
+          continue;
+        }
+        if (e === t) break e;
+        for (; e.sibling === null; ) {
+          if (e.return === null || e.return === t) break e;
+          e = e.return;
+        }
+        ((e.sibling.return = e.return), (e = e.sibling));
+      }
+    r &= 1;
+  }
+  if ((A(V, r), !(t.mode & 1))) t.memoizedState = null;
+  else
+    switch (a) {
+      case "forwards":
+        for (n = t.child, a = null; n !== null; )
+          ((e = n.alternate),
+            e !== null && ga(e) === null && (a = n),
+            (n = n.sibling));
+        ((n = a),
+          n === null
+            ? ((a = t.child), (t.child = null))
+            : ((a = n.sibling), (n.sibling = null)),
+          bl(t, !1, a, n, s));
+        break;
+      case "backwards":
+        for (n = null, a = t.child, t.child = null; a !== null; ) {
+          if (((e = a.alternate), e !== null && ga(e) === null)) {
+            t.child = a;
+            break;
+          }
+          ((e = a.sibling), (a.sibling = n), (n = a), (a = e));
+        }
+        bl(t, !0, n, null, s);
+        break;
+      case "together":
+        bl(t, !1, null, null, void 0);
+        break;
+      default:
+        t.memoizedState = null;
+    }
+  return t.child;
+}
+function Gr(e, t) {
+  !(t.mode & 1) &&
+    e !== null &&
+    ((e.alternate = null), (t.alternate = null), (t.flags |= 2));
+}
+function tt(e, t, n) {
+  if (
+    (e !== null && (t.dependencies = e.dependencies),
+    (Ut |= t.lanes),
+    !(n & t.childLanes))
+  )
+    return null;
+  if (e !== null && t.child !== e.child) throw Error(j(153));
+  if (t.child !== null) {
+    for (
+      e = t.child, n = yt(e, e.pendingProps), t.child = n, n.return = t;
+      e.sibling !== null;
+    )
+      ((e = e.sibling),
+        (n = n.sibling = yt(e, e.pendingProps)),
+        (n.return = t));
+    n.sibling = null;
+  }
+  return t.child;
+}
+function Ap(e, t, n) {
+  switch (t.tag) {
+    case 3:
+      (Mu(t), pn());
+      break;
+    case 5:
+      iu(t);
+      break;
+    case 1:
+      xe(t.type) && da(t);
+      break;
+    case 4:
+      Qs(t, t.stateNode.containerInfo);
+      break;
+    case 10:
+      var r = t.type._context,
+        a = t.memoizedProps.value;
+      (A(ha, r._currentValue), (r._currentValue = a));
+      break;
+    case 13:
+      if (((r = t.memoizedState), r !== null))
+        return r.dehydrated !== null
+          ? (A(V, V.current & 1), (t.flags |= 128), null)
+          : n & t.child.childLanes
+            ? Tu(e, t, n)
+            : (A(V, V.current & 1),
+              (e = tt(e, t, n)),
+              e !== null ? e.sibling : null);
+      A(V, V.current & 1);
+      break;
+    case 19:
+      if (((r = (n & t.childLanes) !== 0), e.flags & 128)) {
+        if (r) return Ru(e, t, n);
+        t.flags |= 128;
+      }
+      if (
+        ((a = t.memoizedState),
+        a !== null &&
+          ((a.rendering = null), (a.tail = null), (a.lastEffect = null)),
+        A(V, V.current),
+        r)
+      )
+        break;
+      return null;
+    case 22:
+    case 23:
+      return ((t.lanes = 0), Fu(e, t, n));
+  }
+  return tt(e, t, n);
+}
+var Iu, ss, Ou, Au;
+Iu = function (e, t) {
+  for (var n = t.child; n !== null; ) {
+    if (n.tag === 5 || n.tag === 6) e.appendChild(n.stateNode);
+    else if (n.tag !== 4 && n.child !== null) {
+      ((n.child.return = n), (n = n.child));
+      continue;
+    }
+    if (n === t) break;
+    for (; n.sibling === null; ) {
+      if (n.return === null || n.return === t) return;
+      n = n.return;
+    }
+    ((n.sibling.return = n.return), (n = n.sibling));
+  }
+};
+ss = function () {};
+Ou = function (e, t, n, r) {
+  var a = e.memoizedProps;
+  if (a !== r) {
+    ((e = t.stateNode), Mt(He.current));
+    var s = null;
+    switch (n) {
+      case "input":
+        ((a = El(e, a)), (r = El(e, r)), (s = []));
+        break;
+      case "select":
+        ((a = H({}, a, { value: void 0 })),
+          (r = H({}, r, { value: void 0 })),
+          (s = []));
+        break;
+      case "textarea":
+        ((a = Fl(e, a)), (r = Fl(e, r)), (s = []));
+        break;
+      default:
+        typeof a.onClick != "function" &&
+          typeof r.onClick == "function" &&
+          (e.onclick = ca);
+    }
+    Ml(n, r);
+    var i;
+    n = null;
+    for (u in a)
+      if (!r.hasOwnProperty(u) && a.hasOwnProperty(u) && a[u] != null)
+        if (u === "style") {
+          var c = a[u];
+          for (i in c) c.hasOwnProperty(i) && (n || (n = {}), (n[i] = ""));
+        } else
+          u !== "dangerouslySetInnerHTML" &&
+            u !== "children" &&
+            u !== "suppressContentEditableWarning" &&
+            u !== "suppressHydrationWarning" &&
+            u !== "autoFocus" &&
+            (Qn.hasOwnProperty(u)
+              ? s || (s = [])
+              : (s = s || []).push(u, null));
+    for (u in r) {
+      var o = r[u];
+      if (
+        ((c = a != null ? a[u] : void 0),
+        r.hasOwnProperty(u) && o !== c && (o != null || c != null))
+      )
+        if (u === "style")
+          if (c) {
+            for (i in c)
+              !c.hasOwnProperty(i) ||
+                (o && o.hasOwnProperty(i)) ||
+                (n || (n = {}), (n[i] = ""));
+            for (i in o)
+              o.hasOwnProperty(i) &&
+                c[i] !== o[i] &&
+                (n || (n = {}), (n[i] = o[i]));
+          } else (n || (s || (s = []), s.push(u, n)), (n = o));
+        else
+          u === "dangerouslySetInnerHTML"
+            ? ((o = o ? o.__html : void 0),
+              (c = c ? c.__html : void 0),
+              o != null && c !== o && (s = s || []).push(u, o))
+            : u === "children"
+              ? (typeof o != "string" && typeof o != "number") ||
+                (s = s || []).push(u, "" + o)
+              : u !== "suppressContentEditableWarning" &&
+                u !== "suppressHydrationWarning" &&
+                (Qn.hasOwnProperty(u)
+                  ? (o != null && u === "onScroll" && D("scroll", e),
+                    s || c === o || (s = []))
+                  : (s = s || []).push(u, o));
+    }
+    n && (s = s || []).push("style", n);
+    var u = s;
+    (t.updateQueue = u) && (t.flags |= 4);
+  }
+};
+Au = function (e, t, n, r) {
+  n !== r && (t.flags |= 4);
+};
+function Fn(e, t) {
+  if (!$)
+    switch (e.tailMode) {
+      case "hidden":
+        t = e.tail;
+        for (var n = null; t !== null; )
+          (t.alternate !== null && (n = t), (t = t.sibling));
+        n === null ? (e.tail = null) : (n.sibling = null);
+        break;
+      case "collapsed":
+        n = e.tail;
+        for (var r = null; n !== null; )
+          (n.alternate !== null && (r = n), (n = n.sibling));
+        r === null
+          ? t || e.tail === null
+            ? (e.tail = null)
+            : (e.tail.sibling = null)
+          : (r.sibling = null);
+    }
+}
+function se(e) {
+  var t = e.alternate !== null && e.alternate.child === e.child,
+    n = 0,
+    r = 0;
+  if (t)
+    for (var a = e.child; a !== null; )
+      ((n |= a.lanes | a.childLanes),
+        (r |= a.subtreeFlags & 14680064),
+        (r |= a.flags & 14680064),
+        (a.return = e),
+        (a = a.sibling));
+  else
+    for (a = e.child; a !== null; )
+      ((n |= a.lanes | a.childLanes),
+        (r |= a.subtreeFlags),
+        (r |= a.flags),
+        (a.return = e),
+        (a = a.sibling));
+  return ((e.subtreeFlags |= r), (e.childLanes = n), t);
+}
+function Dp(e, t, n) {
+  var r = t.pendingProps;
+  switch ((Ds(t), t.tag)) {
+    case 2:
+    case 16:
+    case 15:
+    case 0:
+    case 11:
+    case 7:
+    case 8:
+    case 12:
+    case 9:
+    case 14:
+      return (se(t), null);
+    case 1:
+      return (xe(t.type) && ua(), se(t), null);
+    case 3:
+      return (
+        (r = t.stateNode),
+        mn(),
+        U(me),
+        U(oe),
+        Ys(),
+        r.pendingContext &&
+          ((r.context = r.pendingContext), (r.pendingContext = null)),
+        (e === null || e.child === null) &&
+          (Rr(t)
+            ? (t.flags |= 4)
+            : e === null ||
+              (e.memoizedState.isDehydrated && !(t.flags & 256)) ||
+              ((t.flags |= 1024), Ie !== null && (ps(Ie), (Ie = null)))),
+        ss(e, t),
+        se(t),
+        null
+      );
+    case 5:
+      qs(t);
+      var a = Mt(ar.current);
+      if (((n = t.type), e !== null && t.stateNode != null))
+        (Ou(e, t, n, r, a),
+          e.ref !== t.ref && ((t.flags |= 512), (t.flags |= 2097152)));
+      else {
+        if (!r) {
+          if (t.stateNode === null) throw Error(j(166));
+          return (se(t), null);
+        }
+        if (((e = Mt(He.current)), Rr(t))) {
+          ((r = t.stateNode), (n = t.type));
+          var s = t.memoizedProps;
+          switch (((r[Ve] = t), (r[nr] = s), (e = (t.mode & 1) !== 0), n)) {
+            case "dialog":
+              (D("cancel", r), D("close", r));
+              break;
+            case "iframe":
+            case "object":
+            case "embed":
+              D("load", r);
+              break;
+            case "video":
+            case "audio":
+              for (a = 0; a < In.length; a++) D(In[a], r);
+              break;
+            case "source":
+              D("error", r);
+              break;
+            case "img":
+            case "image":
+            case "link":
+              (D("error", r), D("load", r));
+              break;
+            case "details":
+              D("toggle", r);
+              break;
+            case "input":
+              (_i(r, s), D("invalid", r));
+              break;
+            case "select":
+              ((r._wrapperState = { wasMultiple: !!s.multiple }),
+                D("invalid", r));
+              break;
+            case "textarea":
+              (Si(r, s), D("invalid", r));
+          }
+          (Ml(n, s), (a = null));
+          for (var i in s)
+            if (s.hasOwnProperty(i)) {
+              var c = s[i];
+              i === "children"
+                ? typeof c == "string"
+                  ? r.textContent !== c &&
+                    (s.suppressHydrationWarning !== !0 &&
+                      Tr(r.textContent, c, e),
+                    (a = ["children", c]))
+                  : typeof c == "number" &&
+                    r.textContent !== "" + c &&
+                    (s.suppressHydrationWarning !== !0 &&
+                      Tr(r.textContent, c, e),
+                    (a = ["children", "" + c]))
+                : Qn.hasOwnProperty(i) &&
+                  c != null &&
+                  i === "onScroll" &&
+                  D("scroll", r);
+            }
+          switch (n) {
+            case "input":
+              (Cr(r), Ci(r, s, !0));
+              break;
+            case "textarea":
+              (Cr(r), Ei(r));
+              break;
+            case "select":
+            case "option":
+              break;
+            default:
+              typeof s.onClick == "function" && (r.onclick = ca);
+          }
+          ((r = a), (t.updateQueue = r), r !== null && (t.flags |= 4));
+        } else {
+          ((i = a.nodeType === 9 ? a : a.ownerDocument),
+            e === "http://www.w3.org/1999/xhtml" && (e = fc(n)),
+            e === "http://www.w3.org/1999/xhtml"
+              ? n === "script"
+                ? ((e = i.createElement("div")),
+                  (e.innerHTML = "<script><\/script>"),
+                  (e = e.removeChild(e.firstChild)))
+                : typeof r.is == "string"
+                  ? (e = i.createElement(n, { is: r.is }))
+                  : ((e = i.createElement(n)),
+                    n === "select" &&
+                      ((i = e),
+                      r.multiple
+                        ? (i.multiple = !0)
+                        : r.size && (i.size = r.size)))
+              : (e = i.createElementNS(e, n)),
+            (e[Ve] = t),
+            (e[nr] = r),
+            Iu(e, t, !1, !1),
+            (t.stateNode = e));
+          e: {
+            switch (((i = Tl(n, r)), n)) {
+              case "dialog":
+                (D("cancel", e), D("close", e), (a = r));
+                break;
+              case "iframe":
+              case "object":
+              case "embed":
+                (D("load", e), (a = r));
+                break;
+              case "video":
+              case "audio":
+                for (a = 0; a < In.length; a++) D(In[a], e);
+                a = r;
+                break;
+              case "source":
+                (D("error", e), (a = r));
+                break;
+              case "img":
+              case "image":
+              case "link":
+                (D("error", e), D("load", e), (a = r));
+                break;
+              case "details":
+                (D("toggle", e), (a = r));
+                break;
+              case "input":
+                (_i(e, r), (a = El(e, r)), D("invalid", e));
+                break;
+              case "option":
+                a = r;
+                break;
+              case "select":
+                ((e._wrapperState = { wasMultiple: !!r.multiple }),
+                  (a = H({}, r, { value: void 0 })),
+                  D("invalid", e));
+                break;
+              case "textarea":
+                (Si(e, r), (a = Fl(e, r)), D("invalid", e));
+                break;
+              default:
+                a = r;
+            }
+            (Ml(n, a), (c = a));
+            for (s in c)
+              if (c.hasOwnProperty(s)) {
+                var o = c[s];
+                s === "style"
+                  ? mc(e, o)
+                  : s === "dangerouslySetInnerHTML"
+                    ? ((o = o ? o.__html : void 0), o != null && pc(e, o))
+                    : s === "children"
+                      ? typeof o == "string"
+                        ? (n !== "textarea" || o !== "") && qn(e, o)
+                        : typeof o == "number" && qn(e, "" + o)
+                      : s !== "suppressContentEditableWarning" &&
+                        s !== "suppressHydrationWarning" &&
+                        s !== "autoFocus" &&
+                        (Qn.hasOwnProperty(s)
+                          ? o != null && s === "onScroll" && D("scroll", e)
+                          : o != null && Ns(e, s, o, i));
+              }
+            switch (n) {
+              case "input":
+                (Cr(e), Ci(e, r, !1));
+                break;
+              case "textarea":
+                (Cr(e), Ei(e));
+                break;
+              case "option":
+                r.value != null && e.setAttribute("value", "" + vt(r.value));
+                break;
+              case "select":
+                ((e.multiple = !!r.multiple),
+                  (s = r.value),
+                  s != null
+                    ? rn(e, !!r.multiple, s, !1)
+                    : r.defaultValue != null &&
+                      rn(e, !!r.multiple, r.defaultValue, !0));
+                break;
+              default:
+                typeof a.onClick == "function" && (e.onclick = ca);
+            }
+            switch (n) {
+              case "button":
+              case "input":
+              case "select":
+              case "textarea":
+                r = !!r.autoFocus;
+                break e;
+              case "img":
+                r = !0;
+                break e;
+              default:
+                r = !1;
+            }
+          }
+          r && (t.flags |= 4);
+        }
+        t.ref !== null && ((t.flags |= 512), (t.flags |= 2097152));
+      }
+      return (se(t), null);
+    case 6:
+      if (e && t.stateNode != null) Au(e, t, e.memoizedProps, r);
+      else {
+        if (typeof r != "string" && t.stateNode === null) throw Error(j(166));
+        if (((n = Mt(ar.current)), Mt(He.current), Rr(t))) {
+          if (
+            ((r = t.stateNode),
+            (n = t.memoizedProps),
+            (r[Ve] = t),
+            (s = r.nodeValue !== n) && ((e = we), e !== null))
+          )
+            switch (e.tag) {
+              case 3:
+                Tr(r.nodeValue, n, (e.mode & 1) !== 0);
+                break;
+              case 5:
+                e.memoizedProps.suppressHydrationWarning !== !0 &&
+                  Tr(r.nodeValue, n, (e.mode & 1) !== 0);
+            }
+          s && (t.flags |= 4);
+        } else
+          ((r = (n.nodeType === 9 ? n : n.ownerDocument).createTextNode(r)),
+            (r[Ve] = t),
+            (t.stateNode = r));
+      }
+      return (se(t), null);
+    case 13:
+      if (
+        (U(V),
+        (r = t.memoizedState),
+        e === null ||
+          (e.memoizedState !== null && e.memoizedState.dehydrated !== null))
+      ) {
+        if ($ && ve !== null && t.mode & 1 && !(t.flags & 128))
+          (nu(), pn(), (t.flags |= 98560), (s = !1));
+        else if (((s = Rr(t)), r !== null && r.dehydrated !== null)) {
+          if (e === null) {
+            if (!s) throw Error(j(318));
+            if (
+              ((s = t.memoizedState),
+              (s = s !== null ? s.dehydrated : null),
+              !s)
+            )
+              throw Error(j(317));
+            s[Ve] = t;
+          } else
+            (pn(),
+              !(t.flags & 128) && (t.memoizedState = null),
+              (t.flags |= 4));
+          (se(t), (s = !1));
+        } else (Ie !== null && (ps(Ie), (Ie = null)), (s = !0));
+        if (!s) return t.flags & 65536 ? t : null;
+      }
+      return t.flags & 128
+        ? ((t.lanes = n), t)
+        : ((r = r !== null),
+          r !== (e !== null && e.memoizedState !== null) &&
+            r &&
+            ((t.child.flags |= 8192),
+            t.mode & 1 &&
+              (e === null || V.current & 1 ? Z === 0 && (Z = 3) : si())),
+          t.updateQueue !== null && (t.flags |= 4),
+          se(t),
+          null);
+    case 4:
+      return (
+        mn(),
+        ss(e, t),
+        e === null && er(t.stateNode.containerInfo),
+        se(t),
+        null
+      );
+    case 10:
+      return (Vs(t.type._context), se(t), null);
+    case 17:
+      return (xe(t.type) && ua(), se(t), null);
+    case 19:
+      if ((U(V), (s = t.memoizedState), s === null)) return (se(t), null);
+      if (((r = (t.flags & 128) !== 0), (i = s.rendering), i === null))
+        if (r) Fn(s, !1);
+        else {
+          if (Z !== 0 || (e !== null && e.flags & 128))
+            for (e = t.child; e !== null; ) {
+              if (((i = ga(e)), i !== null)) {
+                for (
+                  t.flags |= 128,
+                    Fn(s, !1),
+                    r = i.updateQueue,
+                    r !== null && ((t.updateQueue = r), (t.flags |= 4)),
+                    t.subtreeFlags = 0,
+                    r = n,
+                    n = t.child;
+                  n !== null;
+                )
+                  ((s = n),
+                    (e = r),
+                    (s.flags &= 14680066),
+                    (i = s.alternate),
+                    i === null
+                      ? ((s.childLanes = 0),
+                        (s.lanes = e),
+                        (s.child = null),
+                        (s.subtreeFlags = 0),
+                        (s.memoizedProps = null),
+                        (s.memoizedState = null),
+                        (s.updateQueue = null),
+                        (s.dependencies = null),
+                        (s.stateNode = null))
+                      : ((s.childLanes = i.childLanes),
+                        (s.lanes = i.lanes),
+                        (s.child = i.child),
+                        (s.subtreeFlags = 0),
+                        (s.deletions = null),
+                        (s.memoizedProps = i.memoizedProps),
+                        (s.memoizedState = i.memoizedState),
+                        (s.updateQueue = i.updateQueue),
+                        (s.type = i.type),
+                        (e = i.dependencies),
+                        (s.dependencies =
+                          e === null
+                            ? null
+                            : {
+                                lanes: e.lanes,
+                                firstContext: e.firstContext,
+                              })),
+                    (n = n.sibling));
+                return (A(V, (V.current & 1) | 2), t.child);
+              }
+              e = e.sibling;
+            }
+          s.tail !== null &&
+            Y() > gn &&
+            ((t.flags |= 128), (r = !0), Fn(s, !1), (t.lanes = 4194304));
+        }
+      else {
+        if (!r)
+          if (((e = ga(i)), e !== null)) {
+            if (
+              ((t.flags |= 128),
+              (r = !0),
+              (n = e.updateQueue),
+              n !== null && ((t.updateQueue = n), (t.flags |= 4)),
+              Fn(s, !0),
+              s.tail === null && s.tailMode === "hidden" && !i.alternate && !$)
+            )
+              return (se(t), null);
+          } else
+            2 * Y() - s.renderingStartTime > gn &&
+              n !== 1073741824 &&
+              ((t.flags |= 128), (r = !0), Fn(s, !1), (t.lanes = 4194304));
+        s.isBackwards
+          ? ((i.sibling = t.child), (t.child = i))
+          : ((n = s.last),
+            n !== null ? (n.sibling = i) : (t.child = i),
+            (s.last = i));
+      }
+      return s.tail !== null
+        ? ((t = s.tail),
+          (s.rendering = t),
+          (s.tail = t.sibling),
+          (s.renderingStartTime = Y()),
+          (t.sibling = null),
+          (n = V.current),
+          A(V, r ? (n & 1) | 2 : n & 1),
+          t)
+        : (se(t), null);
+    case 22:
+    case 23:
+      return (
+        li(),
+        (r = t.memoizedState !== null),
+        e !== null && (e.memoizedState !== null) !== r && (t.flags |= 8192),
+        r && t.mode & 1
+          ? ye & 1073741824 && (se(t), t.subtreeFlags & 6 && (t.flags |= 8192))
+          : se(t),
+        null
+      );
+    case 24:
+      return null;
+    case 25:
+      return null;
+  }
+  throw Error(j(156, t.tag));
+}
+function Up(e, t) {
+  switch ((Ds(t), t.tag)) {
+    case 1:
+      return (
+        xe(t.type) && ua(),
+        (e = t.flags),
+        e & 65536 ? ((t.flags = (e & -65537) | 128), t) : null
+      );
+    case 3:
+      return (
+        mn(),
+        U(me),
+        U(oe),
+        Ys(),
+        (e = t.flags),
+        e & 65536 && !(e & 128) ? ((t.flags = (e & -65537) | 128), t) : null
+      );
+    case 5:
+      return (qs(t), null);
+    case 13:
+      if ((U(V), (e = t.memoizedState), e !== null && e.dehydrated !== null)) {
+        if (t.alternate === null) throw Error(j(340));
+        pn();
+      }
+      return (
+        (e = t.flags),
+        e & 65536 ? ((t.flags = (e & -65537) | 128), t) : null
+      );
+    case 19:
+      return (U(V), null);
+    case 4:
+      return (mn(), null);
+    case 10:
+      return (Vs(t.type._context), null);
+    case 22:
+    case 23:
+      return (li(), null);
+    case 24:
+      return null;
+    default:
+      return null;
+  }
+}
+var Ar = !1,
+  ie = !1,
+  $p = typeof WeakSet == "function" ? WeakSet : Set,
+  S = null;
+function tn(e, t) {
+  var n = e.ref;
+  if (n !== null)
+    if (typeof n == "function")
+      try {
+        n(null);
+      } catch (r) {
+        Q(e, t, r);
+      }
+    else n.current = null;
+}
+function Du(e, t, n) {
+  try {
+    n();
+  } catch (r) {
+    Q(e, t, r);
+  }
+}
+var bo = !1;
+function Bp(e, t) {
+  if (((Wl = sa), (e = Vc()), Os(e))) {
+    if ("selectionStart" in e)
+      var n = { start: e.selectionStart, end: e.selectionEnd };
+    else
+      e: {
+        n = ((n = e.ownerDocument) && n.defaultView) || window;
+        var r = n.getSelection && n.getSelection();
+        if (r && r.rangeCount !== 0) {
+          n = r.anchorNode;
+          var a = r.anchorOffset,
+            s = r.focusNode;
+          r = r.focusOffset;
+          try {
+            (n.nodeType, s.nodeType);
+          } catch {
+            n = null;
+            break e;
+          }
+          var i = 0,
+            c = -1,
+            o = -1,
+            u = 0,
+            x = 0,
+            f = e,
+            p = null;
+          t: for (;;) {
+            for (
+              var y;
+              f !== n || (a !== 0 && f.nodeType !== 3) || (c = i + a),
+                f !== s || (r !== 0 && f.nodeType !== 3) || (o = i + r),
+                f.nodeType === 3 && (i += f.nodeValue.length),
+                (y = f.firstChild) !== null;
+            )
+              ((p = f), (f = y));
+            for (;;) {
+              if (f === e) break t;
+              if (
+                (p === n && ++u === a && (c = i),
+                p === s && ++x === r && (o = i),
+                (y = f.nextSibling) !== null)
+              )
+                break;
+              ((f = p), (p = f.parentNode));
+            }
+            f = y;
+          }
+          n = c === -1 || o === -1 ? null : { start: c, end: o };
+        } else n = null;
+      }
+    n = n || { start: 0, end: 0 };
+  } else n = null;
+  for (Hl = { focusedElem: e, selectionRange: n }, sa = !1, S = t; S !== null; )
+    if (((t = S), (e = t.child), (t.subtreeFlags & 1028) !== 0 && e !== null))
+      ((e.return = t), (S = e));
+    else
+      for (; S !== null; ) {
+        t = S;
+        try {
+          var v = t.alternate;
+          if (t.flags & 1024)
+            switch (t.tag) {
+              case 0:
+              case 11:
+              case 15:
+                break;
+              case 1:
+                if (v !== null) {
+                  var g = v.memoizedProps,
+                    _ = v.memoizedState,
+                    h = t.stateNode,
+                    d = h.getSnapshotBeforeUpdate(
+                      t.elementType === t.type ? g : Te(t.type, g),
+                      _,
+                    );
+                  h.__reactInternalSnapshotBeforeUpdate = d;
+                }
+                break;
+              case 3:
+                var m = t.stateNode.containerInfo;
+                m.nodeType === 1
+                  ? (m.textContent = "")
+                  : m.nodeType === 9 &&
+                    m.documentElement &&
+                    m.removeChild(m.documentElement);
+                break;
+              case 5:
+              case 6:
+              case 4:
+              case 17:
+                break;
+              default:
+                throw Error(j(163));
+            }
+        } catch (w) {
+          Q(t, t.return, w);
+        }
+        if (((e = t.sibling), e !== null)) {
+          ((e.return = t.return), (S = e));
+          break;
+        }
+        S = t.return;
+      }
+  return ((v = bo), (bo = !1), v);
+}
+function Vn(e, t, n) {
+  var r = t.updateQueue;
+  if (((r = r !== null ? r.lastEffect : null), r !== null)) {
+    var a = (r = r.next);
+    do {
+      if ((a.tag & e) === e) {
+        var s = a.destroy;
+        ((a.destroy = void 0), s !== void 0 && Du(t, n, s));
+      }
+      a = a.next;
+    } while (a !== r);
+  }
+}
+function Oa(e, t) {
+  if (
+    ((t = t.updateQueue), (t = t !== null ? t.lastEffect : null), t !== null)
+  ) {
+    var n = (t = t.next);
+    do {
+      if ((n.tag & e) === e) {
+        var r = n.create;
+        n.destroy = r();
+      }
+      n = n.next;
+    } while (n !== t);
+  }
+}
+function is(e) {
+  var t = e.ref;
+  if (t !== null) {
+    var n = e.stateNode;
+    switch (e.tag) {
+      case 5:
+        e = n;
+        break;
+      default:
+        e = n;
+    }
+    typeof t == "function" ? t(e) : (t.current = e);
+  }
+}
+function Uu(e) {
+  var t = e.alternate;
+  (t !== null && ((e.alternate = null), Uu(t)),
+    (e.child = null),
+    (e.deletions = null),
+    (e.sibling = null),
+    e.tag === 5 &&
+      ((t = e.stateNode),
+      t !== null &&
+        (delete t[Ve], delete t[nr], delete t[Yl], delete t[Np], delete t[_p])),
+    (e.stateNode = null),
+    (e.return = null),
+    (e.dependencies = null),
+    (e.memoizedProps = null),
+    (e.memoizedState = null),
+    (e.pendingProps = null),
+    (e.stateNode = null),
+    (e.updateQueue = null));
+}
+function $u(e) {
+  return e.tag === 5 || e.tag === 3 || e.tag === 4;
+}
+function yo(e) {
+  e: for (;;) {
+    for (; e.sibling === null; ) {
+      if (e.return === null || $u(e.return)) return null;
+      e = e.return;
+    }
+    for (
+      e.sibling.return = e.return, e = e.sibling;
+      e.tag !== 5 && e.tag !== 6 && e.tag !== 18;
+    ) {
+      if (e.flags & 2 || e.child === null || e.tag === 4) continue e;
+      ((e.child.return = e), (e = e.child));
+    }
+    if (!(e.flags & 2)) return e.stateNode;
+  }
+}
+function os(e, t, n) {
+  var r = e.tag;
+  if (r === 5 || r === 6)
+    ((e = e.stateNode),
+      t
+        ? n.nodeType === 8
+          ? n.parentNode.insertBefore(e, t)
+          : n.insertBefore(e, t)
+        : (n.nodeType === 8
+            ? ((t = n.parentNode), t.insertBefore(e, n))
+            : ((t = n), t.appendChild(e)),
+          (n = n._reactRootContainer),
+          n != null || t.onclick !== null || (t.onclick = ca)));
+  else if (r !== 4 && ((e = e.child), e !== null))
+    for (os(e, t, n), e = e.sibling; e !== null; )
+      (os(e, t, n), (e = e.sibling));
+}
+function cs(e, t, n) {
+  var r = e.tag;
+  if (r === 5 || r === 6)
+    ((e = e.stateNode), t ? n.insertBefore(e, t) : n.appendChild(e));
+  else if (r !== 4 && ((e = e.child), e !== null))
+    for (cs(e, t, n), e = e.sibling; e !== null; )
+      (cs(e, t, n), (e = e.sibling));
+}
+var ne = null,
+  Re = !1;
+function rt(e, t, n) {
+  for (n = n.child; n !== null; ) (Bu(e, t, n), (n = n.sibling));
+}
+function Bu(e, t, n) {
+  if (We && typeof We.onCommitFiberUnmount == "function")
+    try {
+      We.onCommitFiberUnmount(za, n);
+    } catch {}
+  switch (n.tag) {
+    case 5:
+      ie || tn(n, t);
+    case 6:
+      var r = ne,
+        a = Re;
+      ((ne = null),
+        rt(e, t, n),
+        (ne = r),
+        (Re = a),
+        ne !== null &&
+          (Re
+            ? ((e = ne),
+              (n = n.stateNode),
+              e.nodeType === 8 ? e.parentNode.removeChild(n) : e.removeChild(n))
+            : ne.removeChild(n.stateNode)));
+      break;
+    case 18:
+      ne !== null &&
+        (Re
+          ? ((e = ne),
+            (n = n.stateNode),
+            e.nodeType === 8
+              ? dl(e.parentNode, n)
+              : e.nodeType === 1 && dl(e, n),
+            Gn(e))
+          : dl(ne, n.stateNode));
+      break;
+    case 4:
+      ((r = ne),
+        (a = Re),
+        (ne = n.stateNode.containerInfo),
+        (Re = !0),
+        rt(e, t, n),
+        (ne = r),
+        (Re = a));
+      break;
+    case 0:
+    case 11:
+    case 14:
+    case 15:
+      if (
+        !ie &&
+        ((r = n.updateQueue), r !== null && ((r = r.lastEffect), r !== null))
+      ) {
+        a = r = r.next;
+        do {
+          var s = a,
+            i = s.destroy;
+          ((s = s.tag),
+            i !== void 0 && (s & 2 || s & 4) && Du(n, t, i),
+            (a = a.next));
+        } while (a !== r);
+      }
+      rt(e, t, n);
+      break;
+    case 1:
+      if (
+        !ie &&
+        (tn(n, t),
+        (r = n.stateNode),
+        typeof r.componentWillUnmount == "function")
+      )
+        try {
+          ((r.props = n.memoizedProps),
+            (r.state = n.memoizedState),
+            r.componentWillUnmount());
+        } catch (c) {
+          Q(n, t, c);
+        }
+      rt(e, t, n);
+      break;
+    case 21:
+      rt(e, t, n);
+      break;
+    case 22:
+      n.mode & 1
+        ? ((ie = (r = ie) || n.memoizedState !== null), rt(e, t, n), (ie = r))
+        : rt(e, t, n);
+      break;
+    default:
+      rt(e, t, n);
+  }
+}
+function vo(e) {
+  var t = e.updateQueue;
+  if (t !== null) {
+    e.updateQueue = null;
+    var n = e.stateNode;
+    (n === null && (n = e.stateNode = new $p()),
+      t.forEach(function (r) {
+        var a = Gp.bind(null, e, r);
+        n.has(r) || (n.add(r), r.then(a, a));
+      }));
+  }
+}
+function Le(e, t) {
+  var n = t.deletions;
+  if (n !== null)
+    for (var r = 0; r < n.length; r++) {
+      var a = n[r];
+      try {
+        var s = e,
+          i = t,
+          c = i;
+        e: for (; c !== null; ) {
+          switch (c.tag) {
+            case 5:
+              ((ne = c.stateNode), (Re = !1));
+              break e;
+            case 3:
+              ((ne = c.stateNode.containerInfo), (Re = !0));
+              break e;
+            case 4:
+              ((ne = c.stateNode.containerInfo), (Re = !0));
+              break e;
+          }
+          c = c.return;
+        }
+        if (ne === null) throw Error(j(160));
+        (Bu(s, i, a), (ne = null), (Re = !1));
+        var o = a.alternate;
+        (o !== null && (o.return = null), (a.return = null));
+      } catch (u) {
+        Q(a, t, u);
+      }
+    }
+  if (t.subtreeFlags & 12854)
+    for (t = t.child; t !== null; ) (Vu(t, e), (t = t.sibling));
+}
+function Vu(e, t) {
+  var n = e.alternate,
+    r = e.flags;
+  switch (e.tag) {
+    case 0:
+    case 11:
+    case 14:
+    case 15:
+      if ((Le(t, e), $e(e), r & 4)) {
+        try {
+          (Vn(3, e, e.return), Oa(3, e));
+        } catch (g) {
+          Q(e, e.return, g);
+        }
+        try {
+          Vn(5, e, e.return);
+        } catch (g) {
+          Q(e, e.return, g);
+        }
+      }
+      break;
+    case 1:
+      (Le(t, e), $e(e), r & 512 && n !== null && tn(n, n.return));
+      break;
+    case 5:
+      if (
+        (Le(t, e),
+        $e(e),
+        r & 512 && n !== null && tn(n, n.return),
+        e.flags & 32)
+      ) {
+        var a = e.stateNode;
+        try {
+          qn(a, "");
+        } catch (g) {
+          Q(e, e.return, g);
+        }
+      }
+      if (r & 4 && ((a = e.stateNode), a != null)) {
+        var s = e.memoizedProps,
+          i = n !== null ? n.memoizedProps : s,
+          c = e.type,
+          o = e.updateQueue;
+        if (((e.updateQueue = null), o !== null))
+          try {
+            (c === "input" && s.type === "radio" && s.name != null && uc(a, s),
+              Tl(c, i));
+            var u = Tl(c, s);
+            for (i = 0; i < o.length; i += 2) {
+              var x = o[i],
+                f = o[i + 1];
+              x === "style"
+                ? mc(a, f)
+                : x === "dangerouslySetInnerHTML"
+                  ? pc(a, f)
+                  : x === "children"
+                    ? qn(a, f)
+                    : Ns(a, x, f, u);
+            }
+            switch (c) {
+              case "input":
+                zl(a, s);
+                break;
+              case "textarea":
+                dc(a, s);
+                break;
+              case "select":
+                var p = a._wrapperState.wasMultiple;
+                a._wrapperState.wasMultiple = !!s.multiple;
+                var y = s.value;
+                y != null
+                  ? rn(a, !!s.multiple, y, !1)
+                  : p !== !!s.multiple &&
+                    (s.defaultValue != null
+                      ? rn(a, !!s.multiple, s.defaultValue, !0)
+                      : rn(a, !!s.multiple, s.multiple ? [] : "", !1));
+            }
+            a[nr] = s;
+          } catch (g) {
+            Q(e, e.return, g);
+          }
+      }
+      break;
+    case 6:
+      if ((Le(t, e), $e(e), r & 4)) {
+        if (e.stateNode === null) throw Error(j(162));
+        ((a = e.stateNode), (s = e.memoizedProps));
+        try {
+          a.nodeValue = s;
+        } catch (g) {
+          Q(e, e.return, g);
+        }
+      }
+      break;
+    case 3:
+      if (
+        (Le(t, e), $e(e), r & 4 && n !== null && n.memoizedState.isDehydrated)
+      )
+        try {
+          Gn(t.containerInfo);
+        } catch (g) {
+          Q(e, e.return, g);
+        }
+      break;
+    case 4:
+      (Le(t, e), $e(e));
+      break;
+    case 13:
+      (Le(t, e),
+        $e(e),
+        (a = e.child),
+        a.flags & 8192 &&
+          ((s = a.memoizedState !== null),
+          (a.stateNode.isHidden = s),
+          !s ||
+            (a.alternate !== null && a.alternate.memoizedState !== null) ||
+            (ri = Y())),
+        r & 4 && vo(e));
+      break;
+    case 22:
+      if (
+        ((x = n !== null && n.memoizedState !== null),
+        e.mode & 1 ? ((ie = (u = ie) || x), Le(t, e), (ie = u)) : Le(t, e),
+        $e(e),
+        r & 8192)
+      ) {
+        if (
+          ((u = e.memoizedState !== null),
+          (e.stateNode.isHidden = u) && !x && e.mode & 1)
+        )
+          for (S = e, x = e.child; x !== null; ) {
+            for (f = S = x; S !== null; ) {
+              switch (((p = S), (y = p.child), p.tag)) {
+                case 0:
+                case 11:
+                case 14:
+                case 15:
+                  Vn(4, p, p.return);
+                  break;
+                case 1:
+                  tn(p, p.return);
+                  var v = p.stateNode;
+                  if (typeof v.componentWillUnmount == "function") {
+                    ((r = p), (n = p.return));
+                    try {
+                      ((t = r),
+                        (v.props = t.memoizedProps),
+                        (v.state = t.memoizedState),
+                        v.componentWillUnmount());
+                    } catch (g) {
+                      Q(r, n, g);
+                    }
+                  }
+                  break;
+                case 5:
+                  tn(p, p.return);
+                  break;
+                case 22:
+                  if (p.memoizedState !== null) {
+                    ko(f);
+                    continue;
+                  }
+              }
+              y !== null ? ((y.return = p), (S = y)) : ko(f);
+            }
+            x = x.sibling;
+          }
+        e: for (x = null, f = e; ; ) {
+          if (f.tag === 5) {
+            if (x === null) {
+              x = f;
+              try {
+                ((a = f.stateNode),
+                  u
+                    ? ((s = a.style),
+                      typeof s.setProperty == "function"
+                        ? s.setProperty("display", "none", "important")
+                        : (s.display = "none"))
+                    : ((c = f.stateNode),
+                      (o = f.memoizedProps.style),
+                      (i =
+                        o != null && o.hasOwnProperty("display")
+                          ? o.display
+                          : null),
+                      (c.style.display = hc("display", i))));
+              } catch (g) {
+                Q(e, e.return, g);
+              }
+            }
+          } else if (f.tag === 6) {
+            if (x === null)
+              try {
+                f.stateNode.nodeValue = u ? "" : f.memoizedProps;
+              } catch (g) {
+                Q(e, e.return, g);
+              }
+          } else if (
+            ((f.tag !== 22 && f.tag !== 23) ||
+              f.memoizedState === null ||
+              f === e) &&
+            f.child !== null
+          ) {
+            ((f.child.return = f), (f = f.child));
+            continue;
+          }
+          if (f === e) break e;
+          for (; f.sibling === null; ) {
+            if (f.return === null || f.return === e) break e;
+            (x === f && (x = null), (f = f.return));
+          }
+          (x === f && (x = null),
+            (f.sibling.return = f.return),
+            (f = f.sibling));
+        }
+      }
+      break;
+    case 19:
+      (Le(t, e), $e(e), r & 4 && vo(e));
+      break;
+    case 21:
+      break;
+    default:
+      (Le(t, e), $e(e));
+  }
+}
+function $e(e) {
+  var t = e.flags;
+  if (t & 2) {
+    try {
+      e: {
+        for (var n = e.return; n !== null; ) {
+          if ($u(n)) {
+            var r = n;
+            break e;
+          }
+          n = n.return;
+        }
+        throw Error(j(160));
+      }
+      switch (r.tag) {
+        case 5:
+          var a = r.stateNode;
+          r.flags & 32 && (qn(a, ""), (r.flags &= -33));
+          var s = yo(e);
+          cs(e, s, a);
+          break;
+        case 3:
+        case 4:
+          var i = r.stateNode.containerInfo,
+            c = yo(e);
+          os(e, c, i);
+          break;
+        default:
+          throw Error(j(161));
+      }
+    } catch (o) {
+      Q(e, e.return, o);
+    }
+    e.flags &= -3;
+  }
+  t & 4096 && (e.flags &= -4097);
+}
+function Vp(e, t, n) {
+  ((S = e), Wu(e));
+}
+function Wu(e, t, n) {
+  for (var r = (e.mode & 1) !== 0; S !== null; ) {
+    var a = S,
+      s = a.child;
+    if (a.tag === 22 && r) {
+      var i = a.memoizedState !== null || Ar;
+      if (!i) {
+        var c = a.alternate,
+          o = (c !== null && c.memoizedState !== null) || ie;
+        c = Ar;
+        var u = ie;
+        if (((Ar = i), (ie = o) && !u))
+          for (S = a; S !== null; )
+            ((i = S),
+              (o = i.child),
+              i.tag === 22 && i.memoizedState !== null
+                ? jo(a)
+                : o !== null
+                  ? ((o.return = i), (S = o))
+                  : jo(a));
+        for (; s !== null; ) ((S = s), Wu(s), (s = s.sibling));
+        ((S = a), (Ar = c), (ie = u));
+      }
+      wo(e);
+    } else
+      a.subtreeFlags & 8772 && s !== null ? ((s.return = a), (S = s)) : wo(e);
+  }
+}
+function wo(e) {
+  for (; S !== null; ) {
+    var t = S;
+    if (t.flags & 8772) {
+      var n = t.alternate;
+      try {
+        if (t.flags & 8772)
+          switch (t.tag) {
+            case 0:
+            case 11:
+            case 15:
+              ie || Oa(5, t);
+              break;
+            case 1:
+              var r = t.stateNode;
+              if (t.flags & 4 && !ie)
+                if (n === null) r.componentDidMount();
+                else {
+                  var a =
+                    t.elementType === t.type
+                      ? n.memoizedProps
+                      : Te(t.type, n.memoizedProps);
+                  r.componentDidUpdate(
+                    a,
+                    n.memoizedState,
+                    r.__reactInternalSnapshotBeforeUpdate,
+                  );
+                }
+              var s = t.updateQueue;
+              s !== null && ao(t, s, r);
+              break;
+            case 3:
+              var i = t.updateQueue;
+              if (i !== null) {
+                if (((n = null), t.child !== null))
+                  switch (t.child.tag) {
+                    case 5:
+                      n = t.child.stateNode;
+                      break;
+                    case 1:
+                      n = t.child.stateNode;
+                  }
+                ao(t, i, n);
+              }
+              break;
+            case 5:
+              var c = t.stateNode;
+              if (n === null && t.flags & 4) {
+                n = c;
+                var o = t.memoizedProps;
+                switch (t.type) {
+                  case "button":
+                  case "input":
+                  case "select":
+                  case "textarea":
+                    o.autoFocus && n.focus();
+                    break;
+                  case "img":
+                    o.src && (n.src = o.src);
+                }
+              }
+              break;
+            case 6:
+              break;
+            case 4:
+              break;
+            case 12:
+              break;
+            case 13:
+              if (t.memoizedState === null) {
+                var u = t.alternate;
+                if (u !== null) {
+                  var x = u.memoizedState;
+                  if (x !== null) {
+                    var f = x.dehydrated;
+                    f !== null && Gn(f);
+                  }
+                }
+              }
+              break;
+            case 19:
+            case 17:
+            case 21:
+            case 22:
+            case 23:
+            case 25:
+              break;
+            default:
+              throw Error(j(163));
+          }
+        ie || (t.flags & 512 && is(t));
+      } catch (p) {
+        Q(t, t.return, p);
+      }
+    }
+    if (t === e) {
+      S = null;
+      break;
+    }
+    if (((n = t.sibling), n !== null)) {
+      ((n.return = t.return), (S = n));
+      break;
+    }
+    S = t.return;
+  }
+}
+function ko(e) {
+  for (; S !== null; ) {
+    var t = S;
+    if (t === e) {
+      S = null;
+      break;
+    }
+    var n = t.sibling;
+    if (n !== null) {
+      ((n.return = t.return), (S = n));
+      break;
+    }
+    S = t.return;
+  }
+}
+function jo(e) {
+  for (; S !== null; ) {
+    var t = S;
+    try {
+      switch (t.tag) {
+        case 0:
+        case 11:
+        case 15:
+          var n = t.return;
+          try {
+            Oa(4, t);
+          } catch (o) {
+            Q(t, n, o);
+          }
+          break;
+        case 1:
+          var r = t.stateNode;
+          if (typeof r.componentDidMount == "function") {
+            var a = t.return;
+            try {
+              r.componentDidMount();
+            } catch (o) {
+              Q(t, a, o);
+            }
+          }
+          var s = t.return;
+          try {
+            is(t);
+          } catch (o) {
+            Q(t, s, o);
+          }
+          break;
+        case 5:
+          var i = t.return;
+          try {
+            is(t);
+          } catch (o) {
+            Q(t, i, o);
+          }
+      }
+    } catch (o) {
+      Q(t, t.return, o);
+    }
+    if (t === e) {
+      S = null;
+      break;
+    }
+    var c = t.sibling;
+    if (c !== null) {
+      ((c.return = t.return), (S = c));
+      break;
+    }
+    S = t.return;
+  }
+}
+var Wp = Math.ceil,
+  va = nt.ReactCurrentDispatcher,
+  ti = nt.ReactCurrentOwner,
+  Ee = nt.ReactCurrentBatchConfig,
+  I = 0,
+  te = null,
+  K = null,
+  re = 0,
+  ye = 0,
+  nn = jt(0),
+  Z = 0,
+  or = null,
+  Ut = 0,
+  Aa = 0,
+  ni = 0,
+  Wn = null,
+  pe = null,
+  ri = 0,
+  gn = 1 / 0,
+  qe = null,
+  wa = !1,
+  us = null,
+  gt = null,
+  Dr = !1,
+  ct = null,
+  ka = 0,
+  Hn = 0,
+  ds = null,
+  Zr = -1,
+  Jr = 0;
+function ue() {
+  return I & 6 ? Y() : Zr !== -1 ? Zr : (Zr = Y());
+}
+function bt(e) {
+  return e.mode & 1
+    ? I & 2 && re !== 0
+      ? re & -re
+      : Sp.transition !== null
+        ? (Jr === 0 && (Jr = Sc()), Jr)
+        : ((e = O),
+          e !== 0 || ((e = window.event), (e = e === void 0 ? 16 : Tc(e.type))),
+          e)
+    : 1;
+}
+function Ae(e, t, n, r) {
+  if (50 < Hn) throw ((Hn = 0), (ds = null), Error(j(185)));
+  (hr(e, n, r),
+    (!(I & 2) || e !== te) &&
+      (e === te && (!(I & 2) && (Aa |= n), Z === 4 && it(e, re)),
+      ge(e, r),
+      n === 1 && I === 0 && !(t.mode & 1) && ((gn = Y() + 500), Ta && Nt())));
+}
+function ge(e, t) {
+  var n = e.callbackNode;
+  Sf(e, t);
+  var r = la(e, e === te ? re : 0);
+  if (r === 0)
+    (n !== null && Fi(n), (e.callbackNode = null), (e.callbackPriority = 0));
+  else if (((t = r & -r), e.callbackPriority !== t)) {
+    if ((n != null && Fi(n), t === 1))
+      (e.tag === 0 ? Cp(No.bind(null, e)) : Jc(No.bind(null, e)),
+        kp(function () {
+          !(I & 6) && Nt();
+        }),
+        (n = null));
+    else {
+      switch (Ec(r)) {
+        case 1:
+          n = zs;
+          break;
+        case 4:
+          n = _c;
+          break;
+        case 16:
+          n = aa;
+          break;
+        case 536870912:
+          n = Cc;
+          break;
+        default:
+          n = aa;
+      }
+      n = Zu(n, Hu.bind(null, e));
+    }
+    ((e.callbackPriority = t), (e.callbackNode = n));
+  }
+}
+function Hu(e, t) {
+  if (((Zr = -1), (Jr = 0), I & 6)) throw Error(j(327));
+  var n = e.callbackNode;
+  if (cn() && e.callbackNode !== n) return null;
+  var r = la(e, e === te ? re : 0);
+  if (r === 0) return null;
+  if (r & 30 || r & e.expiredLanes || t) t = ja(e, r);
+  else {
+    t = r;
+    var a = I;
+    I |= 2;
+    var s = qu();
+    (te !== e || re !== t) && ((qe = null), (gn = Y() + 500), Tt(e, t));
+    do
+      try {
+        qp();
+        break;
+      } catch (c) {
+        Qu(e, c);
+      }
+    while (!0);
+    (Bs(),
+      (va.current = s),
+      (I = a),
+      K !== null ? (t = 0) : ((te = null), (re = 0), (t = Z)));
+  }
+  if (t !== 0) {
+    if (
+      (t === 2 && ((a = Dl(e)), a !== 0 && ((r = a), (t = fs(e, a)))), t === 1)
+    )
+      throw ((n = or), Tt(e, 0), it(e, r), ge(e, Y()), n);
+    if (t === 6) it(e, r);
+    else {
+      if (
+        ((a = e.current.alternate),
+        !(r & 30) &&
+          !Hp(a) &&
+          ((t = ja(e, r)),
+          t === 2 && ((s = Dl(e)), s !== 0 && ((r = s), (t = fs(e, s)))),
+          t === 1))
+      )
+        throw ((n = or), Tt(e, 0), it(e, r), ge(e, Y()), n);
+      switch (((e.finishedWork = a), (e.finishedLanes = r), t)) {
+        case 0:
+        case 1:
+          throw Error(j(345));
+        case 2:
+          Pt(e, pe, qe);
+          break;
+        case 3:
+          if (
+            (it(e, r), (r & 130023424) === r && ((t = ri + 500 - Y()), 10 < t))
+          ) {
+            if (la(e, 0) !== 0) break;
+            if (((a = e.suspendedLanes), (a & r) !== r)) {
+              (ue(), (e.pingedLanes |= e.suspendedLanes & a));
+              break;
+            }
+            e.timeoutHandle = ql(Pt.bind(null, e, pe, qe), t);
+            break;
+          }
+          Pt(e, pe, qe);
+          break;
+        case 4:
+          if ((it(e, r), (r & 4194240) === r)) break;
+          for (t = e.eventTimes, a = -1; 0 < r; ) {
+            var i = 31 - Oe(r);
+            ((s = 1 << i), (i = t[i]), i > a && (a = i), (r &= ~s));
+          }
+          if (
+            ((r = a),
+            (r = Y() - r),
+            (r =
+              (120 > r
+                ? 120
+                : 480 > r
+                  ? 480
+                  : 1080 > r
+                    ? 1080
+                    : 1920 > r
+                      ? 1920
+                      : 3e3 > r
+                        ? 3e3
+                        : 4320 > r
+                          ? 4320
+                          : 1960 * Wp(r / 1960)) - r),
+            10 < r)
+          ) {
+            e.timeoutHandle = ql(Pt.bind(null, e, pe, qe), r);
+            break;
+          }
+          Pt(e, pe, qe);
+          break;
+        case 5:
+          Pt(e, pe, qe);
+          break;
+        default:
+          throw Error(j(329));
+      }
+    }
+  }
+  return (ge(e, Y()), e.callbackNode === n ? Hu.bind(null, e) : null);
+}
+function fs(e, t) {
+  var n = Wn;
+  return (
+    e.current.memoizedState.isDehydrated && (Tt(e, t).flags |= 256),
+    (e = ja(e, t)),
+    e !== 2 && ((t = pe), (pe = n), t !== null && ps(t)),
+    e
+  );
+}
+function ps(e) {
+  pe === null ? (pe = e) : pe.push.apply(pe, e);
+}
+function Hp(e) {
+  for (var t = e; ; ) {
+    if (t.flags & 16384) {
+      var n = t.updateQueue;
+      if (n !== null && ((n = n.stores), n !== null))
+        for (var r = 0; r < n.length; r++) {
+          var a = n[r],
+            s = a.getSnapshot;
+          a = a.value;
+          try {
+            if (!De(s(), a)) return !1;
+          } catch {
+            return !1;
+          }
+        }
+    }
+    if (((n = t.child), t.subtreeFlags & 16384 && n !== null))
+      ((n.return = t), (t = n));
+    else {
+      if (t === e) break;
+      for (; t.sibling === null; ) {
+        if (t.return === null || t.return === e) return !0;
+        t = t.return;
+      }
+      ((t.sibling.return = t.return), (t = t.sibling));
+    }
+  }
+  return !0;
+}
+function it(e, t) {
+  for (
+    t &= ~ni,
+      t &= ~Aa,
+      e.suspendedLanes |= t,
+      e.pingedLanes &= ~t,
+      e = e.expirationTimes;
+    0 < t;
+  ) {
+    var n = 31 - Oe(t),
+      r = 1 << n;
+    ((e[n] = -1), (t &= ~r));
+  }
+}
+function No(e) {
+  if (I & 6) throw Error(j(327));
+  cn();
+  var t = la(e, 0);
+  if (!(t & 1)) return (ge(e, Y()), null);
+  var n = ja(e, t);
+  if (e.tag !== 0 && n === 2) {
+    var r = Dl(e);
+    r !== 0 && ((t = r), (n = fs(e, r)));
+  }
+  if (n === 1) throw ((n = or), Tt(e, 0), it(e, t), ge(e, Y()), n);
+  if (n === 6) throw Error(j(345));
+  return (
+    (e.finishedWork = e.current.alternate),
+    (e.finishedLanes = t),
+    Pt(e, pe, qe),
+    ge(e, Y()),
+    null
+  );
+}
+function ai(e, t) {
+  var n = I;
+  I |= 1;
+  try {
+    return e(t);
+  } finally {
+    ((I = n), I === 0 && ((gn = Y() + 500), Ta && Nt()));
+  }
+}
+function $t(e) {
+  ct !== null && ct.tag === 0 && !(I & 6) && cn();
+  var t = I;
+  I |= 1;
+  var n = Ee.transition,
+    r = O;
+  try {
+    if (((Ee.transition = null), (O = 1), e)) return e();
+  } finally {
+    ((O = r), (Ee.transition = n), (I = t), !(I & 6) && Nt());
+  }
+}
+function li() {
+  ((ye = nn.current), U(nn));
+}
+function Tt(e, t) {
+  ((e.finishedWork = null), (e.finishedLanes = 0));
+  var n = e.timeoutHandle;
+  if ((n !== -1 && ((e.timeoutHandle = -1), wp(n)), K !== null))
+    for (n = K.return; n !== null; ) {
+      var r = n;
+      switch ((Ds(r), r.tag)) {
+        case 1:
+          ((r = r.type.childContextTypes), r != null && ua());
+          break;
+        case 3:
+          (mn(), U(me), U(oe), Ys());
+          break;
+        case 5:
+          qs(r);
+          break;
+        case 4:
+          mn();
+          break;
+        case 13:
+          U(V);
+          break;
+        case 19:
+          U(V);
+          break;
+        case 10:
+          Vs(r.type._context);
+          break;
+        case 22:
+        case 23:
+          li();
+      }
+      n = n.return;
+    }
+  if (
+    ((te = e),
+    (K = e = yt(e.current, null)),
+    (re = ye = t),
+    (Z = 0),
+    (or = null),
+    (ni = Aa = Ut = 0),
+    (pe = Wn = null),
+    Lt !== null)
+  ) {
+    for (t = 0; t < Lt.length; t++)
+      if (((n = Lt[t]), (r = n.interleaved), r !== null)) {
+        n.interleaved = null;
+        var a = r.next,
+          s = n.pending;
+        if (s !== null) {
+          var i = s.next;
+          ((s.next = a), (r.next = i));
+        }
+        n.pending = r;
+      }
+    Lt = null;
+  }
+  return e;
+}
+function Qu(e, t) {
+  do {
+    var n = K;
+    try {
+      if ((Bs(), (Kr.current = ya), ba)) {
+        for (var r = W.memoizedState; r !== null; ) {
+          var a = r.queue;
+          (a !== null && (a.pending = null), (r = r.next));
+        }
+        ba = !1;
+      }
+      if (
+        ((Dt = 0),
+        (ee = G = W = null),
+        (Bn = !1),
+        (lr = 0),
+        (ti.current = null),
+        n === null || n.return === null)
+      ) {
+        ((Z = 1), (or = t), (K = null));
+        break;
+      }
+      e: {
+        var s = e,
+          i = n.return,
+          c = n,
+          o = t;
+        if (
+          ((t = re),
+          (c.flags |= 32768),
+          o !== null && typeof o == "object" && typeof o.then == "function")
+        ) {
+          var u = o,
+            x = c,
+            f = x.tag;
+          if (!(x.mode & 1) && (f === 0 || f === 11 || f === 15)) {
+            var p = x.alternate;
+            p
+              ? ((x.updateQueue = p.updateQueue),
+                (x.memoizedState = p.memoizedState),
+                (x.lanes = p.lanes))
+              : ((x.updateQueue = null), (x.memoizedState = null));
+          }
+          var y = uo(i);
+          if (y !== null) {
+            ((y.flags &= -257),
+              fo(y, i, c, s, t),
+              y.mode & 1 && co(s, u, t),
+              (t = y),
+              (o = u));
+            var v = t.updateQueue;
+            if (v === null) {
+              var g = new Set();
+              (g.add(o), (t.updateQueue = g));
+            } else v.add(o);
+            break e;
+          } else {
+            if (!(t & 1)) {
+              (co(s, u, t), si());
+              break e;
+            }
+            o = Error(j(426));
+          }
+        } else if ($ && c.mode & 1) {
+          var _ = uo(i);
+          if (_ !== null) {
+            (!(_.flags & 65536) && (_.flags |= 256),
+              fo(_, i, c, s, t),
+              Us(xn(o, c)));
+            break e;
+          }
+        }
+        ((s = o = xn(o, c)),
+          Z !== 4 && (Z = 2),
+          Wn === null ? (Wn = [s]) : Wn.push(s),
+          (s = i));
+        do {
+          switch (s.tag) {
+            case 3:
+              ((s.flags |= 65536), (t &= -t), (s.lanes |= t));
+              var h = Eu(s, o, t);
+              ro(s, h);
+              break e;
+            case 1:
+              c = o;
+              var d = s.type,
+                m = s.stateNode;
+              if (
+                !(s.flags & 128) &&
+                (typeof d.getDerivedStateFromError == "function" ||
+                  (m !== null &&
+                    typeof m.componentDidCatch == "function" &&
+                    (gt === null || !gt.has(m))))
+              ) {
+                ((s.flags |= 65536), (t &= -t), (s.lanes |= t));
+                var w = zu(s, c, t);
+                ro(s, w);
+                break e;
+              }
+          }
+          s = s.return;
+        } while (s !== null);
+      }
+      Ku(n);
+    } catch (C) {
+      ((t = C), K === n && n !== null && (K = n = n.return));
+      continue;
+    }
+    break;
+  } while (!0);
+}
+function qu() {
+  var e = va.current;
+  return ((va.current = ya), e === null ? ya : e);
+}
+function si() {
+  ((Z === 0 || Z === 3 || Z === 2) && (Z = 4),
+    te === null || (!(Ut & 268435455) && !(Aa & 268435455)) || it(te, re));
+}
+function ja(e, t) {
+  var n = I;
+  I |= 2;
+  var r = qu();
+  (te !== e || re !== t) && ((qe = null), Tt(e, t));
+  do
+    try {
+      Qp();
+      break;
+    } catch (a) {
+      Qu(e, a);
+    }
+  while (!0);
+  if ((Bs(), (I = n), (va.current = r), K !== null)) throw Error(j(261));
+  return ((te = null), (re = 0), Z);
+}
+function Qp() {
+  for (; K !== null; ) Yu(K);
+}
+function qp() {
+  for (; K !== null && !bf(); ) Yu(K);
+}
+function Yu(e) {
+  var t = Gu(e.alternate, e, ye);
+  ((e.memoizedProps = e.pendingProps),
+    t === null ? Ku(e) : (K = t),
+    (ti.current = null));
+}
+function Ku(e) {
+  var t = e;
+  do {
+    var n = t.alternate;
+    if (((e = t.return), t.flags & 32768)) {
+      if (((n = Up(n, t)), n !== null)) {
+        ((n.flags &= 32767), (K = n));
+        return;
+      }
+      if (e !== null)
+        ((e.flags |= 32768), (e.subtreeFlags = 0), (e.deletions = null));
+      else {
+        ((Z = 6), (K = null));
+        return;
+      }
+    } else if (((n = Dp(n, t, ye)), n !== null)) {
+      K = n;
+      return;
+    }
+    if (((t = t.sibling), t !== null)) {
+      K = t;
+      return;
+    }
+    K = t = e;
+  } while (t !== null);
+  Z === 0 && (Z = 5);
+}
+function Pt(e, t, n) {
+  var r = O,
+    a = Ee.transition;
+  try {
+    ((Ee.transition = null), (O = 1), Yp(e, t, n, r));
+  } finally {
+    ((Ee.transition = a), (O = r));
+  }
+  return null;
+}
+function Yp(e, t, n, r) {
+  do cn();
+  while (ct !== null);
+  if (I & 6) throw Error(j(327));
+  n = e.finishedWork;
+  var a = e.finishedLanes;
+  if (n === null) return null;
+  if (((e.finishedWork = null), (e.finishedLanes = 0), n === e.current))
+    throw Error(j(177));
+  ((e.callbackNode = null), (e.callbackPriority = 0));
+  var s = n.lanes | n.childLanes;
+  if (
+    (Ef(e, s),
+    e === te && ((K = te = null), (re = 0)),
+    (!(n.subtreeFlags & 2064) && !(n.flags & 2064)) ||
+      Dr ||
+      ((Dr = !0),
+      Zu(aa, function () {
+        return (cn(), null);
+      })),
+    (s = (n.flags & 15990) !== 0),
+    n.subtreeFlags & 15990 || s)
+  ) {
+    ((s = Ee.transition), (Ee.transition = null));
+    var i = O;
+    O = 1;
+    var c = I;
+    ((I |= 4),
+      (ti.current = null),
+      Bp(e, n),
+      Vu(n, e),
+      hp(Hl),
+      (sa = !!Wl),
+      (Hl = Wl = null),
+      (e.current = n),
+      Vp(n),
+      yf(),
+      (I = c),
+      (O = i),
+      (Ee.transition = s));
+  } else e.current = n;
+  if (
+    (Dr && ((Dr = !1), (ct = e), (ka = a)),
+    (s = e.pendingLanes),
+    s === 0 && (gt = null),
+    kf(n.stateNode),
+    ge(e, Y()),
+    t !== null)
+  )
+    for (r = e.onRecoverableError, n = 0; n < t.length; n++)
+      ((a = t[n]), r(a.value, { componentStack: a.stack, digest: a.digest }));
+  if (wa) throw ((wa = !1), (e = us), (us = null), e);
+  return (
+    ka & 1 && e.tag !== 0 && cn(),
+    (s = e.pendingLanes),
+    s & 1 ? (e === ds ? Hn++ : ((Hn = 0), (ds = e))) : (Hn = 0),
+    Nt(),
+    null
+  );
+}
+function cn() {
+  if (ct !== null) {
+    var e = Ec(ka),
+      t = Ee.transition,
+      n = O;
+    try {
+      if (((Ee.transition = null), (O = 16 > e ? 16 : e), ct === null))
+        var r = !1;
+      else {
+        if (((e = ct), (ct = null), (ka = 0), I & 6)) throw Error(j(331));
+        var a = I;
+        for (I |= 4, S = e.current; S !== null; ) {
+          var s = S,
+            i = s.child;
+          if (S.flags & 16) {
+            var c = s.deletions;
+            if (c !== null) {
+              for (var o = 0; o < c.length; o++) {
+                var u = c[o];
+                for (S = u; S !== null; ) {
+                  var x = S;
+                  switch (x.tag) {
+                    case 0:
+                    case 11:
+                    case 15:
+                      Vn(8, x, s);
+                  }
+                  var f = x.child;
+                  if (f !== null) ((f.return = x), (S = f));
+                  else
+                    for (; S !== null; ) {
+                      x = S;
+                      var p = x.sibling,
+                        y = x.return;
+                      if ((Uu(x), x === u)) {
+                        S = null;
+                        break;
+                      }
+                      if (p !== null) {
+                        ((p.return = y), (S = p));
+                        break;
+                      }
+                      S = y;
+                    }
+                }
+              }
+              var v = s.alternate;
+              if (v !== null) {
+                var g = v.child;
+                if (g !== null) {
+                  v.child = null;
+                  do {
+                    var _ = g.sibling;
+                    ((g.sibling = null), (g = _));
+                  } while (g !== null);
+                }
+              }
+              S = s;
+            }
+          }
+          if (s.subtreeFlags & 2064 && i !== null) ((i.return = s), (S = i));
+          else
+            e: for (; S !== null; ) {
+              if (((s = S), s.flags & 2048))
+                switch (s.tag) {
+                  case 0:
+                  case 11:
+                  case 15:
+                    Vn(9, s, s.return);
+                }
+              var h = s.sibling;
+              if (h !== null) {
+                ((h.return = s.return), (S = h));
+                break e;
+              }
+              S = s.return;
+            }
+        }
+        var d = e.current;
+        for (S = d; S !== null; ) {
+          i = S;
+          var m = i.child;
+          if (i.subtreeFlags & 2064 && m !== null) ((m.return = i), (S = m));
+          else
+            e: for (i = d; S !== null; ) {
+              if (((c = S), c.flags & 2048))
+                try {
+                  switch (c.tag) {
+                    case 0:
+                    case 11:
+                    case 15:
+                      Oa(9, c);
+                  }
+                } catch (C) {
+                  Q(c, c.return, C);
+                }
+              if (c === i) {
+                S = null;
+                break e;
+              }
+              var w = c.sibling;
+              if (w !== null) {
+                ((w.return = c.return), (S = w));
+                break e;
+              }
+              S = c.return;
+            }
+        }
+        if (
+          ((I = a), Nt(), We && typeof We.onPostCommitFiberRoot == "function")
+        )
+          try {
+            We.onPostCommitFiberRoot(za, e);
+          } catch {}
+        r = !0;
+      }
+      return r;
+    } finally {
+      ((O = n), (Ee.transition = t));
+    }
+  }
+  return !1;
+}
+function _o(e, t, n) {
+  ((t = xn(n, t)),
+    (t = Eu(e, t, 1)),
+    (e = xt(e, t, 1)),
+    (t = ue()),
+    e !== null && (hr(e, 1, t), ge(e, t)));
+}
+function Q(e, t, n) {
+  if (e.tag === 3) _o(e, e, n);
+  else
+    for (; t !== null; ) {
+      if (t.tag === 3) {
+        _o(t, e, n);
+        break;
+      } else if (t.tag === 1) {
+        var r = t.stateNode;
+        if (
+          typeof t.type.getDerivedStateFromError == "function" ||
+          (typeof r.componentDidCatch == "function" &&
+            (gt === null || !gt.has(r)))
+        ) {
+          ((e = xn(n, e)),
+            (e = zu(t, e, 1)),
+            (t = xt(t, e, 1)),
+            (e = ue()),
+            t !== null && (hr(t, 1, e), ge(t, e)));
+          break;
+        }
+      }
+      t = t.return;
+    }
+}
+function Kp(e, t, n) {
+  var r = e.pingCache;
+  (r !== null && r.delete(t),
+    (t = ue()),
+    (e.pingedLanes |= e.suspendedLanes & n),
+    te === e &&
+      (re & n) === n &&
+      (Z === 4 || (Z === 3 && (re & 130023424) === re && 500 > Y() - ri)
+        ? Tt(e, 0)
+        : (ni |= n)),
+    ge(e, t));
+}
+function Xu(e, t) {
+  t === 0 &&
+    (e.mode & 1
+      ? ((t = zr), (zr <<= 1), !(zr & 130023424) && (zr = 4194304))
+      : (t = 1));
+  var n = ue();
+  ((e = et(e, t)), e !== null && (hr(e, t, n), ge(e, n)));
+}
+function Xp(e) {
+  var t = e.memoizedState,
+    n = 0;
+  (t !== null && (n = t.retryLane), Xu(e, n));
+}
+function Gp(e, t) {
+  var n = 0;
+  switch (e.tag) {
+    case 13:
+      var r = e.stateNode,
+        a = e.memoizedState;
+      a !== null && (n = a.retryLane);
+      break;
+    case 19:
+      r = e.stateNode;
+      break;
+    default:
+      throw Error(j(314));
+  }
+  (r !== null && r.delete(t), Xu(e, n));
+}
+var Gu;
+Gu = function (e, t, n) {
+  if (e !== null)
+    if (e.memoizedProps !== t.pendingProps || me.current) he = !0;
+    else {
+      if (!(e.lanes & n) && !(t.flags & 128)) return ((he = !1), Ap(e, t, n));
+      he = !!(e.flags & 131072);
+    }
+  else ((he = !1), $ && t.flags & 1048576 && eu(t, pa, t.index));
+  switch (((t.lanes = 0), t.tag)) {
+    case 2:
+      var r = t.type;
+      (Gr(e, t), (e = t.pendingProps));
+      var a = fn(t, oe.current);
+      (on(t, n), (a = Xs(null, t, r, e, a, n)));
+      var s = Gs();
+      return (
+        (t.flags |= 1),
+        typeof a == "object" &&
+        a !== null &&
+        typeof a.render == "function" &&
+        a.$$typeof === void 0
+          ? ((t.tag = 1),
+            (t.memoizedState = null),
+            (t.updateQueue = null),
+            xe(r) ? ((s = !0), da(t)) : (s = !1),
+            (t.memoizedState =
+              a.state !== null && a.state !== void 0 ? a.state : null),
+            Hs(t),
+            (a.updater = Ia),
+            (t.stateNode = a),
+            (a._reactInternals = t),
+            es(t, r, e, n),
+            (t = rs(null, t, r, !0, s, n)))
+          : ((t.tag = 0), $ && s && As(t), ce(null, t, a, n), (t = t.child)),
+        t
+      );
+    case 16:
+      r = t.elementType;
+      e: {
+        switch (
+          (Gr(e, t),
+          (e = t.pendingProps),
+          (a = r._init),
+          (r = a(r._payload)),
+          (t.type = r),
+          (a = t.tag = Jp(r)),
+          (e = Te(r, e)),
+          a)
+        ) {
+          case 0:
+            t = ns(null, t, r, e, n);
+            break e;
+          case 1:
+            t = mo(null, t, r, e, n);
+            break e;
+          case 11:
+            t = po(null, t, r, e, n);
+            break e;
+          case 14:
+            t = ho(null, t, r, Te(r.type, e), n);
+            break e;
+        }
+        throw Error(j(306, r, ""));
+      }
+      return t;
+    case 0:
+      return (
+        (r = t.type),
+        (a = t.pendingProps),
+        (a = t.elementType === r ? a : Te(r, a)),
+        ns(e, t, r, a, n)
+      );
+    case 1:
+      return (
+        (r = t.type),
+        (a = t.pendingProps),
+        (a = t.elementType === r ? a : Te(r, a)),
+        mo(e, t, r, a, n)
+      );
+    case 3:
+      e: {
+        if ((Mu(t), e === null)) throw Error(j(387));
+        ((r = t.pendingProps),
+          (s = t.memoizedState),
+          (a = s.element),
+          su(e, t),
+          xa(t, r, null, n));
+        var i = t.memoizedState;
+        if (((r = i.element), s.isDehydrated))
+          if (
+            ((s = {
+              element: r,
+              isDehydrated: !1,
+              cache: i.cache,
+              pendingSuspenseBoundaries: i.pendingSuspenseBoundaries,
+              transitions: i.transitions,
+            }),
+            (t.updateQueue.baseState = s),
+            (t.memoizedState = s),
+            t.flags & 256)
+          ) {
+            ((a = xn(Error(j(423)), t)), (t = xo(e, t, r, n, a)));
+            break e;
+          } else if (r !== a) {
+            ((a = xn(Error(j(424)), t)), (t = xo(e, t, r, n, a)));
+            break e;
+          } else
+            for (
+              ve = mt(t.stateNode.containerInfo.firstChild),
+                we = t,
+                $ = !0,
+                Ie = null,
+                n = au(t, null, r, n),
+                t.child = n;
+              n;
+            )
+              ((n.flags = (n.flags & -3) | 4096), (n = n.sibling));
+        else {
+          if ((pn(), r === a)) {
+            t = tt(e, t, n);
+            break e;
+          }
+          ce(e, t, r, n);
+        }
+        t = t.child;
+      }
+      return t;
+    case 5:
+      return (
+        iu(t),
+        e === null && Gl(t),
+        (r = t.type),
+        (a = t.pendingProps),
+        (s = e !== null ? e.memoizedProps : null),
+        (i = a.children),
+        Ql(r, a) ? (i = null) : s !== null && Ql(r, s) && (t.flags |= 32),
+        Lu(e, t),
+        ce(e, t, i, n),
+        t.child
+      );
+    case 6:
+      return (e === null && Gl(t), null);
+    case 13:
+      return Tu(e, t, n);
+    case 4:
+      return (
+        Qs(t, t.stateNode.containerInfo),
+        (r = t.pendingProps),
+        e === null ? (t.child = hn(t, null, r, n)) : ce(e, t, r, n),
+        t.child
+      );
+    case 11:
+      return (
+        (r = t.type),
+        (a = t.pendingProps),
+        (a = t.elementType === r ? a : Te(r, a)),
+        po(e, t, r, a, n)
+      );
+    case 7:
+      return (ce(e, t, t.pendingProps, n), t.child);
+    case 8:
+      return (ce(e, t, t.pendingProps.children, n), t.child);
+    case 12:
+      return (ce(e, t, t.pendingProps.children, n), t.child);
+    case 10:
+      e: {
+        if (
+          ((r = t.type._context),
+          (a = t.pendingProps),
+          (s = t.memoizedProps),
+          (i = a.value),
+          A(ha, r._currentValue),
+          (r._currentValue = i),
+          s !== null)
+        )
+          if (De(s.value, i)) {
+            if (s.children === a.children && !me.current) {
+              t = tt(e, t, n);
+              break e;
+            }
+          } else
+            for (s = t.child, s !== null && (s.return = t); s !== null; ) {
+              var c = s.dependencies;
+              if (c !== null) {
+                i = s.child;
+                for (var o = c.firstContext; o !== null; ) {
+                  if (o.context === r) {
+                    if (s.tag === 1) {
+                      ((o = Ge(-1, n & -n)), (o.tag = 2));
+                      var u = s.updateQueue;
+                      if (u !== null) {
+                        u = u.shared;
+                        var x = u.pending;
+                        (x === null
+                          ? (o.next = o)
+                          : ((o.next = x.next), (x.next = o)),
+                          (u.pending = o));
+                      }
+                    }
+                    ((s.lanes |= n),
+                      (o = s.alternate),
+                      o !== null && (o.lanes |= n),
+                      Zl(s.return, n, t),
+                      (c.lanes |= n));
+                    break;
+                  }
+                  o = o.next;
+                }
+              } else if (s.tag === 10) i = s.type === t.type ? null : s.child;
+              else if (s.tag === 18) {
+                if (((i = s.return), i === null)) throw Error(j(341));
+                ((i.lanes |= n),
+                  (c = i.alternate),
+                  c !== null && (c.lanes |= n),
+                  Zl(i, n, t),
+                  (i = s.sibling));
+              } else i = s.child;
+              if (i !== null) i.return = s;
+              else
+                for (i = s; i !== null; ) {
+                  if (i === t) {
+                    i = null;
+                    break;
+                  }
+                  if (((s = i.sibling), s !== null)) {
+                    ((s.return = i.return), (i = s));
+                    break;
+                  }
+                  i = i.return;
+                }
+              s = i;
+            }
+        (ce(e, t, a.children, n), (t = t.child));
+      }
+      return t;
+    case 9:
+      return (
+        (a = t.type),
+        (r = t.pendingProps.children),
+        on(t, n),
+        (a = ze(a)),
+        (r = r(a)),
+        (t.flags |= 1),
+        ce(e, t, r, n),
+        t.child
+      );
+    case 14:
+      return (
+        (r = t.type),
+        (a = Te(r, t.pendingProps)),
+        (a = Te(r.type, a)),
+        ho(e, t, r, a, n)
+      );
+    case 15:
+      return Pu(e, t, t.type, t.pendingProps, n);
+    case 17:
+      return (
+        (r = t.type),
+        (a = t.pendingProps),
+        (a = t.elementType === r ? a : Te(r, a)),
+        Gr(e, t),
+        (t.tag = 1),
+        xe(r) ? ((e = !0), da(t)) : (e = !1),
+        on(t, n),
+        Su(t, r, a),
+        es(t, r, a, n),
+        rs(null, t, r, !0, e, n)
+      );
+    case 19:
+      return Ru(e, t, n);
+    case 22:
+      return Fu(e, t, n);
+  }
+  throw Error(j(156, t.tag));
+};
+function Zu(e, t) {
+  return Nc(e, t);
+}
+function Zp(e, t, n, r) {
+  ((this.tag = e),
+    (this.key = n),
+    (this.sibling =
+      this.child =
+      this.return =
+      this.stateNode =
+      this.type =
+      this.elementType =
+        null),
+    (this.index = 0),
+    (this.ref = null),
+    (this.pendingProps = t),
+    (this.dependencies =
+      this.memoizedState =
+      this.updateQueue =
+      this.memoizedProps =
+        null),
+    (this.mode = r),
+    (this.subtreeFlags = this.flags = 0),
+    (this.deletions = null),
+    (this.childLanes = this.lanes = 0),
+    (this.alternate = null));
+}
+function Se(e, t, n, r) {
+  return new Zp(e, t, n, r);
+}
+function ii(e) {
+  return ((e = e.prototype), !(!e || !e.isReactComponent));
+}
+function Jp(e) {
+  if (typeof e == "function") return ii(e) ? 1 : 0;
+  if (e != null) {
+    if (((e = e.$$typeof), e === Cs)) return 11;
+    if (e === Ss) return 14;
+  }
+  return 2;
+}
+function yt(e, t) {
+  var n = e.alternate;
+  return (
+    n === null
+      ? ((n = Se(e.tag, t, e.key, e.mode)),
+        (n.elementType = e.elementType),
+        (n.type = e.type),
+        (n.stateNode = e.stateNode),
+        (n.alternate = e),
+        (e.alternate = n))
+      : ((n.pendingProps = t),
+        (n.type = e.type),
+        (n.flags = 0),
+        (n.subtreeFlags = 0),
+        (n.deletions = null)),
+    (n.flags = e.flags & 14680064),
+    (n.childLanes = e.childLanes),
+    (n.lanes = e.lanes),
+    (n.child = e.child),
+    (n.memoizedProps = e.memoizedProps),
+    (n.memoizedState = e.memoizedState),
+    (n.updateQueue = e.updateQueue),
+    (t = e.dependencies),
+    (n.dependencies =
+      t === null ? null : { lanes: t.lanes, firstContext: t.firstContext }),
+    (n.sibling = e.sibling),
+    (n.index = e.index),
+    (n.ref = e.ref),
+    n
+  );
+}
+function ea(e, t, n, r, a, s) {
+  var i = 2;
+  if (((r = e), typeof e == "function")) ii(e) && (i = 1);
+  else if (typeof e == "string") i = 5;
+  else
+    e: switch (e) {
+      case Qt:
+        return Rt(n.children, a, s, t);
+      case _s:
+        ((i = 8), (a |= 8));
+        break;
+      case Nl:
+        return (
+          (e = Se(12, n, t, a | 2)),
+          (e.elementType = Nl),
+          (e.lanes = s),
+          e
+        );
+      case _l:
+        return ((e = Se(13, n, t, a)), (e.elementType = _l), (e.lanes = s), e);
+      case Cl:
+        return ((e = Se(19, n, t, a)), (e.elementType = Cl), (e.lanes = s), e);
+      case ic:
+        return Da(n, a, s, t);
+      default:
+        if (typeof e == "object" && e !== null)
+          switch (e.$$typeof) {
+            case lc:
+              i = 10;
+              break e;
+            case sc:
+              i = 9;
+              break e;
+            case Cs:
+              i = 11;
+              break e;
+            case Ss:
+              i = 14;
+              break e;
+            case at:
+              ((i = 16), (r = null));
+              break e;
+          }
+        throw Error(j(130, e == null ? e : typeof e, ""));
+    }
+  return (
+    (t = Se(i, n, t, a)),
+    (t.elementType = e),
+    (t.type = r),
+    (t.lanes = s),
+    t
+  );
+}
+function Rt(e, t, n, r) {
+  return ((e = Se(7, e, r, t)), (e.lanes = n), e);
+}
+function Da(e, t, n, r) {
+  return (
+    (e = Se(22, e, r, t)),
+    (e.elementType = ic),
+    (e.lanes = n),
+    (e.stateNode = { isHidden: !1 }),
+    e
+  );
+}
+function yl(e, t, n) {
+  return ((e = Se(6, e, null, t)), (e.lanes = n), e);
+}
+function vl(e, t, n) {
+  return (
+    (t = Se(4, e.children !== null ? e.children : [], e.key, t)),
+    (t.lanes = n),
+    (t.stateNode = {
+      containerInfo: e.containerInfo,
+      pendingChildren: null,
+      implementation: e.implementation,
+    }),
+    t
+  );
+}
+function eh(e, t, n, r, a) {
+  ((this.tag = t),
+    (this.containerInfo = e),
+    (this.finishedWork =
+      this.pingCache =
+      this.current =
+      this.pendingChildren =
+        null),
+    (this.timeoutHandle = -1),
+    (this.callbackNode = this.pendingContext = this.context = null),
+    (this.callbackPriority = 0),
+    (this.eventTimes = el(0)),
+    (this.expirationTimes = el(-1)),
+    (this.entangledLanes =
+      this.finishedLanes =
+      this.mutableReadLanes =
+      this.expiredLanes =
+      this.pingedLanes =
+      this.suspendedLanes =
+      this.pendingLanes =
+        0),
+    (this.entanglements = el(0)),
+    (this.identifierPrefix = r),
+    (this.onRecoverableError = a),
+    (this.mutableSourceEagerHydrationData = null));
+}
+function oi(e, t, n, r, a, s, i, c, o) {
+  return (
+    (e = new eh(e, t, n, c, o)),
+    t === 1 ? ((t = 1), s === !0 && (t |= 8)) : (t = 0),
+    (s = Se(3, null, null, t)),
+    (e.current = s),
+    (s.stateNode = e),
+    (s.memoizedState = {
+      element: r,
+      isDehydrated: n,
+      cache: null,
+      transitions: null,
+      pendingSuspenseBoundaries: null,
+    }),
+    Hs(s),
+    e
+  );
+}
+function th(e, t, n) {
+  var r = 3 < arguments.length && arguments[3] !== void 0 ? arguments[3] : null;
+  return {
+    $$typeof: Ht,
+    key: r == null ? null : "" + r,
+    children: e,
+    containerInfo: t,
+    implementation: n,
+  };
+}
+function Ju(e) {
+  if (!e) return wt;
+  e = e._reactInternals;
+  e: {
+    if (Vt(e) !== e || e.tag !== 1) throw Error(j(170));
+    var t = e;
+    do {
+      switch (t.tag) {
+        case 3:
+          t = t.stateNode.context;
+          break e;
+        case 1:
+          if (xe(t.type)) {
+            t = t.stateNode.__reactInternalMemoizedMergedChildContext;
+            break e;
+          }
+      }
+      t = t.return;
+    } while (t !== null);
+    throw Error(j(171));
+  }
+  if (e.tag === 1) {
+    var n = e.type;
+    if (xe(n)) return Zc(e, n, t);
+  }
+  return t;
+}
+function ed(e, t, n, r, a, s, i, c, o) {
+  return (
+    (e = oi(n, r, !0, e, a, s, i, c, o)),
+    (e.context = Ju(null)),
+    (n = e.current),
+    (r = ue()),
+    (a = bt(n)),
+    (s = Ge(r, a)),
+    (s.callback = t ?? null),
+    xt(n, s, a),
+    (e.current.lanes = a),
+    hr(e, a, r),
+    ge(e, r),
+    e
+  );
+}
+function Ua(e, t, n, r) {
+  var a = t.current,
+    s = ue(),
+    i = bt(a);
+  return (
+    (n = Ju(n)),
+    t.context === null ? (t.context = n) : (t.pendingContext = n),
+    (t = Ge(s, i)),
+    (t.payload = { element: e }),
+    (r = r === void 0 ? null : r),
+    r !== null && (t.callback = r),
+    (e = xt(a, t, i)),
+    e !== null && (Ae(e, a, i, s), Yr(e, a, i)),
+    i
+  );
+}
+function Na(e) {
+  if (((e = e.current), !e.child)) return null;
+  switch (e.child.tag) {
+    case 5:
+      return e.child.stateNode;
+    default:
+      return e.child.stateNode;
+  }
+}
+function Co(e, t) {
+  if (((e = e.memoizedState), e !== null && e.dehydrated !== null)) {
+    var n = e.retryLane;
+    e.retryLane = n !== 0 && n < t ? n : t;
+  }
+}
+function ci(e, t) {
+  (Co(e, t), (e = e.alternate) && Co(e, t));
+}
+function nh() {
+  return null;
+}
+var td =
+  typeof reportError == "function"
+    ? reportError
+    : function (e) {
+        console.error(e);
+      };
+function ui(e) {
+  this._internalRoot = e;
+}
+$a.prototype.render = ui.prototype.render = function (e) {
+  var t = this._internalRoot;
+  if (t === null) throw Error(j(409));
+  Ua(e, t, null, null);
+};
+$a.prototype.unmount = ui.prototype.unmount = function () {
+  var e = this._internalRoot;
+  if (e !== null) {
+    this._internalRoot = null;
+    var t = e.containerInfo;
+    ($t(function () {
+      Ua(null, e, null, null);
+    }),
+      (t[Je] = null));
+  }
+};
+function $a(e) {
+  this._internalRoot = e;
+}
+$a.prototype.unstable_scheduleHydration = function (e) {
+  if (e) {
+    var t = Fc();
+    e = { blockedOn: null, target: e, priority: t };
+    for (var n = 0; n < st.length && t !== 0 && t < st[n].priority; n++);
+    (st.splice(n, 0, e), n === 0 && Mc(e));
+  }
+};
+function di(e) {
+  return !(!e || (e.nodeType !== 1 && e.nodeType !== 9 && e.nodeType !== 11));
+}
+function Ba(e) {
+  return !(
+    !e ||
+    (e.nodeType !== 1 &&
+      e.nodeType !== 9 &&
+      e.nodeType !== 11 &&
+      (e.nodeType !== 8 || e.nodeValue !== " react-mount-point-unstable "))
+  );
+}
+function So() {}
+function rh(e, t, n, r, a) {
+  if (a) {
+    if (typeof r == "function") {
+      var s = r;
+      r = function () {
+        var u = Na(i);
+        s.call(u);
+      };
+    }
+    var i = ed(t, r, e, 0, null, !1, !1, "", So);
+    return (
+      (e._reactRootContainer = i),
+      (e[Je] = i.current),
+      er(e.nodeType === 8 ? e.parentNode : e),
+      $t(),
+      i
+    );
+  }
+  for (; (a = e.lastChild); ) e.removeChild(a);
+  if (typeof r == "function") {
+    var c = r;
+    r = function () {
+      var u = Na(o);
+      c.call(u);
+    };
+  }
+  var o = oi(e, 0, !1, null, null, !1, !1, "", So);
+  return (
+    (e._reactRootContainer = o),
+    (e[Je] = o.current),
+    er(e.nodeType === 8 ? e.parentNode : e),
+    $t(function () {
+      Ua(t, o, n, r);
+    }),
+    o
+  );
+}
+function Va(e, t, n, r, a) {
+  var s = n._reactRootContainer;
+  if (s) {
+    var i = s;
+    if (typeof a == "function") {
+      var c = a;
+      a = function () {
+        var o = Na(i);
+        c.call(o);
+      };
+    }
+    Ua(t, i, e, a);
+  } else i = rh(n, t, e, a, r);
+  return Na(i);
+}
+zc = function (e) {
+  switch (e.tag) {
+    case 3:
+      var t = e.stateNode;
+      if (t.current.memoizedState.isDehydrated) {
+        var n = Rn(t.pendingLanes);
+        n !== 0 &&
+          (Ps(t, n | 1), ge(t, Y()), !(I & 6) && ((gn = Y() + 500), Nt()));
+      }
+      break;
+    case 13:
+      ($t(function () {
+        var r = et(e, 1);
+        if (r !== null) {
+          var a = ue();
+          Ae(r, e, 1, a);
+        }
+      }),
+        ci(e, 1));
+  }
+};
+Fs = function (e) {
+  if (e.tag === 13) {
+    var t = et(e, 134217728);
+    if (t !== null) {
+      var n = ue();
+      Ae(t, e, 134217728, n);
+    }
+    ci(e, 134217728);
+  }
+};
+Pc = function (e) {
+  if (e.tag === 13) {
+    var t = bt(e),
+      n = et(e, t);
+    if (n !== null) {
+      var r = ue();
+      Ae(n, e, t, r);
+    }
+    ci(e, t);
+  }
+};
+Fc = function () {
+  return O;
+};
+Lc = function (e, t) {
+  var n = O;
+  try {
+    return ((O = e), t());
+  } finally {
+    O = n;
+  }
+};
+Il = function (e, t, n) {
+  switch (t) {
+    case "input":
+      if ((zl(e, n), (t = n.name), n.type === "radio" && t != null)) {
+        for (n = e; n.parentNode; ) n = n.parentNode;
+        for (
+          n = n.querySelectorAll(
+            "input[name=" + JSON.stringify("" + t) + '][type="radio"]',
+          ),
+            t = 0;
+          t < n.length;
+          t++
+        ) {
+          var r = n[t];
+          if (r !== e && r.form === e.form) {
+            var a = Ma(r);
+            if (!a) throw Error(j(90));
+            (cc(r), zl(r, a));
+          }
+        }
+      }
+      break;
+    case "textarea":
+      dc(e, n);
+      break;
+    case "select":
+      ((t = n.value), t != null && rn(e, !!n.multiple, t, !1));
+  }
+};
+bc = ai;
+yc = $t;
+var ah = { usingClientEntryPoint: !1, Events: [xr, Xt, Ma, xc, gc, ai] },
+  Ln = {
+    findFiberByHostInstance: Ft,
+    bundleType: 0,
+    version: "18.3.1",
+    rendererPackageName: "react-dom",
+  },
+  lh = {
+    bundleType: Ln.bundleType,
+    version: Ln.version,
+    rendererPackageName: Ln.rendererPackageName,
+    rendererConfig: Ln.rendererConfig,
+    overrideHookState: null,
+    overrideHookStateDeletePath: null,
+    overrideHookStateRenamePath: null,
+    overrideProps: null,
+    overridePropsDeletePath: null,
+    overridePropsRenamePath: null,
+    setErrorHandler: null,
+    setSuspenseHandler: null,
+    scheduleUpdate: null,
+    currentDispatcherRef: nt.ReactCurrentDispatcher,
+    findHostInstanceByFiber: function (e) {
+      return ((e = kc(e)), e === null ? null : e.stateNode);
+    },
+    findFiberByHostInstance: Ln.findFiberByHostInstance || nh,
+    findHostInstancesForRefresh: null,
+    scheduleRefresh: null,
+    scheduleRoot: null,
+    setRefreshHandler: null,
+    getCurrentFiber: null,
+    reconcilerVersion: "18.3.1-next-f1338f8080-20240426",
+  };
+if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ < "u") {
+  var Ur = __REACT_DEVTOOLS_GLOBAL_HOOK__;
+  if (!Ur.isDisabled && Ur.supportsFiber)
+    try {
+      ((za = Ur.inject(lh)), (We = Ur));
+    } catch {}
+}
+je.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ah;
+je.createPortal = function (e, t) {
+  var n = 2 < arguments.length && arguments[2] !== void 0 ? arguments[2] : null;
+  if (!di(t)) throw Error(j(200));
+  return th(e, t, null, n);
+};
+je.createRoot = function (e, t) {
+  if (!di(e)) throw Error(j(299));
+  var n = !1,
+    r = "",
+    a = td;
+  return (
+    t != null &&
+      (t.unstable_strictMode === !0 && (n = !0),
+      t.identifierPrefix !== void 0 && (r = t.identifierPrefix),
+      t.onRecoverableError !== void 0 && (a = t.onRecoverableError)),
+    (t = oi(e, 1, !1, null, null, n, !1, r, a)),
+    (e[Je] = t.current),
+    er(e.nodeType === 8 ? e.parentNode : e),
+    new ui(t)
+  );
+};
+je.findDOMNode = function (e) {
+  if (e == null) return null;
+  if (e.nodeType === 1) return e;
+  var t = e._reactInternals;
+  if (t === void 0)
+    throw typeof e.render == "function"
+      ? Error(j(188))
+      : ((e = Object.keys(e).join(",")), Error(j(268, e)));
+  return ((e = kc(t)), (e = e === null ? null : e.stateNode), e);
+};
+je.flushSync = function (e) {
+  return $t(e);
+};
+je.hydrate = function (e, t, n) {
+  if (!Ba(t)) throw Error(j(200));
+  return Va(null, e, t, !0, n);
+};
+je.hydrateRoot = function (e, t, n) {
+  if (!di(e)) throw Error(j(405));
+  var r = (n != null && n.hydratedSources) || null,
+    a = !1,
+    s = "",
+    i = td;
+  if (
+    (n != null &&
+      (n.unstable_strictMode === !0 && (a = !0),
+      n.identifierPrefix !== void 0 && (s = n.identifierPrefix),
+      n.onRecoverableError !== void 0 && (i = n.onRecoverableError)),
+    (t = ed(t, null, e, 1, n ?? null, a, !1, s, i)),
+    (e[Je] = t.current),
+    er(e),
+    r)
+  )
+    for (e = 0; e < r.length; e++)
+      ((n = r[e]),
+        (a = n._getVersion),
+        (a = a(n._source)),
+        t.mutableSourceEagerHydrationData == null
+          ? (t.mutableSourceEagerHydrationData = [n, a])
+          : t.mutableSourceEagerHydrationData.push(n, a));
+  return new $a(t);
+};
+je.render = function (e, t, n) {
+  if (!Ba(t)) throw Error(j(200));
+  return Va(null, e, t, !1, n);
+};
+je.unmountComponentAtNode = function (e) {
+  if (!Ba(e)) throw Error(j(40));
+  return e._reactRootContainer
+    ? ($t(function () {
+        Va(null, null, e, !1, function () {
+          ((e._reactRootContainer = null), (e[Je] = null));
+        });
+      }),
+      !0)
+    : !1;
+};
+je.unstable_batchedUpdates = ai;
+je.unstable_renderSubtreeIntoContainer = function (e, t, n, r) {
+  if (!Ba(n)) throw Error(j(200));
+  if (e == null || e._reactInternals === void 0) throw Error(j(38));
+  return Va(e, t, n, !1, r);
+};
+je.version = "18.3.1-next-f1338f8080-20240426";
+function nd() {
+  if (
+    !(
+      typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > "u" ||
+      typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE != "function"
+    )
+  )
+    try {
+      __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(nd);
+    } catch (e) {
+      console.error(e);
+    }
+}
+(nd(), (tc.exports = je));
+var sh = tc.exports,
+  rd,
+  Eo = sh;
+((rd = Eo.createRoot), Eo.hydrateRoot);
+/**
+ * @remix-run/router v1.23.3
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */ function cr() {
+  return (
+    (cr = Object.assign
+      ? Object.assign.bind()
+      : function (e) {
+          for (var t = 1; t < arguments.length; t++) {
+            var n = arguments[t];
+            for (var r in n) ({}).hasOwnProperty.call(n, r) && (e[r] = n[r]);
+          }
+          return e;
+        }),
+    cr.apply(null, arguments)
+  );
+}
+var ut;
+(function (e) {
+  ((e.Pop = "POP"), (e.Push = "PUSH"), (e.Replace = "REPLACE"));
+})(ut || (ut = {}));
+const zo = "popstate";
+function ih(e) {
+  e === void 0 && (e = {});
+  function t(r, a) {
+    let { pathname: s, search: i, hash: c } = r.location;
+    return hs(
+      "",
+      { pathname: s, search: i, hash: c },
+      (a.state && a.state.usr) || null,
+      (a.state && a.state.key) || "default",
+    );
+  }
+  function n(r, a) {
+    return typeof a == "string" ? a : ad(a);
+  }
+  return ch(t, n, null, e);
+}
+function X(e, t) {
+  if (e === !1 || e === null || typeof e > "u") throw new Error(t);
+}
+function fi(e, t) {
+  if (!e) {
+    typeof console < "u" && console.warn(t);
+    try {
+      throw new Error(t);
+    } catch {}
+  }
+}
+function oh() {
+  return Math.random().toString(36).substr(2, 8);
+}
+function Po(e, t) {
+  return { usr: e.state, key: e.key, idx: t };
+}
+function hs(e, t, n, r) {
+  return (
+    n === void 0 && (n = null),
+    cr(
+      { pathname: typeof e == "string" ? e : e.pathname, search: "", hash: "" },
+      typeof t == "string" ? wn(t) : t,
+      { state: n, key: (t && t.key) || r || oh() },
+    )
+  );
+}
+function ad(e) {
+  let { pathname: t = "/", search: n = "", hash: r = "" } = e;
+  return (
+    n && n !== "?" && (t += n.charAt(0) === "?" ? n : "?" + n),
+    r && r !== "#" && (t += r.charAt(0) === "#" ? r : "#" + r),
+    t
+  );
+}
+function wn(e) {
+  let t = {};
+  if (e) {
+    let n = e.indexOf("#");
+    n >= 0 && ((t.hash = e.substr(n)), (e = e.substr(0, n)));
+    let r = e.indexOf("?");
+    (r >= 0 && ((t.search = e.substr(r)), (e = e.substr(0, r))),
+      e && (t.pathname = e));
+  }
+  return t;
+}
+function ch(e, t, n, r) {
+  r === void 0 && (r = {});
+  let { window: a = document.defaultView, v5Compat: s = !1 } = r,
+    i = a.history,
+    c = ut.Pop,
+    o = null,
+    u = x();
+  u == null && ((u = 0), i.replaceState(cr({}, i.state, { idx: u }), ""));
+  function x() {
+    return (i.state || { idx: null }).idx;
+  }
+  function f() {
+    c = ut.Pop;
+    let _ = x(),
+      h = _ == null ? null : _ - u;
+    ((u = _), o && o({ action: c, location: g.location, delta: h }));
+  }
+  function p(_, h) {
+    c = ut.Push;
+    let d = hs(g.location, _, h);
+    u = x() + 1;
+    let m = Po(d, u),
+      w = g.createHref(d);
+    try {
+      i.pushState(m, "", w);
+    } catch (C) {
+      if (C instanceof DOMException && C.name === "DataCloneError") throw C;
+      a.location.assign(w);
+    }
+    s && o && o({ action: c, location: g.location, delta: 1 });
+  }
+  function y(_, h) {
+    c = ut.Replace;
+    let d = hs(g.location, _, h);
+    u = x();
+    let m = Po(d, u),
+      w = g.createHref(d);
+    (i.replaceState(m, "", w),
+      s && o && o({ action: c, location: g.location, delta: 0 }));
+  }
+  function v(_) {
+    let h = a.location.origin !== "null" ? a.location.origin : a.location.href,
+      d = typeof _ == "string" ? _ : ad(_);
+    return (
+      (d = d.replace(/ $/, "%20")),
+      X(
+        h,
+        "No window.location.(origin|href) available to create URL for href: " +
+          d,
+      ),
+      new URL(d, h)
+    );
+  }
+  let g = {
+    get action() {
+      return c;
+    },
+    get location() {
+      return e(a, i);
+    },
+    listen(_) {
+      if (o) throw new Error("A history only accepts one active listener");
+      return (
+        a.addEventListener(zo, f),
+        (o = _),
+        () => {
+          (a.removeEventListener(zo, f), (o = null));
+        }
+      );
+    },
+    createHref(_) {
+      return t(a, _);
+    },
+    createURL: v,
+    encodeLocation(_) {
+      let h = v(_);
+      return { pathname: h.pathname, search: h.search, hash: h.hash };
+    },
+    push: p,
+    replace: y,
+    go(_) {
+      return i.go(_);
+    },
+  };
+  return g;
+}
+var Fo;
+(function (e) {
+  ((e.data = "data"),
+    (e.deferred = "deferred"),
+    (e.redirect = "redirect"),
+    (e.error = "error"));
+})(Fo || (Fo = {}));
+function uh(e, t, n) {
+  return (n === void 0 && (n = "/"), dh(e, t, n));
+}
+function dh(e, t, n, r) {
+  let a = typeof t == "string" ? wn(t) : t,
+    s = id(a.pathname || "/", n);
+  if (s == null) return null;
+  let i = ld(e);
+  fh(i);
+  let c = null,
+    o = Nh(s);
+  for (let u = 0; c == null && u < i.length; ++u) c = wh(i[u], o);
+  return c;
+}
+function ld(e, t, n, r) {
+  (t === void 0 && (t = []),
+    n === void 0 && (n = []),
+    r === void 0 && (r = ""));
+  let a = (s, i, c) => {
+    let o = {
+      relativePath: c === void 0 ? s.path || "" : c,
+      caseSensitive: s.caseSensitive === !0,
+      childrenIndex: i,
+      route: s,
+    };
+    o.relativePath.startsWith("/") &&
+      (X(
+        o.relativePath.startsWith(r),
+        'Absolute route path "' +
+          o.relativePath +
+          '" nested under path ' +
+          ('"' + r + '" is not valid. An absolute child route path ') +
+          "must start with the combined path of all its parent routes.",
+      ),
+      (o.relativePath = o.relativePath.slice(r.length)));
+    let u = It([r, o.relativePath]),
+      x = n.concat(o);
+    (s.children &&
+      s.children.length > 0 &&
+      (X(
+        s.index !== !0,
+        "Index routes must not have child routes. Please remove " +
+          ('all child routes from route path "' + u + '".'),
+      ),
+      ld(s.children, t, x, u)),
+      !(s.path == null && !s.index) &&
+        t.push({ path: u, score: yh(u, s.index), routesMeta: x }));
+  };
+  return (
+    e.forEach((s, i) => {
+      var c;
+      if (s.path === "" || !((c = s.path) != null && c.includes("?"))) a(s, i);
+      else for (let o of sd(s.path)) a(s, i, o);
+    }),
+    t
+  );
+}
+function sd(e) {
+  let t = e.split("/");
+  if (t.length === 0) return [];
+  let [n, ...r] = t,
+    a = n.endsWith("?"),
+    s = n.replace(/\?$/, "");
+  if (r.length === 0) return a ? [s, ""] : [s];
+  let i = sd(r.join("/")),
+    c = [];
+  return (
+    c.push(...i.map((o) => (o === "" ? s : [s, o].join("/")))),
+    a && c.push(...i),
+    c.map((o) => (e.startsWith("/") && o === "" ? "/" : o))
+  );
+}
+function fh(e) {
+  e.sort((t, n) =>
+    t.score !== n.score
+      ? n.score - t.score
+      : vh(
+          t.routesMeta.map((r) => r.childrenIndex),
+          n.routesMeta.map((r) => r.childrenIndex),
+        ),
+  );
+}
+const ph = /^:[\w-]+$/,
+  hh = 3,
+  mh = 2,
+  xh = 1,
+  gh = 10,
+  bh = -2,
+  Lo = (e) => e === "*";
+function yh(e, t) {
+  let n = e.split("/"),
+    r = n.length;
+  return (
+    n.some(Lo) && (r += bh),
+    t && (r += mh),
+    n
+      .filter((a) => !Lo(a))
+      .reduce((a, s) => a + (ph.test(s) ? hh : s === "" ? xh : gh), r)
+  );
+}
+function vh(e, t) {
+  return e.length === t.length && e.slice(0, -1).every((n, r) => n === t[r])
+    ? e[e.length - 1] - t[t.length - 1]
+    : 0;
+}
+function wh(e, t, n) {
+  let { routesMeta: r } = e,
+    a = {},
+    s = "/",
+    i = [];
+  for (let c = 0; c < r.length; ++c) {
+    let o = r[c],
+      u = c === r.length - 1,
+      x = s === "/" ? t : t.slice(s.length) || "/",
+      f = kh(
+        { path: o.relativePath, caseSensitive: o.caseSensitive, end: u },
+        x,
+      ),
+      p = o.route;
+    if (!f) return null;
+    (Object.assign(a, f.params),
+      i.push({
+        params: a,
+        pathname: It([s, f.pathname]),
+        pathnameBase: zh(It([s, f.pathnameBase])),
+        route: p,
+      }),
+      f.pathnameBase !== "/" && (s = It([s, f.pathnameBase])));
+  }
+  return i;
+}
+function kh(e, t) {
+  typeof e == "string" && (e = { path: e, caseSensitive: !1, end: !0 });
+  let [n, r] = jh(e.path, e.caseSensitive, e.end),
+    a = t.match(n);
+  if (!a) return null;
+  let s = a[0],
+    i = s.replace(/(.)\/+$/, "$1"),
+    c = a.slice(1);
+  return {
+    params: r.reduce((o, u, x) => {
+      let { paramName: f, isOptional: p } = u;
+      if (f === "*") {
+        let v = c[x] || "";
+        i = s.slice(0, s.length - v.length).replace(/(.)\/+$/, "$1");
+      }
+      const y = c[x];
+      return (
+        p && !y ? (o[f] = void 0) : (o[f] = (y || "").replace(/%2F/g, "/")),
+        o
+      );
+    }, {}),
+    pathname: s,
+    pathnameBase: i,
+    pattern: e,
+  };
+}
+function jh(e, t, n) {
+  (t === void 0 && (t = !1),
+    n === void 0 && (n = !0),
+    fi(
+      e === "*" || !e.endsWith("*") || e.endsWith("/*"),
+      'Route path "' +
+        e +
+        '" will be treated as if it were ' +
+        ('"' + e.replace(/\*$/, "/*") + '" because the `*` character must ') +
+        "always follow a `/` in the pattern. To get rid of this warning, " +
+        ('please change the route path to "' + e.replace(/\*$/, "/*") + '".'),
+    ));
+  let r = [],
+    a =
+      "^" +
+      e
+        .replace(/\/*\*?$/, "")
+        .replace(/^\/*/, "/")
+        .replace(/[\\.*+^${}|()[\]]/g, "\\$&")
+        .replace(
+          /\/:([\w-]+)(\?)?/g,
+          (s, i, c) => (
+            r.push({ paramName: i, isOptional: c != null }),
+            c ? "/?([^\\/]+)?" : "/([^\\/]+)"
+          ),
+        );
+  return (
+    e.endsWith("*")
+      ? (r.push({ paramName: "*" }),
+        (a += e === "*" || e === "/*" ? "(.*)$" : "(?:\\/(.+)|\\/*)$"))
+      : n
+        ? (a += "\\/*$")
+        : e !== "" && e !== "/" && (a += "(?:(?=\\/|$))"),
+    [new RegExp(a, t ? void 0 : "i"), r]
+  );
+}
+function Nh(e) {
+  try {
+    return e
+      .split("/")
+      .map((t) => decodeURIComponent(t).replace(/\//g, "%2F"))
+      .join("/");
+  } catch (t) {
+    return (
+      fi(
+        !1,
+        'The URL path "' +
+          e +
+          '" could not be decoded because it is is a malformed URL segment. This is probably due to a bad percent ' +
+          ("encoding (" + t + ")."),
+      ),
+      e
+    );
+  }
+}
+function id(e, t) {
+  if (t === "/") return e;
+  if (!e.toLowerCase().startsWith(t.toLowerCase())) return null;
+  let n = t.endsWith("/") ? t.length - 1 : t.length,
+    r = e.charAt(n);
+  return r && r !== "/" ? null : e.slice(n) || "/";
+}
+const _h = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,
+  Ch = (e) => _h.test(e);
+function Sh(e, t) {
+  t === void 0 && (t = "/");
+  let {
+      pathname: n,
+      search: r = "",
+      hash: a = "",
+    } = typeof e == "string" ? wn(e) : e,
+    s;
+  if (n)
+    if (Ch(n)) s = n;
+    else {
+      if (n.includes("//")) {
+        let i = n;
+        ((n = ud(n)),
+          fi(
+            !1,
+            "Pathnames cannot have embedded double slashes - normalizing " +
+              (i + " -> " + n),
+          ));
+      }
+      n.startsWith("/") ? (s = Mo(n.substring(1), "/")) : (s = Mo(n, t));
+    }
+  else s = t;
+  return { pathname: s, search: Ph(r), hash: Fh(a) };
+}
+function Mo(e, t) {
+  let n = t.replace(/\/+$/, "").split("/");
+  return (
+    e.split("/").forEach((r) => {
+      r === ".." ? n.length > 1 && n.pop() : r !== "." && n.push(r);
+    }),
+    n.length > 1 ? n.join("/") : "/"
+  );
+}
+function wl(e, t, n, r) {
+  return (
+    "Cannot include a '" +
+    e +
+    "' character in a manually specified " +
+    ("`to." +
+      t +
+      "` field [" +
+      JSON.stringify(r) +
+      "].  Please separate it out to the ") +
+    ("`to." + n + "` field. Alternatively you may provide the full path as ") +
+    'a string in <Link to="..."> and the router will parse it for you.'
+  );
+}
+function Eh(e) {
+  return e.filter(
+    (t, n) => n === 0 || (t.route.path && t.route.path.length > 0),
+  );
+}
+function od(e, t) {
+  let n = Eh(e);
+  return t
+    ? n.map((r, a) => (a === n.length - 1 ? r.pathname : r.pathnameBase))
+    : n.map((r) => r.pathnameBase);
+}
+function cd(e, t, n, r) {
+  r === void 0 && (r = !1);
+  let a;
+  typeof e == "string"
+    ? (a = wn(e))
+    : ((a = cr({}, e)),
+      X(
+        !a.pathname || !a.pathname.includes("?"),
+        wl("?", "pathname", "search", a),
+      ),
+      X(
+        !a.pathname || !a.pathname.includes("#"),
+        wl("#", "pathname", "hash", a),
+      ),
+      X(!a.search || !a.search.includes("#"), wl("#", "search", "hash", a)));
+  let s = e === "" || a.pathname === "",
+    i = s ? "/" : a.pathname,
+    c;
+  if (i == null) c = n;
+  else {
+    let f = t.length - 1;
+    if (!r && i.startsWith("..")) {
+      let p = i.split("/");
+      for (; p[0] === ".."; ) (p.shift(), (f -= 1));
+      a.pathname = p.join("/");
+    }
+    c = f >= 0 ? t[f] : "/";
+  }
+  let o = Sh(a, c),
+    u = i && i !== "/" && i.endsWith("/"),
+    x = (s || i === ".") && n.endsWith("/");
+  return (!o.pathname.endsWith("/") && (u || x) && (o.pathname += "/"), o);
+}
+const ud = (e) => e.replace(/\/\/+/g, "/"),
+  It = (e) => ud(e.join("/")),
+  zh = (e) => e.replace(/\/+$/, "").replace(/^\/*/, "/"),
+  Ph = (e) => (!e || e === "?" ? "" : e.startsWith("?") ? e : "?" + e),
+  Fh = (e) => (!e || e === "#" ? "" : e.startsWith("#") ? e : "#" + e);
+function Lh(e) {
+  return (
+    e != null &&
+    typeof e.status == "number" &&
+    typeof e.statusText == "string" &&
+    typeof e.internal == "boolean" &&
+    "data" in e
+  );
+}
+const dd = ["post", "put", "patch", "delete"];
+new Set(dd);
+const Mh = ["get", ...dd];
+new Set(Mh);
+/**
+ * React Router v6.30.4
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */ function ur() {
+  return (
+    (ur = Object.assign
+      ? Object.assign.bind()
+      : function (e) {
+          for (var t = 1; t < arguments.length; t++) {
+            var n = arguments[t];
+            for (var r in n) ({}).hasOwnProperty.call(n, r) && (e[r] = n[r]);
+          }
+          return e;
+        }),
+    ur.apply(null, arguments)
+  );
+}
+const pi = k.createContext(null),
+  Th = k.createContext(null),
+  br = k.createContext(null),
+  Wa = k.createContext(null),
+  _t = k.createContext({ outlet: null, matches: [], isDataRoute: !1 }),
+  fd = k.createContext(null);
+function yr() {
+  return k.useContext(Wa) != null;
+}
+function Ha() {
+  return (yr() || X(!1), k.useContext(Wa).location);
+}
+function pd(e) {
+  k.useContext(br).static || k.useLayoutEffect(e);
+}
+function Ue() {
+  let { isDataRoute: e } = k.useContext(_t);
+  return e ? Yh() : Rh();
+}
+function Rh() {
+  yr() || X(!1);
+  let e = k.useContext(pi),
+    { basename: t, future: n, navigator: r } = k.useContext(br),
+    { matches: a } = k.useContext(_t),
+    { pathname: s } = Ha(),
+    i = JSON.stringify(od(a, n.v7_relativeSplatPath)),
+    c = k.useRef(!1);
+  return (
+    pd(() => {
+      c.current = !0;
+    }),
+    k.useCallback(
+      function (o, u) {
+        if ((u === void 0 && (u = {}), !c.current)) return;
+        if (typeof o == "number") {
+          r.go(o);
+          return;
+        }
+        let x = cd(o, JSON.parse(i), s, u.relative === "path");
+        (e == null &&
+          t !== "/" &&
+          (x.pathname = x.pathname === "/" ? t : It([t, x.pathname])),
+          (u.replace ? r.replace : r.push)(x, u.state, u));
+      },
+      [t, r, i, s, e],
+    )
+  );
+}
+function Ih() {
+  let { matches: e } = k.useContext(_t),
+    t = e[e.length - 1];
+  return t ? t.params : {};
+}
+function Oh(e, t) {
+  return Ah(e, t);
+}
+function Ah(e, t, n, r) {
+  yr() || X(!1);
+  let { navigator: a } = k.useContext(br),
+    { matches: s } = k.useContext(_t),
+    i = s[s.length - 1],
+    c = i ? i.params : {};
+  i && i.pathname;
+  let o = i ? i.pathnameBase : "/";
+  i && i.route;
+  let u = Ha(),
+    x;
+  if (t) {
+    var f;
+    let _ = typeof t == "string" ? wn(t) : t;
+    (o === "/" || ((f = _.pathname) != null && f.startsWith(o)) || X(!1),
+      (x = _));
+  } else x = u;
+  let p = x.pathname || "/",
+    y = p;
+  if (o !== "/") {
+    let _ = o.replace(/^\//, "").split("/");
+    y = "/" + p.replace(/^\//, "").split("/").slice(_.length).join("/");
+  }
+  let v = uh(e, { pathname: y }),
+    g = Vh(
+      v &&
+        v.map((_) =>
+          Object.assign({}, _, {
+            params: Object.assign({}, c, _.params),
+            pathname: It([
+              o,
+              a.encodeLocation
+                ? a.encodeLocation(_.pathname).pathname
+                : _.pathname,
+            ]),
+            pathnameBase:
+              _.pathnameBase === "/"
+                ? o
+                : It([
+                    o,
+                    a.encodeLocation
+                      ? a.encodeLocation(_.pathnameBase).pathname
+                      : _.pathnameBase,
+                  ]),
+          }),
+        ),
+      s,
+      n,
+      r,
+    );
+  return t && g
+    ? k.createElement(
+        Wa.Provider,
+        {
+          value: {
+            location: ur(
+              {
+                pathname: "/",
+                search: "",
+                hash: "",
+                state: null,
+                key: "default",
+              },
+              x,
+            ),
+            navigationType: ut.Pop,
+          },
+        },
+        g,
+      )
+    : g;
+}
+function Dh() {
+  let e = qh(),
+    t = Lh(e)
+      ? e.status + " " + e.statusText
+      : e instanceof Error
+        ? e.message
+        : JSON.stringify(e),
+    n = e instanceof Error ? e.stack : null,
+    r = { padding: "0.5rem", backgroundColor: "rgba(200,200,200, 0.5)" };
+  return k.createElement(
+    k.Fragment,
+    null,
+    k.createElement("h2", null, "Unexpected Application Error!"),
+    k.createElement("h3", { style: { fontStyle: "italic" } }, t),
+    n ? k.createElement("pre", { style: r }, n) : null,
+    null,
+  );
+}
+const Uh = k.createElement(Dh, null);
+class $h extends k.Component {
+  constructor(t) {
+    (super(t),
+      (this.state = {
+        location: t.location,
+        revalidation: t.revalidation,
+        error: t.error,
+      }));
+  }
+  static getDerivedStateFromError(t) {
+    return { error: t };
+  }
+  static getDerivedStateFromProps(t, n) {
+    return n.location !== t.location ||
+      (n.revalidation !== "idle" && t.revalidation === "idle")
+      ? { error: t.error, location: t.location, revalidation: t.revalidation }
+      : {
+          error: t.error !== void 0 ? t.error : n.error,
+          location: n.location,
+          revalidation: t.revalidation || n.revalidation,
+        };
+  }
+  componentDidCatch(t, n) {
+    console.error(
+      "React Router caught the following error during render",
+      t,
+      n,
+    );
+  }
+  render() {
+    return this.state.error !== void 0
+      ? k.createElement(
+          _t.Provider,
+          { value: this.props.routeContext },
+          k.createElement(fd.Provider, {
+            value: this.state.error,
+            children: this.props.component,
+          }),
+        )
+      : this.props.children;
+  }
+}
+function Bh(e) {
+  let { routeContext: t, match: n, children: r } = e,
+    a = k.useContext(pi);
+  return (
+    a &&
+      a.static &&
+      a.staticContext &&
+      (n.route.errorElement || n.route.ErrorBoundary) &&
+      (a.staticContext._deepestRenderedBoundaryId = n.route.id),
+    k.createElement(_t.Provider, { value: t }, r)
+  );
+}
+function Vh(e, t, n, r) {
+  var a;
+  if (
+    (t === void 0 && (t = []),
+    n === void 0 && (n = null),
+    r === void 0 && (r = null),
+    e == null)
+  ) {
+    var s;
+    if (!n) return null;
+    if (n.errors) e = n.matches;
+    else if (
+      (s = r) != null &&
+      s.v7_partialHydration &&
+      t.length === 0 &&
+      !n.initialized &&
+      n.matches.length > 0
+    )
+      e = n.matches;
+    else return null;
+  }
+  let i = e,
+    c = (a = n) == null ? void 0 : a.errors;
+  if (c != null) {
+    let x = i.findIndex(
+      (f) => f.route.id && (c == null ? void 0 : c[f.route.id]) !== void 0,
+    );
+    (x >= 0 || X(!1), (i = i.slice(0, Math.min(i.length, x + 1))));
+  }
+  let o = !1,
+    u = -1;
+  if (n && r && r.v7_partialHydration)
+    for (let x = 0; x < i.length; x++) {
+      let f = i[x];
+      if (
+        ((f.route.HydrateFallback || f.route.hydrateFallbackElement) && (u = x),
+        f.route.id)
+      ) {
+        let { loaderData: p, errors: y } = n,
+          v =
+            f.route.loader &&
+            p[f.route.id] === void 0 &&
+            (!y || y[f.route.id] === void 0);
+        if (f.route.lazy || v) {
+          ((o = !0), u >= 0 ? (i = i.slice(0, u + 1)) : (i = [i[0]]));
+          break;
+        }
+      }
+    }
+  return i.reduceRight((x, f, p) => {
+    let y,
+      v = !1,
+      g = null,
+      _ = null;
+    n &&
+      ((y = c && f.route.id ? c[f.route.id] : void 0),
+      (g = f.route.errorElement || Uh),
+      o &&
+        (u < 0 && p === 0
+          ? (Kh("route-fallback"), (v = !0), (_ = null))
+          : u === p &&
+            ((v = !0), (_ = f.route.hydrateFallbackElement || null))));
+    let h = t.concat(i.slice(0, p + 1)),
+      d = () => {
+        let m;
+        return (
+          y
+            ? (m = g)
+            : v
+              ? (m = _)
+              : f.route.Component
+                ? (m = k.createElement(f.route.Component, null))
+                : f.route.element
+                  ? (m = f.route.element)
+                  : (m = x),
+          k.createElement(Bh, {
+            match: f,
+            routeContext: { outlet: x, matches: h, isDataRoute: n != null },
+            children: m,
+          })
+        );
+      };
+    return n && (f.route.ErrorBoundary || f.route.errorElement || p === 0)
+      ? k.createElement($h, {
+          location: n.location,
+          revalidation: n.revalidation,
+          component: g,
+          error: y,
+          children: d(),
+          routeContext: { outlet: null, matches: h, isDataRoute: !0 },
+        })
+      : d();
+  }, null);
+}
+var hd = (function (e) {
+    return (
+      (e.UseBlocker = "useBlocker"),
+      (e.UseRevalidator = "useRevalidator"),
+      (e.UseNavigateStable = "useNavigate"),
+      e
+    );
+  })(hd || {}),
+  md = (function (e) {
+    return (
+      (e.UseBlocker = "useBlocker"),
+      (e.UseLoaderData = "useLoaderData"),
+      (e.UseActionData = "useActionData"),
+      (e.UseRouteError = "useRouteError"),
+      (e.UseNavigation = "useNavigation"),
+      (e.UseRouteLoaderData = "useRouteLoaderData"),
+      (e.UseMatches = "useMatches"),
+      (e.UseRevalidator = "useRevalidator"),
+      (e.UseNavigateStable = "useNavigate"),
+      (e.UseRouteId = "useRouteId"),
+      e
+    );
+  })(md || {});
+function Wh(e) {
+  let t = k.useContext(pi);
+  return (t || X(!1), t);
+}
+function Hh(e) {
+  let t = k.useContext(Th);
+  return (t || X(!1), t);
+}
+function Qh(e) {
+  let t = k.useContext(_t);
+  return (t || X(!1), t);
+}
+function xd(e) {
+  let t = Qh(),
+    n = t.matches[t.matches.length - 1];
+  return (n.route.id || X(!1), n.route.id);
+}
+function qh() {
+  var e;
+  let t = k.useContext(fd),
+    n = Hh(),
+    r = xd();
+  return t !== void 0 ? t : (e = n.errors) == null ? void 0 : e[r];
+}
+function Yh() {
+  let { router: e } = Wh(hd.UseNavigateStable),
+    t = xd(md.UseNavigateStable),
+    n = k.useRef(!1);
+  return (
+    pd(() => {
+      n.current = !0;
+    }),
+    k.useCallback(
+      function (r, a) {
+        (a === void 0 && (a = {}),
+          n.current &&
+            (typeof r == "number"
+              ? e.navigate(r)
+              : e.navigate(r, ur({ fromRouteId: t }, a))));
+      },
+      [e, t],
+    )
+  );
+}
+const To = {};
+function Kh(e, t, n) {
+  To[e] || (To[e] = !0);
+}
+function Xh(e, t) {
+  (e == null || e.v7_startTransition, e == null || e.v7_relativeSplatPath);
+}
+function Gh(e) {
+  let { to: t, replace: n, state: r, relative: a } = e;
+  yr() || X(!1);
+  let { future: s, static: i } = k.useContext(br),
+    { matches: c } = k.useContext(_t),
+    { pathname: o } = Ha(),
+    u = Ue(),
+    x = cd(t, od(c, s.v7_relativeSplatPath), o, a === "path"),
+    f = JSON.stringify(x);
+  return (
+    k.useEffect(
+      () => u(JSON.parse(f), { replace: n, state: r, relative: a }),
+      [u, f, a, n, r],
+    ),
+    null
+  );
+}
+function Me(e) {
+  X(!1);
+}
+function Zh(e) {
+  let {
+    basename: t = "/",
+    children: n = null,
+    location: r,
+    navigationType: a = ut.Pop,
+    navigator: s,
+    static: i = !1,
+    future: c,
+  } = e;
+  yr() && X(!1);
+  let o = t.replace(/^\/*/, "/"),
+    u = k.useMemo(
+      () => ({
+        basename: o,
+        navigator: s,
+        static: i,
+        future: ur({ v7_relativeSplatPath: !1 }, c),
+      }),
+      [o, c, s, i],
+    );
+  typeof r == "string" && (r = wn(r));
+  let {
+      pathname: x = "/",
+      search: f = "",
+      hash: p = "",
+      state: y = null,
+      key: v = "default",
+    } = r,
+    g = k.useMemo(() => {
+      let _ = id(x, o);
+      return _ == null
+        ? null
+        : {
+            location: { pathname: _, search: f, hash: p, state: y, key: v },
+            navigationType: a,
+          };
+    }, [o, x, f, p, y, v, a]);
+  return g == null
+    ? null
+    : k.createElement(
+        br.Provider,
+        { value: u },
+        k.createElement(Wa.Provider, { children: n, value: g }),
+      );
+}
+function Jh(e) {
+  let { children: t, location: n } = e;
+  return Oh(ms(t), n);
+}
+new Promise(() => {});
+function ms(e, t) {
+  t === void 0 && (t = []);
+  let n = [];
+  return (
+    k.Children.forEach(e, (r, a) => {
+      if (!k.isValidElement(r)) return;
+      let s = [...t, a];
+      if (r.type === k.Fragment) {
+        n.push.apply(n, ms(r.props.children, s));
+        return;
+      }
+      (r.type !== Me && X(!1), !r.props.index || !r.props.children || X(!1));
+      let i = {
+        id: r.props.id || s.join("-"),
+        caseSensitive: r.props.caseSensitive,
+        element: r.props.element,
+        Component: r.props.Component,
+        index: r.props.index,
+        path: r.props.path,
+        loader: r.props.loader,
+        action: r.props.action,
+        errorElement: r.props.errorElement,
+        ErrorBoundary: r.props.ErrorBoundary,
+        hasErrorBoundary:
+          r.props.ErrorBoundary != null || r.props.errorElement != null,
+        shouldRevalidate: r.props.shouldRevalidate,
+        handle: r.props.handle,
+        lazy: r.props.lazy,
+      };
+      (r.props.children && (i.children = ms(r.props.children, s)), n.push(i));
+    }),
+    n
+  );
+}
+/**
+ * React Router DOM v6.30.4
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */ const em = "6";
+try {
+  window.__reactRouterVersion = em;
+} catch {}
+const tm = "startTransition",
+  Ro = Yd[tm];
+function nm(e) {
+  let { basename: t, children: n, future: r, window: a } = e,
+    s = k.useRef();
+  s.current == null && (s.current = ih({ window: a, v5Compat: !0 }));
+  let i = s.current,
+    [c, o] = k.useState({ action: i.action, location: i.location }),
+    { v7_startTransition: u } = r || {},
+    x = k.useCallback(
+      (f) => {
+        u && Ro ? Ro(() => o(f)) : o(f);
+      },
+      [o, u],
+    );
+  return (
+    k.useLayoutEffect(() => i.listen(x), [i, x]),
+    k.useEffect(() => Xh(r), [r]),
+    k.createElement(Zh, {
+      basename: t,
+      children: n,
+      location: c.location,
+      navigationType: c.action,
+      navigator: i,
+      future: r,
+    })
+  );
+}
+var Io;
+(function (e) {
+  ((e.UseScrollRestoration = "useScrollRestoration"),
+    (e.UseSubmit = "useSubmit"),
+    (e.UseSubmitFetcher = "useSubmitFetcher"),
+    (e.UseFetcher = "useFetcher"),
+    (e.useViewTransitionState = "useViewTransitionState"));
+})(Io || (Io = {}));
+var Oo;
+(function (e) {
+  ((e.UseFetcher = "useFetcher"),
+    (e.UseFetchers = "useFetchers"),
+    (e.UseScrollRestoration = "useScrollRestoration"));
+})(Oo || (Oo = {}));
+const gd = k.createContext();
+function rm({ children: e }) {
+  const [t, n] = k.useState([]),
+    [r, a] = k.useState(!1),
+    s = k.useCallback((y, v = 1) => {
+      n((g) =>
+        g.find((_) => _.id === y.id)
+          ? g.map((_) => (_.id === y.id ? { ..._, qty: _.qty + v } : _))
+          : [...g, { ...y, qty: v }],
+      );
+    }, []),
+    i = k.useCallback((y) => {
+      n((v) => v.filter((g) => g.id !== y));
+    }, []),
+    c = k.useCallback((y, v) => {
+      v <= 0
+        ? n((g) => g.filter((_) => _.id !== y))
+        : n((g) => g.map((_) => (_.id === y ? { ..._, qty: v } : _)));
+    }, []),
+    o = k.useCallback(() => n([]), []),
+    u = t.reduce((y, v) => y + v.qty, 0),
+    x = t.reduce((y, v) => y + v.price * v.qty, 0),
+    f = x >= 200 ? 0 : 15,
+    p = x + f;
+  return l.jsx(gd.Provider, {
+    value: {
+      items: t,
+      addItem: s,
+      removeItem: i,
+      updateQty: c,
+      clearCart: o,
+      totalItems: u,
+      subtotal: x,
+      deliveryFee: f,
+      total: p,
+      isOpen: r,
+      setIsOpen: a,
+    },
+    children: e,
+  });
+}
+const kn = () => k.useContext(gd),
+  am = {
+    ar: {
+      storeName: "أبو دغش",
+      storeTagline: "أجود اللحوم الطازجة",
+      startShopping: "ابدأ التسوق",
+      categories: "الفئات",
+      ourProducts: "منتجاتنا",
+      addToCart: "أضف للسلة",
+      cart: "السلة",
+      emptyCart: "السلة فارغة",
+      subtotal: "المجموع الفرعي",
+      delivery: "التوصيل",
+      total: "الإجمالي",
+      checkout: "إتمام الشراء",
+      suggestedItems: "قد يعجبك أيضاً",
+      signUp: "إنشاء حساب",
+      login: "تسجيل الدخول",
+      phone: "رقم الهاتف",
+      password: "كلمة المرور",
+      confirmPassword: "تأكيد كلمة المرور",
+      fullName: "الاسم الكامل",
+      continueAsGuest: "المتابعة كضيف",
+      haveAccount: "لديك حساب؟",
+      noAccount: "ليس لديك حساب؟",
+      paymentMethod: "طريقة الدفع",
+      selectPayment: "اختر طريقة الدفع",
+      creditCard: "بطاقة ائتمان / ڤيزا",
+      applePay: "Apple Pay",
+      googlePay: "Google Pay",
+      cash: "دفع نقدي عند الاستلام",
+      placeOrder: "تأكيد الطلب",
+      orderConfirmed: "تم تأكيد طلبك!",
+      orderId: "رقم الطلب",
+      estimatedDelivery: "وقت التوصيل المتوقع",
+      backToShopping: "العودة للتسوق",
+      items: "منتجات",
+      gram: "غرام",
+      perKg: "/كغ",
+      nis: "₪",
+      free: "مجاني",
+      adminPanel: "لوحة الإدارة",
+      manageCategories: "إدارة الفئات",
+      manageProducts: "إدارة المنتجات",
+      manageOrders: "إدارة الطلبات",
+      addCategory: "إضافة فئة",
+      addProduct: "إضافة منتج",
+      categoryName: "اسم الفئة",
+      productName: "اسم المنتج",
+      price: "السعر",
+      description: "الوصف",
+      uploadImage: "رفع صورة",
+      save: "حفظ",
+      cancel: "إلغاء",
+      delete: "حذف",
+      edit: "تعديل",
+      viewAll: "عرض الكل",
+      fresh: "طازج",
+      halal: "حلال",
+      quantity: "الكمية",
+      remove: "حذف",
+      address: "العنوان",
+      city: "المدينة",
+      notes: "ملاحظات",
+      deliveryTime: "وقت التوصيل",
+      minutes: "دقيقة",
+      orderDetails: "تفاصيل الطلب",
+      status: "الحالة",
+      pending: "قيد الانتظار",
+      preparing: "جاري التحضير",
+      onTheWay: "في الطريق",
+      delivered: "تم التوصيل",
+      aboutUs: "من نحن",
+      ourStory: "قصتنا",
+      ourValues: "قيمنا",
+      customerReviews: "آراء عملائنا",
+      deliveryPanel: "بوابة المندوب",
+      myDeliveries: "توصيلاتي",
+      activeDelivery: "التوصيل الحالي",
+      completedDeliveries: "التوصيلات المكتملة",
+      startDelivery: "بدء التوصيل",
+      completeDelivery: "إتمام التوصيل",
+      callCustomer: "اتصل بالعميل",
+      navigate: "التنقل",
+    },
+    he: {
+      storeName: "אבו דגש",
+      storeTagline: "הבשר הטרי הטוב ביותר",
+      startShopping: "התחל לקנות",
+      categories: "קטגוריות",
+      ourProducts: "המוצרים שלנו",
+      addToCart: "הוסף לעגלה",
+      cart: "עגלה",
+      emptyCart: "העגלה ריקה",
+      subtotal: "סכום ביניים",
+      delivery: "משלוח",
+      total: 'סה"כ',
+      checkout: "לתשלום",
+      suggestedItems: "אולי תאהב גם",
+      signUp: "הרשמה",
+      login: "התחברות",
+      phone: "מספר טלפון",
+      password: "סיסמה",
+      confirmPassword: "אשר סיסמה",
+      fullName: "שם מלא",
+      continueAsGuest: "המשך כאורח",
+      haveAccount: "יש לך חשבון?",
+      noAccount: "אין לך חשבון?",
+      paymentMethod: "אמצעי תשלום",
+      selectPayment: "בחר אמצעי תשלום",
+      creditCard: "כרטיס אשראי / ויזה",
+      applePay: "Apple Pay",
+      googlePay: "Google Pay",
+      cash: "תשלום במזומן",
+      placeOrder: "אשר הזמנה",
+      orderConfirmed: "ההזמנה אושרה!",
+      orderId: "מספר הזמנה",
+      estimatedDelivery: "זמן אספקה משוער",
+      backToShopping: "חזור לקניות",
+      items: "פריטים",
+      gram: "גרם",
+      perKg: '/ק"ג',
+      nis: "₪",
+      free: "חינם",
+      adminPanel: "פאנל ניהול",
+      manageCategories: "ניהול קטגוריות",
+      manageProducts: "ניהול מוצרים",
+      manageOrders: "ניהול הזמנות",
+      addCategory: "הוסף קטגוריה",
+      addProduct: "הוסף מוצר",
+      categoryName: "שם קטגוריה",
+      productName: "שם מוצר",
+      price: "מחיר",
+      description: "תיאור",
+      uploadImage: "העלה תמונה",
+      save: "שמור",
+      cancel: "ביטול",
+      delete: "מחק",
+      edit: "ערוך",
+      viewAll: "הצג הכל",
+      fresh: "טרי",
+      halal: "חלאל",
+      quantity: "כמות",
+      remove: "הסר",
+      address: "כתובת",
+      city: "עיר",
+      notes: "הערות",
+      deliveryTime: "זמן משלוח",
+      minutes: "דקות",
+      orderDetails: "פרטי הזמנה",
+      status: "סטטוס",
+      pending: "ממתין",
+      preparing: "בהכנה",
+      onTheWay: "בדרך",
+      delivered: "נמסר",
+      aboutUs: "אודותינו",
+      ourStory: "הסיפור שלנו",
+      ourValues: "הערכים שלנו",
+      customerReviews: "חוות דעת לקוחות",
+      deliveryPanel: "פורטל שליח",
+      myDeliveries: "המשלוחים שלי",
+      activeDelivery: "משלוח פעיל",
+      completedDeliveries: "משלוחים שהושלמו",
+      startDelivery: "התחל משלוח",
+      completeDelivery: "השלם משלוח",
+      callCustomer: "התקשר ללקוח",
+      navigate: "ניווט",
+    },
+  },
+  _a = [
+    {
+      id: 1,
+      name_ar: "لحم بقري",
+      name_he: "בקר",
+      image:
+        "https://images.unsplash.com/photo-1588347785102-2944afe78c95?w=400&h=300&fit=crop",
+      count: 12,
+      tag_ar: "الأكثر مبيعاً",
+      tag_he: "הנמכר ביותר",
+    },
+    {
+      id: 2,
+      name_ar: "لحم غنم",
+      name_he: "כבש",
+      image:
+        "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop",
+      count: 8,
+      tag_ar: "",
+      tag_he: "",
+    },
+    {
+      id: 3,
+      name_ar: "دجاج طازج",
+      name_he: "עוף טרי",
+      image:
+        "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400&h=300&fit=crop",
+      count: 10,
+      tag_ar: "جديد",
+      tag_he: "חדש",
+    },
+    {
+      id: 4,
+      name_ar: "لحم عجل",
+      name_he: "עגל",
+      image:
+        "https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?w=400&h=300&fit=crop",
+      count: 6,
+      tag_ar: "",
+      tag_he: "",
+    },
+    {
+      id: 5,
+      name_ar: "أسماك وأحياء بحرية",
+      name_he: "דגים ופירות ים",
+      image:
+        "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=400&h=300&fit=crop",
+      count: 9,
+      tag_ar: "",
+      tag_he: "",
+    },
+    {
+      id: 6,
+      name_ar: "منتجات مصنعة",
+      name_he: "מוצרים מעובדים",
+      image:
+        "https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?w=400&h=300&fit=crop",
+      count: 15,
+      tag_ar: "عرض خاص",
+      tag_he: "מבצע",
+    },
+  ],
+  dr = [
+    {
+      id: 1,
+      categoryId: 1,
+      name_ar: "ستيك ريبس عالي الجودة",
+      name_he: "ריב-איי סטייק",
+      description_ar:
+        "ستيك ريبس طازج ممتاز، مثالي للشواء. قطع سميكة من أجود أنواع اللحم البقري.",
+      description_he:
+        "ריב-איי סטייק טרי ומעולה, מושלם לגריל. פרוסות עבות מהבשר הטוב ביותר.",
+      price: 89,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1588347785102-2944afe78c95?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "الأكثر طلباً",
+      badge_he: "הנדרש ביותר",
+      rating: 4.9,
+      reviews: 128,
+    },
+    {
+      id: 2,
+      categoryId: 1,
+      name_ar: "لحم مفروم ممتاز",
+      name_he: "בשר טחון מעולה",
+      description_ar: "لحم مفروم طازج 100%، مناسب للكفتة والبرغر والمعجنات.",
+      description_he: "100% בשר טחון טרי, מתאים לקציצות, המבורגר ומאפים.",
+      price: 45,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop",
+      isFeatured: !1,
+      badge_ar: "",
+      badge_he: "",
+      rating: 4.7,
+      reviews: 89,
+    },
+    {
+      id: 3,
+      categoryId: 1,
+      name_ar: "انتريكوت بقري",
+      name_he: "אנטריקוט בקר",
+      description_ar: "قطعة أنتريكوت طازجة لذيذة، مثالية للشواء والمشوي.",
+      description_he: "אנטריקוט טרי וטעים, מושלם לגריל ולצלייה.",
+      price: 75,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "طازج اليوم",
+      badge_he: "טרי היום",
+      rating: 4.8,
+      reviews: 64,
+    },
+    {
+      id: 4,
+      categoryId: 1,
+      name_ar: "فيليه بقري فاخر",
+      name_he: "פילה בקר יוקרתי",
+      description_ar: "فيليه بقري طري فاخر، أرق قطعة في جسم الحيوان.",
+      description_he: "פילה בקר רך ויוקרתי, הנתח הרך ביותר.",
+      price: 120,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "فاخر",
+      badge_he: "יוקרתי",
+      rating: 5,
+      reviews: 47,
+    },
+    {
+      id: 5,
+      categoryId: 2,
+      name_ar: "فخذ غنم كاملة",
+      name_he: "כרע כבש שלמה",
+      description_ar:
+        "فخذ غنم طازجة كاملة، مثالية للمشاوي والطواجن والأطباق الاحتفالية.",
+      description_he:
+        "כרע כבש טרי שלמה, מושלמת לגריל, תבשילים ומאכלים חגיגיים.",
+      price: 65,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "",
+      badge_he: "",
+      rating: 4.6,
+      reviews: 45,
+    },
+    {
+      id: 6,
+      categoryId: 2,
+      name_ar: "كتف غنم طازج",
+      name_he: "כתף כבש טרי",
+      description_ar: "كتف غنم طازج مثالي للطهي البطيء والشواء.",
+      description_he: "כתף כבש טרי מושלם לבישול איטי ולגריל.",
+      price: 55,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&h=300&fit=crop",
+      isFeatured: !1,
+      badge_ar: "طازج",
+      badge_he: "טרי",
+      rating: 4.5,
+      reviews: 38,
+    },
+    {
+      id: 7,
+      categoryId: 3,
+      name_ar: "دجاجة كاملة طازجة",
+      name_he: "עוף שלם טרי",
+      description_ar:
+        "دجاجة كاملة طازجة حلال، معبأة بعناية للحفاظ على نضارتها.",
+      description_he: "עוף שלם טרי חלאל, ארוז בקפידה לשמירה על טריות.",
+      price: 28,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400&h=300&fit=crop",
+      isFeatured: !1,
+      badge_ar: "",
+      badge_he: "",
+      rating: 4.5,
+      reviews: 203,
+    },
+    {
+      id: 8,
+      categoryId: 3,
+      name_ar: "صدر دجاج طازج",
+      name_he: "חזה עוף טרי",
+      description_ar: "صدر دجاج طازج منزوع العظم والجلد، غني بالبروتين.",
+      description_he: "חזה עוף טרי ללא עצם ועור, עשיר בחלבון.",
+      price: 35,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1618897996318-5a901fa0b5cc?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "خالي من الدهون",
+      badge_he: "דל שומן",
+      rating: 4.7,
+      reviews: 156,
+    },
+    {
+      id: 9,
+      categoryId: 3,
+      name_ar: "أفخاذ دجاج مشوية",
+      name_he: "ירכי עוף לגריל",
+      description_ar: "أفخاذ دجاج طازجة بالتتبيلة الشرقية الأصيلة.",
+      description_he: "ירכי עוף טריות עם מרינדה מזרחית מקורית.",
+      price: 32,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "محضر طازج",
+      badge_he: "טרי מוכן",
+      rating: 4.8,
+      reviews: 92,
+    },
+    {
+      id: 10,
+      categoryId: 4,
+      name_ar: "اسكالوب عجل",
+      name_he: "אסקלופ עגל",
+      description_ar: "شرائح عجل رفيعة طرية، مثالية للطبخ السريع والمقلي.",
+      description_he: "פרוסות עגל דקות ורכות, מושלמות לבישול מהיר וטיגון.",
+      price: 95,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?w=400&h=300&fit=crop",
+      isFeatured: !1,
+      badge_ar: "فاخر",
+      badge_he: "יוקרתי",
+      rating: 4.9,
+      reviews: 32,
+    },
+    {
+      id: 11,
+      categoryId: 4,
+      name_ar: "كوتيليت عجل",
+      name_he: "קוטלט עגל",
+      description_ar: "كوتيليت عجل بالعظم، طري وشهي.",
+      description_he: "קוטלט עגל עם עצם, רך וטעים.",
+      price: 85,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=300&fit=crop",
+      isFeatured: !1,
+      badge_ar: "",
+      badge_he: "",
+      rating: 4.6,
+      reviews: 19,
+    },
+    {
+      id: 12,
+      categoryId: 5,
+      name_ar: "سمك سلمون طازج",
+      name_he: "סלמון טרי",
+      description_ar: "سمك سلمون طازج عالي الجودة، غني بأوميغا 3.",
+      description_he: "סלמון טרי באיכות גבוהה, עשיר באומגה 3.",
+      price: 78,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "صحي",
+      badge_he: "בריא",
+      rating: 4.8,
+      reviews: 61,
+    },
+    {
+      id: 13,
+      categoryId: 5,
+      name_ar: "جمبري طازج كبير",
+      name_he: "שרימפס טרי גדול",
+      description_ar: "جمبري طازج حجم كبير، مناسب للشواء والمقلي.",
+      description_he: "שרימפס טרי גדול, מתאים לגריל ולטיגון.",
+      price: 95,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1565680018434-b6b9e5f37456?w=400&h=300&fit=crop",
+      isFeatured: !1,
+      badge_ar: "",
+      badge_he: "",
+      rating: 4.7,
+      reviews: 44,
+    },
+    {
+      id: 14,
+      categoryId: 6,
+      name_ar: "سجق عربي حلال",
+      name_he: "נקניקיות ערביות חלאל",
+      description_ar: "سجق عربي بالتوابل الشرقية الأصيلة، مثالي للشواء.",
+      description_he:
+        "נקניקיות ערביות עם תבלינים מזרחיים מקוריים, מושלמות לגריל.",
+      price: 42,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "عرض خاص",
+      badge_he: "מבצע",
+      rating: 4.6,
+      reviews: 78,
+    },
+    {
+      id: 15,
+      categoryId: 6,
+      name_ar: "كباب مشكل",
+      name_he: "קבב מעורב",
+      description_ar: "كباب مشكل بالتوابل العربية الأصيلة، جاهز للشواء.",
+      description_he: "קבב מעורב עם תבלינים ערביים מקוריים, מוכן לגריל.",
+      price: 58,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1544025162-d76594e8efa5?w=400&h=300&fit=crop",
+      isFeatured: !0,
+      badge_ar: "جاهز للشواء",
+      badge_he: "מוכן לגריל",
+      rating: 4.9,
+      reviews: 113,
+    },
+    {
+      id: 16,
+      categoryId: 6,
+      name_ar: "شاورما دجاج",
+      name_he: "שווארמה עוף",
+      description_ar: "شاورما دجاج مبهرة بالتوابل الشرقية، جاهزة للطهي.",
+      description_he: "שווארמה עוף מתובלת בתבלינים מזרחיים, מוכנה לבישול.",
+      price: 38,
+      unit: "kg",
+      image:
+        "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400&h=300&fit=crop",
+      isFeatured: !1,
+      badge_ar: "مبهر",
+      badge_he: "מתובל",
+      rating: 4.7,
+      reviews: 88,
+    },
+  ],
+  bd = [
+    {
+      id: "ORD-1001",
+      customer: "محمد أحمد",
+      phone: "050-1234567",
+      total: 285,
+      status: "delivering",
+      time: "14:32",
+      items: 4,
+    },
+    {
+      id: "ORD-1002",
+      customer: "سارة خالد",
+      phone: "052-9876543",
+      total: 147,
+      status: "preparing",
+      time: "14:10",
+      items: 2,
+    },
+    {
+      id: "ORD-1003",
+      customer: "أحمد نصر",
+      phone: "054-5554443",
+      total: 320,
+      status: "pending",
+      time: "14:55",
+      items: 5,
+    },
+    {
+      id: "ORD-1004",
+      customer: "فاطمة عمر",
+      phone: "050-7778889",
+      total: 95,
+      status: "delivered",
+      time: "13:22",
+      items: 1,
+    },
+    {
+      id: "ORD-1005",
+      customer: "خالد سعيد",
+      phone: "053-1112223",
+      total: 210,
+      status: "confirmed",
+      time: "15:01",
+      items: 3,
+    },
+  ],
+  lm = [
+    {
+      id: 1,
+      name_ar: "محمد الحسن",
+      name_he: "מוחמד אלחסן",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text_ar:
+        "أفضل لحوم جربتها في حياتي! الجودة عالية جداً والتوصيل سريع. أنصح الجميع بالطلب من أبو دغش.",
+      text_he:
+        "הבשר הטוב ביותר שאי פעם טעמתי! איכות גבוהה מאוד והמשלוח מהיר. אני ממליץ לכולם.",
+      date_ar: "منذ أسبوع",
+      date_he: "לפני שבוע",
+    },
+    {
+      id: 2,
+      name_ar: "سارة إبراهيم",
+      name_he: "שרה איברהים",
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b5e5?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text_ar:
+        "لحوم طازجة يومياً، المذاق رائع والأسعار معقولة. التوصيل وصل في وقته تماماً.",
+      text_he: "בשר טרי כל יום, הטעם נהדר והמחירים סבירים. המשלוח הגיע בזמן.",
+      date_ar: "منذ 3 أيام",
+      date_he: "לפני 3 ימים",
+    },
+    {
+      id: 3,
+      name_ar: "أحمد يوسف",
+      name_he: "אחמד יוסף",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text_ar:
+        "ستيك الريبس كان استثنائياً! طرية جداً وطعمها لا يوصف. سأطلب مرة أخرى بالتأكيد.",
+      text_he: "ריב-איי היה יוצא דופן! רך מאוד וטעמו לשבח. בהחלט אזמין שוב.",
+      date_ar: "منذ يومين",
+      date_he: "לפני יומיים",
+    },
+    {
+      id: 4,
+      name_ar: "فاطمة عمر",
+      name_he: "פאטמה עומר",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      rating: 4,
+      text_ar:
+        "الدجاج الحلال طازج جداً، العائلة كلها أعجبها. خدمة ممتازة وسرعة في التوصيل.",
+      text_he: "עוף החלאל טרי מאוד, כל המשפחה אהבה. שירות מעולה ומשלוח מהיר.",
+      date_ar: "منذ 5 أيام",
+      date_he: "לפני 5 ימים",
+    },
+    {
+      id: 5,
+      name_ar: "خالد محمود",
+      name_he: "חאלד מחמוד",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text_ar:
+        "الكباب المشكل أشهى ما أكلته، التتبيل مثالي والنكهة شرقية أصيلة.",
+      text_he: "הקבב המעורב הכי טעים שאכלתי, התיבול מושלם והטעם מזרחי אותנטי.",
+      date_ar: "منذ أسبوع",
+      date_he: "לפני שבוע",
+    },
+    {
+      id: 6,
+      name_ar: "ليلى حسن",
+      name_he: "ליילא חסן",
+      image:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text_ar:
+        "أبو دغش هو المتجر الوحيد الذي أثق به للحوم الطازجة. جودة لا تُضاهى!",
+      text_he:
+        "אבו דגש הוא החנות היחידה שאני סומכת עליה לבשר טרי. איכות שאין שני לה!",
+      date_ar: "منذ 4 أيام",
+      date_he: "לפני 4 ימים",
+    },
+  ],
+  yd = k.createContext();
+function sm({ children: e }) {
+  const [t, n] = k.useState("ar"),
+    r = am[t];
+  k.useEffect(() => {
+    ((document.documentElement.lang = t),
+      (document.documentElement.dir = "rtl"));
+  }, [t]);
+  const a = () => n((u) => (u === "ar" ? "he" : "ar")),
+    s = (u) => (t === "ar" ? u.name_ar : u.name_he),
+    i = (u) => (t === "ar" ? u.description_ar : u.description_he),
+    c = (u) => (t === "ar" ? u.badge_ar : u.badge_he),
+    o = (u) => (t === "ar" ? u.tag_ar : u.tag_he);
+  return l.jsx(yd.Provider, {
+    value: { lang: t, toggleLang: a, t: r, name: s, desc: i, badge: c, tag: o },
+    children: e,
+  });
+}
+const Fe = () => k.useContext(yd);
+function im() {
+  const { t: e, toggleLang: t, lang: n } = Fe(),
+    r = Ue(),
+    [a, s] = k.useState(0);
+  return (
+    k.useEffect(() => {
+      const i = [
+        setTimeout(() => s(1), 300),
+        setTimeout(() => s(2), 900),
+        setTimeout(() => s(3), 1600),
+        setTimeout(() => s(4), 2400),
+      ];
+      return () => i.forEach(clearTimeout);
+    }, []),
+    l.jsxs("div", {
+      className:
+        "relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-black",
+      children: [
+        l.jsxs("div", {
+          className: "absolute inset-0 overflow-hidden",
+          children: [
+            l.jsx("div", {
+              className: "absolute inset-0 opacity-20",
+              style: {
+                background:
+                  "radial-gradient(ellipse 80% 60% at 50% 40%, #CC0000 0%, transparent 70%)",
+                animation: "pulse 4s ease-in-out infinite",
+              },
+            }),
+            l.jsx("div", {
+              className:
+                "absolute -top-20 -left-20 w-96 h-96 rounded-full opacity-10",
+              style: {
+                background: "#CC0000",
+                filter: "blur(80px)",
+                animation: "float 6s ease-in-out infinite",
+              },
+            }),
+            l.jsx("div", {
+              className:
+                "absolute -bottom-20 -right-20 w-80 h-80 rounded-full opacity-10",
+              style: {
+                background: "#CC0000",
+                filter: "blur(80px)",
+                animation: "float 8s ease-in-out infinite reverse",
+              },
+            }),
+            [...Array(8)].map((i, c) =>
+              l.jsx(
+                "div",
+                {
+                  className: "absolute opacity-5",
+                  style: {
+                    width: "100%",
+                    height: "1px",
+                    background:
+                      "linear-gradient(90deg, transparent, #CC0000, transparent)",
+                    top: `${12 + c * 12}%`,
+                    animation: `shimmer ${2 + c * 0.3}s linear infinite`,
+                  },
+                },
+                c,
+              ),
+            ),
+          ],
+        }),
+        l.jsx("button", {
+          onClick: t,
+          className:
+            "absolute top-6 left-6 z-20 glass rounded-full px-4 py-2 text-sm font-bold text-white border border-white/20 hover:border-brand-red transition-colors",
+          children: n === "ar" ? "עברית" : "العربية",
+        }),
+        l.jsxs("div", {
+          className: "absolute top-6 right-6 z-20 flex gap-2",
+          children: [
+            l.jsx("button", {
+              onClick: () => r("/about"),
+              className:
+                "glass rounded-full px-3 py-2 text-xs text-brand-gray-light border border-white/10 hover:border-brand-red hover:text-white transition-colors",
+              children: n === "ar" ? "من نحن" : "אודות",
+            }),
+            l.jsx("button", {
+              onClick: () => r("/delivery"),
+              className:
+                "glass rounded-full px-3 py-2 text-xs text-orange-400 border border-orange-400/20 hover:border-orange-400 transition-colors",
+              children: n === "ar" ? "المندوب" : "שליח",
+            }),
+            l.jsx("button", {
+              onClick: () => r("/admin"),
+              className:
+                "glass rounded-full px-3 py-2 text-xs text-brand-gray-light border border-white/10 hover:border-brand-red hover:text-white transition-colors",
+              children: n === "ar" ? "الإدارة" : "ניהול",
+            }),
+          ],
+        }),
+        l.jsx("div", {
+          className:
+            "absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none",
+        }),
+        l.jsx("div", {
+          className:
+            "absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none",
+        }),
+        l.jsxs("div", {
+          className:
+            "relative z-20 flex flex-col items-center text-center px-8 max-w-md",
+          children: [
+            l.jsx("div", {
+              className: "mb-6 transition-all duration-700",
+              style: {
+                opacity: a >= 1 ? 1 : 0,
+                transform:
+                  a >= 1
+                    ? "scale(1) translateY(0)"
+                    : "scale(0.5) translateY(20px)",
+              },
+              children: l.jsx("div", {
+                className: "w-32 h-32 rounded-3xl mx-auto mb-4 overflow-hidden",
+                style: {
+                  boxShadow:
+                    "0 0 40px rgba(204,0,0,0.6), 0 0 80px rgba(204,0,0,0.2)",
+                  border: "2px solid rgba(204,0,0,0.5)",
+                },
+                children: l.jsx("img", {
+                  src: "ad--poc/logo.jpeg",
+                  alt: "أبو دغش",
+                  className: "w-full h-full object-cover",
+                }),
+              }),
+            }),
+            l.jsxs("div", {
+              className: "transition-all duration-700",
+              style: {
+                opacity: a >= 2 ? 1 : 0,
+                transform: a >= 2 ? "translateY(0)" : "translateY(20px)",
+              },
+              children: [
+                l.jsx("h1", {
+                  className: "text-6xl font-black mb-2",
+                  style: {
+                    background:
+                      "linear-gradient(135deg, #FFFFFF 30%, #CC0000 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    textShadow: "none",
+                  },
+                  children: e.storeName,
+                }),
+                l.jsx("p", {
+                  className:
+                    "text-brand-gray-light text-lg tracking-widest uppercase font-light",
+                  children: e.storeTagline,
+                }),
+              ],
+            }),
+            l.jsxs("div", {
+              className:
+                "my-8 flex items-center gap-3 w-full transition-all duration-700",
+              style: {
+                opacity: a >= 3 ? 1 : 0,
+                transform: a >= 3 ? "scaleX(1)" : "scaleX(0)",
+              },
+              children: [
+                l.jsx("div", {
+                  className:
+                    "flex-1 h-px bg-gradient-to-r from-transparent to-brand-red",
+                }),
+                l.jsx("span", {
+                  className: "text-brand-red text-xs",
+                  children: "◆",
+                }),
+                l.jsx("div", {
+                  className:
+                    "flex-1 h-px bg-gradient-to-l from-transparent to-brand-red",
+                }),
+              ],
+            }),
+            l.jsx("div", {
+              className:
+                "flex gap-3 mb-10 flex-wrap justify-center transition-all duration-700",
+              style: {
+                opacity: a >= 3 ? 1 : 0,
+                transform: a >= 3 ? "translateY(0)" : "translateY(15px)",
+              },
+              children: ["طازج يومياً", "توصيل سريع", "جودة عالية"].map(
+                (i, c) =>
+                  l.jsx(
+                    "span",
+                    {
+                      className:
+                        "glass px-4 py-2 rounded-full text-sm font-semibold text-white border border-white/10",
+                      children: i,
+                    },
+                    c,
+                  ),
+              ),
+            }),
+            l.jsxs("div", {
+              className: "transition-all duration-700",
+              style: {
+                opacity: a >= 4 ? 1 : 0,
+                transform:
+                  a >= 4
+                    ? "translateY(0) scale(1)"
+                    : "translateY(20px) scale(0.9)",
+              },
+              children: [
+                l.jsxs("button", {
+                  onClick: () => r("/categories"),
+                  className:
+                    "relative group overflow-hidden rounded-full font-black text-xl px-12 py-5 text-white transition-all duration-300 hover:scale-105 active:scale-95",
+                  style: {
+                    background: "linear-gradient(135deg, #CC0000, #990000)",
+                    boxShadow:
+                      "0 0 30px rgba(204,0,0,0.5), 0 8px 32px rgba(0,0,0,0.4)",
+                  },
+                  children: [
+                    l.jsxs("span", {
+                      className: "relative z-10",
+                      children: [e.startShopping, " ←"],
+                    }),
+                    l.jsx("div", {
+                      className:
+                        "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+                      style: {
+                        background: "linear-gradient(135deg, #FF1A1A, #CC0000)",
+                      },
+                    }),
+                  ],
+                }),
+                l.jsx("p", {
+                  className: "text-brand-gray-light text-xs mt-6 opacity-60",
+                  children:
+                    n === "ar"
+                      ? "توصيل مجاني للطلبات فوق ₪200"
+                      : "משלוח חינם להזמנות מעל ₪200",
+                }),
+              ],
+            }),
+          ],
+        }),
+        l.jsx("div", {
+          className: "absolute bottom-10 flex gap-2 z-20",
+          children: [0, 1, 2].map((i) =>
+            l.jsx(
+              "div",
+              {
+                className: "rounded-full transition-all duration-500",
+                style: {
+                  width: i === 1 ? "24px" : "6px",
+                  height: "6px",
+                  background: i === 1 ? "#CC0000" : "rgba(255,255,255,0.3)",
+                },
+              },
+              i,
+            ),
+          ),
+        }),
+        l.jsx("style", {
+          children: `
         @keyframes float {
           0%, 100% { transform: translateY(0) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(3deg); }
@@ -77,237 +11123,2741 @@ Error generating stack: `+s.message+`
           0% { background-position: -200% 0; }
           100% { background-position: 200% 0; }
         }
-      `})]})}/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const om=e=>e.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase(),vd=(...e)=>e.filter((t,n,r)=>!!t&&r.indexOf(t)===n).join(" ");/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/var cm={xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const um=k.forwardRef(({color:e="currentColor",size:t=24,strokeWidth:n=2,absoluteStrokeWidth:r,className:a="",children:s,iconNode:i,...c},o)=>k.createElement("svg",{ref:o,...cm,width:t,height:t,stroke:e,strokeWidth:r?Number(n)*24/Number(t):n,className:vd("lucide",a),...c},[...i.map(([u,x])=>k.createElement(u,x)),...Array.isArray(s)?s:[s]]));/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const R=(e,t)=>{const n=k.forwardRef(({className:r,...a},s)=>k.createElement(um,{ref:s,iconNode:t,className:vd(`lucide-${om(e)}`,r),...a}));return n.displayName=`${e}`,n};/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const wd=R("ArrowRight",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"m12 5 7 7-7 7",key:"xquz4c"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const dm=R("Award",[["path",{d:"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",key:"1yiouv"}],["circle",{cx:"12",cy:"8",r:"6",key:"1vp47v"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const fm=R("Banknote",[["rect",{width:"20",height:"12",x:"2",y:"6",rx:"2",key:"9lu3g6"}],["circle",{cx:"12",cy:"12",r:"2",key:"1c9p78"}],["path",{d:"M6 12h.01M18 12h.01",key:"113zkx"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const pm=R("ChartNoAxesColumn",[["line",{x1:"18",x2:"18",y1:"20",y2:"10",key:"1xfpm4"}],["line",{x1:"12",x2:"12",y1:"20",y2:"4",key:"be30l9"}],["line",{x1:"6",x2:"6",y1:"20",y2:"14",key:"1r4le6"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const hm=R("Check",[["path",{d:"M20 6 9 17l-5-5",key:"1gmf2c"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const mm=R("CircleAlert",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["line",{x1:"12",x2:"12",y1:"8",y2:"12",key:"1pkeuh"}],["line",{x1:"12",x2:"12.01",y1:"16",y2:"16",key:"4dfq90"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const un=R("CircleCheckBig",[["path",{d:"M21.801 10A10 10 0 1 1 17 3.335",key:"yps3ct"}],["path",{d:"m9 11 3 3L22 4",key:"1pflzl"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const kd=R("Clock",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["polyline",{points:"12 6 12 12 16 14",key:"68esgv"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const hi=R("CreditCard",[["rect",{width:"20",height:"14",x:"2",y:"5",rx:"2",key:"ynyp8z"}],["line",{x1:"2",x2:"22",y1:"10",y2:"10",key:"1b3vmo"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const xm=R("DollarSign",[["line",{x1:"12",x2:"12",y1:"2",y2:"22",key:"7eqyqh"}],["path",{d:"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6",key:"1b0p4s"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const gm=R("EyeOff",[["path",{d:"M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49",key:"ct8e1f"}],["path",{d:"M14.084 14.158a3 3 0 0 1-4.242-4.242",key:"151rxh"}],["path",{d:"M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143",key:"13bj9a"}],["path",{d:"m2 2 20 20",key:"1ooewy"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const bm=R("Eye",[["path",{d:"M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",key:"1nclc0"}],["circle",{cx:"12",cy:"12",r:"3",key:"1v7zrd"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const ym=R("Globe",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20",key:"13o1zl"}],["path",{d:"M2 12h20",key:"9i4pu4"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const vm=R("Heart",[["path",{d:"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",key:"c3ymky"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const wm=R("House",[["path",{d:"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8",key:"5wwlr5"}],["path",{d:"M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",key:"1d0kgt"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const km=R("LayoutDashboard",[["rect",{width:"7",height:"9",x:"3",y:"3",rx:"1",key:"10lvy0"}],["rect",{width:"7",height:"5",x:"14",y:"3",rx:"1",key:"16une8"}],["rect",{width:"7",height:"9",x:"14",y:"12",rx:"1",key:"1hutg5"}],["rect",{width:"7",height:"5",x:"3",y:"16",rx:"1",key:"ldoo1y"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Ao=R("Lock",[["rect",{width:"18",height:"11",x:"3",y:"11",rx:"2",ry:"2",key:"1w4ew1"}],["path",{d:"M7 11V7a5 5 0 0 1 10 0v4",key:"fwvmzm"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const jd=R("MapPin",[["path",{d:"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0",key:"1r0f0z"}],["circle",{cx:"12",cy:"10",r:"3",key:"ilqhr7"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const jm=R("Menu",[["line",{x1:"4",x2:"20",y1:"12",y2:"12",key:"1e0a9i"}],["line",{x1:"4",x2:"20",y1:"6",y2:"6",key:"1owob3"}],["line",{x1:"4",x2:"20",y1:"18",y2:"18",key:"yk5zj1"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Nd=R("Minus",[["path",{d:"M5 12h14",key:"1ays0h"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const _d=R("Navigation",[["polygon",{points:"3 11 22 2 13 21 11 13 3 11",key:"1ltx0t"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const mi=R("Package",[["path",{d:"m7.5 4.27 9 5.15",key:"1c824w"}],["path",{d:"M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z",key:"hh9hay"}],["path",{d:"m3.3 7 8.7 5 8.7-5",key:"g66t2b"}],["path",{d:"M12 22V12",key:"d0xqtd"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Do=R("Pen",[["path",{d:"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",key:"1a8usu"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const xi=R("Phone",[["path",{d:"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z",key:"foiqr5"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const fr=R("Plus",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"M12 5v14",key:"s699le"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Nm=R("Receipt",[["path",{d:"M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z",key:"q3az6g"}],["path",{d:"M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8",key:"1h4pet"}],["path",{d:"M12 17.5v-11",key:"1jc1ny"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const _m=R("Shield",[["path",{d:"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",key:"oel41y"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const xs=R("ShoppingBag",[["path",{d:"M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z",key:"hou9p0"}],["path",{d:"M3 6h18",key:"d0wm0j"}],["path",{d:"M16 10a4 4 0 0 1-8 0",key:"1ltviw"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Cd=R("ShoppingCart",[["circle",{cx:"8",cy:"21",r:"1",key:"jimo8o"}],["circle",{cx:"19",cy:"21",r:"1",key:"13723u"}],["path",{d:"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12",key:"9zh506"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const jn=R("Star",[["polygon",{points:"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2",key:"8f66p6"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Cm=R("Tag",[["path",{d:"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z",key:"vktsd0"}],["circle",{cx:"7.5",cy:"7.5",r:".5",fill:"currentColor",key:"kqv944"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const gs=R("Trash2",[["path",{d:"M3 6h18",key:"d0wm0j"}],["path",{d:"M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6",key:"4alrt4"}],["path",{d:"M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2",key:"v07s0e"}],["line",{x1:"10",x2:"10",y1:"11",y2:"17",key:"1uufr5"}],["line",{x1:"14",x2:"14",y1:"11",y2:"17",key:"xtxkd"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const dt=R("Truck",[["path",{d:"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2",key:"wrbu53"}],["path",{d:"M15 18H9",key:"1lyqi6"}],["path",{d:"M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14",key:"lysw3i"}],["circle",{cx:"17",cy:"18",r:"2",key:"332jqn"}],["circle",{cx:"7",cy:"18",r:"2",key:"19iecd"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Uo=R("Upload",[["path",{d:"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",key:"ih7n3h"}],["polyline",{points:"17 8 12 3 7 8",key:"t8dd8p"}],["line",{x1:"12",x2:"12",y1:"3",y2:"15",key:"widbto"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const gi=R("User",[["path",{d:"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2",key:"975kel"}],["circle",{cx:"12",cy:"7",r:"4",key:"17ys0d"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const Sd=R("Users",[["path",{d:"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",key:"1yyitq"}],["circle",{cx:"9",cy:"7",r:"4",key:"nufk8"}],["path",{d:"M22 21v-2a4 4 0 0 0-3-3.87",key:"kshegd"}],["path",{d:"M16 3.13a4 4 0 0 1 0 7.75",key:"1da9ce"}]]);/**
-* @license lucide-react v0.441.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/const vr=R("X",[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]]);function Nn(){const{totalItems:e,setIsOpen:t}=kn(),{t:n,toggleLang:r,lang:a}=Fe(),s=Ue(),i=Ha(),[c,o]=k.useState(!1),u=i.pathname.startsWith("/admin"),x=i.pathname.startsWith("/delivery");return l.jsxs("nav",{className:"fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 h-16",style:{background:"rgba(10,10,10,0.95)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(204,0,0,0.2)"},children:[l.jsxs("button",{onClick:()=>s("/"),className:"flex items-center gap-3 group",children:[l.jsx("div",{className:"w-9 h-9 rounded-xl overflow-hidden transition-transform group-hover:scale-110 border border-brand-red/40",children:l.jsx("img",{src:"/logo.jpeg",alt:"أبو دغش",className:"w-full h-full object-cover"})}),l.jsx("span",{className:"font-black text-lg text-white",children:n.storeName})]}),!u&&!x&&l.jsxs("div",{className:"hidden md:flex items-center gap-3 text-sm text-brand-gray-light",children:[l.jsx("button",{onClick:()=>s("/categories"),className:"hover:text-white transition-colors",children:n.categories}),l.jsx("span",{className:"text-white/20",children:"|"}),l.jsx("button",{onClick:()=>s("/about"),className:"hover:text-white transition-colors",children:n.aboutUs}),l.jsx("span",{className:"text-white/20",children:"|"}),l.jsx("button",{onClick:()=>s("/delivery"),className:"hover:text-orange-400 transition-colors",children:a==="ar"?"بوابة المندوب":"פורטל שליח"})]}),u&&l.jsx("span",{className:"hidden md:block text-brand-red font-bold text-sm",children:n.adminPanel}),x&&l.jsx("span",{className:"hidden md:block text-orange-400 font-bold text-sm",children:a==="ar"?"بوابة المندوب":"פורטל שליח"}),l.jsxs("div",{className:"flex items-center gap-3",children:[l.jsx("button",{onClick:r,className:"hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold border border-brand-gray-mid hover:border-brand-red text-white transition-colors",children:a==="ar"?"עב":"ع"}),!u&&l.jsxs("button",{onClick:()=>t(!0),className:"relative flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all hover:scale-105 active:scale-95",style:{background:e>0?"linear-gradient(135deg, #CC0000, #990000)":"rgba(255,255,255,0.08)",border:e>0?"none":"1px solid rgba(255,255,255,0.1)"},children:[l.jsx(Cd,{size:16}),l.jsx("span",{className:"hidden sm:inline",children:n.cart}),e>0&&l.jsx("span",{className:"absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-xs font-black",style:{background:"#FFFFFF",color:"#CC0000"},children:e})]}),l.jsx("button",{className:"md:hidden text-white",onClick:()=>o(f=>!f),children:c?l.jsx(vr,{size:20}):l.jsx(jm,{size:20})})]}),c&&l.jsxs("div",{className:"absolute top-16 left-0 right-0 py-4 px-6 flex flex-col gap-3 md:hidden",style:{background:"rgba(10,10,10,0.98)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(204,0,0,0.2)"},children:[l.jsx("button",{onClick:r,className:"text-white text-sm font-bold text-right py-2 border-b border-white/10",children:a==="ar"?"עברית":"العربية"}),!u&&l.jsx("button",{onClick:()=>{s("/admin"),o(!1)},className:"text-brand-gray-light text-sm text-right py-2 border-b border-white/10",children:n.adminPanel}),l.jsx("button",{onClick:()=>{s("/about"),o(!1)},className:"text-brand-gray-light text-sm text-right py-2 border-b border-white/10",children:n.aboutUs}),l.jsx("button",{onClick:()=>{s("/delivery"),o(!1)},className:"text-orange-400 text-sm text-right py-2",children:a==="ar"?"بوابة المندوب":"פורטל שליח"})]})]})}function wr(){const{items:e,removeItem:t,updateQty:n,subtotal:r,deliveryFee:a,total:s,isOpen:i,setIsOpen:c}=kn(),{t:o,name:u}=Fe(),x=Ue();return i?l.jsxs(l.Fragment,{children:[l.jsx("div",{className:"fixed inset-0 z-50 bg-black/70 backdrop-blur-sm",onClick:()=>c(!1)}),l.jsxs("div",{className:"fixed top-0 left-0 h-full w-full max-w-sm z-50 flex flex-col",style:{background:"#111111",borderRight:"1px solid rgba(204,0,0,0.3)",boxShadow:"4px 0 40px rgba(0,0,0,0.8)",animation:"slideInFromLeft 0.35s ease-out"},children:[l.jsxs("div",{className:"flex items-center justify-between p-5 border-b",style:{borderColor:"rgba(204,0,0,0.2)"},children:[l.jsxs("div",{className:"flex items-center gap-3",children:[l.jsx("div",{className:"w-9 h-9 rounded-xl flex items-center justify-center",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:l.jsx(xs,{size:18,className:"text-white"})}),l.jsxs("div",{children:[l.jsx("h2",{className:"font-black text-white text-lg",children:o.cart}),l.jsxs("p",{className:"text-brand-gray-light text-xs",children:[e.length," ",o.items]})]})]}),l.jsx("button",{onClick:()=>c(!1),className:"w-8 h-8 rounded-full flex items-center justify-center text-brand-gray-light hover:text-white hover:bg-white/10 transition-colors",children:l.jsx(vr,{size:18})})]}),l.jsx("div",{className:"flex-1 overflow-y-auto p-4 space-y-3",children:e.length===0?l.jsxs("div",{className:"flex flex-col items-center justify-center h-full gap-4 text-center",children:[l.jsx(Cd,{size:56,className:"opacity-20 text-white"}),l.jsx("p",{className:"text-brand-gray-light",children:o.emptyCart})]}):e.map(f=>l.jsxs("div",{className:"flex gap-3 p-3 rounded-xl",style:{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsx("img",{src:f.image,alt:u(f),className:"w-16 h-16 rounded-lg object-cover flex-shrink-0"}),l.jsxs("div",{className:"flex-1 min-w-0",children:[l.jsx("p",{className:"text-white font-semibold text-sm truncate",children:u(f)}),l.jsxs("p",{className:"text-brand-red font-black text-base",children:[o.nis,f.price]}),l.jsxs("div",{className:"flex items-center gap-2 mt-2",children:[l.jsx("button",{onClick:()=>n(f.id,f.qty-1),className:"w-7 h-7 rounded-full flex items-center justify-center text-white transition-colors hover:bg-brand-red",style:{background:"rgba(255,255,255,0.1)"},children:l.jsx(Nd,{size:12})}),l.jsx("span",{className:"text-white font-bold text-sm w-6 text-center",children:f.qty}),l.jsx("button",{onClick:()=>n(f.id,f.qty+1),className:"w-7 h-7 rounded-full flex items-center justify-center text-white transition-colors hover:bg-brand-red",style:{background:"rgba(255,255,255,0.1)"},children:l.jsx(fr,{size:12})}),l.jsx("button",{onClick:()=>t(f.id),className:"mr-auto text-brand-gray-light hover:text-red-400 transition-colors",children:l.jsx(gs,{size:14})})]})]})]},f.id))}),e.length>0&&l.jsxs("div",{className:"p-5 border-t space-y-3",style:{borderColor:"rgba(204,0,0,0.2)"},children:[l.jsxs("div",{className:"space-y-2 text-sm",children:[l.jsxs("div",{className:"flex justify-between text-brand-gray-light",children:[l.jsx("span",{children:o.subtotal}),l.jsxs("span",{className:"text-white",children:[o.nis,r.toFixed(0)]})]}),l.jsxs("div",{className:"flex justify-between text-brand-gray-light",children:[l.jsx("span",{children:o.delivery}),l.jsx("span",{className:a===0?"text-green-400 font-bold":"text-white",children:a===0?o.free:`${o.nis}${a}`})]}),l.jsxs("div",{className:"flex justify-between text-white font-black text-base border-t border-white/10 pt-2 mt-2",children:[l.jsx("span",{children:o.total}),l.jsxs("span",{className:"text-brand-red",children:[o.nis,s.toFixed(0)]})]})]}),l.jsxs("button",{onClick:()=>{c(!1),x("/auth")},className:"w-full py-4 rounded-xl font-black text-white text-lg transition-all hover:scale-[1.02] active:scale-95",style:{background:"linear-gradient(135deg, #CC0000, #990000)",boxShadow:"0 4px 20px rgba(204,0,0,0.4)"},children:[o.checkout," ←"]})]})]}),l.jsx("style",{children:`
+      `,
+        }),
+      ],
+    })
+  );
+}
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const om = (e) => e.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(),
+  vd = (...e) => e.filter((t, n, r) => !!t && r.indexOf(t) === n).join(" ");
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var cm = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+};
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const um = k.forwardRef(
+  (
+    {
+      color: e = "currentColor",
+      size: t = 24,
+      strokeWidth: n = 2,
+      absoluteStrokeWidth: r,
+      className: a = "",
+      children: s,
+      iconNode: i,
+      ...c
+    },
+    o,
+  ) =>
+    k.createElement(
+      "svg",
+      {
+        ref: o,
+        ...cm,
+        width: t,
+        height: t,
+        stroke: e,
+        strokeWidth: r ? (Number(n) * 24) / Number(t) : n,
+        className: vd("lucide", a),
+        ...c,
+      },
+      [
+        ...i.map(([u, x]) => k.createElement(u, x)),
+        ...(Array.isArray(s) ? s : [s]),
+      ],
+    ),
+);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const R = (e, t) => {
+  const n = k.forwardRef(({ className: r, ...a }, s) =>
+    k.createElement(um, {
+      ref: s,
+      iconNode: t,
+      className: vd(`lucide-${om(e)}`, r),
+      ...a,
+    }),
+  );
+  return ((n.displayName = `${e}`), n);
+};
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const wd = R("ArrowRight", [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const dm = R("Award", [
+  [
+    "path",
+    {
+      d: "m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",
+      key: "1yiouv",
+    },
+  ],
+  ["circle", { cx: "12", cy: "8", r: "6", key: "1vp47v" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const fm = R("Banknote", [
+  [
+    "rect",
+    { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" },
+  ],
+  ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
+  ["path", { d: "M6 12h.01M18 12h.01", key: "113zkx" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const pm = R("ChartNoAxesColumn", [
+  ["line", { x1: "18", x2: "18", y1: "20", y2: "10", key: "1xfpm4" }],
+  ["line", { x1: "12", x2: "12", y1: "20", y2: "4", key: "be30l9" }],
+  ["line", { x1: "6", x2: "6", y1: "20", y2: "14", key: "1r4le6" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const hm = R("Check", [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const mm = R("CircleAlert", [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
+  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const un = R("CircleCheckBig", [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const kd = R("Clock", [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const hi = R("CreditCard", [
+  [
+    "rect",
+    { width: "20", height: "14", x: "2", y: "5", rx: "2", key: "ynyp8z" },
+  ],
+  ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const xm = R("DollarSign", [
+  ["line", { x1: "12", x2: "12", y1: "2", y2: "22", key: "7eqyqh" }],
+  [
+    "path",
+    { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6", key: "1b0p4s" },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const gm = R("EyeOff", [
+  [
+    "path",
+    {
+      d: "M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49",
+      key: "ct8e1f",
+    },
+  ],
+  ["path", { d: "M14.084 14.158a3 3 0 0 1-4.242-4.242", key: "151rxh" }],
+  [
+    "path",
+    {
+      d: "M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143",
+      key: "13bj9a",
+    },
+  ],
+  ["path", { d: "m2 2 20 20", key: "1ooewy" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const bm = R("Eye", [
+  [
+    "path",
+    {
+      d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+      key: "1nclc0",
+    },
+  ],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const ym = R("Globe", [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  [
+    "path",
+    { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" },
+  ],
+  ["path", { d: "M2 12h20", key: "9i4pu4" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const vm = R("Heart", [
+  [
+    "path",
+    {
+      d: "M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",
+      key: "c3ymky",
+    },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const wm = R("House", [
+  ["path", { d: "M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8", key: "5wwlr5" }],
+  [
+    "path",
+    {
+      d: "M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",
+      key: "1d0kgt",
+    },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const km = R("LayoutDashboard", [
+  ["rect", { width: "7", height: "9", x: "3", y: "3", rx: "1", key: "10lvy0" }],
+  [
+    "rect",
+    { width: "7", height: "5", x: "14", y: "3", rx: "1", key: "16une8" },
+  ],
+  [
+    "rect",
+    { width: "7", height: "9", x: "14", y: "12", rx: "1", key: "1hutg5" },
+  ],
+  [
+    "rect",
+    { width: "7", height: "5", x: "3", y: "16", rx: "1", key: "ldoo1y" },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Ao = R("Lock", [
+  [
+    "rect",
+    {
+      width: "18",
+      height: "11",
+      x: "3",
+      y: "11",
+      rx: "2",
+      ry: "2",
+      key: "1w4ew1",
+    },
+  ],
+  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const jd = R("MapPin", [
+  [
+    "path",
+    {
+      d: "M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0",
+      key: "1r0f0z",
+    },
+  ],
+  ["circle", { cx: "12", cy: "10", r: "3", key: "ilqhr7" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const jm = R("Menu", [
+  ["line", { x1: "4", x2: "20", y1: "12", y2: "12", key: "1e0a9i" }],
+  ["line", { x1: "4", x2: "20", y1: "6", y2: "6", key: "1owob3" }],
+  ["line", { x1: "4", x2: "20", y1: "18", y2: "18", key: "yk5zj1" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Nd = R("Minus", [["path", { d: "M5 12h14", key: "1ays0h" }]]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const _d = R("Navigation", [
+  ["polygon", { points: "3 11 22 2 13 21 11 13 3 11", key: "1ltx0t" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const mi = R("Package", [
+  ["path", { d: "m7.5 4.27 9 5.15", key: "1c824w" }],
+  [
+    "path",
+    {
+      d: "M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z",
+      key: "hh9hay",
+    },
+  ],
+  ["path", { d: "m3.3 7 8.7 5 8.7-5", key: "g66t2b" }],
+  ["path", { d: "M12 22V12", key: "d0xqtd" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Do = R("Pen", [
+  [
+    "path",
+    {
+      d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+      key: "1a8usu",
+    },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const xi = R("Phone", [
+  [
+    "path",
+    {
+      d: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z",
+      key: "foiqr5",
+    },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const fr = R("Plus", [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Nm = R("Receipt", [
+  [
+    "path",
+    {
+      d: "M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z",
+      key: "q3az6g",
+    },
+  ],
+  ["path", { d: "M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8", key: "1h4pet" }],
+  ["path", { d: "M12 17.5v-11", key: "1jc1ny" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const _m = R("Shield", [
+  [
+    "path",
+    {
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y",
+    },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const xs = R("ShoppingBag", [
+  [
+    "path",
+    { d: "M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z", key: "hou9p0" },
+  ],
+  ["path", { d: "M3 6h18", key: "d0wm0j" }],
+  ["path", { d: "M16 10a4 4 0 0 1-8 0", key: "1ltviw" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Cd = R("ShoppingCart", [
+  ["circle", { cx: "8", cy: "21", r: "1", key: "jimo8o" }],
+  ["circle", { cx: "19", cy: "21", r: "1", key: "13723u" }],
+  [
+    "path",
+    {
+      d: "M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12",
+      key: "9zh506",
+    },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const jn = R("Star", [
+  [
+    "polygon",
+    {
+      points:
+        "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2",
+      key: "8f66p6",
+    },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Cm = R("Tag", [
+  [
+    "path",
+    {
+      d: "M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z",
+      key: "vktsd0",
+    },
+  ],
+  [
+    "circle",
+    { cx: "7.5", cy: "7.5", r: ".5", fill: "currentColor", key: "kqv944" },
+  ],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const gs = R("Trash2", [
+  ["path", { d: "M3 6h18", key: "d0wm0j" }],
+  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
+  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
+  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
+  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const dt = R("Truck", [
+  [
+    "path",
+    {
+      d: "M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2",
+      key: "wrbu53",
+    },
+  ],
+  ["path", { d: "M15 18H9", key: "1lyqi6" }],
+  [
+    "path",
+    {
+      d: "M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14",
+      key: "lysw3i",
+    },
+  ],
+  ["circle", { cx: "17", cy: "18", r: "2", key: "332jqn" }],
+  ["circle", { cx: "7", cy: "18", r: "2", key: "19iecd" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Uo = R("Upload", [
+  ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
+  ["polyline", { points: "17 8 12 3 7 8", key: "t8dd8p" }],
+  ["line", { x1: "12", x2: "12", y1: "3", y2: "15", key: "widbto" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const gi = R("User", [
+  ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
+  ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const Sd = R("Users", [
+  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+  ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
+  ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
+  ["path", { d: "M16 3.13a4 4 0 0 1 0 7.75", key: "1da9ce" }],
+]);
+/**
+ * @license lucide-react v0.441.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ const vr = R("X", [
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }],
+]);
+function Nn() {
+  const { totalItems: e, setIsOpen: t } = kn(),
+    { t: n, toggleLang: r, lang: a } = Fe(),
+    s = Ue(),
+    i = Ha(),
+    [c, o] = k.useState(!1),
+    u = i.pathname.startsWith("/admin"),
+    x = i.pathname.startsWith("/delivery");
+  return l.jsxs("nav", {
+    className:
+      "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 h-16",
+    style: {
+      background: "rgba(10,10,10,0.95)",
+      backdropFilter: "blur(20px)",
+      borderBottom: "1px solid rgba(204,0,0,0.2)",
+    },
+    children: [
+      l.jsxs("button", {
+        onClick: () => s("/"),
+        className: "flex items-center gap-3 group",
+        children: [
+          l.jsx("div", {
+            className:
+              "w-9 h-9 rounded-xl overflow-hidden transition-transform group-hover:scale-110 border border-brand-red/40",
+            children: l.jsx("img", {
+              src: "ad--poc/logo.jpeg",
+              alt: "أبو دغش",
+              className: "w-full h-full object-cover",
+            }),
+          }),
+          l.jsx("span", {
+            className: "font-black text-lg text-white",
+            children: n.storeName,
+          }),
+        ],
+      }),
+      !u &&
+        !x &&
+        l.jsxs("div", {
+          className:
+            "hidden md:flex items-center gap-3 text-sm text-brand-gray-light",
+          children: [
+            l.jsx("button", {
+              onClick: () => s("/categories"),
+              className: "hover:text-white transition-colors",
+              children: n.categories,
+            }),
+            l.jsx("span", { className: "text-white/20", children: "|" }),
+            l.jsx("button", {
+              onClick: () => s("/about"),
+              className: "hover:text-white transition-colors",
+              children: n.aboutUs,
+            }),
+            l.jsx("span", { className: "text-white/20", children: "|" }),
+            l.jsx("button", {
+              onClick: () => s("/delivery"),
+              className: "hover:text-orange-400 transition-colors",
+              children: a === "ar" ? "بوابة المندوب" : "פורטל שליח",
+            }),
+          ],
+        }),
+      u &&
+        l.jsx("span", {
+          className: "hidden md:block text-brand-red font-bold text-sm",
+          children: n.adminPanel,
+        }),
+      x &&
+        l.jsx("span", {
+          className: "hidden md:block text-orange-400 font-bold text-sm",
+          children: a === "ar" ? "بوابة المندوب" : "פורטל שליח",
+        }),
+      l.jsxs("div", {
+        className: "flex items-center gap-3",
+        children: [
+          l.jsx("button", {
+            onClick: r,
+            className:
+              "hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold border border-brand-gray-mid hover:border-brand-red text-white transition-colors",
+            children: a === "ar" ? "עב" : "ع",
+          }),
+          !u &&
+            l.jsxs("button", {
+              onClick: () => t(!0),
+              className:
+                "relative flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all hover:scale-105 active:scale-95",
+              style: {
+                background:
+                  e > 0
+                    ? "linear-gradient(135deg, #CC0000, #990000)"
+                    : "rgba(255,255,255,0.08)",
+                border: e > 0 ? "none" : "1px solid rgba(255,255,255,0.1)",
+              },
+              children: [
+                l.jsx(Cd, { size: 16 }),
+                l.jsx("span", {
+                  className: "hidden sm:inline",
+                  children: n.cart,
+                }),
+                e > 0 &&
+                  l.jsx("span", {
+                    className:
+                      "absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-xs font-black",
+                    style: { background: "#FFFFFF", color: "#CC0000" },
+                    children: e,
+                  }),
+              ],
+            }),
+          l.jsx("button", {
+            className: "md:hidden text-white",
+            onClick: () => o((f) => !f),
+            children: c ? l.jsx(vr, { size: 20 }) : l.jsx(jm, { size: 20 }),
+          }),
+        ],
+      }),
+      c &&
+        l.jsxs("div", {
+          className:
+            "absolute top-16 left-0 right-0 py-4 px-6 flex flex-col gap-3 md:hidden",
+          style: {
+            background: "rgba(10,10,10,0.98)",
+            backdropFilter: "blur(20px)",
+            borderBottom: "1px solid rgba(204,0,0,0.2)",
+          },
+          children: [
+            l.jsx("button", {
+              onClick: r,
+              className:
+                "text-white text-sm font-bold text-right py-2 border-b border-white/10",
+              children: a === "ar" ? "עברית" : "العربية",
+            }),
+            !u &&
+              l.jsx("button", {
+                onClick: () => {
+                  (s("/admin"), o(!1));
+                },
+                className:
+                  "text-brand-gray-light text-sm text-right py-2 border-b border-white/10",
+                children: n.adminPanel,
+              }),
+            l.jsx("button", {
+              onClick: () => {
+                (s("/about"), o(!1));
+              },
+              className:
+                "text-brand-gray-light text-sm text-right py-2 border-b border-white/10",
+              children: n.aboutUs,
+            }),
+            l.jsx("button", {
+              onClick: () => {
+                (s("/delivery"), o(!1));
+              },
+              className: "text-orange-400 text-sm text-right py-2",
+              children: a === "ar" ? "بوابة المندوب" : "פורטל שליח",
+            }),
+          ],
+        }),
+    ],
+  });
+}
+function wr() {
+  const {
+      items: e,
+      removeItem: t,
+      updateQty: n,
+      subtotal: r,
+      deliveryFee: a,
+      total: s,
+      isOpen: i,
+      setIsOpen: c,
+    } = kn(),
+    { t: o, name: u } = Fe(),
+    x = Ue();
+  return i
+    ? l.jsxs(l.Fragment, {
+        children: [
+          l.jsx("div", {
+            className: "fixed inset-0 z-50 bg-black/70 backdrop-blur-sm",
+            onClick: () => c(!1),
+          }),
+          l.jsxs("div", {
+            className:
+              "fixed top-0 left-0 h-full w-full max-w-sm z-50 flex flex-col",
+            style: {
+              background: "#111111",
+              borderRight: "1px solid rgba(204,0,0,0.3)",
+              boxShadow: "4px 0 40px rgba(0,0,0,0.8)",
+              animation: "slideInFromLeft 0.35s ease-out",
+            },
+            children: [
+              l.jsxs("div", {
+                className: "flex items-center justify-between p-5 border-b",
+                style: { borderColor: "rgba(204,0,0,0.2)" },
+                children: [
+                  l.jsxs("div", {
+                    className: "flex items-center gap-3",
+                    children: [
+                      l.jsx("div", {
+                        className:
+                          "w-9 h-9 rounded-xl flex items-center justify-center",
+                        style: {
+                          background:
+                            "linear-gradient(135deg, #CC0000, #990000)",
+                        },
+                        children: l.jsx(xs, {
+                          size: 18,
+                          className: "text-white",
+                        }),
+                      }),
+                      l.jsxs("div", {
+                        children: [
+                          l.jsx("h2", {
+                            className: "font-black text-white text-lg",
+                            children: o.cart,
+                          }),
+                          l.jsxs("p", {
+                            className: "text-brand-gray-light text-xs",
+                            children: [e.length, " ", o.items],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  l.jsx("button", {
+                    onClick: () => c(!1),
+                    className:
+                      "w-8 h-8 rounded-full flex items-center justify-center text-brand-gray-light hover:text-white hover:bg-white/10 transition-colors",
+                    children: l.jsx(vr, { size: 18 }),
+                  }),
+                ],
+              }),
+              l.jsx("div", {
+                className: "flex-1 overflow-y-auto p-4 space-y-3",
+                children:
+                  e.length === 0
+                    ? l.jsxs("div", {
+                        className:
+                          "flex flex-col items-center justify-center h-full gap-4 text-center",
+                        children: [
+                          l.jsx(Cd, {
+                            size: 56,
+                            className: "opacity-20 text-white",
+                          }),
+                          l.jsx("p", {
+                            className: "text-brand-gray-light",
+                            children: o.emptyCart,
+                          }),
+                        ],
+                      })
+                    : e.map((f) =>
+                        l.jsxs(
+                          "div",
+                          {
+                            className: "flex gap-3 p-3 rounded-xl",
+                            style: {
+                              background: "rgba(255,255,255,0.04)",
+                              border: "1px solid rgba(255,255,255,0.06)",
+                            },
+                            children: [
+                              l.jsx("img", {
+                                src: f.image,
+                                alt: u(f),
+                                className:
+                                  "w-16 h-16 rounded-lg object-cover flex-shrink-0",
+                              }),
+                              l.jsxs("div", {
+                                className: "flex-1 min-w-0",
+                                children: [
+                                  l.jsx("p", {
+                                    className:
+                                      "text-white font-semibold text-sm truncate",
+                                    children: u(f),
+                                  }),
+                                  l.jsxs("p", {
+                                    className:
+                                      "text-brand-red font-black text-base",
+                                    children: [o.nis, f.price],
+                                  }),
+                                  l.jsxs("div", {
+                                    className: "flex items-center gap-2 mt-2",
+                                    children: [
+                                      l.jsx("button", {
+                                        onClick: () => n(f.id, f.qty - 1),
+                                        className:
+                                          "w-7 h-7 rounded-full flex items-center justify-center text-white transition-colors hover:bg-brand-red",
+                                        style: {
+                                          background: "rgba(255,255,255,0.1)",
+                                        },
+                                        children: l.jsx(Nd, { size: 12 }),
+                                      }),
+                                      l.jsx("span", {
+                                        className:
+                                          "text-white font-bold text-sm w-6 text-center",
+                                        children: f.qty,
+                                      }),
+                                      l.jsx("button", {
+                                        onClick: () => n(f.id, f.qty + 1),
+                                        className:
+                                          "w-7 h-7 rounded-full flex items-center justify-center text-white transition-colors hover:bg-brand-red",
+                                        style: {
+                                          background: "rgba(255,255,255,0.1)",
+                                        },
+                                        children: l.jsx(fr, { size: 12 }),
+                                      }),
+                                      l.jsx("button", {
+                                        onClick: () => t(f.id),
+                                        className:
+                                          "mr-auto text-brand-gray-light hover:text-red-400 transition-colors",
+                                        children: l.jsx(gs, { size: 14 }),
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                            ],
+                          },
+                          f.id,
+                        ),
+                      ),
+              }),
+              e.length > 0 &&
+                l.jsxs("div", {
+                  className: "p-5 border-t space-y-3",
+                  style: { borderColor: "rgba(204,0,0,0.2)" },
+                  children: [
+                    l.jsxs("div", {
+                      className: "space-y-2 text-sm",
+                      children: [
+                        l.jsxs("div", {
+                          className:
+                            "flex justify-between text-brand-gray-light",
+                          children: [
+                            l.jsx("span", { children: o.subtotal }),
+                            l.jsxs("span", {
+                              className: "text-white",
+                              children: [o.nis, r.toFixed(0)],
+                            }),
+                          ],
+                        }),
+                        l.jsxs("div", {
+                          className:
+                            "flex justify-between text-brand-gray-light",
+                          children: [
+                            l.jsx("span", { children: o.delivery }),
+                            l.jsx("span", {
+                              className:
+                                a === 0
+                                  ? "text-green-400 font-bold"
+                                  : "text-white",
+                              children: a === 0 ? o.free : `${o.nis}${a}`,
+                            }),
+                          ],
+                        }),
+                        l.jsxs("div", {
+                          className:
+                            "flex justify-between text-white font-black text-base border-t border-white/10 pt-2 mt-2",
+                          children: [
+                            l.jsx("span", { children: o.total }),
+                            l.jsxs("span", {
+                              className: "text-brand-red",
+                              children: [o.nis, s.toFixed(0)],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    l.jsxs("button", {
+                      onClick: () => {
+                        (c(!1), x("/auth"));
+                      },
+                      className:
+                        "w-full py-4 rounded-xl font-black text-white text-lg transition-all hover:scale-[1.02] active:scale-95",
+                      style: {
+                        background: "linear-gradient(135deg, #CC0000, #990000)",
+                        boxShadow: "0 4px 20px rgba(204,0,0,0.4)",
+                      },
+                      children: [o.checkout, " ←"],
+                    }),
+                  ],
+                }),
+            ],
+          }),
+          l.jsx("style", {
+            children: `
         @keyframes slideInFromLeft {
           from { transform: translateX(-100%); opacity: 0; }
           to { transform: translateX(0); opacity: 1; }
         }
-      `})]}):null}function Sm(){const e=Ue(),{t,name:n,badge:r,tag:a}=Fe(),{addItem:s,setIsOpen:i}=kn(),c=dr.filter(o=>o.isFeatured).slice(0,4);return l.jsxs("div",{className:"min-h-screen bg-brand-black",children:[l.jsx(Nn,{}),l.jsx(wr,{}),l.jsxs("div",{className:"pt-16 pb-24",children:[l.jsxs("div",{className:"relative overflow-hidden mx-4 mt-4 rounded-3xl mb-8",style:{minHeight:180},children:[l.jsx("div",{className:"absolute inset-0",style:{background:"linear-gradient(135deg, #0A0A0A 0%, #3D0000 50%, #CC0000 100%)"}}),l.jsx("div",{className:"absolute inset-0",style:{backgroundImage:"url('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800&fit=crop')",backgroundSize:"cover",backgroundPosition:"center",opacity:.15}}),l.jsx("div",{className:"relative z-10 p-8 flex items-center justify-between",children:l.jsxs("div",{children:[l.jsx("p",{className:"text-brand-gray-light text-sm mb-1",children:"مرحباً بك في"}),l.jsx("h1",{className:"text-3xl font-black text-white mb-2",children:t.storeName}),l.jsx("p",{className:"text-brand-red font-semibold",children:t.storeTagline}),l.jsxs("div",{className:"flex gap-3 mt-4",children:[l.jsx("span",{className:"glass px-3 py-1 rounded-full text-xs text-white border border-white/10",children:"طازج يومياً"}),l.jsx("span",{className:"glass px-3 py-1 rounded-full text-xs text-white border border-white/10",children:"توصيل سريع"})]})]})})]}),l.jsxs("div",{className:"px-4 space-y-10",children:[l.jsxs("section",{children:[l.jsx("div",{className:"flex items-center justify-between mb-4",children:l.jsxs("div",{children:[l.jsx("h2",{className:"text-xl font-black text-white",children:t.categories}),l.jsxs("p",{className:"text-brand-gray-light text-xs",children:[_a.length," فئة متاحة"]})]})}),l.jsx("div",{className:"grid grid-cols-2 md:grid-cols-3 gap-3",children:_a.map((o,u)=>l.jsxs("button",{onClick:()=>e(`/items/${o.id}`),className:"relative group overflow-hidden rounded-2xl text-right transition-all duration-300 hover:scale-[1.03] hover:shadow-xl",style:{height:140,animation:`fadeSlideUp 0.5s ease-out ${u*.08}s both`},children:[l.jsx("img",{src:o.image,alt:n(o),className:"absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"}),l.jsx("div",{className:"absolute inset-0",style:{background:"linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)"}}),l.jsx("div",{className:"absolute inset-0 border-2 border-transparent group-hover:border-brand-red rounded-2xl transition-colors duration-300"}),a(o)&&l.jsx("div",{className:"absolute top-2 right-2 px-2 py-0.5 rounded-full text-xs font-black",style:{background:"#CC0000"},children:a(o)}),l.jsxs("div",{className:"absolute bottom-0 left-0 right-0 p-3",children:[l.jsx("p",{className:"text-white font-black text-base leading-tight",children:n(o)}),l.jsxs("p",{className:"text-white/60 text-xs",children:[o.count," منتج"]})]})]},o.id))})]}),l.jsxs("section",{children:[l.jsx("div",{className:"flex items-center justify-between mb-4",children:l.jsxs("div",{children:[l.jsx("h2",{className:"text-xl font-black text-white",children:"الأكثر مبيعاً"}),l.jsx("p",{className:"text-brand-gray-light text-xs",children:"منتجاتنا المفضلة"})]})}),l.jsx("div",{className:"grid grid-cols-2 md:grid-cols-4 gap-3",children:c.map((o,u)=>l.jsxs("div",{className:"relative rounded-2xl overflow-hidden group transition-all duration-300 hover:scale-[1.03]",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)",animation:`fadeSlideUp 0.5s ease-out ${u*.1}s both`},children:[l.jsxs("div",{className:"relative h-32 overflow-hidden",children:[l.jsx("img",{src:o.image,alt:n(o),className:"w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"}),r(o)&&l.jsx("span",{className:"absolute top-2 right-2 px-2 py-0.5 rounded-full text-xs font-black",style:{background:"#CC0000"},children:r(o)})]}),l.jsxs("div",{className:"p-3",children:[l.jsx("p",{className:"text-white font-bold text-sm leading-tight mb-1 line-clamp-1",children:n(o)}),l.jsxs("div",{className:"flex items-center gap-1 mb-2",children:[l.jsx(jn,{size:11,className:"text-yellow-400 fill-yellow-400"}),l.jsx("span",{className:"text-yellow-400 text-xs font-bold",children:o.rating}),l.jsxs("span",{className:"text-white/30 text-xs",children:["(",o.reviews,")"]})]}),l.jsx("div",{className:"flex items-center justify-between",children:l.jsxs("span",{className:"text-brand-red font-black text-base",children:[t.nis,o.price,l.jsx("span",{className:"text-xs font-normal text-brand-gray-light",children:t.perKg})]})}),l.jsxs("button",{onClick:()=>{s(o),i(!0)},className:"w-full mt-2 py-1.5 rounded-xl text-xs font-bold text-white transition-all hover:scale-105 active:scale-95",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:["+ ",t.addToCart]})]})]},o.id))})]}),l.jsx("section",{children:l.jsxs("div",{className:"rounded-3xl p-6 relative overflow-hidden",style:{background:"linear-gradient(135deg, #1A0000, #3D0000)"},children:[l.jsx("div",{className:"absolute inset-0 opacity-10",style:{backgroundImage:"url('https://images.unsplash.com/photo-1558030006-450675393462?w=800&fit=crop')",backgroundSize:"cover"}}),l.jsxs("div",{className:"relative z-10",children:[l.jsx("p",{className:"text-brand-red font-black text-sm mb-1",children:"عرض اليوم"}),l.jsx("h3",{className:"text-white font-black text-2xl mb-2",children:"توصيل مجاني"}),l.jsx("p",{className:"text-white/70 text-sm",children:"على جميع الطلبات فوق ₪200"})]})]})})]})]}),l.jsx("style",{children:`
+      `,
+          }),
+        ],
+      })
+    : null;
+}
+function Sm() {
+  const e = Ue(),
+    { t, name: n, badge: r, tag: a } = Fe(),
+    { addItem: s, setIsOpen: i } = kn(),
+    c = dr.filter((o) => o.isFeatured).slice(0, 4);
+  return l.jsxs("div", {
+    className: "min-h-screen bg-brand-black",
+    children: [
+      l.jsx(Nn, {}),
+      l.jsx(wr, {}),
+      l.jsxs("div", {
+        className: "pt-16 pb-24",
+        children: [
+          l.jsxs("div", {
+            className: "relative overflow-hidden mx-4 mt-4 rounded-3xl mb-8",
+            style: { minHeight: 180 },
+            children: [
+              l.jsx("div", {
+                className: "absolute inset-0",
+                style: {
+                  background:
+                    "linear-gradient(135deg, #0A0A0A 0%, #3D0000 50%, #CC0000 100%)",
+                },
+              }),
+              l.jsx("div", {
+                className: "absolute inset-0",
+                style: {
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800&fit=crop')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  opacity: 0.15,
+                },
+              }),
+              l.jsx("div", {
+                className:
+                  "relative z-10 p-8 flex items-center justify-between",
+                children: l.jsxs("div", {
+                  children: [
+                    l.jsx("p", {
+                      className: "text-brand-gray-light text-sm mb-1",
+                      children: "مرحباً بك في",
+                    }),
+                    l.jsx("h1", {
+                      className: "text-3xl font-black text-white mb-2",
+                      children: t.storeName,
+                    }),
+                    l.jsx("p", {
+                      className: "text-brand-red font-semibold",
+                      children: t.storeTagline,
+                    }),
+                    l.jsxs("div", {
+                      className: "flex gap-3 mt-4",
+                      children: [
+                        l.jsx("span", {
+                          className:
+                            "glass px-3 py-1 rounded-full text-xs text-white border border-white/10",
+                          children: "طازج يومياً",
+                        }),
+                        l.jsx("span", {
+                          className:
+                            "glass px-3 py-1 rounded-full text-xs text-white border border-white/10",
+                          children: "توصيل سريع",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            ],
+          }),
+          l.jsxs("div", {
+            className: "px-4 space-y-10",
+            children: [
+              l.jsxs("section", {
+                children: [
+                  l.jsx("div", {
+                    className: "flex items-center justify-between mb-4",
+                    children: l.jsxs("div", {
+                      children: [
+                        l.jsx("h2", {
+                          className: "text-xl font-black text-white",
+                          children: t.categories,
+                        }),
+                        l.jsxs("p", {
+                          className: "text-brand-gray-light text-xs",
+                          children: [_a.length, " فئة متاحة"],
+                        }),
+                      ],
+                    }),
+                  }),
+                  l.jsx("div", {
+                    className: "grid grid-cols-2 md:grid-cols-3 gap-3",
+                    children: _a.map((o, u) =>
+                      l.jsxs(
+                        "button",
+                        {
+                          onClick: () => e(`/items/${o.id}`),
+                          className:
+                            "relative group overflow-hidden rounded-2xl text-right transition-all duration-300 hover:scale-[1.03] hover:shadow-xl",
+                          style: {
+                            height: 140,
+                            animation: `fadeSlideUp 0.5s ease-out ${u * 0.08}s both`,
+                          },
+                          children: [
+                            l.jsx("img", {
+                              src: o.image,
+                              alt: n(o),
+                              className:
+                                "absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110",
+                            }),
+                            l.jsx("div", {
+                              className: "absolute inset-0",
+                              style: {
+                                background:
+                                  "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)",
+                              },
+                            }),
+                            l.jsx("div", {
+                              className:
+                                "absolute inset-0 border-2 border-transparent group-hover:border-brand-red rounded-2xl transition-colors duration-300",
+                            }),
+                            a(o) &&
+                              l.jsx("div", {
+                                className:
+                                  "absolute top-2 right-2 px-2 py-0.5 rounded-full text-xs font-black",
+                                style: { background: "#CC0000" },
+                                children: a(o),
+                              }),
+                            l.jsxs("div", {
+                              className: "absolute bottom-0 left-0 right-0 p-3",
+                              children: [
+                                l.jsx("p", {
+                                  className:
+                                    "text-white font-black text-base leading-tight",
+                                  children: n(o),
+                                }),
+                                l.jsxs("p", {
+                                  className: "text-white/60 text-xs",
+                                  children: [o.count, " منتج"],
+                                }),
+                              ],
+                            }),
+                          ],
+                        },
+                        o.id,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+              l.jsxs("section", {
+                children: [
+                  l.jsx("div", {
+                    className: "flex items-center justify-between mb-4",
+                    children: l.jsxs("div", {
+                      children: [
+                        l.jsx("h2", {
+                          className: "text-xl font-black text-white",
+                          children: "الأكثر مبيعاً",
+                        }),
+                        l.jsx("p", {
+                          className: "text-brand-gray-light text-xs",
+                          children: "منتجاتنا المفضلة",
+                        }),
+                      ],
+                    }),
+                  }),
+                  l.jsx("div", {
+                    className: "grid grid-cols-2 md:grid-cols-4 gap-3",
+                    children: c.map((o, u) =>
+                      l.jsxs(
+                        "div",
+                        {
+                          className:
+                            "relative rounded-2xl overflow-hidden group transition-all duration-300 hover:scale-[1.03]",
+                          style: {
+                            background: "#1A1A1A",
+                            border: "1px solid rgba(255,255,255,0.06)",
+                            animation: `fadeSlideUp 0.5s ease-out ${u * 0.1}s both`,
+                          },
+                          children: [
+                            l.jsxs("div", {
+                              className: "relative h-32 overflow-hidden",
+                              children: [
+                                l.jsx("img", {
+                                  src: o.image,
+                                  alt: n(o),
+                                  className:
+                                    "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110",
+                                }),
+                                r(o) &&
+                                  l.jsx("span", {
+                                    className:
+                                      "absolute top-2 right-2 px-2 py-0.5 rounded-full text-xs font-black",
+                                    style: { background: "#CC0000" },
+                                    children: r(o),
+                                  }),
+                              ],
+                            }),
+                            l.jsxs("div", {
+                              className: "p-3",
+                              children: [
+                                l.jsx("p", {
+                                  className:
+                                    "text-white font-bold text-sm leading-tight mb-1 line-clamp-1",
+                                  children: n(o),
+                                }),
+                                l.jsxs("div", {
+                                  className: "flex items-center gap-1 mb-2",
+                                  children: [
+                                    l.jsx(jn, {
+                                      size: 11,
+                                      className:
+                                        "text-yellow-400 fill-yellow-400",
+                                    }),
+                                    l.jsx("span", {
+                                      className:
+                                        "text-yellow-400 text-xs font-bold",
+                                      children: o.rating,
+                                    }),
+                                    l.jsxs("span", {
+                                      className: "text-white/30 text-xs",
+                                      children: ["(", o.reviews, ")"],
+                                    }),
+                                  ],
+                                }),
+                                l.jsx("div", {
+                                  className:
+                                    "flex items-center justify-between",
+                                  children: l.jsxs("span", {
+                                    className:
+                                      "text-brand-red font-black text-base",
+                                    children: [
+                                      t.nis,
+                                      o.price,
+                                      l.jsx("span", {
+                                        className:
+                                          "text-xs font-normal text-brand-gray-light",
+                                        children: t.perKg,
+                                      }),
+                                    ],
+                                  }),
+                                }),
+                                l.jsxs("button", {
+                                  onClick: () => {
+                                    (s(o), i(!0));
+                                  },
+                                  className:
+                                    "w-full mt-2 py-1.5 rounded-xl text-xs font-bold text-white transition-all hover:scale-105 active:scale-95",
+                                  style: {
+                                    background:
+                                      "linear-gradient(135deg, #CC0000, #990000)",
+                                  },
+                                  children: ["+ ", t.addToCart],
+                                }),
+                              ],
+                            }),
+                          ],
+                        },
+                        o.id,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+              l.jsx("section", {
+                children: l.jsxs("div", {
+                  className: "rounded-3xl p-6 relative overflow-hidden",
+                  style: {
+                    background: "linear-gradient(135deg, #1A0000, #3D0000)",
+                  },
+                  children: [
+                    l.jsx("div", {
+                      className: "absolute inset-0 opacity-10",
+                      style: {
+                        backgroundImage:
+                          "url('https://images.unsplash.com/photo-1558030006-450675393462?w=800&fit=crop')",
+                        backgroundSize: "cover",
+                      },
+                    }),
+                    l.jsxs("div", {
+                      className: "relative z-10",
+                      children: [
+                        l.jsx("p", {
+                          className: "text-brand-red font-black text-sm mb-1",
+                          children: "عرض اليوم",
+                        }),
+                        l.jsx("h3", {
+                          className: "text-white font-black text-2xl mb-2",
+                          children: "توصيل مجاني",
+                        }),
+                        l.jsx("p", {
+                          className: "text-white/70 text-sm",
+                          children: "على جميع الطلبات فوق ₪200",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            ],
+          }),
+        ],
+      }),
+      l.jsx("style", {
+        children: `
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-      `})]})}function Em({product:e,onClose:t,onSelectSuggested:n}){const{t:r,name:a,desc:s,badge:i}=Fe(),{addItem:c,setIsOpen:o}=kn(),[u,x]=k.useState(1);if(!e)return null;const f=dr.filter(p=>p.id!==e.id&&p.categoryId===e.categoryId).slice(0,3);return l.jsx("div",{className:"fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4",style:{background:"rgba(0,0,0,0.85)",backdropFilter:"blur(8px)"},onClick:t,children:l.jsxs("div",{className:"w-full max-w-md rounded-3xl overflow-hidden max-h-[92vh] flex flex-col",style:{background:"#1A1A1A",border:"1px solid rgba(204,0,0,0.3)"},onClick:p=>p.stopPropagation(),children:[l.jsxs("div",{className:"relative h-52 flex-shrink-0",children:[l.jsx("img",{src:e.image,alt:a(e),className:"w-full h-full object-cover"}),l.jsx("div",{className:"absolute inset-0",style:{background:"linear-gradient(180deg, transparent 40%, rgba(26,26,26,1) 100%)"}}),i(e)&&l.jsx("span",{className:"absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-black text-white",style:{background:"#CC0000"},children:i(e)}),l.jsx("button",{onClick:t,className:"absolute top-4 left-4 w-8 h-8 rounded-full flex items-center justify-center text-white",style:{background:"rgba(0,0,0,0.6)"},children:l.jsx(vr,{size:16})})]}),l.jsxs("div",{className:"overflow-y-auto",children:[l.jsxs("div",{className:"p-6",children:[l.jsx("h2",{className:"text-white font-black text-xl mb-1",children:a(e)}),l.jsxs("div",{className:"flex items-center gap-2 mb-3",children:[l.jsx(jn,{size:14,className:"text-yellow-400 fill-yellow-400"}),l.jsx("span",{className:"text-yellow-400 text-sm font-bold",children:e.rating}),l.jsxs("span",{className:"text-white/40 text-sm",children:["(",e.reviews," تقييم)"]})]}),l.jsx("p",{className:"text-brand-gray-light text-sm leading-relaxed mb-4",children:s(e)}),l.jsxs("p",{className:"text-brand-red font-black text-2xl mb-6",children:[r.nis,e.price,l.jsx("span",{className:"text-sm text-white/50 font-normal",children:r.perKg})]}),l.jsxs("div",{className:"flex items-center gap-4 mb-6",children:[l.jsxs("div",{className:"flex items-center gap-3 p-2 rounded-2xl",style:{background:"rgba(255,255,255,0.06)"},children:[l.jsx("button",{onClick:()=>x(p=>Math.max(1,p-1)),className:"w-9 h-9 rounded-xl flex items-center justify-center text-white hover:bg-brand-red transition-colors",style:{background:"rgba(255,255,255,0.1)"},children:l.jsx(Nd,{size:16})}),l.jsx("span",{className:"text-white font-black text-lg w-8 text-center",children:u}),l.jsx("button",{onClick:()=>x(p=>p+1),className:"w-9 h-9 rounded-xl flex items-center justify-center text-white hover:bg-brand-red transition-colors",style:{background:"rgba(255,255,255,0.1)"},children:l.jsx(fr,{size:16})})]}),l.jsx("span",{className:"text-white/50 text-sm",children:"كغ"})]}),l.jsxs("button",{onClick:()=>{c(e,u),o(!0),t()},className:"w-full py-4 rounded-2xl font-black text-white text-lg transition-all hover:scale-[1.02] active:scale-95",style:{background:"linear-gradient(135deg, #CC0000, #990000)",boxShadow:"0 4px 20px rgba(204,0,0,0.4)"},children:[r.addToCart," — ",r.nis,(e.price*u).toFixed(0)]})]}),f.length>0&&l.jsxs("div",{className:"px-6 pb-6 border-t",style:{borderColor:"rgba(255,255,255,0.06)"},children:[l.jsx("p",{className:"text-white/50 text-xs font-bold uppercase tracking-widest mt-5 mb-3",children:r.suggestedItems}),l.jsx("div",{className:"flex gap-3 overflow-x-auto no-scrollbar pb-1",children:f.map(p=>l.jsxs("button",{onClick:()=>n(p),className:"flex-shrink-0 w-32 rounded-2xl overflow-hidden text-right transition-all hover:scale-[1.04]",style:{background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)"},children:[l.jsx("img",{src:p.image,alt:a(p),className:"w-full h-24 object-cover"}),l.jsxs("div",{className:"p-2",children:[l.jsx("p",{className:"text-white text-xs font-bold line-clamp-2 leading-tight mb-1",children:a(p)}),l.jsxs("p",{className:"text-brand-red font-black text-sm",children:[r.nis,p.price]})]})]},p.id))})]})]})]})})}function zm(){const{categoryId:e}=Ih(),t=Ue(),{t:n,name:r,badge:a}=Fe(),{addItem:s,setIsOpen:i}=kn(),[c,o]=k.useState(null),u=_a.find(p=>p.id===Number(e)),x=dr.filter(p=>p.categoryId===Number(e)),f=dr.filter(p=>p.categoryId!==Number(e)&&p.isFeatured).slice(0,4);return l.jsxs("div",{className:"min-h-screen bg-brand-black",children:[l.jsx(Nn,{}),l.jsx(wr,{}),c&&l.jsx(Em,{product:c,onClose:()=>o(null),onSelectSuggested:p=>o(p)}),l.jsxs("div",{className:"pt-16 pb-24",children:[u&&l.jsxs("div",{className:"relative h-48 mx-4 mt-4 rounded-3xl overflow-hidden mb-6",children:[l.jsx("img",{src:u.image,alt:r(u),className:"w-full h-full object-cover"}),l.jsx("div",{className:"absolute inset-0",style:{background:"linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%)"}}),l.jsxs("div",{className:"absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between",children:[l.jsxs("div",{children:[l.jsx("h1",{className:"text-3xl font-black text-white",children:r(u)}),l.jsxs("p",{className:"text-white/60 text-sm",children:[x.length," منتج"]})]}),l.jsxs("button",{onClick:()=>t("/categories"),className:"flex items-center gap-2 px-4 py-2 rounded-full text-sm text-white font-semibold",style:{background:"rgba(255,255,255,0.15)",backdropFilter:"blur(8px)"},children:[l.jsx(wd,{size:16}),"رجوع"]})]})]}),l.jsxs("div",{className:"px-4 space-y-8",children:[l.jsx("section",{children:l.jsx("div",{className:"grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3",children:x.map((p,y)=>l.jsxs("div",{className:"rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)",animation:`fadeSlideUp 0.4s ease-out ${y*.07}s both`},onClick:()=>o(p),children:[l.jsxs("div",{className:"relative h-36 overflow-hidden",children:[l.jsx("img",{src:p.image,alt:r(p),className:"w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"}),l.jsx("div",{className:"absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity",style:{background:"rgba(204,0,0,0.15)"}}),a(p)&&l.jsx("span",{className:"absolute top-2 right-2 px-2 py-0.5 rounded-full text-xs font-black text-white",style:{background:"#CC0000"},children:a(p)}),l.jsx("button",{onClick:v=>{v.stopPropagation(),s(p),i(!0)},className:"absolute bottom-2 left-2 w-8 h-8 rounded-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110",style:{background:"#CC0000"},children:l.jsx(fr,{size:16})})]}),l.jsxs("div",{className:"p-3",children:[l.jsx("p",{className:"text-white font-bold text-sm leading-tight mb-1 line-clamp-2",children:r(p)}),l.jsxs("div",{className:"flex items-center gap-1 mb-2",children:[l.jsx(jn,{size:11,className:"text-yellow-400 fill-yellow-400"}),l.jsx("span",{className:"text-yellow-400 text-xs font-bold",children:p.rating})]}),l.jsx("div",{className:"flex items-center justify-between",children:l.jsxs("span",{className:"text-brand-red font-black",children:[n.nis,p.price,l.jsx("span",{className:"text-xs text-white/40",children:n.perKg})]})})]})]},p.id))})}),f.length>0&&l.jsxs("section",{children:[l.jsxs("div",{className:"flex items-center gap-3 mb-4",children:[l.jsx("div",{className:"flex-1 h-px",style:{background:"rgba(204,0,0,0.3)"}}),l.jsx("h2",{className:"text-white font-black text-lg whitespace-nowrap",children:n.suggestedItems}),l.jsx("div",{className:"flex-1 h-px",style:{background:"rgba(204,0,0,0.3)"}})]}),l.jsx("div",{className:"flex gap-3 overflow-x-auto pb-2 no-scrollbar",children:f.map(p=>l.jsxs("div",{className:"flex-shrink-0 w-40 rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.03]",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},onClick:()=>o(p),children:[l.jsx("img",{src:p.image,alt:r(p),className:"w-full h-28 object-cover"}),l.jsxs("div",{className:"p-2",children:[l.jsx("p",{className:"text-white text-xs font-bold line-clamp-2 mb-1",children:r(p)}),l.jsxs("p",{className:"text-brand-red font-black text-sm",children:[n.nis,p.price]})]})]},p.id))})]})]})]}),l.jsx("style",{children:`
+      `,
+      }),
+    ],
+  });
+}
+function Em({ product: e, onClose: t, onSelectSuggested: n }) {
+  const { t: r, name: a, desc: s, badge: i } = Fe(),
+    { addItem: c, setIsOpen: o } = kn(),
+    [u, x] = k.useState(1);
+  if (!e) return null;
+  const f = dr
+    .filter((p) => p.id !== e.id && p.categoryId === e.categoryId)
+    .slice(0, 3);
+  return l.jsx("div", {
+    className:
+      "fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4",
+    style: { background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)" },
+    onClick: t,
+    children: l.jsxs("div", {
+      className:
+        "w-full max-w-md rounded-3xl overflow-hidden max-h-[92vh] flex flex-col",
+      style: { background: "#1A1A1A", border: "1px solid rgba(204,0,0,0.3)" },
+      onClick: (p) => p.stopPropagation(),
+      children: [
+        l.jsxs("div", {
+          className: "relative h-52 flex-shrink-0",
+          children: [
+            l.jsx("img", {
+              src: e.image,
+              alt: a(e),
+              className: "w-full h-full object-cover",
+            }),
+            l.jsx("div", {
+              className: "absolute inset-0",
+              style: {
+                background:
+                  "linear-gradient(180deg, transparent 40%, rgba(26,26,26,1) 100%)",
+              },
+            }),
+            i(e) &&
+              l.jsx("span", {
+                className:
+                  "absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-black text-white",
+                style: { background: "#CC0000" },
+                children: i(e),
+              }),
+            l.jsx("button", {
+              onClick: t,
+              className:
+                "absolute top-4 left-4 w-8 h-8 rounded-full flex items-center justify-center text-white",
+              style: { background: "rgba(0,0,0,0.6)" },
+              children: l.jsx(vr, { size: 16 }),
+            }),
+          ],
+        }),
+        l.jsxs("div", {
+          className: "overflow-y-auto",
+          children: [
+            l.jsxs("div", {
+              className: "p-6",
+              children: [
+                l.jsx("h2", {
+                  className: "text-white font-black text-xl mb-1",
+                  children: a(e),
+                }),
+                l.jsxs("div", {
+                  className: "flex items-center gap-2 mb-3",
+                  children: [
+                    l.jsx(jn, {
+                      size: 14,
+                      className: "text-yellow-400 fill-yellow-400",
+                    }),
+                    l.jsx("span", {
+                      className: "text-yellow-400 text-sm font-bold",
+                      children: e.rating,
+                    }),
+                    l.jsxs("span", {
+                      className: "text-white/40 text-sm",
+                      children: ["(", e.reviews, " تقييم)"],
+                    }),
+                  ],
+                }),
+                l.jsx("p", {
+                  className:
+                    "text-brand-gray-light text-sm leading-relaxed mb-4",
+                  children: s(e),
+                }),
+                l.jsxs("p", {
+                  className: "text-brand-red font-black text-2xl mb-6",
+                  children: [
+                    r.nis,
+                    e.price,
+                    l.jsx("span", {
+                      className: "text-sm text-white/50 font-normal",
+                      children: r.perKg,
+                    }),
+                  ],
+                }),
+                l.jsxs("div", {
+                  className: "flex items-center gap-4 mb-6",
+                  children: [
+                    l.jsxs("div", {
+                      className: "flex items-center gap-3 p-2 rounded-2xl",
+                      style: { background: "rgba(255,255,255,0.06)" },
+                      children: [
+                        l.jsx("button", {
+                          onClick: () => x((p) => Math.max(1, p - 1)),
+                          className:
+                            "w-9 h-9 rounded-xl flex items-center justify-center text-white hover:bg-brand-red transition-colors",
+                          style: { background: "rgba(255,255,255,0.1)" },
+                          children: l.jsx(Nd, { size: 16 }),
+                        }),
+                        l.jsx("span", {
+                          className:
+                            "text-white font-black text-lg w-8 text-center",
+                          children: u,
+                        }),
+                        l.jsx("button", {
+                          onClick: () => x((p) => p + 1),
+                          className:
+                            "w-9 h-9 rounded-xl flex items-center justify-center text-white hover:bg-brand-red transition-colors",
+                          style: { background: "rgba(255,255,255,0.1)" },
+                          children: l.jsx(fr, { size: 16 }),
+                        }),
+                      ],
+                    }),
+                    l.jsx("span", {
+                      className: "text-white/50 text-sm",
+                      children: "كغ",
+                    }),
+                  ],
+                }),
+                l.jsxs("button", {
+                  onClick: () => {
+                    (c(e, u), o(!0), t());
+                  },
+                  className:
+                    "w-full py-4 rounded-2xl font-black text-white text-lg transition-all hover:scale-[1.02] active:scale-95",
+                  style: {
+                    background: "linear-gradient(135deg, #CC0000, #990000)",
+                    boxShadow: "0 4px 20px rgba(204,0,0,0.4)",
+                  },
+                  children: [
+                    r.addToCart,
+                    " — ",
+                    r.nis,
+                    (e.price * u).toFixed(0),
+                  ],
+                }),
+              ],
+            }),
+            f.length > 0 &&
+              l.jsxs("div", {
+                className: "px-6 pb-6 border-t",
+                style: { borderColor: "rgba(255,255,255,0.06)" },
+                children: [
+                  l.jsx("p", {
+                    className:
+                      "text-white/50 text-xs font-bold uppercase tracking-widest mt-5 mb-3",
+                    children: r.suggestedItems,
+                  }),
+                  l.jsx("div", {
+                    className: "flex gap-3 overflow-x-auto no-scrollbar pb-1",
+                    children: f.map((p) =>
+                      l.jsxs(
+                        "button",
+                        {
+                          onClick: () => n(p),
+                          className:
+                            "flex-shrink-0 w-32 rounded-2xl overflow-hidden text-right transition-all hover:scale-[1.04]",
+                          style: {
+                            background: "rgba(255,255,255,0.05)",
+                            border: "1px solid rgba(255,255,255,0.08)",
+                          },
+                          children: [
+                            l.jsx("img", {
+                              src: p.image,
+                              alt: a(p),
+                              className: "w-full h-24 object-cover",
+                            }),
+                            l.jsxs("div", {
+                              className: "p-2",
+                              children: [
+                                l.jsx("p", {
+                                  className:
+                                    "text-white text-xs font-bold line-clamp-2 leading-tight mb-1",
+                                  children: a(p),
+                                }),
+                                l.jsxs("p", {
+                                  className:
+                                    "text-brand-red font-black text-sm",
+                                  children: [r.nis, p.price],
+                                }),
+                              ],
+                            }),
+                          ],
+                        },
+                        p.id,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
+function zm() {
+  const { categoryId: e } = Ih(),
+    t = Ue(),
+    { t: n, name: r, badge: a } = Fe(),
+    { addItem: s, setIsOpen: i } = kn(),
+    [c, o] = k.useState(null),
+    u = _a.find((p) => p.id === Number(e)),
+    x = dr.filter((p) => p.categoryId === Number(e)),
+    f = dr
+      .filter((p) => p.categoryId !== Number(e) && p.isFeatured)
+      .slice(0, 4);
+  return l.jsxs("div", {
+    className: "min-h-screen bg-brand-black",
+    children: [
+      l.jsx(Nn, {}),
+      l.jsx(wr, {}),
+      c &&
+        l.jsx(Em, {
+          product: c,
+          onClose: () => o(null),
+          onSelectSuggested: (p) => o(p),
+        }),
+      l.jsxs("div", {
+        className: "pt-16 pb-24",
+        children: [
+          u &&
+            l.jsxs("div", {
+              className:
+                "relative h-48 mx-4 mt-4 rounded-3xl overflow-hidden mb-6",
+              children: [
+                l.jsx("img", {
+                  src: u.image,
+                  alt: r(u),
+                  className: "w-full h-full object-cover",
+                }),
+                l.jsx("div", {
+                  className: "absolute inset-0",
+                  style: {
+                    background:
+                      "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%)",
+                  },
+                }),
+                l.jsxs("div", {
+                  className:
+                    "absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between",
+                  children: [
+                    l.jsxs("div", {
+                      children: [
+                        l.jsx("h1", {
+                          className: "text-3xl font-black text-white",
+                          children: r(u),
+                        }),
+                        l.jsxs("p", {
+                          className: "text-white/60 text-sm",
+                          children: [x.length, " منتج"],
+                        }),
+                      ],
+                    }),
+                    l.jsxs("button", {
+                      onClick: () => t("/categories"),
+                      className:
+                        "flex items-center gap-2 px-4 py-2 rounded-full text-sm text-white font-semibold",
+                      style: {
+                        background: "rgba(255,255,255,0.15)",
+                        backdropFilter: "blur(8px)",
+                      },
+                      children: [l.jsx(wd, { size: 16 }), "رجوع"],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          l.jsxs("div", {
+            className: "px-4 space-y-8",
+            children: [
+              l.jsx("section", {
+                children: l.jsx("div", {
+                  className:
+                    "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3",
+                  children: x.map((p, y) =>
+                    l.jsxs(
+                      "div",
+                      {
+                        className:
+                          "rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1",
+                        style: {
+                          background: "#1A1A1A",
+                          border: "1px solid rgba(255,255,255,0.06)",
+                          animation: `fadeSlideUp 0.4s ease-out ${y * 0.07}s both`,
+                        },
+                        onClick: () => o(p),
+                        children: [
+                          l.jsxs("div", {
+                            className: "relative h-36 overflow-hidden",
+                            children: [
+                              l.jsx("img", {
+                                src: p.image,
+                                alt: r(p),
+                                className:
+                                  "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110",
+                              }),
+                              l.jsx("div", {
+                                className:
+                                  "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity",
+                                style: { background: "rgba(204,0,0,0.15)" },
+                              }),
+                              a(p) &&
+                                l.jsx("span", {
+                                  className:
+                                    "absolute top-2 right-2 px-2 py-0.5 rounded-full text-xs font-black text-white",
+                                  style: { background: "#CC0000" },
+                                  children: a(p),
+                                }),
+                              l.jsx("button", {
+                                onClick: (v) => {
+                                  (v.stopPropagation(), s(p), i(!0));
+                                },
+                                className:
+                                  "absolute bottom-2 left-2 w-8 h-8 rounded-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110",
+                                style: { background: "#CC0000" },
+                                children: l.jsx(fr, { size: 16 }),
+                              }),
+                            ],
+                          }),
+                          l.jsxs("div", {
+                            className: "p-3",
+                            children: [
+                              l.jsx("p", {
+                                className:
+                                  "text-white font-bold text-sm leading-tight mb-1 line-clamp-2",
+                                children: r(p),
+                              }),
+                              l.jsxs("div", {
+                                className: "flex items-center gap-1 mb-2",
+                                children: [
+                                  l.jsx(jn, {
+                                    size: 11,
+                                    className:
+                                      "text-yellow-400 fill-yellow-400",
+                                  }),
+                                  l.jsx("span", {
+                                    className:
+                                      "text-yellow-400 text-xs font-bold",
+                                    children: p.rating,
+                                  }),
+                                ],
+                              }),
+                              l.jsx("div", {
+                                className: "flex items-center justify-between",
+                                children: l.jsxs("span", {
+                                  className: "text-brand-red font-black",
+                                  children: [
+                                    n.nis,
+                                    p.price,
+                                    l.jsx("span", {
+                                      className: "text-xs text-white/40",
+                                      children: n.perKg,
+                                    }),
+                                  ],
+                                }),
+                              }),
+                            ],
+                          }),
+                        ],
+                      },
+                      p.id,
+                    ),
+                  ),
+                }),
+              }),
+              f.length > 0 &&
+                l.jsxs("section", {
+                  children: [
+                    l.jsxs("div", {
+                      className: "flex items-center gap-3 mb-4",
+                      children: [
+                        l.jsx("div", {
+                          className: "flex-1 h-px",
+                          style: { background: "rgba(204,0,0,0.3)" },
+                        }),
+                        l.jsx("h2", {
+                          className:
+                            "text-white font-black text-lg whitespace-nowrap",
+                          children: n.suggestedItems,
+                        }),
+                        l.jsx("div", {
+                          className: "flex-1 h-px",
+                          style: { background: "rgba(204,0,0,0.3)" },
+                        }),
+                      ],
+                    }),
+                    l.jsx("div", {
+                      className: "flex gap-3 overflow-x-auto pb-2 no-scrollbar",
+                      children: f.map((p) =>
+                        l.jsxs(
+                          "div",
+                          {
+                            className:
+                              "flex-shrink-0 w-40 rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.03]",
+                            style: {
+                              background: "#1A1A1A",
+                              border: "1px solid rgba(255,255,255,0.06)",
+                            },
+                            onClick: () => o(p),
+                            children: [
+                              l.jsx("img", {
+                                src: p.image,
+                                alt: r(p),
+                                className: "w-full h-28 object-cover",
+                              }),
+                              l.jsxs("div", {
+                                className: "p-2",
+                                children: [
+                                  l.jsx("p", {
+                                    className:
+                                      "text-white text-xs font-bold line-clamp-2 mb-1",
+                                    children: r(p),
+                                  }),
+                                  l.jsxs("p", {
+                                    className:
+                                      "text-brand-red font-black text-sm",
+                                    children: [n.nis, p.price],
+                                  }),
+                                ],
+                              }),
+                            ],
+                          },
+                          p.id,
+                        ),
+                      ),
+                    }),
+                  ],
+                }),
+            ],
+          }),
+        ],
+      }),
+      l.jsx("style", {
+        children: `
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-      `})]})}function Pm(){const{t:e}=Fe(),t=Ue(),[n,r]=k.useState(!1),[a,s]=k.useState(!1),[i,c]=k.useState({name:"",phone:"",password:"",confirm:""}),[o,u]=k.useState({}),x=f=>{f.preventDefault();const p={};if(i.phone||(p.phone="رقم الهاتف مطلوب"),i.password||(p.password="كلمة المرور مطلوبة"),!n&&!i.name&&(p.name="الاسم مطلوب"),!n&&i.password!==i.confirm&&(p.confirm="كلمة المرور غير متطابقة"),Object.keys(p).length){u(p);return}t("/payment")};return l.jsxs("div",{className:"min-h-screen bg-brand-black",children:[l.jsx(Nn,{}),l.jsx(wr,{}),l.jsxs("div",{className:"pt-20 pb-24 px-4 max-w-md mx-auto",children:[l.jsxs("div",{className:"text-center mb-8",style:{animation:"fadeSlideUp 0.5s ease-out"},children:[l.jsx("div",{className:"w-20 h-20 rounded-2xl mx-auto mb-4 overflow-hidden",style:{boxShadow:"0 0 30px rgba(204,0,0,0.4)",border:"2px solid rgba(204,0,0,0.4)"},children:l.jsx("img",{src:"/logo.jpeg",alt:"أبو دغش",className:"w-full h-full object-cover"})}),l.jsx("h1",{className:"text-2xl font-black text-white mb-1",children:n?e.login:e.signUp}),l.jsx("p",{className:"text-brand-gray-light text-sm",children:n?"سجل دخولك لإتمام الطلب":"أنشئ حساباً لإتمام الطلب"})]}),l.jsxs("form",{onSubmit:x,className:"space-y-4",style:{animation:"fadeSlideUp 0.5s ease-out 0.1s both"},children:[!n&&l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2 font-semibold",children:e.fullName}),l.jsxs("div",{className:"relative",children:[l.jsx(gi,{size:18,className:"absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light"}),l.jsx("input",{type:"text",placeholder:"محمد أحمد",value:i.name,onChange:f=>c(p=>({...p,name:f.target.value})),className:"input-field pr-12"})]}),o.name&&l.jsx("p",{className:"text-red-400 text-xs mt-1",children:o.name})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2 font-semibold",children:e.phone}),l.jsxs("div",{className:"relative",children:[l.jsx(xi,{size:18,className:"absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light"}),l.jsx("input",{type:"tel",placeholder:"050-0000000",value:i.phone,onChange:f=>c(p=>({...p,phone:f.target.value})),className:"input-field pr-12",dir:"ltr"})]}),o.phone&&l.jsx("p",{className:"text-red-400 text-xs mt-1",children:o.phone})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2 font-semibold",children:e.password}),l.jsxs("div",{className:"relative",children:[l.jsx(Ao,{size:18,className:"absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light"}),l.jsx("input",{type:a?"text":"password",placeholder:"••••••••",value:i.password,onChange:f=>c(p=>({...p,password:f.target.value})),className:"input-field pr-12 pl-12"}),l.jsx("button",{type:"button",onClick:()=>s(f=>!f),className:"absolute left-4 top-1/2 -translate-y-1/2 text-brand-gray-light hover:text-white transition-colors",children:a?l.jsx(gm,{size:18}):l.jsx(bm,{size:18})})]}),o.password&&l.jsx("p",{className:"text-red-400 text-xs mt-1",children:o.password})]}),!n&&l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2 font-semibold",children:e.confirmPassword}),l.jsxs("div",{className:"relative",children:[l.jsx(Ao,{size:18,className:"absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light"}),l.jsx("input",{type:a?"text":"password",placeholder:"••••••••",value:i.confirm,onChange:f=>c(p=>({...p,confirm:f.target.value})),className:"input-field pr-12"})]}),o.confirm&&l.jsx("p",{className:"text-red-400 text-xs mt-1",children:o.confirm})]}),l.jsxs("button",{type:"submit",className:"w-full py-4 rounded-2xl font-black text-white text-lg mt-2 transition-all hover:scale-[1.02] active:scale-95",style:{background:"linear-gradient(135deg, #CC0000, #990000)",boxShadow:"0 4px 24px rgba(204,0,0,0.4)"},children:[n?e.login:e.signUp," ←"]}),l.jsxs("div",{className:"flex items-center gap-3 my-2",children:[l.jsx("div",{className:"flex-1 h-px bg-white/10"}),l.jsx("span",{className:"text-white/40 text-xs",children:"أو"}),l.jsx("div",{className:"flex-1 h-px bg-white/10"})]}),l.jsx("button",{type:"button",onClick:()=>t("/payment"),className:"w-full py-3 rounded-2xl font-bold text-white/70 text-base transition-all hover:text-white hover:border-brand-red border border-white/10",children:e.continueAsGuest})]}),l.jsxs("p",{className:"text-center text-brand-gray-light text-sm mt-6",children:[n?e.noAccount:e.haveAccount," ",l.jsx("button",{onClick:()=>r(f=>!f),className:"text-brand-red font-bold hover:underline",children:n?e.signUp:e.login})]})]}),l.jsx("style",{children:`
+      `,
+      }),
+    ],
+  });
+}
+function Pm() {
+  const { t: e } = Fe(),
+    t = Ue(),
+    [n, r] = k.useState(!1),
+    [a, s] = k.useState(!1),
+    [i, c] = k.useState({ name: "", phone: "", password: "", confirm: "" }),
+    [o, u] = k.useState({}),
+    x = (f) => {
+      f.preventDefault();
+      const p = {};
+      if (
+        (i.phone || (p.phone = "رقم الهاتف مطلوب"),
+        i.password || (p.password = "كلمة المرور مطلوبة"),
+        !n && !i.name && (p.name = "الاسم مطلوب"),
+        !n &&
+          i.password !== i.confirm &&
+          (p.confirm = "كلمة المرور غير متطابقة"),
+        Object.keys(p).length)
+      ) {
+        u(p);
+        return;
+      }
+      t("/payment");
+    };
+  return l.jsxs("div", {
+    className: "min-h-screen bg-brand-black",
+    children: [
+      l.jsx(Nn, {}),
+      l.jsx(wr, {}),
+      l.jsxs("div", {
+        className: "pt-20 pb-24 px-4 max-w-md mx-auto",
+        children: [
+          l.jsxs("div", {
+            className: "text-center mb-8",
+            style: { animation: "fadeSlideUp 0.5s ease-out" },
+            children: [
+              l.jsx("div", {
+                className: "w-20 h-20 rounded-2xl mx-auto mb-4 overflow-hidden",
+                style: {
+                  boxShadow: "0 0 30px rgba(204,0,0,0.4)",
+                  border: "2px solid rgba(204,0,0,0.4)",
+                },
+                children: l.jsx("img", {
+                  src: "ad--poc/logo.jpeg",
+                  alt: "أبو دغش",
+                  className: "w-full h-full object-cover",
+                }),
+              }),
+              l.jsx("h1", {
+                className: "text-2xl font-black text-white mb-1",
+                children: n ? e.login : e.signUp,
+              }),
+              l.jsx("p", {
+                className: "text-brand-gray-light text-sm",
+                children: n
+                  ? "سجل دخولك لإتمام الطلب"
+                  : "أنشئ حساباً لإتمام الطلب",
+              }),
+            ],
+          }),
+          l.jsxs("form", {
+            onSubmit: x,
+            className: "space-y-4",
+            style: { animation: "fadeSlideUp 0.5s ease-out 0.1s both" },
+            children: [
+              !n &&
+                l.jsxs("div", {
+                  children: [
+                    l.jsx("label", {
+                      className:
+                        "block text-white/70 text-sm mb-2 font-semibold",
+                      children: e.fullName,
+                    }),
+                    l.jsxs("div", {
+                      className: "relative",
+                      children: [
+                        l.jsx(gi, {
+                          size: 18,
+                          className:
+                            "absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light",
+                        }),
+                        l.jsx("input", {
+                          type: "text",
+                          placeholder: "محمد أحمد",
+                          value: i.name,
+                          onChange: (f) =>
+                            c((p) => ({ ...p, name: f.target.value })),
+                          className: "input-field pr-12",
+                        }),
+                      ],
+                    }),
+                    o.name &&
+                      l.jsx("p", {
+                        className: "text-red-400 text-xs mt-1",
+                        children: o.name,
+                      }),
+                  ],
+                }),
+              l.jsxs("div", {
+                children: [
+                  l.jsx("label", {
+                    className: "block text-white/70 text-sm mb-2 font-semibold",
+                    children: e.phone,
+                  }),
+                  l.jsxs("div", {
+                    className: "relative",
+                    children: [
+                      l.jsx(xi, {
+                        size: 18,
+                        className:
+                          "absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light",
+                      }),
+                      l.jsx("input", {
+                        type: "tel",
+                        placeholder: "050-0000000",
+                        value: i.phone,
+                        onChange: (f) =>
+                          c((p) => ({ ...p, phone: f.target.value })),
+                        className: "input-field pr-12",
+                        dir: "ltr",
+                      }),
+                    ],
+                  }),
+                  o.phone &&
+                    l.jsx("p", {
+                      className: "text-red-400 text-xs mt-1",
+                      children: o.phone,
+                    }),
+                ],
+              }),
+              l.jsxs("div", {
+                children: [
+                  l.jsx("label", {
+                    className: "block text-white/70 text-sm mb-2 font-semibold",
+                    children: e.password,
+                  }),
+                  l.jsxs("div", {
+                    className: "relative",
+                    children: [
+                      l.jsx(Ao, {
+                        size: 18,
+                        className:
+                          "absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light",
+                      }),
+                      l.jsx("input", {
+                        type: a ? "text" : "password",
+                        placeholder: "••••••••",
+                        value: i.password,
+                        onChange: (f) =>
+                          c((p) => ({ ...p, password: f.target.value })),
+                        className: "input-field pr-12 pl-12",
+                      }),
+                      l.jsx("button", {
+                        type: "button",
+                        onClick: () => s((f) => !f),
+                        className:
+                          "absolute left-4 top-1/2 -translate-y-1/2 text-brand-gray-light hover:text-white transition-colors",
+                        children: a
+                          ? l.jsx(gm, { size: 18 })
+                          : l.jsx(bm, { size: 18 }),
+                      }),
+                    ],
+                  }),
+                  o.password &&
+                    l.jsx("p", {
+                      className: "text-red-400 text-xs mt-1",
+                      children: o.password,
+                    }),
+                ],
+              }),
+              !n &&
+                l.jsxs("div", {
+                  children: [
+                    l.jsx("label", {
+                      className:
+                        "block text-white/70 text-sm mb-2 font-semibold",
+                      children: e.confirmPassword,
+                    }),
+                    l.jsxs("div", {
+                      className: "relative",
+                      children: [
+                        l.jsx(Ao, {
+                          size: 18,
+                          className:
+                            "absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-light",
+                        }),
+                        l.jsx("input", {
+                          type: a ? "text" : "password",
+                          placeholder: "••••••••",
+                          value: i.confirm,
+                          onChange: (f) =>
+                            c((p) => ({ ...p, confirm: f.target.value })),
+                          className: "input-field pr-12",
+                        }),
+                      ],
+                    }),
+                    o.confirm &&
+                      l.jsx("p", {
+                        className: "text-red-400 text-xs mt-1",
+                        children: o.confirm,
+                      }),
+                  ],
+                }),
+              l.jsxs("button", {
+                type: "submit",
+                className:
+                  "w-full py-4 rounded-2xl font-black text-white text-lg mt-2 transition-all hover:scale-[1.02] active:scale-95",
+                style: {
+                  background: "linear-gradient(135deg, #CC0000, #990000)",
+                  boxShadow: "0 4px 24px rgba(204,0,0,0.4)",
+                },
+                children: [n ? e.login : e.signUp, " ←"],
+              }),
+              l.jsxs("div", {
+                className: "flex items-center gap-3 my-2",
+                children: [
+                  l.jsx("div", { className: "flex-1 h-px bg-white/10" }),
+                  l.jsx("span", {
+                    className: "text-white/40 text-xs",
+                    children: "أو",
+                  }),
+                  l.jsx("div", { className: "flex-1 h-px bg-white/10" }),
+                ],
+              }),
+              l.jsx("button", {
+                type: "button",
+                onClick: () => t("/payment"),
+                className:
+                  "w-full py-3 rounded-2xl font-bold text-white/70 text-base transition-all hover:text-white hover:border-brand-red border border-white/10",
+                children: e.continueAsGuest,
+              }),
+            ],
+          }),
+          l.jsxs("p", {
+            className: "text-center text-brand-gray-light text-sm mt-6",
+            children: [
+              n ? e.noAccount : e.haveAccount,
+              " ",
+              l.jsx("button", {
+                onClick: () => r((f) => !f),
+                className: "text-brand-red font-bold hover:underline",
+                children: n ? e.signUp : e.login,
+              }),
+            ],
+          }),
+        ],
+      }),
+      l.jsx("style", {
+        children: `
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-      `})]})}const Fm=[{id:"card",icon:l.jsx(hi,{size:24}),label_ar:"بطاقة ائتمان / ڤيزا",label_he:"כרטיס אשראי / ויזה",desc_ar:"Visa • Mastercard • American Express",desc_he:"Visa • Mastercard • American Express",color:"#1A56DB",emoji:"💳"},{id:"apple",icon:null,label_ar:"Apple Pay",label_he:"Apple Pay",desc_ar:"الدفع السريع بجهاز Apple",desc_he:"תשלום מהיר עם מכשיר Apple",color:"#1A1A1A",emoji:"",appleIcon:!0},{id:"google",icon:null,label_ar:"Google Pay",label_he:"Google Pay",desc_ar:"الدفع السريع بجهاز Android",desc_he:"תשלום מהיר עם מכשיר Android",color:"#1A1A1A",emoji:"",googleIcon:!0},{id:"cash",icon:l.jsx(fm,{size:24}),label_ar:"دفع نقدي عند الاستلام",label_he:"תשלום במזומן",desc_ar:"ادفع نقداً عند وصول المندوب",desc_he:"שלם במזומן כשהשליח מגיע",color:"#16A34A",emoji:"💵"}];function Lm(){const{t:e,lang:t,name:n}=Fe(),{items:r,subtotal:a,deliveryFee:s,total:i,clearCart:c}=kn(),o=Ue(),[u,x]=k.useState(null),[f,p]=k.useState(""),[y,v]=k.useState(""),[g,_]=k.useState(""),[h,d]=k.useState(""),[m,w]=k.useState(!1),C=()=>{!u||!f||(w(!0),setTimeout(()=>{c(),o("/confirmation")},2e3))};return l.jsxs("div",{className:"min-h-screen bg-brand-black",children:[l.jsx(Nn,{}),l.jsx(wr,{}),l.jsxs("div",{className:"pt-20 pb-24 px-4 max-w-2xl mx-auto space-y-6",children:[l.jsxs("div",{className:"rounded-3xl p-6",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.08)"},children:[l.jsxs("div",{className:"flex items-center gap-3 mb-5",children:[l.jsx("div",{className:"w-9 h-9 rounded-xl flex items-center justify-center",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:l.jsx(jd,{size:18,className:"text-white"})}),l.jsx("h2",{className:"text-white font-black text-lg",children:e.address})]}),l.jsxs("div",{className:"space-y-3",children:[l.jsx("input",{type:"text",placeholder:t==="ar"?"اسم الشارع ورقم البيت":"שם רחוב ומספר בית",value:f,onChange:N=>p(N.target.value),className:"input-field"}),l.jsx("input",{type:"text",placeholder:t==="ar"?"المدينة":"עיר",value:y,onChange:N=>v(N.target.value),className:"input-field"}),l.jsx("textarea",{placeholder:t==="ar"?"ملاحظات للمندوب (اختياري)":"הערות לשליח (אופציונלי)",value:g,onChange:N=>_(N.target.value),className:"input-field resize-none",rows:2})]}),l.jsxs("div",{className:"flex items-center gap-2 mt-4 p-3 rounded-xl",style:{background:"rgba(204,0,0,0.1)",border:"1px solid rgba(204,0,0,0.2)"},children:[l.jsx(kd,{size:16,className:"text-brand-red"}),l.jsx("span",{className:"text-white/70 text-sm",children:t==="ar"?"وقت التوصيل المتوقع:":"זמן אספקה משוער:"}),l.jsxs("span",{className:"text-white font-bold text-sm",children:["30–45 ",t==="ar"?"دقيقة":"דקות"]})]})]}),l.jsxs("div",{className:"rounded-3xl p-6",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.08)"},children:[l.jsxs("div",{className:"flex items-center gap-3 mb-5",children:[l.jsx("div",{className:"w-9 h-9 rounded-xl flex items-center justify-center",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:l.jsx(hi,{size:18,className:"text-white"})}),l.jsx("h2",{className:"text-white font-black text-lg",children:e.paymentMethod})]}),l.jsx("div",{className:"space-y-3",children:Fm.map(N=>l.jsxs("button",{onClick:()=>x(N.id),className:"w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-200 text-right",style:{background:u===N.id?"rgba(204,0,0,0.1)":"rgba(255,255,255,0.04)",border:u===N.id?"2px solid #CC0000":"2px solid rgba(255,255,255,0.06)",transform:u===N.id?"scale(1.01)":"scale(1)"},children:[l.jsx("div",{className:"w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-xl font-black",style:{background:`${N.color}22`,color:N.color},children:N.appleIcon?l.jsx("svg",{viewBox:"0 0 24 24",width:"24",height:"24",fill:"white",children:l.jsx("path",{d:"M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"})}):N.googleIcon?l.jsxs("svg",{viewBox:"0 0 24 24",width:"24",height:"24",children:[l.jsx("path",{fill:"#4285F4",d:"M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"}),l.jsx("path",{fill:"#34A853",d:"M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"}),l.jsx("path",{fill:"#FBBC05",d:"M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"}),l.jsx("path",{fill:"#EA4335",d:"M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"})]}):l.jsx("span",{style:{fontSize:22},children:N.emoji})}),l.jsxs("div",{className:"flex-1",children:[l.jsx("p",{className:"text-white font-bold text-base",children:t==="ar"?N.label_ar:N.label_he}),l.jsx("p",{className:"text-white/50 text-xs",children:t==="ar"?N.desc_ar:N.desc_he})]}),l.jsx("div",{className:"w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 transition-all",style:{background:u===N.id?"#CC0000":"transparent",border:u===N.id?"2px solid #CC0000":"2px solid rgba(255,255,255,0.3)"},children:u===N.id&&l.jsx(hm,{size:12,className:"text-white"})})]},N.id))}),u==="card"&&l.jsxs("div",{className:"mt-4 space-y-3",style:{animation:"fadeSlideUp 0.3s ease-out"},children:[l.jsx("input",{type:"text",placeholder:"0000 0000 0000 0000",value:h,onChange:N=>d(N.target.value.replace(/\D/g,"").slice(0,16).replace(/(.{4})/g,"$1 ").trim()),className:"input-field text-center tracking-widest font-bold",dir:"ltr"}),l.jsxs("div",{className:"grid grid-cols-2 gap-3",children:[l.jsx("input",{type:"text",placeholder:"MM/YY",className:"input-field text-center",dir:"ltr"}),l.jsx("input",{type:"text",placeholder:"CVV",className:"input-field text-center",dir:"ltr"})]}),l.jsxs("div",{className:"flex items-center gap-2 p-3 rounded-xl",style:{background:"rgba(22,163,74,0.1)",border:"1px solid rgba(22,163,74,0.3)"},children:[l.jsx("span",{className:"text-green-400 text-sm",children:"🔒"}),l.jsx("span",{className:"text-green-400 text-xs font-semibold",children:t==="ar"?"دفع آمن ومشفر بواسطة Tranzila":"תשלום מאובטח ומוצפן באמצעות Tranzila"})]})]})]}),l.jsxs("div",{className:"rounded-3xl p-6",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.08)"},children:[l.jsx("h2",{className:"text-white font-black text-lg mb-4",children:e.orderDetails}),l.jsxs("div",{className:"space-y-2 text-sm",children:[r.map(N=>l.jsxs("div",{className:"flex justify-between text-white/70",children:[l.jsxs("span",{children:[n(N)," × ",N.qty]}),l.jsxs("span",{className:"text-white",children:[e.nis,(N.price*N.qty).toFixed(0)]})]},N.id)),l.jsxs("div",{className:"border-t border-white/10 pt-2 mt-2 space-y-2",children:[l.jsxs("div",{className:"flex justify-between text-white/60",children:[l.jsx("span",{children:e.subtotal}),l.jsxs("span",{children:[e.nis,a.toFixed(0)]})]}),l.jsxs("div",{className:"flex justify-between text-white/60",children:[l.jsx("span",{children:e.delivery}),l.jsx("span",{className:s===0?"text-green-400":"",children:s===0?e.free:`${e.nis}${s}`})]}),l.jsxs("div",{className:"flex justify-between text-white font-black text-lg pt-2 border-t border-white/10",children:[l.jsx("span",{children:e.total}),l.jsxs("span",{className:"text-brand-red",children:[e.nis,i.toFixed(0)]})]})]})]})]}),l.jsx("button",{onClick:C,disabled:!u||!f||m,className:"w-full py-5 rounded-2xl font-black text-white text-xl transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden",style:{background:"linear-gradient(135deg, #CC0000, #990000)",boxShadow:"0 4px 30px rgba(204,0,0,0.5)"},children:m?l.jsxs("span",{className:"flex items-center justify-center gap-3",children:[l.jsxs("svg",{className:"animate-spin w-6 h-6",viewBox:"0 0 24 24",fill:"none",children:[l.jsx("circle",{cx:"12",cy:"12",r:"10",stroke:"rgba(255,255,255,0.3)",strokeWidth:"4"}),l.jsx("path",{d:"M12 2a10 10 0 0110 10",stroke:"white",strokeWidth:"4",strokeLinecap:"round"})]}),t==="ar"?"جاري المعالجة...":"מעבד..."]}):l.jsxs("span",{children:[e.placeOrder," — ",e.nis,i.toFixed(0)," ←"]})}),!u&&l.jsx("p",{className:"text-center text-red-400 text-sm",children:"* يرجى اختيار طريقة الدفع"}),u&&!f&&l.jsx("p",{className:"text-center text-red-400 text-sm",children:"* يرجى إدخال عنوان التوصيل"})]}),l.jsx("style",{children:`
+      `,
+      }),
+    ],
+  });
+}
+const Fm = [
+  {
+    id: "card",
+    icon: l.jsx(hi, { size: 24 }),
+    label_ar: "بطاقة ائتمان / ڤيزا",
+    label_he: "כרטיס אשראי / ויזה",
+    desc_ar: "Visa • Mastercard • American Express",
+    desc_he: "Visa • Mastercard • American Express",
+    color: "#1A56DB",
+    emoji: "💳",
+  },
+  {
+    id: "apple",
+    icon: null,
+    label_ar: "Apple Pay",
+    label_he: "Apple Pay",
+    desc_ar: "الدفع السريع بجهاز Apple",
+    desc_he: "תשלום מהיר עם מכשיר Apple",
+    color: "#1A1A1A",
+    emoji: "",
+    appleIcon: !0,
+  },
+  {
+    id: "google",
+    icon: null,
+    label_ar: "Google Pay",
+    label_he: "Google Pay",
+    desc_ar: "الدفع السريع بجهاز Android",
+    desc_he: "תשלום מהיר עם מכשיר Android",
+    color: "#1A1A1A",
+    emoji: "",
+    googleIcon: !0,
+  },
+  {
+    id: "cash",
+    icon: l.jsx(fm, { size: 24 }),
+    label_ar: "دفع نقدي عند الاستلام",
+    label_he: "תשלום במזומן",
+    desc_ar: "ادفع نقداً عند وصول المندوب",
+    desc_he: "שלם במזומן כשהשליח מגיע",
+    color: "#16A34A",
+    emoji: "💵",
+  },
+];
+function Lm() {
+  const { t: e, lang: t, name: n } = Fe(),
+    { items: r, subtotal: a, deliveryFee: s, total: i, clearCart: c } = kn(),
+    o = Ue(),
+    [u, x] = k.useState(null),
+    [f, p] = k.useState(""),
+    [y, v] = k.useState(""),
+    [g, _] = k.useState(""),
+    [h, d] = k.useState(""),
+    [m, w] = k.useState(!1),
+    C = () => {
+      !u ||
+        !f ||
+        (w(!0),
+        setTimeout(() => {
+          (c(), o("/confirmation"));
+        }, 2e3));
+    };
+  return l.jsxs("div", {
+    className: "min-h-screen bg-brand-black",
+    children: [
+      l.jsx(Nn, {}),
+      l.jsx(wr, {}),
+      l.jsxs("div", {
+        className: "pt-20 pb-24 px-4 max-w-2xl mx-auto space-y-6",
+        children: [
+          l.jsxs("div", {
+            className: "rounded-3xl p-6",
+            style: {
+              background: "#1A1A1A",
+              border: "1px solid rgba(255,255,255,0.08)",
+            },
+            children: [
+              l.jsxs("div", {
+                className: "flex items-center gap-3 mb-5",
+                children: [
+                  l.jsx("div", {
+                    className:
+                      "w-9 h-9 rounded-xl flex items-center justify-center",
+                    style: {
+                      background: "linear-gradient(135deg, #CC0000, #990000)",
+                    },
+                    children: l.jsx(jd, { size: 18, className: "text-white" }),
+                  }),
+                  l.jsx("h2", {
+                    className: "text-white font-black text-lg",
+                    children: e.address,
+                  }),
+                ],
+              }),
+              l.jsxs("div", {
+                className: "space-y-3",
+                children: [
+                  l.jsx("input", {
+                    type: "text",
+                    placeholder:
+                      t === "ar"
+                        ? "اسم الشارع ورقم البيت"
+                        : "שם רחוב ומספר בית",
+                    value: f,
+                    onChange: (N) => p(N.target.value),
+                    className: "input-field",
+                  }),
+                  l.jsx("input", {
+                    type: "text",
+                    placeholder: t === "ar" ? "المدينة" : "עיר",
+                    value: y,
+                    onChange: (N) => v(N.target.value),
+                    className: "input-field",
+                  }),
+                  l.jsx("textarea", {
+                    placeholder:
+                      t === "ar"
+                        ? "ملاحظات للمندوب (اختياري)"
+                        : "הערות לשליח (אופציונלי)",
+                    value: g,
+                    onChange: (N) => _(N.target.value),
+                    className: "input-field resize-none",
+                    rows: 2,
+                  }),
+                ],
+              }),
+              l.jsxs("div", {
+                className: "flex items-center gap-2 mt-4 p-3 rounded-xl",
+                style: {
+                  background: "rgba(204,0,0,0.1)",
+                  border: "1px solid rgba(204,0,0,0.2)",
+                },
+                children: [
+                  l.jsx(kd, { size: 16, className: "text-brand-red" }),
+                  l.jsx("span", {
+                    className: "text-white/70 text-sm",
+                    children:
+                      t === "ar" ? "وقت التوصيل المتوقع:" : "זמן אספקה משוער:",
+                  }),
+                  l.jsxs("span", {
+                    className: "text-white font-bold text-sm",
+                    children: ["30–45 ", t === "ar" ? "دقيقة" : "דקות"],
+                  }),
+                ],
+              }),
+            ],
+          }),
+          l.jsxs("div", {
+            className: "rounded-3xl p-6",
+            style: {
+              background: "#1A1A1A",
+              border: "1px solid rgba(255,255,255,0.08)",
+            },
+            children: [
+              l.jsxs("div", {
+                className: "flex items-center gap-3 mb-5",
+                children: [
+                  l.jsx("div", {
+                    className:
+                      "w-9 h-9 rounded-xl flex items-center justify-center",
+                    style: {
+                      background: "linear-gradient(135deg, #CC0000, #990000)",
+                    },
+                    children: l.jsx(hi, { size: 18, className: "text-white" }),
+                  }),
+                  l.jsx("h2", {
+                    className: "text-white font-black text-lg",
+                    children: e.paymentMethod,
+                  }),
+                ],
+              }),
+              l.jsx("div", {
+                className: "space-y-3",
+                children: Fm.map((N) =>
+                  l.jsxs(
+                    "button",
+                    {
+                      onClick: () => x(N.id),
+                      className:
+                        "w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-200 text-right",
+                      style: {
+                        background:
+                          u === N.id
+                            ? "rgba(204,0,0,0.1)"
+                            : "rgba(255,255,255,0.04)",
+                        border:
+                          u === N.id
+                            ? "2px solid #CC0000"
+                            : "2px solid rgba(255,255,255,0.06)",
+                        transform: u === N.id ? "scale(1.01)" : "scale(1)",
+                      },
+                      children: [
+                        l.jsx("div", {
+                          className:
+                            "w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-xl font-black",
+                          style: { background: `${N.color}22`, color: N.color },
+                          children: N.appleIcon
+                            ? l.jsx("svg", {
+                                viewBox: "0 0 24 24",
+                                width: "24",
+                                height: "24",
+                                fill: "white",
+                                children: l.jsx("path", {
+                                  d: "M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z",
+                                }),
+                              })
+                            : N.googleIcon
+                              ? l.jsxs("svg", {
+                                  viewBox: "0 0 24 24",
+                                  width: "24",
+                                  height: "24",
+                                  children: [
+                                    l.jsx("path", {
+                                      fill: "#4285F4",
+                                      d: "M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z",
+                                    }),
+                                    l.jsx("path", {
+                                      fill: "#34A853",
+                                      d: "M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z",
+                                    }),
+                                    l.jsx("path", {
+                                      fill: "#FBBC05",
+                                      d: "M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z",
+                                    }),
+                                    l.jsx("path", {
+                                      fill: "#EA4335",
+                                      d: "M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z",
+                                    }),
+                                  ],
+                                })
+                              : l.jsx("span", {
+                                  style: { fontSize: 22 },
+                                  children: N.emoji,
+                                }),
+                        }),
+                        l.jsxs("div", {
+                          className: "flex-1",
+                          children: [
+                            l.jsx("p", {
+                              className: "text-white font-bold text-base",
+                              children: t === "ar" ? N.label_ar : N.label_he,
+                            }),
+                            l.jsx("p", {
+                              className: "text-white/50 text-xs",
+                              children: t === "ar" ? N.desc_ar : N.desc_he,
+                            }),
+                          ],
+                        }),
+                        l.jsx("div", {
+                          className:
+                            "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 transition-all",
+                          style: {
+                            background: u === N.id ? "#CC0000" : "transparent",
+                            border:
+                              u === N.id
+                                ? "2px solid #CC0000"
+                                : "2px solid rgba(255,255,255,0.3)",
+                          },
+                          children:
+                            u === N.id &&
+                            l.jsx(hm, { size: 12, className: "text-white" }),
+                        }),
+                      ],
+                    },
+                    N.id,
+                  ),
+                ),
+              }),
+              u === "card" &&
+                l.jsxs("div", {
+                  className: "mt-4 space-y-3",
+                  style: { animation: "fadeSlideUp 0.3s ease-out" },
+                  children: [
+                    l.jsx("input", {
+                      type: "text",
+                      placeholder: "0000 0000 0000 0000",
+                      value: h,
+                      onChange: (N) =>
+                        d(
+                          N.target.value
+                            .replace(/\D/g, "")
+                            .slice(0, 16)
+                            .replace(/(.{4})/g, "$1 ")
+                            .trim(),
+                        ),
+                      className:
+                        "input-field text-center tracking-widest font-bold",
+                      dir: "ltr",
+                    }),
+                    l.jsxs("div", {
+                      className: "grid grid-cols-2 gap-3",
+                      children: [
+                        l.jsx("input", {
+                          type: "text",
+                          placeholder: "MM/YY",
+                          className: "input-field text-center",
+                          dir: "ltr",
+                        }),
+                        l.jsx("input", {
+                          type: "text",
+                          placeholder: "CVV",
+                          className: "input-field text-center",
+                          dir: "ltr",
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      className: "flex items-center gap-2 p-3 rounded-xl",
+                      style: {
+                        background: "rgba(22,163,74,0.1)",
+                        border: "1px solid rgba(22,163,74,0.3)",
+                      },
+                      children: [
+                        l.jsx("span", {
+                          className: "text-green-400 text-sm",
+                          children: "🔒",
+                        }),
+                        l.jsx("span", {
+                          className: "text-green-400 text-xs font-semibold",
+                          children:
+                            t === "ar"
+                              ? "دفع آمن ومشفر بواسطة Tranzila"
+                              : "תשלום מאובטח ומוצפן באמצעות Tranzila",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+            ],
+          }),
+          l.jsxs("div", {
+            className: "rounded-3xl p-6",
+            style: {
+              background: "#1A1A1A",
+              border: "1px solid rgba(255,255,255,0.08)",
+            },
+            children: [
+              l.jsx("h2", {
+                className: "text-white font-black text-lg mb-4",
+                children: e.orderDetails,
+              }),
+              l.jsxs("div", {
+                className: "space-y-2 text-sm",
+                children: [
+                  r.map((N) =>
+                    l.jsxs(
+                      "div",
+                      {
+                        className: "flex justify-between text-white/70",
+                        children: [
+                          l.jsxs("span", { children: [n(N), " × ", N.qty] }),
+                          l.jsxs("span", {
+                            className: "text-white",
+                            children: [e.nis, (N.price * N.qty).toFixed(0)],
+                          }),
+                        ],
+                      },
+                      N.id,
+                    ),
+                  ),
+                  l.jsxs("div", {
+                    className: "border-t border-white/10 pt-2 mt-2 space-y-2",
+                    children: [
+                      l.jsxs("div", {
+                        className: "flex justify-between text-white/60",
+                        children: [
+                          l.jsx("span", { children: e.subtotal }),
+                          l.jsxs("span", { children: [e.nis, a.toFixed(0)] }),
+                        ],
+                      }),
+                      l.jsxs("div", {
+                        className: "flex justify-between text-white/60",
+                        children: [
+                          l.jsx("span", { children: e.delivery }),
+                          l.jsx("span", {
+                            className: s === 0 ? "text-green-400" : "",
+                            children: s === 0 ? e.free : `${e.nis}${s}`,
+                          }),
+                        ],
+                      }),
+                      l.jsxs("div", {
+                        className:
+                          "flex justify-between text-white font-black text-lg pt-2 border-t border-white/10",
+                        children: [
+                          l.jsx("span", { children: e.total }),
+                          l.jsxs("span", {
+                            className: "text-brand-red",
+                            children: [e.nis, i.toFixed(0)],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+          l.jsx("button", {
+            onClick: C,
+            disabled: !u || !f || m,
+            className:
+              "w-full py-5 rounded-2xl font-black text-white text-xl transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden",
+            style: {
+              background: "linear-gradient(135deg, #CC0000, #990000)",
+              boxShadow: "0 4px 30px rgba(204,0,0,0.5)",
+            },
+            children: m
+              ? l.jsxs("span", {
+                  className: "flex items-center justify-center gap-3",
+                  children: [
+                    l.jsxs("svg", {
+                      className: "animate-spin w-6 h-6",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      children: [
+                        l.jsx("circle", {
+                          cx: "12",
+                          cy: "12",
+                          r: "10",
+                          stroke: "rgba(255,255,255,0.3)",
+                          strokeWidth: "4",
+                        }),
+                        l.jsx("path", {
+                          d: "M12 2a10 10 0 0110 10",
+                          stroke: "white",
+                          strokeWidth: "4",
+                          strokeLinecap: "round",
+                        }),
+                      ],
+                    }),
+                    t === "ar" ? "جاري المعالجة..." : "מעבד...",
+                  ],
+                })
+              : l.jsxs("span", {
+                  children: [e.placeOrder, " — ", e.nis, i.toFixed(0), " ←"],
+                }),
+          }),
+          !u &&
+            l.jsx("p", {
+              className: "text-center text-red-400 text-sm",
+              children: "* يرجى اختيار طريقة الدفع",
+            }),
+          u &&
+            !f &&
+            l.jsx("p", {
+              className: "text-center text-red-400 text-sm",
+              children: "* يرجى إدخال عنوان التوصيل",
+            }),
+        ],
+      }),
+      l.jsx("style", {
+        children: `
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-      `})]})}const $o="ORD-"+Math.floor(1e3+Math.random()*9e3),Bo=[{icon:un,label_ar:"تم تأكيد الطلب",label_he:"ההזמנה אושרה",done:!0},{icon:mi,label_ar:"جاري التحضير",label_he:"בהכנה",done:!1},{icon:dt,label_ar:"في الطريق إليك",label_he:"בדרך אליך",done:!1},{icon:wm,label_ar:"تم التسليم",label_he:"נמסר",done:!1}];function Mm(){const{t:e,lang:t}=Fe(),n=Ue(),[r,a]=k.useState(0),[s,i]=k.useState(!1);return k.useEffect(()=>{i(!0);const c=setTimeout(()=>i(!1),3e3);return()=>clearTimeout(c)},[]),l.jsxs("div",{className:"min-h-screen bg-brand-black",children:[l.jsx(Nn,{}),s&&l.jsx("div",{className:"fixed inset-0 z-50 pointer-events-none overflow-hidden",children:[...Array(20)].map((c,o)=>l.jsx("div",{className:"absolute w-2 h-2 rounded-full",style:{left:`${Math.random()*100}%`,top:"-10px",background:o%3===0?"#CC0000":o%3===1?"#FFFFFF":"#990000",animation:`confettiFall ${1+Math.random()*2}s ease-in ${Math.random()*.5}s forwards`}},o))}),l.jsxs("div",{className:"pt-20 pb-24 px-4 max-w-md mx-auto",children:[l.jsxs("div",{className:"text-center py-10",children:[l.jsx("div",{className:"w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6",style:{background:"linear-gradient(135deg, #16A34A, #15803D)",boxShadow:"0 0 40px rgba(22,163,74,0.5)",animation:"scaleIn 0.5s ease-out"},children:l.jsx(un,{size:48,className:"text-white"})}),l.jsx("h1",{className:"text-3xl font-black text-white mb-2",style:{animation:"fadeSlideUp 0.5s ease-out 0.2s both"},children:e.orderConfirmed}),l.jsxs("p",{className:"text-brand-gray-light text-sm mb-1",style:{animation:"fadeSlideUp 0.5s ease-out 0.3s both"},children:[e.orderId,":"," ",l.jsx("span",{className:"text-brand-red font-black",children:$o})]}),l.jsxs("p",{className:"text-brand-gray-light text-sm",style:{animation:"fadeSlideUp 0.5s ease-out 0.4s both"},children:[e.estimatedDelivery,":"," ",l.jsxs("span",{className:"text-white font-bold",children:["30–45 ",e.minutes]})]})]}),l.jsxs("div",{className:"rounded-3xl p-6 mb-6",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.08)",animation:"fadeSlideUp 0.5s ease-out 0.5s both"},children:[l.jsxs("div",{className:"flex items-center gap-3 mb-4",children:[l.jsx("div",{className:"w-9 h-9 rounded-xl flex items-center justify-center",style:{background:"rgba(255,255,255,0.06)"},children:l.jsx(Nm,{size:18,className:"text-white/60"})}),l.jsx("h2",{className:"text-white font-black",children:t==="ar"?"إيصال الطلب":"קבלה"})]}),l.jsxs("div",{className:"space-y-2 text-sm border-t border-white/10 pt-4",children:[l.jsxs("div",{className:"flex justify-between",children:[l.jsx("span",{className:"text-white/60",children:e.orderId}),l.jsx("span",{className:"text-white font-mono",children:$o})]}),l.jsxs("div",{className:"flex justify-between",children:[l.jsx("span",{className:"text-white/60",children:t==="ar"?"التاريخ":"תאריך"}),l.jsx("span",{className:"text-white",children:new Date().toLocaleDateString(t==="ar"?"ar-IL":"he-IL")})]}),l.jsxs("div",{className:"flex justify-between",children:[l.jsx("span",{className:"text-white/60",children:t==="ar"?"طريقة الدفع":"אמצעי תשלום"}),l.jsxs("span",{className:"text-white flex items-center gap-1.5",children:[l.jsx(hi,{size:14,className:"inline"})," ",t==="ar"?"بطاقة ائتمان":"כרטיס אשראי"]})]}),l.jsxs("div",{className:"border-t border-white/10 pt-2 flex justify-between font-black text-base",children:[l.jsx("span",{className:"text-white",children:e.total}),l.jsxs("span",{className:"text-brand-red",children:[e.nis,"285"]})]})]})]}),l.jsxs("div",{className:"rounded-3xl p-6 mb-8",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.08)",animation:"fadeSlideUp 0.5s ease-out 0.6s both"},children:[l.jsx("h2",{className:"text-white font-black mb-6",children:t==="ar"?"تتبع طلبك":"עקוב אחר ההזמנה"}),l.jsxs("div",{className:"relative",children:[l.jsx("div",{className:"absolute top-5 right-5 left-5 h-0.5",style:{background:"rgba(255,255,255,0.1)"}}),l.jsx("div",{className:"absolute top-5 right-5 h-0.5 transition-all duration-1000",style:{background:"linear-gradient(90deg, #CC0000, #FF1A1A)",width:`${r/(Bo.length-1)*80}%`}}),l.jsx("div",{className:"flex justify-between relative z-10",children:Bo.map((c,o)=>{const u=c.icon,x=o===r,f=o<r;return l.jsxs("div",{className:"flex flex-col items-center gap-2 w-16",children:[l.jsx("button",{onClick:()=>a(o),className:"w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",style:{background:f?"#16A34A":x?"#CC0000":"rgba(255,255,255,0.08)",border:x?"2px solid rgba(204,0,0,0.5)":"2px solid transparent",boxShadow:x?"0 0 15px rgba(204,0,0,0.4)":"none"},children:l.jsx(u,{size:18,className:"text-white"})}),l.jsx("p",{className:"text-white/60 text-xs text-center leading-tight",children:t==="ar"?c.label_ar:c.label_he})]},o)})})]}),l.jsx("p",{className:"text-center text-white/40 text-xs mt-6",children:t==="ar"?"* اضغط على مرحلة لمحاكاة التتبع":"* לחץ על שלב לסימולציית מעקב"})]}),l.jsx("button",{onClick:()=>n("/categories"),className:"w-full py-4 rounded-2xl font-black text-white text-lg transition-all hover:scale-[1.02] active:scale-95",style:{background:"linear-gradient(135deg, #CC0000, #990000)",boxShadow:"0 4px 20px rgba(204,0,0,0.4)"},children:e.backToShopping})]}),l.jsx("style",{children:`
+      `,
+      }),
+    ],
+  });
+}
+const $o = "ORD-" + Math.floor(1e3 + Math.random() * 9e3),
+  Bo = [
+    {
+      icon: un,
+      label_ar: "تم تأكيد الطلب",
+      label_he: "ההזמנה אושרה",
+      done: !0,
+    },
+    { icon: mi, label_ar: "جاري التحضير", label_he: "בהכנה", done: !1 },
+    { icon: dt, label_ar: "في الطريق إليك", label_he: "בדרך אליך", done: !1 },
+    { icon: wm, label_ar: "تم التسليم", label_he: "נמסר", done: !1 },
+  ];
+function Mm() {
+  const { t: e, lang: t } = Fe(),
+    n = Ue(),
+    [r, a] = k.useState(0),
+    [s, i] = k.useState(!1);
+  return (
+    k.useEffect(() => {
+      i(!0);
+      const c = setTimeout(() => i(!1), 3e3);
+      return () => clearTimeout(c);
+    }, []),
+    l.jsxs("div", {
+      className: "min-h-screen bg-brand-black",
+      children: [
+        l.jsx(Nn, {}),
+        s &&
+          l.jsx("div", {
+            className: "fixed inset-0 z-50 pointer-events-none overflow-hidden",
+            children: [...Array(20)].map((c, o) =>
+              l.jsx(
+                "div",
+                {
+                  className: "absolute w-2 h-2 rounded-full",
+                  style: {
+                    left: `${Math.random() * 100}%`,
+                    top: "-10px",
+                    background:
+                      o % 3 === 0
+                        ? "#CC0000"
+                        : o % 3 === 1
+                          ? "#FFFFFF"
+                          : "#990000",
+                    animation: `confettiFall ${1 + Math.random() * 2}s ease-in ${Math.random() * 0.5}s forwards`,
+                  },
+                },
+                o,
+              ),
+            ),
+          }),
+        l.jsxs("div", {
+          className: "pt-20 pb-24 px-4 max-w-md mx-auto",
+          children: [
+            l.jsxs("div", {
+              className: "text-center py-10",
+              children: [
+                l.jsx("div", {
+                  className:
+                    "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6",
+                  style: {
+                    background: "linear-gradient(135deg, #16A34A, #15803D)",
+                    boxShadow: "0 0 40px rgba(22,163,74,0.5)",
+                    animation: "scaleIn 0.5s ease-out",
+                  },
+                  children: l.jsx(un, { size: 48, className: "text-white" }),
+                }),
+                l.jsx("h1", {
+                  className: "text-3xl font-black text-white mb-2",
+                  style: { animation: "fadeSlideUp 0.5s ease-out 0.2s both" },
+                  children: e.orderConfirmed,
+                }),
+                l.jsxs("p", {
+                  className: "text-brand-gray-light text-sm mb-1",
+                  style: { animation: "fadeSlideUp 0.5s ease-out 0.3s both" },
+                  children: [
+                    e.orderId,
+                    ":",
+                    " ",
+                    l.jsx("span", {
+                      className: "text-brand-red font-black",
+                      children: $o,
+                    }),
+                  ],
+                }),
+                l.jsxs("p", {
+                  className: "text-brand-gray-light text-sm",
+                  style: { animation: "fadeSlideUp 0.5s ease-out 0.4s both" },
+                  children: [
+                    e.estimatedDelivery,
+                    ":",
+                    " ",
+                    l.jsxs("span", {
+                      className: "text-white font-bold",
+                      children: ["30–45 ", e.minutes],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            l.jsxs("div", {
+              className: "rounded-3xl p-6 mb-6",
+              style: {
+                background: "#1A1A1A",
+                border: "1px solid rgba(255,255,255,0.08)",
+                animation: "fadeSlideUp 0.5s ease-out 0.5s both",
+              },
+              children: [
+                l.jsxs("div", {
+                  className: "flex items-center gap-3 mb-4",
+                  children: [
+                    l.jsx("div", {
+                      className:
+                        "w-9 h-9 rounded-xl flex items-center justify-center",
+                      style: { background: "rgba(255,255,255,0.06)" },
+                      children: l.jsx(Nm, {
+                        size: 18,
+                        className: "text-white/60",
+                      }),
+                    }),
+                    l.jsx("h2", {
+                      className: "text-white font-black",
+                      children: t === "ar" ? "إيصال الطلب" : "קבלה",
+                    }),
+                  ],
+                }),
+                l.jsxs("div", {
+                  className: "space-y-2 text-sm border-t border-white/10 pt-4",
+                  children: [
+                    l.jsxs("div", {
+                      className: "flex justify-between",
+                      children: [
+                        l.jsx("span", {
+                          className: "text-white/60",
+                          children: e.orderId,
+                        }),
+                        l.jsx("span", {
+                          className: "text-white font-mono",
+                          children: $o,
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      className: "flex justify-between",
+                      children: [
+                        l.jsx("span", {
+                          className: "text-white/60",
+                          children: t === "ar" ? "التاريخ" : "תאריך",
+                        }),
+                        l.jsx("span", {
+                          className: "text-white",
+                          children: new Date().toLocaleDateString(
+                            t === "ar" ? "ar-IL" : "he-IL",
+                          ),
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      className: "flex justify-between",
+                      children: [
+                        l.jsx("span", {
+                          className: "text-white/60",
+                          children: t === "ar" ? "طريقة الدفع" : "אמצעי תשלום",
+                        }),
+                        l.jsxs("span", {
+                          className: "text-white flex items-center gap-1.5",
+                          children: [
+                            l.jsx(hi, { size: 14, className: "inline" }),
+                            " ",
+                            t === "ar" ? "بطاقة ائتمان" : "כרטיס אשראי",
+                          ],
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      className:
+                        "border-t border-white/10 pt-2 flex justify-between font-black text-base",
+                      children: [
+                        l.jsx("span", {
+                          className: "text-white",
+                          children: e.total,
+                        }),
+                        l.jsxs("span", {
+                          className: "text-brand-red",
+                          children: [e.nis, "285"],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            l.jsxs("div", {
+              className: "rounded-3xl p-6 mb-8",
+              style: {
+                background: "#1A1A1A",
+                border: "1px solid rgba(255,255,255,0.08)",
+                animation: "fadeSlideUp 0.5s ease-out 0.6s both",
+              },
+              children: [
+                l.jsx("h2", {
+                  className: "text-white font-black mb-6",
+                  children: t === "ar" ? "تتبع طلبك" : "עקוב אחר ההזמנה",
+                }),
+                l.jsxs("div", {
+                  className: "relative",
+                  children: [
+                    l.jsx("div", {
+                      className: "absolute top-5 right-5 left-5 h-0.5",
+                      style: { background: "rgba(255,255,255,0.1)" },
+                    }),
+                    l.jsx("div", {
+                      className:
+                        "absolute top-5 right-5 h-0.5 transition-all duration-1000",
+                      style: {
+                        background: "linear-gradient(90deg, #CC0000, #FF1A1A)",
+                        width: `${(r / (Bo.length - 1)) * 80}%`,
+                      },
+                    }),
+                    l.jsx("div", {
+                      className: "flex justify-between relative z-10",
+                      children: Bo.map((c, o) => {
+                        const u = c.icon,
+                          x = o === r,
+                          f = o < r;
+                        return l.jsxs(
+                          "div",
+                          {
+                            className: "flex flex-col items-center gap-2 w-16",
+                            children: [
+                              l.jsx("button", {
+                                onClick: () => a(o),
+                                className:
+                                  "w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",
+                                style: {
+                                  background: f
+                                    ? "#16A34A"
+                                    : x
+                                      ? "#CC0000"
+                                      : "rgba(255,255,255,0.08)",
+                                  border: x
+                                    ? "2px solid rgba(204,0,0,0.5)"
+                                    : "2px solid transparent",
+                                  boxShadow: x
+                                    ? "0 0 15px rgba(204,0,0,0.4)"
+                                    : "none",
+                                },
+                                children: l.jsx(u, {
+                                  size: 18,
+                                  className: "text-white",
+                                }),
+                              }),
+                              l.jsx("p", {
+                                className:
+                                  "text-white/60 text-xs text-center leading-tight",
+                                children: t === "ar" ? c.label_ar : c.label_he,
+                              }),
+                            ],
+                          },
+                          o,
+                        );
+                      }),
+                    }),
+                  ],
+                }),
+                l.jsx("p", {
+                  className: "text-center text-white/40 text-xs mt-6",
+                  children:
+                    t === "ar"
+                      ? "* اضغط على مرحلة لمحاكاة التتبع"
+                      : "* לחץ על שלב לסימולציית מעקב",
+                }),
+              ],
+            }),
+            l.jsx("button", {
+              onClick: () => n("/categories"),
+              className:
+                "w-full py-4 rounded-2xl font-black text-white text-lg transition-all hover:scale-[1.02] active:scale-95",
+              style: {
+                background: "linear-gradient(135deg, #CC0000, #990000)",
+                boxShadow: "0 4px 20px rgba(204,0,0,0.4)",
+              },
+              children: e.backToShopping,
+            }),
+          ],
+        }),
+        l.jsx("style", {
+          children: `
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
@@ -320,14 +13870,2342 @@ Error generating stack: `+s.message+`
           0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
           100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
         }
-      `})]})}const Et={pending:"#F59E0B",confirmed:"#3B82F6",preparing:"#8B5CF6",delivering:"#F97316",delivered:"#16A34A"},$r={pending:"قيد الانتظار",confirmed:"مؤكد",preparing:"جاري التحضير",delivering:"في التوصيل",delivered:"تم التوصيل"};function Br({icon:e,label:t,value:n,sub:r,color:a}){return l.jsxs("div",{className:"rounded-2xl p-5",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsxs("div",{className:"flex items-center justify-between mb-4",children:[l.jsx("div",{className:"w-10 h-10 rounded-xl flex items-center justify-center",style:{background:`${a}22`},children:l.jsx(e,{size:20,style:{color:a}})}),l.jsx("span",{className:"text-green-400 text-xs font-bold",children:"+12%"})]}),l.jsx("p",{className:"text-2xl font-black text-white mb-1",children:n}),l.jsx("p",{className:"text-white/60 text-sm",children:t}),r&&l.jsx("p",{className:"text-white/30 text-xs mt-1",children:r})]})}function Vo({title:e,onClose:t,children:n}){return l.jsx("div",{className:"fixed inset-0 z-50 flex items-center justify-center p-4",style:{background:"rgba(0,0,0,0.85)"},children:l.jsxs("div",{className:"w-full max-w-lg rounded-3xl overflow-hidden",style:{background:"#1A1A1A",border:"1px solid rgba(204,0,0,0.3)"},children:[l.jsxs("div",{className:"flex items-center justify-between p-6 border-b",style:{borderColor:"rgba(255,255,255,0.08)"},children:[l.jsx("h3",{className:"text-white font-black text-lg",children:e}),l.jsx("button",{onClick:t,className:"text-white/40 hover:text-white transition-colors",children:l.jsx(vr,{size:20})})]}),l.jsx("div",{className:"p-6",children:n})]})})}function Tm(){const{lang:e,toggleLang:t}=Fe(),n=Ue(),[r,a]=k.useState("dashboard"),[s,i]=k.useState(_a),[c,o]=k.useState(dr),[u,x]=k.useState(bd),[f,p]=k.useState(!1),[y,v]=k.useState(!1),[g,_]=k.useState(null),[h,d]=k.useState({name_ar:"",name_he:"",image:""}),[m,w]=k.useState({name_ar:"",name_he:"",price:"",description_ar:"",image:"",categoryId:""}),C=[{id:"dashboard",label:"لوحة التحكم",icon:km},{id:"categories",label:"الفئات",icon:Cm},{id:"products",label:"المنتجات",icon:mi},{id:"orders",label:"الطلبات",icon:xs}],N=()=>{i(g?b=>b.map(P=>P.id===g.id?{...P,...h}:P):b=>[...b,{id:Date.now(),...h,count:0,tag_ar:"",tag_he:""}]),p(!1),_(null),d({name_ar:"",name_he:"",image:""})},z=b=>i(P=>P.filter(be=>be.id!==b)),F=b=>o(P=>P.filter(be=>be.id!==b)),B=()=>{o(g?b=>b.map(P=>P.id===g.id?{...P,...m,price:Number(m.price)}:P):b=>[...b,{id:Date.now(),...m,price:Number(m.price),isFeatured:!1,badge_ar:"",badge_he:"",rating:4.5,reviews:0,description_he:m.description_ar}]),v(!1),_(null),w({name_ar:"",name_he:"",price:"",description_ar:"",image:"",categoryId:""})};return l.jsxs("div",{className:"min-h-screen flex",style:{background:"#0A0A0A"},children:[l.jsxs("div",{className:"hidden md:flex flex-col w-64 border-r py-6",style:{background:"#111111",borderColor:"rgba(204,0,0,0.2)",position:"sticky",top:0,height:"100vh"},children:[l.jsxs("div",{className:"px-6 mb-8",children:[l.jsxs("div",{className:"flex items-center gap-3 mb-1",children:[l.jsx("div",{className:"w-9 h-9 rounded-xl flex items-center justify-center",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:l.jsx("span",{style:{fontSize:"14px",fontWeight:900,color:"white",fontFamily:"Cairo, sans-serif"},children:"أد"})}),l.jsx("span",{className:"font-black text-white text-lg",children:"أبو دغش"})]}),l.jsx("span",{className:"text-brand-red text-xs font-bold",children:"لوحة الإدارة"})]}),l.jsx("nav",{className:"flex-1 px-3 space-y-1",children:C.map(b=>{const P=b.icon;return l.jsxs("button",{onClick:()=>a(b.id),className:"w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right transition-all duration-200 group",style:{background:r===b.id?"rgba(204,0,0,0.15)":"transparent",borderRight:r===b.id?"3px solid #CC0000":"3px solid transparent"},children:[l.jsx(P,{size:18,className:r===b.id?"text-brand-red":"text-white/40 group-hover:text-white/70"}),l.jsx("span",{className:`text-sm font-bold ${r===b.id?"text-white":"text-white/50 group-hover:text-white/70"}`,children:b.label})]},b.id)})}),l.jsxs("div",{className:"px-3 space-y-2 mt-4",children:[l.jsxs("button",{onClick:t,className:"w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right text-white/40 hover:text-white/70 transition-colors text-sm",children:[l.jsx(ym,{size:18}),l.jsx("span",{children:e==="ar"?"עברית":"العربية"})]}),l.jsxs("button",{onClick:()=>n("/"),className:"w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right text-white/40 hover:text-white/70 transition-colors text-sm",children:[l.jsx(wd,{size:18}),l.jsx("span",{children:"العودة للمتجر"})]})]})]}),l.jsxs("div",{className:"md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 h-14",style:{background:"#111111",borderBottom:"1px solid rgba(204,0,0,0.2)"},children:[l.jsxs("div",{className:"flex items-center gap-2",children:[l.jsx("div",{className:"w-8 h-8 rounded-lg flex items-center justify-center",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:l.jsx("span",{style:{fontSize:"12px",fontWeight:900,color:"white",fontFamily:"Cairo, sans-serif"},children:"أد"})}),l.jsx("span",{className:"text-white font-black text-sm",children:"لوحة الإدارة"})]}),l.jsx("button",{onClick:()=>n("/"),className:"text-white/50 text-xs",children:"← المتجر"})]}),l.jsxs("div",{className:"flex-1 overflow-auto",children:[l.jsx("div",{className:"md:hidden flex gap-1 overflow-x-auto no-scrollbar p-2 mt-14",style:{background:"#111111",borderBottom:"1px solid rgba(255,255,255,0.06)"},children:C.map(b=>l.jsx("button",{onClick:()=>a(b.id),className:"flex-shrink-0 px-4 py-2 rounded-lg text-xs font-bold transition-all",style:{background:r===b.id?"#CC0000":"rgba(255,255,255,0.06)",color:r===b.id?"white":"rgba(255,255,255,0.5)"},children:b.label},b.id))}),l.jsxs("div",{className:"p-4 md:p-8 max-w-6xl",children:[r==="dashboard"&&l.jsxs("div",{className:"space-y-8",children:[l.jsxs("div",{children:[l.jsx("h1",{className:"text-2xl font-black text-white",children:"مرحباً، أبو دغش"}),l.jsx("p",{className:"text-white/50 text-sm",children:"هذا ملخص نشاط المتجر اليوم"})]}),l.jsxs("div",{className:"grid grid-cols-2 md:grid-cols-4 gap-4",children:[l.jsx(Br,{icon:xm,label:"إجمالي المبيعات",value:"₪3,240",sub:"اليوم",color:"#CC0000"}),l.jsx(Br,{icon:xs,label:"طلبات جديدة",value:"18",sub:"اليوم",color:"#8B5CF6"}),l.jsx(Br,{icon:Sd,label:"عملاء جدد",value:"7",sub:"اليوم",color:"#3B82F6"}),l.jsx(Br,{icon:dt,label:"قيد التوصيل",value:"5",sub:"الآن",color:"#F97316"})]}),l.jsxs("div",{className:"rounded-2xl overflow-hidden",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsxs("div",{className:"flex items-center justify-between p-5 border-b",style:{borderColor:"rgba(255,255,255,0.06)"},children:[l.jsx("h2",{className:"text-white font-black",children:"أحدث الطلبات"}),l.jsx("button",{onClick:()=>a("orders"),className:"text-brand-red text-sm font-bold hover:underline",children:"عرض الكل"})]}),l.jsx("div",{className:"divide-y",style:{borderColor:"rgba(255,255,255,0.04)"},children:u.slice(0,4).map(b=>l.jsxs("div",{className:"flex items-center justify-between px-5 py-4",children:[l.jsxs("div",{className:"flex items-center gap-3",children:[l.jsx("div",{className:"w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black text-white",style:{background:"#2A2A2A"},children:b.customer[0]}),l.jsxs("div",{children:[l.jsx("p",{className:"text-white font-bold text-sm",children:b.customer}),l.jsxs("p",{className:"text-white/40 text-xs",children:[b.id," · ",b.items," منتجات"]})]})]}),l.jsxs("div",{className:"flex items-center gap-3",children:[l.jsxs("span",{className:"text-white font-bold text-sm",children:["₪",b.total]}),l.jsx("span",{className:"px-3 py-1 rounded-full text-xs font-black",style:{background:`${Et[b.status]}22`,color:Et[b.status]},children:$r[b.status]})]})]},b.id))})]})]}),r==="categories"&&l.jsxs("div",{className:"space-y-6",children:[l.jsxs("div",{className:"flex items-center justify-between",children:[l.jsxs("div",{children:[l.jsx("h1",{className:"text-2xl font-black text-white",children:"الفئات"}),l.jsxs("p",{className:"text-white/50 text-sm",children:[s.length," فئة"]})]}),l.jsxs("button",{onClick:()=>{_(null),d({name_ar:"",name_he:"",image:""}),p(!0)},className:"flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-white transition-all hover:scale-105",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:[l.jsx(fr,{size:18}),"إضافة فئة"]})]}),l.jsx("div",{className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",children:s.map(b=>l.jsxs("div",{className:"rounded-2xl overflow-hidden group",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsxs("div",{className:"relative h-32 overflow-hidden",children:[l.jsx("img",{src:b.image,alt:b.name_ar,className:"w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"}),l.jsx("div",{className:"absolute inset-0",style:{background:"linear-gradient(180deg, transparent, rgba(0,0,0,0.6))"}}),l.jsxs("div",{className:"absolute top-2 left-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity",children:[l.jsx("button",{onClick:()=>{_(b),d({name_ar:b.name_ar,name_he:b.name_he,image:b.image}),p(!0)},className:"w-8 h-8 rounded-lg flex items-center justify-center text-white transition-colors",style:{background:"rgba(0,0,0,0.7)"},children:l.jsx(Do,{size:14})}),l.jsx("button",{onClick:()=>z(b.id),className:"w-8 h-8 rounded-lg flex items-center justify-center text-red-400 transition-colors",style:{background:"rgba(0,0,0,0.7)"},children:l.jsx(gs,{size:14})})]})]}),l.jsxs("div",{className:"p-4",children:[l.jsx("p",{className:"text-white font-black",children:b.name_ar}),l.jsx("p",{className:"text-white/40 text-sm",children:b.name_he}),l.jsxs("p",{className:"text-white/30 text-xs mt-1",children:[b.count," منتج"]})]})]},b.id))})]}),r==="products"&&l.jsxs("div",{className:"space-y-6",children:[l.jsxs("div",{className:"flex items-center justify-between",children:[l.jsxs("div",{children:[l.jsx("h1",{className:"text-2xl font-black text-white",children:"المنتجات"}),l.jsxs("p",{className:"text-white/50 text-sm",children:[c.length," منتج"]})]}),l.jsxs("button",{onClick:()=>{_(null),w({name_ar:"",name_he:"",price:"",description_ar:"",image:"",categoryId:""}),v(!0)},className:"flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-white transition-all hover:scale-105",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:[l.jsx(fr,{size:18}),"إضافة منتج"]})]}),l.jsx("div",{className:"rounded-2xl overflow-hidden",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},children:l.jsxs("table",{className:"w-full",children:[l.jsx("thead",{children:l.jsxs("tr",{style:{borderBottom:"1px solid rgba(255,255,255,0.06)"},children:[l.jsx("th",{className:"text-right text-white/40 text-xs font-bold p-4",children:"المنتج"}),l.jsx("th",{className:"text-right text-white/40 text-xs font-bold p-4 hidden md:table-cell",children:"الفئة"}),l.jsx("th",{className:"text-right text-white/40 text-xs font-bold p-4",children:"السعر"}),l.jsx("th",{className:"text-right text-white/40 text-xs font-bold p-4 hidden md:table-cell",children:"التقييم"}),l.jsx("th",{className:"text-right text-white/40 text-xs font-bold p-4",children:"إجراءات"})]})}),l.jsx("tbody",{children:c.map(b=>{const P=s.find(be=>be.id===b.categoryId);return l.jsxs("tr",{className:"transition-colors hover:bg-white/[0.02]",style:{borderBottom:"1px solid rgba(255,255,255,0.04)"},children:[l.jsx("td",{className:"p-4",children:l.jsxs("div",{className:"flex items-center gap-3",children:[l.jsx("img",{src:b.image,alt:b.name_ar,className:"w-10 h-10 rounded-xl object-cover"}),l.jsxs("div",{children:[l.jsx("p",{className:"text-white font-bold text-sm",children:b.name_ar}),l.jsx("p",{className:"text-white/40 text-xs line-clamp-1",children:b.name_he})]})]})}),l.jsx("td",{className:"p-4 hidden md:table-cell",children:l.jsx("span",{className:"text-white/60 text-sm",children:P==null?void 0:P.name_ar})}),l.jsx("td",{className:"p-4",children:l.jsxs("span",{className:"text-brand-red font-black",children:["₪",b.price]})}),l.jsx("td",{className:"p-4 hidden md:table-cell",children:l.jsxs("div",{className:"flex items-center gap-1",children:[l.jsx(jn,{size:13,className:"text-yellow-400 fill-yellow-400"}),l.jsx("span",{className:"text-white text-sm",children:b.rating})]})}),l.jsx("td",{className:"p-4",children:l.jsxs("div",{className:"flex items-center gap-2",children:[l.jsx("button",{onClick:()=>{_(b),w({name_ar:b.name_ar,name_he:b.name_he,price:String(b.price),description_ar:b.description_ar,image:b.image,categoryId:String(b.categoryId)}),v(!0)},className:"w-8 h-8 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors",children:l.jsx(Do,{size:14})}),l.jsx("button",{onClick:()=>F(b.id),className:"w-8 h-8 rounded-lg flex items-center justify-center text-red-400/50 hover:text-red-400 hover:bg-red-400/10 transition-colors",children:l.jsx(gs,{size:14})})]})})]},b.id)})})]})})]}),r==="orders"&&l.jsxs("div",{className:"space-y-6",children:[l.jsxs("div",{children:[l.jsx("h1",{className:"text-2xl font-black text-white",children:"الطلبات"}),l.jsxs("p",{className:"text-white/50 text-sm",children:[u.length," طلبات نشطة"]})]}),l.jsx("div",{className:"space-y-3",children:u.map(b=>l.jsxs("div",{className:"rounded-2xl p-5",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsxs("div",{className:"flex items-start justify-between mb-3",children:[l.jsxs("div",{children:[l.jsxs("div",{className:"flex items-center gap-3",children:[l.jsx("span",{className:"text-white font-black",children:b.customer}),l.jsx("span",{className:"px-3 py-0.5 rounded-full text-xs font-black",style:{background:`${Et[b.status]}22`,color:Et[b.status]},children:$r[b.status]})]}),l.jsxs("p",{className:"text-white/40 text-sm mt-1",children:[b.id," · ",b.phone]})]}),l.jsxs("div",{className:"text-right",children:[l.jsxs("p",{className:"text-brand-red font-black text-lg",children:["₪",b.total]}),l.jsxs("p",{className:"text-white/40 text-xs",children:[b.time," · ",b.items," منتجات"]})]})]}),l.jsx("div",{className:"flex gap-2",children:Object.keys($r).map(P=>l.jsx("button",{onClick:()=>x(be=>be.map(Qe=>Qe.id===b.id?{...Qe,status:P}:Qe)),className:"flex-1 py-1.5 rounded-lg text-xs font-bold transition-all",style:{background:b.status===P?`${Et[P]}33`:"rgba(255,255,255,0.04)",color:b.status===P?Et[P]:"rgba(255,255,255,0.3)",border:b.status===P?`1px solid ${Et[P]}44`:"1px solid transparent"},children:$r[P]},P))})]},b.id))})]})]})]}),f&&l.jsx(Vo,{title:g?"تعديل الفئة":"إضافة فئة جديدة",onClose:()=>p(!1),children:l.jsxs("div",{className:"space-y-4",children:[l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"اسم الفئة (عربي)"}),l.jsx("input",{type:"text",value:h.name_ar,onChange:b=>d(P=>({...P,name_ar:b.target.value})),className:"input-field",placeholder:"مثال: لحم بقري"})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"اسم الفئة (عبري)"}),l.jsx("input",{type:"text",value:h.name_he,onChange:b=>d(P=>({...P,name_he:b.target.value})),className:"input-field",placeholder:"מثال: בקר",dir:"rtl"})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"رابط الصورة"}),l.jsxs("div",{className:"flex gap-2",children:[l.jsx("input",{type:"text",value:h.image,onChange:b=>d(P=>({...P,image:b.target.value})),className:"input-field flex-1",placeholder:"https://..."}),l.jsxs("button",{className:"px-4 py-3 rounded-xl text-white/50 border border-white/10 hover:border-brand-red hover:text-white transition-colors flex items-center gap-2 text-sm",children:[l.jsx(Uo,{size:16}),"رفع"]})]})]}),h.image&&l.jsx("img",{src:h.image,alt:"preview",className:"w-full h-32 object-cover rounded-xl"}),l.jsxs("div",{className:"flex gap-3 pt-2",children:[l.jsx("button",{onClick:N,className:"flex-1 py-3 rounded-xl font-black text-white transition-all hover:scale-[1.02]",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:"حفظ"}),l.jsx("button",{onClick:()=>p(!1),className:"flex-1 py-3 rounded-xl font-bold text-white/60 border border-white/10 hover:border-white/30 transition-colors",children:"إلغاء"})]})]})}),y&&l.jsxs(Vo,{title:g?"تعديل المنتج":"إضافة منتج جديد",onClose:()=>v(!1),children:[l.jsxs("div",{className:"space-y-4 max-h-96 overflow-y-auto",children:[l.jsxs("div",{className:"grid grid-cols-2 gap-3",children:[l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"الاسم (عربي)"}),l.jsx("input",{type:"text",value:m.name_ar,onChange:b=>w(P=>({...P,name_ar:b.target.value})),className:"input-field",placeholder:"اسم المنتج"})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"الاسم (عبري)"}),l.jsx("input",{type:"text",value:m.name_he,onChange:b=>w(P=>({...P,name_he:b.target.value})),className:"input-field",placeholder:"שם המוצר",dir:"rtl"})]})]}),l.jsxs("div",{className:"grid grid-cols-2 gap-3",children:[l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"السعر (₪/كغ)"}),l.jsx("input",{type:"number",value:m.price,onChange:b=>w(P=>({...P,price:b.target.value})),className:"input-field",placeholder:"0"})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"الفئة"}),l.jsxs("select",{value:m.categoryId,onChange:b=>w(P=>({...P,categoryId:b.target.value})),className:"input-field",children:[l.jsx("option",{value:"",children:"اختر فئة"}),s.map(b=>l.jsx("option",{value:b.id,children:b.name_ar},b.id))]})]})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"الوصف"}),l.jsx("textarea",{value:m.description_ar,onChange:b=>w(P=>({...P,description_ar:b.target.value})),className:"input-field resize-none",rows:3,placeholder:"وصف المنتج..."})]}),l.jsxs("div",{children:[l.jsx("label",{className:"block text-white/70 text-sm mb-2",children:"رابط الصورة"}),l.jsxs("div",{className:"flex gap-2",children:[l.jsx("input",{type:"text",value:m.image,onChange:b=>w(P=>({...P,image:b.target.value})),className:"input-field flex-1",placeholder:"https://..."}),l.jsx("button",{className:"px-4 py-3 rounded-xl text-white/50 border border-white/10 hover:border-brand-red hover:text-white transition-colors flex items-center gap-2 text-sm",children:l.jsx(Uo,{size:16})})]})]}),m.image&&l.jsx("img",{src:m.image,alt:"preview",className:"w-full h-28 object-cover rounded-xl"})]}),l.jsxs("div",{className:"flex gap-3 pt-4",children:[l.jsx("button",{onClick:B,className:"flex-1 py-3 rounded-xl font-black text-white",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:"حفظ المنتج"}),l.jsx("button",{onClick:()=>v(!1),className:"flex-1 py-3 rounded-xl font-bold text-white/60 border border-white/10",children:"إلغاء"})]})]})]})}function Rm({rating:e}){return l.jsx("div",{className:"flex gap-0.5",children:[1,2,3,4,5].map(t=>l.jsx(jn,{size:14,className:t<=e?"text-yellow-400 fill-yellow-400":"text-white/20"},t))})}function Im(){const{t:e,lang:t}=Fe(),n=[{icon:_m,label_ar:"جودة مضمونة",label_he:"איכות מובטחת",desc_ar:"نضمن أعلى معايير الجودة في كل قطعة",desc_he:"אנו מבטיחים את הסטנדרטים הגבוהים ביותר",color:"#CC0000"},{icon:vm,label_ar:"حلال 100%",label_he:"100% חלאל",desc_ar:"جميع منتجاتنا مذبوحة وفق الشريعة الإسلامية",desc_he:"כל המוצרים שלנו שחוטים לפי השריעה האסלאמית",color:"#16A34A"},{icon:dt,label_ar:"توصيل سريع",label_he:"משלוח מהיר",desc_ar:"نوصل طلبك طازجاً إلى باب منزلك",desc_he:"אנו מספקים את הזמנתך טרי עד דלת ביתך",color:"#3B82F6"},{icon:dm,label_ar:"خبرة 20 عاماً",label_he:"20 שנות ניסיון",desc_ar:"أكثر من عقدين من الخبرة في تقديم أفضل اللحوم",desc_he:"יותר משני עשורים של ניסיון",color:"#F59E0B"}],r=[{value:"20+",label_ar:"سنة خبرة",label_he:"שנות ניסיון"},{value:"5000+",label_ar:"عميل سعيد",label_he:"לקוחות מרוצים"},{value:"50+",label_ar:"منتج طازج",label_he:"מוצרים טריים"},{value:"4.9★",label_ar:"تقييم عملائنا",label_he:"דירוג לקוחות"}];return l.jsxs("div",{className:"min-h-screen bg-brand-black",children:[l.jsx(Nn,{}),l.jsx(wr,{}),l.jsxs("div",{className:"pt-16 pb-24",children:[l.jsxs("div",{className:"relative overflow-hidden mx-4 mt-4 rounded-3xl mb-10",style:{minHeight:260},children:[l.jsx("div",{className:"absolute inset-0",style:{background:"linear-gradient(135deg, #0A0A0A 0%, #3D0000 50%, #1A0000 100%)"}}),l.jsx("div",{className:"absolute inset-0 opacity-10",style:{backgroundImage:"url('https://images.unsplash.com/photo-1588347785102-2944afe78c95?w=800&fit=crop')",backgroundSize:"cover",backgroundPosition:"center"}}),l.jsxs("div",{className:"relative z-10 p-8 flex flex-col items-center text-center",children:[l.jsx("div",{className:"w-24 h-24 rounded-2xl mx-auto mb-5 overflow-hidden",style:{boxShadow:"0 0 40px rgba(204,0,0,0.6)",border:"2px solid rgba(204,0,0,0.5)"},children:l.jsx("img",{src:"/logo.jpeg",alt:"أبو دغش",className:"w-full h-full object-cover"})}),l.jsx("h1",{className:"text-4xl font-black mb-2",style:{background:"linear-gradient(135deg, #FFFFFF 30%, #CC0000 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text"},children:t==="ar"?"أبو دغش":"אבו דגש"}),l.jsx("p",{className:"text-brand-gray-light text-base max-w-sm",children:t==="ar"?"أجود اللحوم الطازجة، موصولة إلى باب منزلك منذ أكثر من 20 عاماً":"הבשר הטרי הטוב ביותר, מסופק לדלת ביתך כבר למעלה מ-20 שנה"}),l.jsx("div",{className:"flex gap-3 mt-5 flex-wrap justify-center",children:["طازج يومياً","حلال 100%","توصيل سريع"].map((a,s)=>l.jsx("span",{className:"glass px-4 py-1.5 rounded-full text-xs font-semibold text-white border border-white/10",children:a},s))})]})]}),l.jsxs("div",{className:"px-4 space-y-10",children:[l.jsx("section",{children:l.jsx("div",{className:"grid grid-cols-2 md:grid-cols-4 gap-3",children:r.map((a,s)=>l.jsxs("div",{className:"rounded-2xl p-5 text-center",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)",animation:`fadeSlideUp 0.4s ease-out ${s*.1}s both`},children:[l.jsx("p",{className:"text-3xl font-black text-brand-red mb-1",children:a.value}),l.jsx("p",{className:"text-white/60 text-sm",children:t==="ar"?a.label_ar:a.label_he})]},s))})}),l.jsxs("section",{children:[l.jsxs("div",{className:"flex items-center gap-3 mb-5",children:[l.jsx("div",{className:"w-1 h-8 rounded-full bg-brand-red"}),l.jsx("h2",{className:"text-2xl font-black text-white",children:e.ourStory})]}),l.jsxs("div",{className:"rounded-3xl p-6 relative overflow-hidden",style:{background:"#111",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsx("div",{className:"absolute top-0 left-0 w-32 h-32 rounded-full opacity-10",style:{background:"#CC0000",filter:"blur(40px)"}}),l.jsxs("div",{className:"relative z-10 space-y-4",children:[l.jsx("p",{className:"text-white/80 leading-relaxed text-sm",children:t==="ar"?"بدأت قصة أبو دغش منذ أكثر من عشرين عاماً، حين قرر مؤسسنا تقديم أجود اللحوم الطازجة لأبناء المجتمع. بدأنا بمحل صغير وتوسعنا عاماً بعد عام بفضل ثقة عملائنا الكرام.":"סיפורה של אבו דגש החל לפני יותר מעשרים שנה, כאשר המייסד שלנו החליט לספק את הבשר הטרי הטוב ביותר לבני הקהילה. התחלנו בחנות קטנה והתרחבנו שנה אחר שנה."}),l.jsx("p",{className:"text-white/80 leading-relaxed text-sm",children:t==="ar"?"اليوم نفخر بخدمة آلاف العملاء يومياً، مع الحفاظ على نفس المبادئ التي بُنينا عليها: الجودة، الطزاجة، والأمانة. كل قطعة لحم تمر من يدنا تحمل معها شغفنا والتزامنا بأعلى معايير الجودة.":"היום אנו גאים לשרת אלפי לקוחות מדי יום, תוך שמירה על אותם עקרונות שעליהם נבנינו: איכות, טריות ויושרה. כל נתח בשר שעובר בידינו נושא את התשוקה שלנו."})]})]})]}),l.jsxs("section",{children:[l.jsxs("div",{className:"flex items-center gap-3 mb-5",children:[l.jsx("div",{className:"w-1 h-8 rounded-full bg-brand-red"}),l.jsx("h2",{className:"text-2xl font-black text-white",children:e.ourValues})]}),l.jsx("div",{className:"grid grid-cols-2 gap-3",children:n.map((a,s)=>l.jsxs("div",{className:"rounded-2xl p-5",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)",animation:`fadeSlideUp 0.4s ease-out ${s*.1}s both`},children:[l.jsx("div",{className:"w-10 h-10 rounded-xl flex items-center justify-center mb-3",style:{background:`${a.color}22`},children:l.jsx(a.icon,{size:20,style:{color:a.color}})}),l.jsx("p",{className:"text-white font-bold text-sm mb-1",children:t==="ar"?a.label_ar:a.label_he}),l.jsx("p",{className:"text-white/50 text-xs leading-relaxed",children:t==="ar"?a.desc_ar:a.desc_he})]},s))})]}),l.jsxs("section",{children:[l.jsxs("div",{className:"flex items-center gap-3 mb-5",children:[l.jsx("div",{className:"w-1 h-8 rounded-full bg-brand-red"}),l.jsxs("div",{children:[l.jsx("h2",{className:"text-2xl font-black text-white",children:e.customerReviews}),l.jsx("p",{className:"text-brand-gray-light text-xs",children:t==="ar"?"ماذا يقول عملاؤنا":"מה אומרים הלקוחות שלנו"})]})]}),l.jsx("div",{className:"space-y-4",children:lm.map((a,s)=>l.jsx("div",{className:"rounded-2xl p-5",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)",animation:`fadeSlideUp 0.4s ease-out ${s*.08}s both`},children:l.jsxs("div",{className:"flex items-start gap-4",children:[l.jsx("div",{className:"w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-brand-red/30",children:l.jsx("img",{src:a.image,alt:t==="ar"?a.name_ar:a.name_he,className:"w-full h-full object-cover",onError:i=>{i.target.style.display="none",i.target.parentElement.style.background="linear-gradient(135deg,#CC0000,#990000)"}})}),l.jsxs("div",{className:"flex-1 min-w-0",children:[l.jsxs("div",{className:"flex items-center justify-between mb-1",children:[l.jsx("p",{className:"text-white font-bold text-sm",children:t==="ar"?a.name_ar:a.name_he}),l.jsx("span",{className:"text-white/30 text-xs",children:t==="ar"?a.date_ar:a.date_he})]}),l.jsx(Rm,{rating:a.rating}),l.jsx("p",{className:"text-white/70 text-sm mt-2 leading-relaxed",children:t==="ar"?a.text_ar:a.text_he})]})]})},a.id))})]}),l.jsx("section",{children:l.jsxs("div",{className:"rounded-3xl p-6 text-center relative overflow-hidden",style:{background:"linear-gradient(135deg, #1A0000, #3D0000)"},children:[l.jsx("div",{className:"absolute inset-0 opacity-10",style:{backgroundImage:"url('https://images.unsplash.com/photo-1544025162-d76594e8efa5?w=800&fit=crop')",backgroundSize:"cover"}}),l.jsxs("div",{className:"relative z-10",children:[l.jsx(Sd,{size:32,className:"text-brand-red mx-auto mb-3"}),l.jsx("h3",{className:"text-white font-black text-xl mb-2",children:t==="ar"?"تواصل معنا":"צור קשר"}),l.jsx("p",{className:"text-white/70 text-sm mb-4",children:t==="ar"?"نحن هنا لخدمتك على مدار الساعة":"אנחנו כאן לשירותך 24/7"}),l.jsxs("div",{className:"flex gap-3 justify-center flex-wrap",children:[l.jsxs("a",{href:"tel:+972501234567",className:"px-6 py-2.5 rounded-full font-bold text-white text-sm transition-all hover:scale-105",style:{background:"linear-gradient(135deg, #CC0000, #990000)"},children:["📞 ",t==="ar"?"اتصل بنا":"התקשר אלינו"]}),l.jsx("a",{href:"https://wa.me/972501234567",className:"px-6 py-2.5 rounded-full font-bold text-white text-sm border border-white/20 transition-all hover:scale-105 hover:border-brand-red",children:"💬 WhatsApp"})]})]})]})})]})]}),l.jsx("style",{children:`
+      `,
+        }),
+      ],
+    })
+  );
+}
+const Et = {
+    pending: "#F59E0B",
+    confirmed: "#3B82F6",
+    preparing: "#8B5CF6",
+    delivering: "#F97316",
+    delivered: "#16A34A",
+  },
+  $r = {
+    pending: "قيد الانتظار",
+    confirmed: "مؤكد",
+    preparing: "جاري التحضير",
+    delivering: "في التوصيل",
+    delivered: "تم التوصيل",
+  };
+function Br({ icon: e, label: t, value: n, sub: r, color: a }) {
+  return l.jsxs("div", {
+    className: "rounded-2xl p-5",
+    style: {
+      background: "#1A1A1A",
+      border: "1px solid rgba(255,255,255,0.06)",
+    },
+    children: [
+      l.jsxs("div", {
+        className: "flex items-center justify-between mb-4",
+        children: [
+          l.jsx("div", {
+            className: "w-10 h-10 rounded-xl flex items-center justify-center",
+            style: { background: `${a}22` },
+            children: l.jsx(e, { size: 20, style: { color: a } }),
+          }),
+          l.jsx("span", {
+            className: "text-green-400 text-xs font-bold",
+            children: "+12%",
+          }),
+        ],
+      }),
+      l.jsx("p", {
+        className: "text-2xl font-black text-white mb-1",
+        children: n,
+      }),
+      l.jsx("p", { className: "text-white/60 text-sm", children: t }),
+      r && l.jsx("p", { className: "text-white/30 text-xs mt-1", children: r }),
+    ],
+  });
+}
+function Vo({ title: e, onClose: t, children: n }) {
+  return l.jsx("div", {
+    className: "fixed inset-0 z-50 flex items-center justify-center p-4",
+    style: { background: "rgba(0,0,0,0.85)" },
+    children: l.jsxs("div", {
+      className: "w-full max-w-lg rounded-3xl overflow-hidden",
+      style: { background: "#1A1A1A", border: "1px solid rgba(204,0,0,0.3)" },
+      children: [
+        l.jsxs("div", {
+          className: "flex items-center justify-between p-6 border-b",
+          style: { borderColor: "rgba(255,255,255,0.08)" },
+          children: [
+            l.jsx("h3", {
+              className: "text-white font-black text-lg",
+              children: e,
+            }),
+            l.jsx("button", {
+              onClick: t,
+              className: "text-white/40 hover:text-white transition-colors",
+              children: l.jsx(vr, { size: 20 }),
+            }),
+          ],
+        }),
+        l.jsx("div", { className: "p-6", children: n }),
+      ],
+    }),
+  });
+}
+function Tm() {
+  const { lang: e, toggleLang: t } = Fe(),
+    n = Ue(),
+    [r, a] = k.useState("dashboard"),
+    [s, i] = k.useState(_a),
+    [c, o] = k.useState(dr),
+    [u, x] = k.useState(bd),
+    [f, p] = k.useState(!1),
+    [y, v] = k.useState(!1),
+    [g, _] = k.useState(null),
+    [h, d] = k.useState({ name_ar: "", name_he: "", image: "" }),
+    [m, w] = k.useState({
+      name_ar: "",
+      name_he: "",
+      price: "",
+      description_ar: "",
+      image: "",
+      categoryId: "",
+    }),
+    C = [
+      { id: "dashboard", label: "لوحة التحكم", icon: km },
+      { id: "categories", label: "الفئات", icon: Cm },
+      { id: "products", label: "المنتجات", icon: mi },
+      { id: "orders", label: "الطلبات", icon: xs },
+    ],
+    N = () => {
+      (i(
+        g
+          ? (b) => b.map((P) => (P.id === g.id ? { ...P, ...h } : P))
+          : (b) => [
+              ...b,
+              { id: Date.now(), ...h, count: 0, tag_ar: "", tag_he: "" },
+            ],
+      ),
+        p(!1),
+        _(null),
+        d({ name_ar: "", name_he: "", image: "" }));
+    },
+    z = (b) => i((P) => P.filter((be) => be.id !== b)),
+    F = (b) => o((P) => P.filter((be) => be.id !== b)),
+    B = () => {
+      (o(
+        g
+          ? (b) =>
+              b.map((P) =>
+                P.id === g.id ? { ...P, ...m, price: Number(m.price) } : P,
+              )
+          : (b) => [
+              ...b,
+              {
+                id: Date.now(),
+                ...m,
+                price: Number(m.price),
+                isFeatured: !1,
+                badge_ar: "",
+                badge_he: "",
+                rating: 4.5,
+                reviews: 0,
+                description_he: m.description_ar,
+              },
+            ],
+      ),
+        v(!1),
+        _(null),
+        w({
+          name_ar: "",
+          name_he: "",
+          price: "",
+          description_ar: "",
+          image: "",
+          categoryId: "",
+        }));
+    };
+  return l.jsxs("div", {
+    className: "min-h-screen flex",
+    style: { background: "#0A0A0A" },
+    children: [
+      l.jsxs("div", {
+        className: "hidden md:flex flex-col w-64 border-r py-6",
+        style: {
+          background: "#111111",
+          borderColor: "rgba(204,0,0,0.2)",
+          position: "sticky",
+          top: 0,
+          height: "100vh",
+        },
+        children: [
+          l.jsxs("div", {
+            className: "px-6 mb-8",
+            children: [
+              l.jsxs("div", {
+                className: "flex items-center gap-3 mb-1",
+                children: [
+                  l.jsx("div", {
+                    className:
+                      "w-9 h-9 rounded-xl flex items-center justify-center",
+                    style: {
+                      background: "linear-gradient(135deg, #CC0000, #990000)",
+                    },
+                    children: l.jsx("span", {
+                      style: {
+                        fontSize: "14px",
+                        fontWeight: 900,
+                        color: "white",
+                        fontFamily: "Cairo, sans-serif",
+                      },
+                      children: "أد",
+                    }),
+                  }),
+                  l.jsx("span", {
+                    className: "font-black text-white text-lg",
+                    children: "أبو دغش",
+                  }),
+                ],
+              }),
+              l.jsx("span", {
+                className: "text-brand-red text-xs font-bold",
+                children: "لوحة الإدارة",
+              }),
+            ],
+          }),
+          l.jsx("nav", {
+            className: "flex-1 px-3 space-y-1",
+            children: C.map((b) => {
+              const P = b.icon;
+              return l.jsxs(
+                "button",
+                {
+                  onClick: () => a(b.id),
+                  className:
+                    "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right transition-all duration-200 group",
+                  style: {
+                    background:
+                      r === b.id ? "rgba(204,0,0,0.15)" : "transparent",
+                    borderRight:
+                      r === b.id
+                        ? "3px solid #CC0000"
+                        : "3px solid transparent",
+                  },
+                  children: [
+                    l.jsx(P, {
+                      size: 18,
+                      className:
+                        r === b.id
+                          ? "text-brand-red"
+                          : "text-white/40 group-hover:text-white/70",
+                    }),
+                    l.jsx("span", {
+                      className: `text-sm font-bold ${r === b.id ? "text-white" : "text-white/50 group-hover:text-white/70"}`,
+                      children: b.label,
+                    }),
+                  ],
+                },
+                b.id,
+              );
+            }),
+          }),
+          l.jsxs("div", {
+            className: "px-3 space-y-2 mt-4",
+            children: [
+              l.jsxs("button", {
+                onClick: t,
+                className:
+                  "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right text-white/40 hover:text-white/70 transition-colors text-sm",
+                children: [
+                  l.jsx(ym, { size: 18 }),
+                  l.jsx("span", { children: e === "ar" ? "עברית" : "العربية" }),
+                ],
+              }),
+              l.jsxs("button", {
+                onClick: () => n("/"),
+                className:
+                  "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right text-white/40 hover:text-white/70 transition-colors text-sm",
+                children: [
+                  l.jsx(wd, { size: 18 }),
+                  l.jsx("span", { children: "العودة للمتجر" }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      l.jsxs("div", {
+        className:
+          "md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 h-14",
+        style: {
+          background: "#111111",
+          borderBottom: "1px solid rgba(204,0,0,0.2)",
+        },
+        children: [
+          l.jsxs("div", {
+            className: "flex items-center gap-2",
+            children: [
+              l.jsx("div", {
+                className:
+                  "w-8 h-8 rounded-lg flex items-center justify-center",
+                style: {
+                  background: "linear-gradient(135deg, #CC0000, #990000)",
+                },
+                children: l.jsx("span", {
+                  style: {
+                    fontSize: "12px",
+                    fontWeight: 900,
+                    color: "white",
+                    fontFamily: "Cairo, sans-serif",
+                  },
+                  children: "أد",
+                }),
+              }),
+              l.jsx("span", {
+                className: "text-white font-black text-sm",
+                children: "لوحة الإدارة",
+              }),
+            ],
+          }),
+          l.jsx("button", {
+            onClick: () => n("/"),
+            className: "text-white/50 text-xs",
+            children: "← المتجر",
+          }),
+        ],
+      }),
+      l.jsxs("div", {
+        className: "flex-1 overflow-auto",
+        children: [
+          l.jsx("div", {
+            className:
+              "md:hidden flex gap-1 overflow-x-auto no-scrollbar p-2 mt-14",
+            style: {
+              background: "#111111",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+            },
+            children: C.map((b) =>
+              l.jsx(
+                "button",
+                {
+                  onClick: () => a(b.id),
+                  className:
+                    "flex-shrink-0 px-4 py-2 rounded-lg text-xs font-bold transition-all",
+                  style: {
+                    background:
+                      r === b.id ? "#CC0000" : "rgba(255,255,255,0.06)",
+                    color: r === b.id ? "white" : "rgba(255,255,255,0.5)",
+                  },
+                  children: b.label,
+                },
+                b.id,
+              ),
+            ),
+          }),
+          l.jsxs("div", {
+            className: "p-4 md:p-8 max-w-6xl",
+            children: [
+              r === "dashboard" &&
+                l.jsxs("div", {
+                  className: "space-y-8",
+                  children: [
+                    l.jsxs("div", {
+                      children: [
+                        l.jsx("h1", {
+                          className: "text-2xl font-black text-white",
+                          children: "مرحباً، أبو دغش",
+                        }),
+                        l.jsx("p", {
+                          className: "text-white/50 text-sm",
+                          children: "هذا ملخص نشاط المتجر اليوم",
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      className: "grid grid-cols-2 md:grid-cols-4 gap-4",
+                      children: [
+                        l.jsx(Br, {
+                          icon: xm,
+                          label: "إجمالي المبيعات",
+                          value: "₪3,240",
+                          sub: "اليوم",
+                          color: "#CC0000",
+                        }),
+                        l.jsx(Br, {
+                          icon: xs,
+                          label: "طلبات جديدة",
+                          value: "18",
+                          sub: "اليوم",
+                          color: "#8B5CF6",
+                        }),
+                        l.jsx(Br, {
+                          icon: Sd,
+                          label: "عملاء جدد",
+                          value: "7",
+                          sub: "اليوم",
+                          color: "#3B82F6",
+                        }),
+                        l.jsx(Br, {
+                          icon: dt,
+                          label: "قيد التوصيل",
+                          value: "5",
+                          sub: "الآن",
+                          color: "#F97316",
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      className: "rounded-2xl overflow-hidden",
+                      style: {
+                        background: "#1A1A1A",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                      },
+                      children: [
+                        l.jsxs("div", {
+                          className:
+                            "flex items-center justify-between p-5 border-b",
+                          style: { borderColor: "rgba(255,255,255,0.06)" },
+                          children: [
+                            l.jsx("h2", {
+                              className: "text-white font-black",
+                              children: "أحدث الطلبات",
+                            }),
+                            l.jsx("button", {
+                              onClick: () => a("orders"),
+                              className:
+                                "text-brand-red text-sm font-bold hover:underline",
+                              children: "عرض الكل",
+                            }),
+                          ],
+                        }),
+                        l.jsx("div", {
+                          className: "divide-y",
+                          style: { borderColor: "rgba(255,255,255,0.04)" },
+                          children: u
+                            .slice(0, 4)
+                            .map((b) =>
+                              l.jsxs(
+                                "div",
+                                {
+                                  className:
+                                    "flex items-center justify-between px-5 py-4",
+                                  children: [
+                                    l.jsxs("div", {
+                                      className: "flex items-center gap-3",
+                                      children: [
+                                        l.jsx("div", {
+                                          className:
+                                            "w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black text-white",
+                                          style: { background: "#2A2A2A" },
+                                          children: b.customer[0],
+                                        }),
+                                        l.jsxs("div", {
+                                          children: [
+                                            l.jsx("p", {
+                                              className:
+                                                "text-white font-bold text-sm",
+                                              children: b.customer,
+                                            }),
+                                            l.jsxs("p", {
+                                              className:
+                                                "text-white/40 text-xs",
+                                              children: [
+                                                b.id,
+                                                " · ",
+                                                b.items,
+                                                " منتجات",
+                                              ],
+                                            }),
+                                          ],
+                                        }),
+                                      ],
+                                    }),
+                                    l.jsxs("div", {
+                                      className: "flex items-center gap-3",
+                                      children: [
+                                        l.jsxs("span", {
+                                          className:
+                                            "text-white font-bold text-sm",
+                                          children: ["₪", b.total],
+                                        }),
+                                        l.jsx("span", {
+                                          className:
+                                            "px-3 py-1 rounded-full text-xs font-black",
+                                          style: {
+                                            background: `${Et[b.status]}22`,
+                                            color: Et[b.status],
+                                          },
+                                          children: $r[b.status],
+                                        }),
+                                      ],
+                                    }),
+                                  ],
+                                },
+                                b.id,
+                              ),
+                            ),
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              r === "categories" &&
+                l.jsxs("div", {
+                  className: "space-y-6",
+                  children: [
+                    l.jsxs("div", {
+                      className: "flex items-center justify-between",
+                      children: [
+                        l.jsxs("div", {
+                          children: [
+                            l.jsx("h1", {
+                              className: "text-2xl font-black text-white",
+                              children: "الفئات",
+                            }),
+                            l.jsxs("p", {
+                              className: "text-white/50 text-sm",
+                              children: [s.length, " فئة"],
+                            }),
+                          ],
+                        }),
+                        l.jsxs("button", {
+                          onClick: () => {
+                            (_(null),
+                              d({ name_ar: "", name_he: "", image: "" }),
+                              p(!0));
+                          },
+                          className:
+                            "flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-white transition-all hover:scale-105",
+                          style: {
+                            background:
+                              "linear-gradient(135deg, #CC0000, #990000)",
+                          },
+                          children: [l.jsx(fr, { size: 18 }), "إضافة فئة"],
+                        }),
+                      ],
+                    }),
+                    l.jsx("div", {
+                      className:
+                        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
+                      children: s.map((b) =>
+                        l.jsxs(
+                          "div",
+                          {
+                            className: "rounded-2xl overflow-hidden group",
+                            style: {
+                              background: "#1A1A1A",
+                              border: "1px solid rgba(255,255,255,0.06)",
+                            },
+                            children: [
+                              l.jsxs("div", {
+                                className: "relative h-32 overflow-hidden",
+                                children: [
+                                  l.jsx("img", {
+                                    src: b.image,
+                                    alt: b.name_ar,
+                                    className:
+                                      "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105",
+                                  }),
+                                  l.jsx("div", {
+                                    className: "absolute inset-0",
+                                    style: {
+                                      background:
+                                        "linear-gradient(180deg, transparent, rgba(0,0,0,0.6))",
+                                    },
+                                  }),
+                                  l.jsxs("div", {
+                                    className:
+                                      "absolute top-2 left-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity",
+                                    children: [
+                                      l.jsx("button", {
+                                        onClick: () => {
+                                          (_(b),
+                                            d({
+                                              name_ar: b.name_ar,
+                                              name_he: b.name_he,
+                                              image: b.image,
+                                            }),
+                                            p(!0));
+                                        },
+                                        className:
+                                          "w-8 h-8 rounded-lg flex items-center justify-center text-white transition-colors",
+                                        style: {
+                                          background: "rgba(0,0,0,0.7)",
+                                        },
+                                        children: l.jsx(Do, { size: 14 }),
+                                      }),
+                                      l.jsx("button", {
+                                        onClick: () => z(b.id),
+                                        className:
+                                          "w-8 h-8 rounded-lg flex items-center justify-center text-red-400 transition-colors",
+                                        style: {
+                                          background: "rgba(0,0,0,0.7)",
+                                        },
+                                        children: l.jsx(gs, { size: 14 }),
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                              l.jsxs("div", {
+                                className: "p-4",
+                                children: [
+                                  l.jsx("p", {
+                                    className: "text-white font-black",
+                                    children: b.name_ar,
+                                  }),
+                                  l.jsx("p", {
+                                    className: "text-white/40 text-sm",
+                                    children: b.name_he,
+                                  }),
+                                  l.jsxs("p", {
+                                    className: "text-white/30 text-xs mt-1",
+                                    children: [b.count, " منتج"],
+                                  }),
+                                ],
+                              }),
+                            ],
+                          },
+                          b.id,
+                        ),
+                      ),
+                    }),
+                  ],
+                }),
+              r === "products" &&
+                l.jsxs("div", {
+                  className: "space-y-6",
+                  children: [
+                    l.jsxs("div", {
+                      className: "flex items-center justify-between",
+                      children: [
+                        l.jsxs("div", {
+                          children: [
+                            l.jsx("h1", {
+                              className: "text-2xl font-black text-white",
+                              children: "المنتجات",
+                            }),
+                            l.jsxs("p", {
+                              className: "text-white/50 text-sm",
+                              children: [c.length, " منتج"],
+                            }),
+                          ],
+                        }),
+                        l.jsxs("button", {
+                          onClick: () => {
+                            (_(null),
+                              w({
+                                name_ar: "",
+                                name_he: "",
+                                price: "",
+                                description_ar: "",
+                                image: "",
+                                categoryId: "",
+                              }),
+                              v(!0));
+                          },
+                          className:
+                            "flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-white transition-all hover:scale-105",
+                          style: {
+                            background:
+                              "linear-gradient(135deg, #CC0000, #990000)",
+                          },
+                          children: [l.jsx(fr, { size: 18 }), "إضافة منتج"],
+                        }),
+                      ],
+                    }),
+                    l.jsx("div", {
+                      className: "rounded-2xl overflow-hidden",
+                      style: {
+                        background: "#1A1A1A",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                      },
+                      children: l.jsxs("table", {
+                        className: "w-full",
+                        children: [
+                          l.jsx("thead", {
+                            children: l.jsxs("tr", {
+                              style: {
+                                borderBottom:
+                                  "1px solid rgba(255,255,255,0.06)",
+                              },
+                              children: [
+                                l.jsx("th", {
+                                  className:
+                                    "text-right text-white/40 text-xs font-bold p-4",
+                                  children: "المنتج",
+                                }),
+                                l.jsx("th", {
+                                  className:
+                                    "text-right text-white/40 text-xs font-bold p-4 hidden md:table-cell",
+                                  children: "الفئة",
+                                }),
+                                l.jsx("th", {
+                                  className:
+                                    "text-right text-white/40 text-xs font-bold p-4",
+                                  children: "السعر",
+                                }),
+                                l.jsx("th", {
+                                  className:
+                                    "text-right text-white/40 text-xs font-bold p-4 hidden md:table-cell",
+                                  children: "التقييم",
+                                }),
+                                l.jsx("th", {
+                                  className:
+                                    "text-right text-white/40 text-xs font-bold p-4",
+                                  children: "إجراءات",
+                                }),
+                              ],
+                            }),
+                          }),
+                          l.jsx("tbody", {
+                            children: c.map((b) => {
+                              const P = s.find((be) => be.id === b.categoryId);
+                              return l.jsxs(
+                                "tr",
+                                {
+                                  className:
+                                    "transition-colors hover:bg-white/[0.02]",
+                                  style: {
+                                    borderBottom:
+                                      "1px solid rgba(255,255,255,0.04)",
+                                  },
+                                  children: [
+                                    l.jsx("td", {
+                                      className: "p-4",
+                                      children: l.jsxs("div", {
+                                        className: "flex items-center gap-3",
+                                        children: [
+                                          l.jsx("img", {
+                                            src: b.image,
+                                            alt: b.name_ar,
+                                            className:
+                                              "w-10 h-10 rounded-xl object-cover",
+                                          }),
+                                          l.jsxs("div", {
+                                            children: [
+                                              l.jsx("p", {
+                                                className:
+                                                  "text-white font-bold text-sm",
+                                                children: b.name_ar,
+                                              }),
+                                              l.jsx("p", {
+                                                className:
+                                                  "text-white/40 text-xs line-clamp-1",
+                                                children: b.name_he,
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                    l.jsx("td", {
+                                      className: "p-4 hidden md:table-cell",
+                                      children: l.jsx("span", {
+                                        className: "text-white/60 text-sm",
+                                        children:
+                                          P == null ? void 0 : P.name_ar,
+                                      }),
+                                    }),
+                                    l.jsx("td", {
+                                      className: "p-4",
+                                      children: l.jsxs("span", {
+                                        className: "text-brand-red font-black",
+                                        children: ["₪", b.price],
+                                      }),
+                                    }),
+                                    l.jsx("td", {
+                                      className: "p-4 hidden md:table-cell",
+                                      children: l.jsxs("div", {
+                                        className: "flex items-center gap-1",
+                                        children: [
+                                          l.jsx(jn, {
+                                            size: 13,
+                                            className:
+                                              "text-yellow-400 fill-yellow-400",
+                                          }),
+                                          l.jsx("span", {
+                                            className: "text-white text-sm",
+                                            children: b.rating,
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                    l.jsx("td", {
+                                      className: "p-4",
+                                      children: l.jsxs("div", {
+                                        className: "flex items-center gap-2",
+                                        children: [
+                                          l.jsx("button", {
+                                            onClick: () => {
+                                              (_(b),
+                                                w({
+                                                  name_ar: b.name_ar,
+                                                  name_he: b.name_he,
+                                                  price: String(b.price),
+                                                  description_ar:
+                                                    b.description_ar,
+                                                  image: b.image,
+                                                  categoryId: String(
+                                                    b.categoryId,
+                                                  ),
+                                                }),
+                                                v(!0));
+                                            },
+                                            className:
+                                              "w-8 h-8 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors",
+                                            children: l.jsx(Do, { size: 14 }),
+                                          }),
+                                          l.jsx("button", {
+                                            onClick: () => F(b.id),
+                                            className:
+                                              "w-8 h-8 rounded-lg flex items-center justify-center text-red-400/50 hover:text-red-400 hover:bg-red-400/10 transition-colors",
+                                            children: l.jsx(gs, { size: 14 }),
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                  ],
+                                },
+                                b.id,
+                              );
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                  ],
+                }),
+              r === "orders" &&
+                l.jsxs("div", {
+                  className: "space-y-6",
+                  children: [
+                    l.jsxs("div", {
+                      children: [
+                        l.jsx("h1", {
+                          className: "text-2xl font-black text-white",
+                          children: "الطلبات",
+                        }),
+                        l.jsxs("p", {
+                          className: "text-white/50 text-sm",
+                          children: [u.length, " طلبات نشطة"],
+                        }),
+                      ],
+                    }),
+                    l.jsx("div", {
+                      className: "space-y-3",
+                      children: u.map((b) =>
+                        l.jsxs(
+                          "div",
+                          {
+                            className: "rounded-2xl p-5",
+                            style: {
+                              background: "#1A1A1A",
+                              border: "1px solid rgba(255,255,255,0.06)",
+                            },
+                            children: [
+                              l.jsxs("div", {
+                                className:
+                                  "flex items-start justify-between mb-3",
+                                children: [
+                                  l.jsxs("div", {
+                                    children: [
+                                      l.jsxs("div", {
+                                        className: "flex items-center gap-3",
+                                        children: [
+                                          l.jsx("span", {
+                                            className: "text-white font-black",
+                                            children: b.customer,
+                                          }),
+                                          l.jsx("span", {
+                                            className:
+                                              "px-3 py-0.5 rounded-full text-xs font-black",
+                                            style: {
+                                              background: `${Et[b.status]}22`,
+                                              color: Et[b.status],
+                                            },
+                                            children: $r[b.status],
+                                          }),
+                                        ],
+                                      }),
+                                      l.jsxs("p", {
+                                        className: "text-white/40 text-sm mt-1",
+                                        children: [b.id, " · ", b.phone],
+                                      }),
+                                    ],
+                                  }),
+                                  l.jsxs("div", {
+                                    className: "text-right",
+                                    children: [
+                                      l.jsxs("p", {
+                                        className:
+                                          "text-brand-red font-black text-lg",
+                                        children: ["₪", b.total],
+                                      }),
+                                      l.jsxs("p", {
+                                        className: "text-white/40 text-xs",
+                                        children: [
+                                          b.time,
+                                          " · ",
+                                          b.items,
+                                          " منتجات",
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                              l.jsx("div", {
+                                className: "flex gap-2",
+                                children: Object.keys($r).map((P) =>
+                                  l.jsx(
+                                    "button",
+                                    {
+                                      onClick: () =>
+                                        x((be) =>
+                                          be.map((Qe) =>
+                                            Qe.id === b.id
+                                              ? { ...Qe, status: P }
+                                              : Qe,
+                                          ),
+                                        ),
+                                      className:
+                                        "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all",
+                                      style: {
+                                        background:
+                                          b.status === P
+                                            ? `${Et[P]}33`
+                                            : "rgba(255,255,255,0.04)",
+                                        color:
+                                          b.status === P
+                                            ? Et[P]
+                                            : "rgba(255,255,255,0.3)",
+                                        border:
+                                          b.status === P
+                                            ? `1px solid ${Et[P]}44`
+                                            : "1px solid transparent",
+                                      },
+                                      children: $r[P],
+                                    },
+                                    P,
+                                  ),
+                                ),
+                              }),
+                            ],
+                          },
+                          b.id,
+                        ),
+                      ),
+                    }),
+                  ],
+                }),
+            ],
+          }),
+        ],
+      }),
+      f &&
+        l.jsx(Vo, {
+          title: g ? "تعديل الفئة" : "إضافة فئة جديدة",
+          onClose: () => p(!1),
+          children: l.jsxs("div", {
+            className: "space-y-4",
+            children: [
+              l.jsxs("div", {
+                children: [
+                  l.jsx("label", {
+                    className: "block text-white/70 text-sm mb-2",
+                    children: "اسم الفئة (عربي)",
+                  }),
+                  l.jsx("input", {
+                    type: "text",
+                    value: h.name_ar,
+                    onChange: (b) =>
+                      d((P) => ({ ...P, name_ar: b.target.value })),
+                    className: "input-field",
+                    placeholder: "مثال: لحم بقري",
+                  }),
+                ],
+              }),
+              l.jsxs("div", {
+                children: [
+                  l.jsx("label", {
+                    className: "block text-white/70 text-sm mb-2",
+                    children: "اسم الفئة (عبري)",
+                  }),
+                  l.jsx("input", {
+                    type: "text",
+                    value: h.name_he,
+                    onChange: (b) =>
+                      d((P) => ({ ...P, name_he: b.target.value })),
+                    className: "input-field",
+                    placeholder: "מثال: בקר",
+                    dir: "rtl",
+                  }),
+                ],
+              }),
+              l.jsxs("div", {
+                children: [
+                  l.jsx("label", {
+                    className: "block text-white/70 text-sm mb-2",
+                    children: "رابط الصورة",
+                  }),
+                  l.jsxs("div", {
+                    className: "flex gap-2",
+                    children: [
+                      l.jsx("input", {
+                        type: "text",
+                        value: h.image,
+                        onChange: (b) =>
+                          d((P) => ({ ...P, image: b.target.value })),
+                        className: "input-field flex-1",
+                        placeholder: "https://...",
+                      }),
+                      l.jsxs("button", {
+                        className:
+                          "px-4 py-3 rounded-xl text-white/50 border border-white/10 hover:border-brand-red hover:text-white transition-colors flex items-center gap-2 text-sm",
+                        children: [l.jsx(Uo, { size: 16 }), "رفع"],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              h.image &&
+                l.jsx("img", {
+                  src: h.image,
+                  alt: "preview",
+                  className: "w-full h-32 object-cover rounded-xl",
+                }),
+              l.jsxs("div", {
+                className: "flex gap-3 pt-2",
+                children: [
+                  l.jsx("button", {
+                    onClick: N,
+                    className:
+                      "flex-1 py-3 rounded-xl font-black text-white transition-all hover:scale-[1.02]",
+                    style: {
+                      background: "linear-gradient(135deg, #CC0000, #990000)",
+                    },
+                    children: "حفظ",
+                  }),
+                  l.jsx("button", {
+                    onClick: () => p(!1),
+                    className:
+                      "flex-1 py-3 rounded-xl font-bold text-white/60 border border-white/10 hover:border-white/30 transition-colors",
+                    children: "إلغاء",
+                  }),
+                ],
+              }),
+            ],
+          }),
+        }),
+      y &&
+        l.jsxs(Vo, {
+          title: g ? "تعديل المنتج" : "إضافة منتج جديد",
+          onClose: () => v(!1),
+          children: [
+            l.jsxs("div", {
+              className: "space-y-4 max-h-96 overflow-y-auto",
+              children: [
+                l.jsxs("div", {
+                  className: "grid grid-cols-2 gap-3",
+                  children: [
+                    l.jsxs("div", {
+                      children: [
+                        l.jsx("label", {
+                          className: "block text-white/70 text-sm mb-2",
+                          children: "الاسم (عربي)",
+                        }),
+                        l.jsx("input", {
+                          type: "text",
+                          value: m.name_ar,
+                          onChange: (b) =>
+                            w((P) => ({ ...P, name_ar: b.target.value })),
+                          className: "input-field",
+                          placeholder: "اسم المنتج",
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      children: [
+                        l.jsx("label", {
+                          className: "block text-white/70 text-sm mb-2",
+                          children: "الاسم (عبري)",
+                        }),
+                        l.jsx("input", {
+                          type: "text",
+                          value: m.name_he,
+                          onChange: (b) =>
+                            w((P) => ({ ...P, name_he: b.target.value })),
+                          className: "input-field",
+                          placeholder: "שם המוצר",
+                          dir: "rtl",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                l.jsxs("div", {
+                  className: "grid grid-cols-2 gap-3",
+                  children: [
+                    l.jsxs("div", {
+                      children: [
+                        l.jsx("label", {
+                          className: "block text-white/70 text-sm mb-2",
+                          children: "السعر (₪/كغ)",
+                        }),
+                        l.jsx("input", {
+                          type: "number",
+                          value: m.price,
+                          onChange: (b) =>
+                            w((P) => ({ ...P, price: b.target.value })),
+                          className: "input-field",
+                          placeholder: "0",
+                        }),
+                      ],
+                    }),
+                    l.jsxs("div", {
+                      children: [
+                        l.jsx("label", {
+                          className: "block text-white/70 text-sm mb-2",
+                          children: "الفئة",
+                        }),
+                        l.jsxs("select", {
+                          value: m.categoryId,
+                          onChange: (b) =>
+                            w((P) => ({ ...P, categoryId: b.target.value })),
+                          className: "input-field",
+                          children: [
+                            l.jsx("option", {
+                              value: "",
+                              children: "اختر فئة",
+                            }),
+                            s.map((b) =>
+                              l.jsx(
+                                "option",
+                                { value: b.id, children: b.name_ar },
+                                b.id,
+                              ),
+                            ),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                l.jsxs("div", {
+                  children: [
+                    l.jsx("label", {
+                      className: "block text-white/70 text-sm mb-2",
+                      children: "الوصف",
+                    }),
+                    l.jsx("textarea", {
+                      value: m.description_ar,
+                      onChange: (b) =>
+                        w((P) => ({ ...P, description_ar: b.target.value })),
+                      className: "input-field resize-none",
+                      rows: 3,
+                      placeholder: "وصف المنتج...",
+                    }),
+                  ],
+                }),
+                l.jsxs("div", {
+                  children: [
+                    l.jsx("label", {
+                      className: "block text-white/70 text-sm mb-2",
+                      children: "رابط الصورة",
+                    }),
+                    l.jsxs("div", {
+                      className: "flex gap-2",
+                      children: [
+                        l.jsx("input", {
+                          type: "text",
+                          value: m.image,
+                          onChange: (b) =>
+                            w((P) => ({ ...P, image: b.target.value })),
+                          className: "input-field flex-1",
+                          placeholder: "https://...",
+                        }),
+                        l.jsx("button", {
+                          className:
+                            "px-4 py-3 rounded-xl text-white/50 border border-white/10 hover:border-brand-red hover:text-white transition-colors flex items-center gap-2 text-sm",
+                          children: l.jsx(Uo, { size: 16 }),
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                m.image &&
+                  l.jsx("img", {
+                    src: m.image,
+                    alt: "preview",
+                    className: "w-full h-28 object-cover rounded-xl",
+                  }),
+              ],
+            }),
+            l.jsxs("div", {
+              className: "flex gap-3 pt-4",
+              children: [
+                l.jsx("button", {
+                  onClick: B,
+                  className: "flex-1 py-3 rounded-xl font-black text-white",
+                  style: {
+                    background: "linear-gradient(135deg, #CC0000, #990000)",
+                  },
+                  children: "حفظ المنتج",
+                }),
+                l.jsx("button", {
+                  onClick: () => v(!1),
+                  className:
+                    "flex-1 py-3 rounded-xl font-bold text-white/60 border border-white/10",
+                  children: "إلغاء",
+                }),
+              ],
+            }),
+          ],
+        }),
+    ],
+  });
+}
+function Rm({ rating: e }) {
+  return l.jsx("div", {
+    className: "flex gap-0.5",
+    children: [1, 2, 3, 4, 5].map((t) =>
+      l.jsx(
+        jn,
+        {
+          size: 14,
+          className:
+            t <= e ? "text-yellow-400 fill-yellow-400" : "text-white/20",
+        },
+        t,
+      ),
+    ),
+  });
+}
+function Im() {
+  const { t: e, lang: t } = Fe(),
+    n = [
+      {
+        icon: _m,
+        label_ar: "جودة مضمونة",
+        label_he: "איכות מובטחת",
+        desc_ar: "نضمن أعلى معايير الجودة في كل قطعة",
+        desc_he: "אנו מבטיחים את הסטנדרטים הגבוהים ביותר",
+        color: "#CC0000",
+      },
+      {
+        icon: vm,
+        label_ar: "حلال 100%",
+        label_he: "100% חלאל",
+        desc_ar: "جميع منتجاتنا مذبوحة وفق الشريعة الإسلامية",
+        desc_he: "כל המוצרים שלנו שחוטים לפי השריעה האסלאמית",
+        color: "#16A34A",
+      },
+      {
+        icon: dt,
+        label_ar: "توصيل سريع",
+        label_he: "משלוח מהיר",
+        desc_ar: "نوصل طلبك طازجاً إلى باب منزلك",
+        desc_he: "אנו מספקים את הזמנתך טרי עד דלת ביתך",
+        color: "#3B82F6",
+      },
+      {
+        icon: dm,
+        label_ar: "خبرة 20 عاماً",
+        label_he: "20 שנות ניסיון",
+        desc_ar: "أكثر من عقدين من الخبرة في تقديم أفضل اللحوم",
+        desc_he: "יותר משני עשורים של ניסיון",
+        color: "#F59E0B",
+      },
+    ],
+    r = [
+      { value: "20+", label_ar: "سنة خبرة", label_he: "שנות ניסיון" },
+      { value: "5000+", label_ar: "عميل سعيد", label_he: "לקוחות מרוצים" },
+      { value: "50+", label_ar: "منتج طازج", label_he: "מוצרים טריים" },
+      { value: "4.9★", label_ar: "تقييم عملائنا", label_he: "דירוג לקוחות" },
+    ];
+  return l.jsxs("div", {
+    className: "min-h-screen bg-brand-black",
+    children: [
+      l.jsx(Nn, {}),
+      l.jsx(wr, {}),
+      l.jsxs("div", {
+        className: "pt-16 pb-24",
+        children: [
+          l.jsxs("div", {
+            className: "relative overflow-hidden mx-4 mt-4 rounded-3xl mb-10",
+            style: { minHeight: 260 },
+            children: [
+              l.jsx("div", {
+                className: "absolute inset-0",
+                style: {
+                  background:
+                    "linear-gradient(135deg, #0A0A0A 0%, #3D0000 50%, #1A0000 100%)",
+                },
+              }),
+              l.jsx("div", {
+                className: "absolute inset-0 opacity-10",
+                style: {
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1588347785102-2944afe78c95?w=800&fit=crop')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                },
+              }),
+              l.jsxs("div", {
+                className:
+                  "relative z-10 p-8 flex flex-col items-center text-center",
+                children: [
+                  l.jsx("div", {
+                    className:
+                      "w-24 h-24 rounded-2xl mx-auto mb-5 overflow-hidden",
+                    style: {
+                      boxShadow: "0 0 40px rgba(204,0,0,0.6)",
+                      border: "2px solid rgba(204,0,0,0.5)",
+                    },
+                    children: l.jsx("img", {
+                      src: "ad--poc/logo.jpeg",
+                      alt: "أبو دغش",
+                      className: "w-full h-full object-cover",
+                    }),
+                  }),
+                  l.jsx("h1", {
+                    className: "text-4xl font-black mb-2",
+                    style: {
+                      background:
+                        "linear-gradient(135deg, #FFFFFF 30%, #CC0000 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    },
+                    children: t === "ar" ? "أبو دغش" : "אבו דגש",
+                  }),
+                  l.jsx("p", {
+                    className: "text-brand-gray-light text-base max-w-sm",
+                    children:
+                      t === "ar"
+                        ? "أجود اللحوم الطازجة، موصولة إلى باب منزلك منذ أكثر من 20 عاماً"
+                        : "הבשר הטרי הטוב ביותר, מסופק לדלת ביתך כבר למעלה מ-20 שנה",
+                  }),
+                  l.jsx("div", {
+                    className: "flex gap-3 mt-5 flex-wrap justify-center",
+                    children: ["طازج يومياً", "حلال 100%", "توصيل سريع"].map(
+                      (a, s) =>
+                        l.jsx(
+                          "span",
+                          {
+                            className:
+                              "glass px-4 py-1.5 rounded-full text-xs font-semibold text-white border border-white/10",
+                            children: a,
+                          },
+                          s,
+                        ),
+                    ),
+                  }),
+                ],
+              }),
+            ],
+          }),
+          l.jsxs("div", {
+            className: "px-4 space-y-10",
+            children: [
+              l.jsx("section", {
+                children: l.jsx("div", {
+                  className: "grid grid-cols-2 md:grid-cols-4 gap-3",
+                  children: r.map((a, s) =>
+                    l.jsxs(
+                      "div",
+                      {
+                        className: "rounded-2xl p-5 text-center",
+                        style: {
+                          background: "#1A1A1A",
+                          border: "1px solid rgba(255,255,255,0.06)",
+                          animation: `fadeSlideUp 0.4s ease-out ${s * 0.1}s both`,
+                        },
+                        children: [
+                          l.jsx("p", {
+                            className:
+                              "text-3xl font-black text-brand-red mb-1",
+                            children: a.value,
+                          }),
+                          l.jsx("p", {
+                            className: "text-white/60 text-sm",
+                            children: t === "ar" ? a.label_ar : a.label_he,
+                          }),
+                        ],
+                      },
+                      s,
+                    ),
+                  ),
+                }),
+              }),
+              l.jsxs("section", {
+                children: [
+                  l.jsxs("div", {
+                    className: "flex items-center gap-3 mb-5",
+                    children: [
+                      l.jsx("div", {
+                        className: "w-1 h-8 rounded-full bg-brand-red",
+                      }),
+                      l.jsx("h2", {
+                        className: "text-2xl font-black text-white",
+                        children: e.ourStory,
+                      }),
+                    ],
+                  }),
+                  l.jsxs("div", {
+                    className: "rounded-3xl p-6 relative overflow-hidden",
+                    style: {
+                      background: "#111",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                    },
+                    children: [
+                      l.jsx("div", {
+                        className:
+                          "absolute top-0 left-0 w-32 h-32 rounded-full opacity-10",
+                        style: { background: "#CC0000", filter: "blur(40px)" },
+                      }),
+                      l.jsxs("div", {
+                        className: "relative z-10 space-y-4",
+                        children: [
+                          l.jsx("p", {
+                            className: "text-white/80 leading-relaxed text-sm",
+                            children:
+                              t === "ar"
+                                ? "بدأت قصة أبو دغش منذ أكثر من عشرين عاماً، حين قرر مؤسسنا تقديم أجود اللحوم الطازجة لأبناء المجتمع. بدأنا بمحل صغير وتوسعنا عاماً بعد عام بفضل ثقة عملائنا الكرام."
+                                : "סיפורה של אבו דגש החל לפני יותר מעשרים שנה, כאשר המייסד שלנו החליט לספק את הבשר הטרי הטוב ביותר לבני הקהילה. התחלנו בחנות קטנה והתרחבנו שנה אחר שנה.",
+                          }),
+                          l.jsx("p", {
+                            className: "text-white/80 leading-relaxed text-sm",
+                            children:
+                              t === "ar"
+                                ? "اليوم نفخر بخدمة آلاف العملاء يومياً، مع الحفاظ على نفس المبادئ التي بُنينا عليها: الجودة، الطزاجة، والأمانة. كل قطعة لحم تمر من يدنا تحمل معها شغفنا والتزامنا بأعلى معايير الجودة."
+                                : "היום אנו גאים לשרת אלפי לקוחות מדי יום, תוך שמירה על אותם עקרונות שעליהם נבנינו: איכות, טריות ויושרה. כל נתח בשר שעובר בידינו נושא את התשוקה שלנו.",
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              l.jsxs("section", {
+                children: [
+                  l.jsxs("div", {
+                    className: "flex items-center gap-3 mb-5",
+                    children: [
+                      l.jsx("div", {
+                        className: "w-1 h-8 rounded-full bg-brand-red",
+                      }),
+                      l.jsx("h2", {
+                        className: "text-2xl font-black text-white",
+                        children: e.ourValues,
+                      }),
+                    ],
+                  }),
+                  l.jsx("div", {
+                    className: "grid grid-cols-2 gap-3",
+                    children: n.map((a, s) =>
+                      l.jsxs(
+                        "div",
+                        {
+                          className: "rounded-2xl p-5",
+                          style: {
+                            background: "#1A1A1A",
+                            border: "1px solid rgba(255,255,255,0.06)",
+                            animation: `fadeSlideUp 0.4s ease-out ${s * 0.1}s both`,
+                          },
+                          children: [
+                            l.jsx("div", {
+                              className:
+                                "w-10 h-10 rounded-xl flex items-center justify-center mb-3",
+                              style: { background: `${a.color}22` },
+                              children: l.jsx(a.icon, {
+                                size: 20,
+                                style: { color: a.color },
+                              }),
+                            }),
+                            l.jsx("p", {
+                              className: "text-white font-bold text-sm mb-1",
+                              children: t === "ar" ? a.label_ar : a.label_he,
+                            }),
+                            l.jsx("p", {
+                              className:
+                                "text-white/50 text-xs leading-relaxed",
+                              children: t === "ar" ? a.desc_ar : a.desc_he,
+                            }),
+                          ],
+                        },
+                        s,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+              l.jsxs("section", {
+                children: [
+                  l.jsxs("div", {
+                    className: "flex items-center gap-3 mb-5",
+                    children: [
+                      l.jsx("div", {
+                        className: "w-1 h-8 rounded-full bg-brand-red",
+                      }),
+                      l.jsxs("div", {
+                        children: [
+                          l.jsx("h2", {
+                            className: "text-2xl font-black text-white",
+                            children: e.customerReviews,
+                          }),
+                          l.jsx("p", {
+                            className: "text-brand-gray-light text-xs",
+                            children:
+                              t === "ar"
+                                ? "ماذا يقول عملاؤنا"
+                                : "מה אומרים הלקוחות שלנו",
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  l.jsx("div", {
+                    className: "space-y-4",
+                    children: lm.map((a, s) =>
+                      l.jsx(
+                        "div",
+                        {
+                          className: "rounded-2xl p-5",
+                          style: {
+                            background: "#1A1A1A",
+                            border: "1px solid rgba(255,255,255,0.06)",
+                            animation: `fadeSlideUp 0.4s ease-out ${s * 0.08}s both`,
+                          },
+                          children: l.jsxs("div", {
+                            className: "flex items-start gap-4",
+                            children: [
+                              l.jsx("div", {
+                                className:
+                                  "w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-brand-red/30",
+                                children: l.jsx("img", {
+                                  src: a.image,
+                                  alt: t === "ar" ? a.name_ar : a.name_he,
+                                  className: "w-full h-full object-cover",
+                                  onError: (i) => {
+                                    ((i.target.style.display = "none"),
+                                      (i.target.parentElement.style.background =
+                                        "linear-gradient(135deg,#CC0000,#990000)"));
+                                  },
+                                }),
+                              }),
+                              l.jsxs("div", {
+                                className: "flex-1 min-w-0",
+                                children: [
+                                  l.jsxs("div", {
+                                    className:
+                                      "flex items-center justify-between mb-1",
+                                    children: [
+                                      l.jsx("p", {
+                                        className:
+                                          "text-white font-bold text-sm",
+                                        children:
+                                          t === "ar" ? a.name_ar : a.name_he,
+                                      }),
+                                      l.jsx("span", {
+                                        className: "text-white/30 text-xs",
+                                        children:
+                                          t === "ar" ? a.date_ar : a.date_he,
+                                      }),
+                                    ],
+                                  }),
+                                  l.jsx(Rm, { rating: a.rating }),
+                                  l.jsx("p", {
+                                    className:
+                                      "text-white/70 text-sm mt-2 leading-relaxed",
+                                    children:
+                                      t === "ar" ? a.text_ar : a.text_he,
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                        },
+                        a.id,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+              l.jsx("section", {
+                children: l.jsxs("div", {
+                  className:
+                    "rounded-3xl p-6 text-center relative overflow-hidden",
+                  style: {
+                    background: "linear-gradient(135deg, #1A0000, #3D0000)",
+                  },
+                  children: [
+                    l.jsx("div", {
+                      className: "absolute inset-0 opacity-10",
+                      style: {
+                        backgroundImage:
+                          "url('https://images.unsplash.com/photo-1544025162-d76594e8efa5?w=800&fit=crop')",
+                        backgroundSize: "cover",
+                      },
+                    }),
+                    l.jsxs("div", {
+                      className: "relative z-10",
+                      children: [
+                        l.jsx(Sd, {
+                          size: 32,
+                          className: "text-brand-red mx-auto mb-3",
+                        }),
+                        l.jsx("h3", {
+                          className: "text-white font-black text-xl mb-2",
+                          children: t === "ar" ? "تواصل معنا" : "צור קשר",
+                        }),
+                        l.jsx("p", {
+                          className: "text-white/70 text-sm mb-4",
+                          children:
+                            t === "ar"
+                              ? "نحن هنا لخدمتك على مدار الساعة"
+                              : "אנחנו כאן לשירותך 24/7",
+                        }),
+                        l.jsxs("div", {
+                          className: "flex gap-3 justify-center flex-wrap",
+                          children: [
+                            l.jsxs("a", {
+                              href: "tel:+972501234567",
+                              className:
+                                "px-6 py-2.5 rounded-full font-bold text-white text-sm transition-all hover:scale-105",
+                              style: {
+                                background:
+                                  "linear-gradient(135deg, #CC0000, #990000)",
+                              },
+                              children: [
+                                "📞 ",
+                                t === "ar" ? "اتصل بنا" : "התקשר אלינו",
+                              ],
+                            }),
+                            l.jsx("a", {
+                              href: "https://wa.me/972501234567",
+                              className:
+                                "px-6 py-2.5 rounded-full font-bold text-white text-sm border border-white/20 transition-all hover:scale-105 hover:border-brand-red",
+                              children: "💬 WhatsApp",
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            ],
+          }),
+        ],
+      }),
+      l.jsx("style", {
+        children: `
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-      `})]})}const Ca={pending:"#F59E0B",confirmed:"#3B82F6",preparing:"#8B5CF6",delivering:"#F97316",delivered:"#16A34A"},Ed={pending:"قيد الانتظار",confirmed:"مؤكد",preparing:"جاري التحضير",delivering:"في التوصيل",delivered:"تم التوصيل"},Sa={"ORD-1001":"شارع الملك فيصل 14، الناصرة","ORD-1002":"حي الزيتون، الطيبة","ORD-1003":"شارع الاستقلال 7، باقة الغربية","ORD-1004":"حي النزهة 22، أم الفحم","ORD-1005":"شارع الأحرار 5، طمرة"};function kl({icon:e,label:t,value:n,color:r}){return l.jsxs("div",{className:"rounded-2xl p-4",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsx("div",{className:"flex items-center justify-between mb-3",children:l.jsx("div",{className:"w-9 h-9 rounded-xl flex items-center justify-center",style:{background:`${r}22`},children:l.jsx(e,{size:18,style:{color:r}})})}),l.jsx("p",{className:"text-2xl font-black text-white mb-0.5",children:n}),l.jsx("p",{className:"text-white/50 text-xs",children:t})]})}function Om({order:e,onClose:t,onStatusChange:n}){const r=Sa[e.id]||"عنوان التوصيل";return l.jsx("div",{className:"fixed inset-0 z-50 flex items-center justify-center p-4",style:{background:"rgba(0,0,0,0.85)"},children:l.jsxs("div",{className:"w-full max-w-lg rounded-3xl overflow-hidden",style:{background:"#1A1A1A",border:"1px solid rgba(204,0,0,0.3)"},children:[l.jsxs("div",{className:"flex items-center justify-between p-5 border-b",style:{borderColor:"rgba(255,255,255,0.08)"},children:[l.jsxs("div",{children:[l.jsx("h3",{className:"text-white font-black text-lg",children:e.id}),l.jsx("span",{className:"text-xs font-bold px-2 py-0.5 rounded-full",style:{background:`${Ca[e.status]}22`,color:Ca[e.status]},children:Ed[e.status]})]}),l.jsx("button",{onClick:t,className:"text-white/40 hover:text-white transition-colors",children:l.jsx(vr,{size:20})})]}),l.jsxs("div",{className:"p-5 space-y-4",children:[l.jsxs("div",{className:"rounded-2xl p-4 flex items-center gap-4",style:{background:"rgba(255,255,255,0.04)"},children:[l.jsx("div",{className:"w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0",style:{background:"rgba(204,0,0,0.2)"},children:l.jsx(gi,{size:20,className:"text-brand-red"})}),l.jsxs("div",{className:"flex-1",children:[l.jsx("p",{className:"text-white font-bold",children:e.customer}),l.jsx("p",{className:"text-white/50 text-sm",children:e.phone})]}),l.jsx("a",{href:`tel:${e.phone}`,className:"w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:bg-green-500/20",style:{background:"rgba(22,163,74,0.15)"},children:l.jsx(xi,{size:16,className:"text-green-400"})})]}),l.jsxs("div",{className:"rounded-2xl p-4 flex items-start gap-3",style:{background:"rgba(255,255,255,0.04)"},children:[l.jsx(jd,{size:18,className:"text-brand-red mt-0.5 flex-shrink-0"}),l.jsxs("div",{children:[l.jsx("p",{className:"text-white/50 text-xs mb-0.5",children:"عنوان التوصيل"}),l.jsx("p",{className:"text-white font-semibold text-sm",children:r})]})]}),l.jsxs("div",{className:"rounded-2xl p-4",style:{background:"rgba(255,255,255,0.04)"},children:[l.jsxs("div",{className:"flex justify-between mb-2",children:[l.jsx("span",{className:"text-white/50 text-sm",children:"عدد المنتجات"}),l.jsxs("span",{className:"text-white font-bold",children:[e.items," منتجات"]})]}),l.jsxs("div",{className:"flex justify-between",children:[l.jsx("span",{className:"text-white/50 text-sm",children:"إجمالي الطلب"}),l.jsxs("span",{className:"text-brand-red font-black",children:["₪",e.total]})]})]}),l.jsxs("div",{className:"flex gap-3",children:[e.status==="delivering"&&l.jsxs("button",{onClick:()=>n(e.id,"delivered"),className:"flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]",style:{background:"linear-gradient(135deg, #16A34A, #15803D)"},children:[l.jsx(un,{size:16}),"إتمام التوصيل"]}),e.status==="confirmed"||e.status==="preparing"?l.jsxs("button",{onClick:()=>n(e.id,"delivering"),className:"flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]",style:{background:"linear-gradient(135deg, #F97316, #EA6C00)"},children:[l.jsx(dt,{size:16}),"بدء التوصيل"]}):null,l.jsxs("a",{href:`https://waze.com/ul?q=${encodeURIComponent(Sa[e.id]||"")}`,target:"_blank",rel:"noreferrer",className:"flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]",style:{background:"linear-gradient(135deg, #3B82F6, #2563EB)"},children:[l.jsx(_d,{size:16}),"ملاحة"]})]})]})]})})}function Am(){const e=Ue(),{lang:t,toggleLang:n}=Fe(),[r,a]=k.useState(bd.filter(g=>["confirmed","preparing","delivering","delivered"].includes(g.status))),[s,i]=k.useState("active"),[c,o]=k.useState(null),[u]=k.useState("أحمد المندوب"),x=r.filter(g=>g.status!=="delivered"),f=r.filter(g=>g.status==="delivered"),p=s==="active"?x:f,y=(g,_)=>{a(h=>h.map(d=>d.id===g?{...d,status:_}:d)),o(null)},v=f.length*25+x.length*15;return l.jsxs("div",{className:"min-h-screen",style:{background:"#0A0A0A",direction:"rtl",fontFamily:"Cairo, sans-serif"},children:[l.jsxs("div",{className:"fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 h-16",style:{background:"rgba(10,10,10,0.97)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(204,0,0,0.2)"},children:[l.jsxs("button",{onClick:()=>e("/"),className:"flex items-center gap-2 group",children:[l.jsx("div",{className:"w-8 h-8 rounded-xl overflow-hidden border border-brand-red/40",children:l.jsx("img",{src:"/logo.jpeg",alt:"أبو دغش",className:"w-full h-full object-cover"})}),l.jsx("span",{className:"font-black text-white text-sm hidden sm:block",children:"أبو دغش"})]}),l.jsxs("div",{className:"flex items-center gap-2",children:[l.jsx(dt,{size:18,className:"text-brand-red"}),l.jsx("span",{className:"text-white font-black text-sm",children:t==="ar"?"بوابة المندوب":"פורטל שליח"})]}),l.jsx("button",{onClick:n,className:"px-3 py-1.5 rounded-full text-xs font-bold border border-white/20 hover:border-brand-red text-white transition-colors",children:t==="ar"?"עב":"ع"})]}),l.jsxs("div",{className:"pt-20 pb-24 px-4 max-w-2xl mx-auto",children:[l.jsxs("div",{className:"rounded-3xl p-5 mb-6 flex items-center gap-4 relative overflow-hidden",style:{background:"linear-gradient(135deg, #1A0000, #3D0000)",border:"1px solid rgba(204,0,0,0.2)"},children:[l.jsx("div",{className:"absolute inset-0 opacity-10",style:{backgroundImage:"url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&fit=crop')",backgroundSize:"cover"}}),l.jsx("div",{className:"w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 relative z-10",style:{background:"rgba(204,0,0,0.3)",border:"1px solid rgba(204,0,0,0.4)"},children:l.jsx(dt,{size:24,className:"text-brand-red"})}),l.jsxs("div",{className:"relative z-10",children:[l.jsx("p",{className:"text-white/60 text-xs",children:t==="ar"?"مرحباً يا مندوب":"ברוך הבא שליח"}),l.jsx("p",{className:"text-white font-black text-lg",children:u}),l.jsx("p",{className:"text-brand-red text-xs font-semibold",children:t==="ar"?`${x.length} توصيلات معلقة`:`${x.length} משלוחים ממתינים`})]})]}),l.jsxs("div",{className:"grid grid-cols-3 gap-3 mb-6",children:[l.jsx(kl,{icon:mi,label:t==="ar"?"إجمالي":'סה"כ',value:r.length,color:"#3B82F6"}),l.jsx(kl,{icon:dt,label:t==="ar"?"نشط":"פעיל",value:x.length,color:"#F97316"}),l.jsx(kl,{icon:un,label:t==="ar"?"مكتمل":"הושלם",value:f.length,color:"#16A34A"})]}),l.jsxs("div",{className:"rounded-2xl p-4 flex items-center justify-between mb-6",style:{background:"#1A1A1A",border:"1px solid rgba(255,255,255,0.06)"},children:[l.jsxs("div",{className:"flex items-center gap-3",children:[l.jsx("div",{className:"w-10 h-10 rounded-xl flex items-center justify-center",style:{background:"rgba(251,191,36,0.15)"},children:l.jsx(pm,{size:18,className:"text-yellow-400"})}),l.jsxs("div",{children:[l.jsx("p",{className:"text-white/50 text-xs",children:t==="ar"?"أرباح اليوم (تقديري)":"רווחי היום (משוער)"}),l.jsxs("p",{className:"text-yellow-400 font-black text-lg",children:["₪",v]})]})]}),l.jsx(jn,{size:20,className:"text-yellow-400 fill-yellow-400"})]}),l.jsx("div",{className:"flex rounded-2xl p-1 mb-5",style:{background:"#1A1A1A"},children:[{id:"active",label_ar:`نشط (${x.length})`,label_he:`פעיל (${x.length})`,color:"#F97316"},{id:"completed",label_ar:`مكتمل (${f.length})`,label_he:`הושלם (${f.length})`,color:"#16A34A"}].map(g=>l.jsx("button",{onClick:()=>i(g.id),className:"flex-1 py-2.5 rounded-xl text-sm font-bold transition-all",style:s===g.id?{background:g.color,color:"#fff"}:{color:"rgba(255,255,255,0.4)"},children:t==="ar"?g.label_ar:g.label_he},g.id))}),l.jsx("div",{className:"space-y-3",children:p.length===0?l.jsxs("div",{className:"text-center py-16",children:[l.jsx(un,{size:48,className:"text-green-500 mx-auto mb-3 opacity-60"}),l.jsx("p",{className:"text-white/50 font-semibold",children:t==="ar"?"لا توجد توصيلات في هذا القسم":"אין משלוחים בקטגוריה זו"})]}):p.map((g,_)=>l.jsxs("div",{className:"rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.01]",style:{background:"#1A1A1A",border:`1px solid ${g.status==="delivering"?"rgba(249,115,22,0.4)":"rgba(255,255,255,0.06)"}`,animation:`fadeSlideUp 0.4s ease-out ${_*.07}s both`},onClick:()=>o(g),children:[l.jsxs("div",{className:"flex items-center justify-between mb-3",children:[l.jsxs("div",{className:"flex items-center gap-2",children:[l.jsx("span",{className:"text-white font-black text-sm",children:g.id}),g.status==="delivering"&&l.jsx("span",{className:"text-xs px-2 py-0.5 rounded-full font-bold animate-pulse",style:{background:"rgba(249,115,22,0.2)",color:"#F97316"},children:t==="ar"?"● نشط الآن":"● פעיל עכשיו"})]}),l.jsxs("div",{className:"flex items-center gap-1",children:[l.jsx(kd,{size:12,className:"text-white/30"}),l.jsx("span",{className:"text-white/40 text-xs",children:g.time})]})]}),l.jsxs("div",{className:"flex items-center gap-3 mb-3",children:[l.jsx("div",{className:"w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0",style:{background:"rgba(204,0,0,0.15)"},children:l.jsx(gi,{size:18,className:"text-brand-red"})}),l.jsxs("div",{className:"flex-1 min-w-0",children:[l.jsx("p",{className:"text-white font-bold text-sm",children:g.customer}),l.jsx("p",{className:"text-white/40 text-xs truncate",children:Sa[g.id]||"عنوان التوصيل"})]}),l.jsxs("div",{className:"text-left",children:[l.jsxs("p",{className:"text-brand-red font-black text-base",children:["₪",g.total]}),l.jsxs("p",{className:"text-white/40 text-xs",children:[g.items," منتجات"]})]})]}),l.jsxs("div",{className:"flex items-center justify-between",children:[l.jsx("span",{className:"text-xs font-bold px-2.5 py-1 rounded-full",style:{background:`${Ca[g.status]}22`,color:Ca[g.status]},children:Ed[g.status]}),l.jsxs("div",{className:"flex gap-2",children:[l.jsx("a",{href:`tel:${g.phone}`,onClick:h=>h.stopPropagation(),className:"w-8 h-8 rounded-full flex items-center justify-center transition-colors",style:{background:"rgba(22,163,74,0.15)"},children:l.jsx(xi,{size:14,className:"text-green-400"})}),l.jsx("a",{href:`https://waze.com/ul?q=${encodeURIComponent(Sa[g.id]||"")}`,target:"_blank",rel:"noreferrer",onClick:h=>h.stopPropagation(),className:"w-8 h-8 rounded-full flex items-center justify-center transition-colors",style:{background:"rgba(59,130,246,0.15)"},children:l.jsx(_d,{size:14,className:"text-blue-400"})}),g.status==="delivering"&&l.jsx("button",{onClick:h=>{h.stopPropagation(),y(g.id,"delivered")},className:"w-8 h-8 rounded-full flex items-center justify-center transition-colors",style:{background:"rgba(22,163,74,0.15)"},children:l.jsx(un,{size:14,className:"text-green-400"})}),(g.status==="confirmed"||g.status==="preparing")&&l.jsx("button",{onClick:h=>{h.stopPropagation(),y(g.id,"delivering")},className:"w-8 h-8 rounded-full flex items-center justify-center transition-colors",style:{background:"rgba(249,115,22,0.15)"},children:l.jsx(dt,{size:14,className:"text-orange-400"})})]})]})]},g.id))}),l.jsxs("div",{className:"mt-6 rounded-2xl p-4 flex gap-3",style:{background:"rgba(251,191,36,0.08)",border:"1px solid rgba(251,191,36,0.2)"},children:[l.jsx(mm,{size:18,className:"text-yellow-400 flex-shrink-0 mt-0.5"}),l.jsx("p",{className:"text-yellow-300/80 text-xs leading-relaxed",children:t==="ar"?"تذكر: تأكد من هوية العميل قبل تسليم الطلب، وحافظ على برودة المنتجات أثناء التوصيل.":"זכור: ודא את זהות הלקוח לפני מסירת ההזמנה, ושמור על קרירות המוצרים בזמן המשלוח."})]})]}),c&&l.jsx(Om,{order:c,onClose:()=>o(null),onStatusChange:y}),l.jsx("style",{children:`
+      `,
+      }),
+    ],
+  });
+}
+const Ca = {
+    pending: "#F59E0B",
+    confirmed: "#3B82F6",
+    preparing: "#8B5CF6",
+    delivering: "#F97316",
+    delivered: "#16A34A",
+  },
+  Ed = {
+    pending: "قيد الانتظار",
+    confirmed: "مؤكد",
+    preparing: "جاري التحضير",
+    delivering: "في التوصيل",
+    delivered: "تم التوصيل",
+  },
+  Sa = {
+    "ORD-1001": "شارع الملك فيصل 14، الناصرة",
+    "ORD-1002": "حي الزيتون، الطيبة",
+    "ORD-1003": "شارع الاستقلال 7، باقة الغربية",
+    "ORD-1004": "حي النزهة 22، أم الفحم",
+    "ORD-1005": "شارع الأحرار 5، طمرة",
+  };
+function kl({ icon: e, label: t, value: n, color: r }) {
+  return l.jsxs("div", {
+    className: "rounded-2xl p-4",
+    style: {
+      background: "#1A1A1A",
+      border: "1px solid rgba(255,255,255,0.06)",
+    },
+    children: [
+      l.jsx("div", {
+        className: "flex items-center justify-between mb-3",
+        children: l.jsx("div", {
+          className: "w-9 h-9 rounded-xl flex items-center justify-center",
+          style: { background: `${r}22` },
+          children: l.jsx(e, { size: 18, style: { color: r } }),
+        }),
+      }),
+      l.jsx("p", {
+        className: "text-2xl font-black text-white mb-0.5",
+        children: n,
+      }),
+      l.jsx("p", { className: "text-white/50 text-xs", children: t }),
+    ],
+  });
+}
+function Om({ order: e, onClose: t, onStatusChange: n }) {
+  const r = Sa[e.id] || "عنوان التوصيل";
+  return l.jsx("div", {
+    className: "fixed inset-0 z-50 flex items-center justify-center p-4",
+    style: { background: "rgba(0,0,0,0.85)" },
+    children: l.jsxs("div", {
+      className: "w-full max-w-lg rounded-3xl overflow-hidden",
+      style: { background: "#1A1A1A", border: "1px solid rgba(204,0,0,0.3)" },
+      children: [
+        l.jsxs("div", {
+          className: "flex items-center justify-between p-5 border-b",
+          style: { borderColor: "rgba(255,255,255,0.08)" },
+          children: [
+            l.jsxs("div", {
+              children: [
+                l.jsx("h3", {
+                  className: "text-white font-black text-lg",
+                  children: e.id,
+                }),
+                l.jsx("span", {
+                  className: "text-xs font-bold px-2 py-0.5 rounded-full",
+                  style: {
+                    background: `${Ca[e.status]}22`,
+                    color: Ca[e.status],
+                  },
+                  children: Ed[e.status],
+                }),
+              ],
+            }),
+            l.jsx("button", {
+              onClick: t,
+              className: "text-white/40 hover:text-white transition-colors",
+              children: l.jsx(vr, { size: 20 }),
+            }),
+          ],
+        }),
+        l.jsxs("div", {
+          className: "p-5 space-y-4",
+          children: [
+            l.jsxs("div", {
+              className: "rounded-2xl p-4 flex items-center gap-4",
+              style: { background: "rgba(255,255,255,0.04)" },
+              children: [
+                l.jsx("div", {
+                  className:
+                    "w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0",
+                  style: { background: "rgba(204,0,0,0.2)" },
+                  children: l.jsx(gi, {
+                    size: 20,
+                    className: "text-brand-red",
+                  }),
+                }),
+                l.jsxs("div", {
+                  className: "flex-1",
+                  children: [
+                    l.jsx("p", {
+                      className: "text-white font-bold",
+                      children: e.customer,
+                    }),
+                    l.jsx("p", {
+                      className: "text-white/50 text-sm",
+                      children: e.phone,
+                    }),
+                  ],
+                }),
+                l.jsx("a", {
+                  href: `tel:${e.phone}`,
+                  className:
+                    "w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:bg-green-500/20",
+                  style: { background: "rgba(22,163,74,0.15)" },
+                  children: l.jsx(xi, {
+                    size: 16,
+                    className: "text-green-400",
+                  }),
+                }),
+              ],
+            }),
+            l.jsxs("div", {
+              className: "rounded-2xl p-4 flex items-start gap-3",
+              style: { background: "rgba(255,255,255,0.04)" },
+              children: [
+                l.jsx(jd, {
+                  size: 18,
+                  className: "text-brand-red mt-0.5 flex-shrink-0",
+                }),
+                l.jsxs("div", {
+                  children: [
+                    l.jsx("p", {
+                      className: "text-white/50 text-xs mb-0.5",
+                      children: "عنوان التوصيل",
+                    }),
+                    l.jsx("p", {
+                      className: "text-white font-semibold text-sm",
+                      children: r,
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            l.jsxs("div", {
+              className: "rounded-2xl p-4",
+              style: { background: "rgba(255,255,255,0.04)" },
+              children: [
+                l.jsxs("div", {
+                  className: "flex justify-between mb-2",
+                  children: [
+                    l.jsx("span", {
+                      className: "text-white/50 text-sm",
+                      children: "عدد المنتجات",
+                    }),
+                    l.jsxs("span", {
+                      className: "text-white font-bold",
+                      children: [e.items, " منتجات"],
+                    }),
+                  ],
+                }),
+                l.jsxs("div", {
+                  className: "flex justify-between",
+                  children: [
+                    l.jsx("span", {
+                      className: "text-white/50 text-sm",
+                      children: "إجمالي الطلب",
+                    }),
+                    l.jsxs("span", {
+                      className: "text-brand-red font-black",
+                      children: ["₪", e.total],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            l.jsxs("div", {
+              className: "flex gap-3",
+              children: [
+                e.status === "delivering" &&
+                  l.jsxs("button", {
+                    onClick: () => n(e.id, "delivered"),
+                    className:
+                      "flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]",
+                    style: {
+                      background: "linear-gradient(135deg, #16A34A, #15803D)",
+                    },
+                    children: [l.jsx(un, { size: 16 }), "إتمام التوصيل"],
+                  }),
+                e.status === "confirmed" || e.status === "preparing"
+                  ? l.jsxs("button", {
+                      onClick: () => n(e.id, "delivering"),
+                      className:
+                        "flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]",
+                      style: {
+                        background: "linear-gradient(135deg, #F97316, #EA6C00)",
+                      },
+                      children: [l.jsx(dt, { size: 16 }), "بدء التوصيل"],
+                    })
+                  : null,
+                l.jsxs("a", {
+                  href: `https://waze.com/ul?q=${encodeURIComponent(Sa[e.id] || "")}`,
+                  target: "_blank",
+                  rel: "noreferrer",
+                  className:
+                    "flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]",
+                  style: {
+                    background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                  },
+                  children: [l.jsx(_d, { size: 16 }), "ملاحة"],
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
+function Am() {
+  const e = Ue(),
+    { lang: t, toggleLang: n } = Fe(),
+    [r, a] = k.useState(
+      bd.filter((g) =>
+        ["confirmed", "preparing", "delivering", "delivered"].includes(
+          g.status,
+        ),
+      ),
+    ),
+    [s, i] = k.useState("active"),
+    [c, o] = k.useState(null),
+    [u] = k.useState("أحمد المندوب"),
+    x = r.filter((g) => g.status !== "delivered"),
+    f = r.filter((g) => g.status === "delivered"),
+    p = s === "active" ? x : f,
+    y = (g, _) => {
+      (a((h) => h.map((d) => (d.id === g ? { ...d, status: _ } : d))), o(null));
+    },
+    v = f.length * 25 + x.length * 15;
+  return l.jsxs("div", {
+    className: "min-h-screen",
+    style: {
+      background: "#0A0A0A",
+      direction: "rtl",
+      fontFamily: "Cairo, sans-serif",
+    },
+    children: [
+      l.jsxs("div", {
+        className:
+          "fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 h-16",
+        style: {
+          background: "rgba(10,10,10,0.97)",
+          backdropFilter: "blur(20px)",
+          borderBottom: "1px solid rgba(204,0,0,0.2)",
+        },
+        children: [
+          l.jsxs("button", {
+            onClick: () => e("/"),
+            className: "flex items-center gap-2 group",
+            children: [
+              l.jsx("div", {
+                className:
+                  "w-8 h-8 rounded-xl overflow-hidden border border-brand-red/40",
+                children: l.jsx("img", {
+                  src: "ad--poc/logo.jpeg",
+                  alt: "أبو دغش",
+                  className: "w-full h-full object-cover",
+                }),
+              }),
+              l.jsx("span", {
+                className: "font-black text-white text-sm hidden sm:block",
+                children: "أبو دغش",
+              }),
+            ],
+          }),
+          l.jsxs("div", {
+            className: "flex items-center gap-2",
+            children: [
+              l.jsx(dt, { size: 18, className: "text-brand-red" }),
+              l.jsx("span", {
+                className: "text-white font-black text-sm",
+                children: t === "ar" ? "بوابة المندوب" : "פורטל שליח",
+              }),
+            ],
+          }),
+          l.jsx("button", {
+            onClick: n,
+            className:
+              "px-3 py-1.5 rounded-full text-xs font-bold border border-white/20 hover:border-brand-red text-white transition-colors",
+            children: t === "ar" ? "עב" : "ع",
+          }),
+        ],
+      }),
+      l.jsxs("div", {
+        className: "pt-20 pb-24 px-4 max-w-2xl mx-auto",
+        children: [
+          l.jsxs("div", {
+            className:
+              "rounded-3xl p-5 mb-6 flex items-center gap-4 relative overflow-hidden",
+            style: {
+              background: "linear-gradient(135deg, #1A0000, #3D0000)",
+              border: "1px solid rgba(204,0,0,0.2)",
+            },
+            children: [
+              l.jsx("div", {
+                className: "absolute inset-0 opacity-10",
+                style: {
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&fit=crop')",
+                  backgroundSize: "cover",
+                },
+              }),
+              l.jsx("div", {
+                className:
+                  "w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 relative z-10",
+                style: {
+                  background: "rgba(204,0,0,0.3)",
+                  border: "1px solid rgba(204,0,0,0.4)",
+                },
+                children: l.jsx(dt, { size: 24, className: "text-brand-red" }),
+              }),
+              l.jsxs("div", {
+                className: "relative z-10",
+                children: [
+                  l.jsx("p", {
+                    className: "text-white/60 text-xs",
+                    children: t === "ar" ? "مرحباً يا مندوب" : "ברוך הבא שליח",
+                  }),
+                  l.jsx("p", {
+                    className: "text-white font-black text-lg",
+                    children: u,
+                  }),
+                  l.jsx("p", {
+                    className: "text-brand-red text-xs font-semibold",
+                    children:
+                      t === "ar"
+                        ? `${x.length} توصيلات معلقة`
+                        : `${x.length} משלוחים ממתינים`,
+                  }),
+                ],
+              }),
+            ],
+          }),
+          l.jsxs("div", {
+            className: "grid grid-cols-3 gap-3 mb-6",
+            children: [
+              l.jsx(kl, {
+                icon: mi,
+                label: t === "ar" ? "إجمالي" : 'סה"כ',
+                value: r.length,
+                color: "#3B82F6",
+              }),
+              l.jsx(kl, {
+                icon: dt,
+                label: t === "ar" ? "نشط" : "פעיל",
+                value: x.length,
+                color: "#F97316",
+              }),
+              l.jsx(kl, {
+                icon: un,
+                label: t === "ar" ? "مكتمل" : "הושלם",
+                value: f.length,
+                color: "#16A34A",
+              }),
+            ],
+          }),
+          l.jsxs("div", {
+            className: "rounded-2xl p-4 flex items-center justify-between mb-6",
+            style: {
+              background: "#1A1A1A",
+              border: "1px solid rgba(255,255,255,0.06)",
+            },
+            children: [
+              l.jsxs("div", {
+                className: "flex items-center gap-3",
+                children: [
+                  l.jsx("div", {
+                    className:
+                      "w-10 h-10 rounded-xl flex items-center justify-center",
+                    style: { background: "rgba(251,191,36,0.15)" },
+                    children: l.jsx(pm, {
+                      size: 18,
+                      className: "text-yellow-400",
+                    }),
+                  }),
+                  l.jsxs("div", {
+                    children: [
+                      l.jsx("p", {
+                        className: "text-white/50 text-xs",
+                        children:
+                          t === "ar"
+                            ? "أرباح اليوم (تقديري)"
+                            : "רווחי היום (משוער)",
+                      }),
+                      l.jsxs("p", {
+                        className: "text-yellow-400 font-black text-lg",
+                        children: ["₪", v],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              l.jsx(jn, {
+                size: 20,
+                className: "text-yellow-400 fill-yellow-400",
+              }),
+            ],
+          }),
+          l.jsx("div", {
+            className: "flex rounded-2xl p-1 mb-5",
+            style: { background: "#1A1A1A" },
+            children: [
+              {
+                id: "active",
+                label_ar: `نشط (${x.length})`,
+                label_he: `פעיל (${x.length})`,
+                color: "#F97316",
+              },
+              {
+                id: "completed",
+                label_ar: `مكتمل (${f.length})`,
+                label_he: `הושלם (${f.length})`,
+                color: "#16A34A",
+              },
+            ].map((g) =>
+              l.jsx(
+                "button",
+                {
+                  onClick: () => i(g.id),
+                  className:
+                    "flex-1 py-2.5 rounded-xl text-sm font-bold transition-all",
+                  style:
+                    s === g.id
+                      ? { background: g.color, color: "#fff" }
+                      : { color: "rgba(255,255,255,0.4)" },
+                  children: t === "ar" ? g.label_ar : g.label_he,
+                },
+                g.id,
+              ),
+            ),
+          }),
+          l.jsx("div", {
+            className: "space-y-3",
+            children:
+              p.length === 0
+                ? l.jsxs("div", {
+                    className: "text-center py-16",
+                    children: [
+                      l.jsx(un, {
+                        size: 48,
+                        className: "text-green-500 mx-auto mb-3 opacity-60",
+                      }),
+                      l.jsx("p", {
+                        className: "text-white/50 font-semibold",
+                        children:
+                          t === "ar"
+                            ? "لا توجد توصيلات في هذا القسم"
+                            : "אין משלוחים בקטגוריה זו",
+                      }),
+                    ],
+                  })
+                : p.map((g, _) =>
+                    l.jsxs(
+                      "div",
+                      {
+                        className:
+                          "rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.01]",
+                        style: {
+                          background: "#1A1A1A",
+                          border: `1px solid ${g.status === "delivering" ? "rgba(249,115,22,0.4)" : "rgba(255,255,255,0.06)"}`,
+                          animation: `fadeSlideUp 0.4s ease-out ${_ * 0.07}s both`,
+                        },
+                        onClick: () => o(g),
+                        children: [
+                          l.jsxs("div", {
+                            className: "flex items-center justify-between mb-3",
+                            children: [
+                              l.jsxs("div", {
+                                className: "flex items-center gap-2",
+                                children: [
+                                  l.jsx("span", {
+                                    className: "text-white font-black text-sm",
+                                    children: g.id,
+                                  }),
+                                  g.status === "delivering" &&
+                                    l.jsx("span", {
+                                      className:
+                                        "text-xs px-2 py-0.5 rounded-full font-bold animate-pulse",
+                                      style: {
+                                        background: "rgba(249,115,22,0.2)",
+                                        color: "#F97316",
+                                      },
+                                      children:
+                                        t === "ar"
+                                          ? "● نشط الآن"
+                                          : "● פעיל עכשיו",
+                                    }),
+                                ],
+                              }),
+                              l.jsxs("div", {
+                                className: "flex items-center gap-1",
+                                children: [
+                                  l.jsx(kd, {
+                                    size: 12,
+                                    className: "text-white/30",
+                                  }),
+                                  l.jsx("span", {
+                                    className: "text-white/40 text-xs",
+                                    children: g.time,
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          l.jsxs("div", {
+                            className: "flex items-center gap-3 mb-3",
+                            children: [
+                              l.jsx("div", {
+                                className:
+                                  "w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0",
+                                style: { background: "rgba(204,0,0,0.15)" },
+                                children: l.jsx(gi, {
+                                  size: 18,
+                                  className: "text-brand-red",
+                                }),
+                              }),
+                              l.jsxs("div", {
+                                className: "flex-1 min-w-0",
+                                children: [
+                                  l.jsx("p", {
+                                    className: "text-white font-bold text-sm",
+                                    children: g.customer,
+                                  }),
+                                  l.jsx("p", {
+                                    className: "text-white/40 text-xs truncate",
+                                    children: Sa[g.id] || "عنوان التوصيل",
+                                  }),
+                                ],
+                              }),
+                              l.jsxs("div", {
+                                className: "text-left",
+                                children: [
+                                  l.jsxs("p", {
+                                    className:
+                                      "text-brand-red font-black text-base",
+                                    children: ["₪", g.total],
+                                  }),
+                                  l.jsxs("p", {
+                                    className: "text-white/40 text-xs",
+                                    children: [g.items, " منتجات"],
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          l.jsxs("div", {
+                            className: "flex items-center justify-between",
+                            children: [
+                              l.jsx("span", {
+                                className:
+                                  "text-xs font-bold px-2.5 py-1 rounded-full",
+                                style: {
+                                  background: `${Ca[g.status]}22`,
+                                  color: Ca[g.status],
+                                },
+                                children: Ed[g.status],
+                              }),
+                              l.jsxs("div", {
+                                className: "flex gap-2",
+                                children: [
+                                  l.jsx("a", {
+                                    href: `tel:${g.phone}`,
+                                    onClick: (h) => h.stopPropagation(),
+                                    className:
+                                      "w-8 h-8 rounded-full flex items-center justify-center transition-colors",
+                                    style: {
+                                      background: "rgba(22,163,74,0.15)",
+                                    },
+                                    children: l.jsx(xi, {
+                                      size: 14,
+                                      className: "text-green-400",
+                                    }),
+                                  }),
+                                  l.jsx("a", {
+                                    href: `https://waze.com/ul?q=${encodeURIComponent(Sa[g.id] || "")}`,
+                                    target: "_blank",
+                                    rel: "noreferrer",
+                                    onClick: (h) => h.stopPropagation(),
+                                    className:
+                                      "w-8 h-8 rounded-full flex items-center justify-center transition-colors",
+                                    style: {
+                                      background: "rgba(59,130,246,0.15)",
+                                    },
+                                    children: l.jsx(_d, {
+                                      size: 14,
+                                      className: "text-blue-400",
+                                    }),
+                                  }),
+                                  g.status === "delivering" &&
+                                    l.jsx("button", {
+                                      onClick: (h) => {
+                                        (h.stopPropagation(),
+                                          y(g.id, "delivered"));
+                                      },
+                                      className:
+                                        "w-8 h-8 rounded-full flex items-center justify-center transition-colors",
+                                      style: {
+                                        background: "rgba(22,163,74,0.15)",
+                                      },
+                                      children: l.jsx(un, {
+                                        size: 14,
+                                        className: "text-green-400",
+                                      }),
+                                    }),
+                                  (g.status === "confirmed" ||
+                                    g.status === "preparing") &&
+                                    l.jsx("button", {
+                                      onClick: (h) => {
+                                        (h.stopPropagation(),
+                                          y(g.id, "delivering"));
+                                      },
+                                      className:
+                                        "w-8 h-8 rounded-full flex items-center justify-center transition-colors",
+                                      style: {
+                                        background: "rgba(249,115,22,0.15)",
+                                      },
+                                      children: l.jsx(dt, {
+                                        size: 14,
+                                        className: "text-orange-400",
+                                      }),
+                                    }),
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      },
+                      g.id,
+                    ),
+                  ),
+          }),
+          l.jsxs("div", {
+            className: "mt-6 rounded-2xl p-4 flex gap-3",
+            style: {
+              background: "rgba(251,191,36,0.08)",
+              border: "1px solid rgba(251,191,36,0.2)",
+            },
+            children: [
+              l.jsx(mm, {
+                size: 18,
+                className: "text-yellow-400 flex-shrink-0 mt-0.5",
+              }),
+              l.jsx("p", {
+                className: "text-yellow-300/80 text-xs leading-relaxed",
+                children:
+                  t === "ar"
+                    ? "تذكر: تأكد من هوية العميل قبل تسليم الطلب، وحافظ على برودة المنتجات أثناء التوصيل."
+                    : "זכור: ודא את זהות הלקוח לפני מסירת ההזמנה, ושמור על קרירות המוצרים בזמן המשלוח.",
+              }),
+            ],
+          }),
+        ],
+      }),
+      c && l.jsx(Om, { order: c, onClose: () => o(null), onStatusChange: y }),
+      l.jsx("style", {
+        children: `
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: translateY(0); }
         }
-      `})]})}function Dm(){return l.jsx(sm,{children:l.jsx(rm,{children:l.jsxs(Jh,{children:[l.jsx(Me,{path:"/",element:l.jsx(im,{})}),l.jsx(Me,{path:"/categories",element:l.jsx(Sm,{})}),l.jsx(Me,{path:"/items/:categoryId",element:l.jsx(zm,{})}),l.jsx(Me,{path:"/auth",element:l.jsx(Pm,{})}),l.jsx(Me,{path:"/payment",element:l.jsx(Lm,{})}),l.jsx(Me,{path:"/confirmation",element:l.jsx(Mm,{})}),l.jsx(Me,{path:"/admin",element:l.jsx(Tm,{})}),l.jsx(Me,{path:"/about",element:l.jsx(Im,{})}),l.jsx(Me,{path:"/delivery",element:l.jsx(Am,{})}),l.jsx(Me,{path:"*",element:l.jsx(Gh,{to:"/",replace:!0})})]})})})}rd(document.getElementById("root")).render(l.jsx(k.StrictMode,{children:l.jsx(nm,{children:l.jsx(Dm,{})})}));
+      `,
+      }),
+    ],
+  });
+}
+function Dm() {
+  return l.jsx(sm, {
+    children: l.jsx(rm, {
+      children: l.jsxs(Jh, {
+        children: [
+          l.jsx(Me, { path: "/", element: l.jsx(im, {}) }),
+          l.jsx(Me, { path: "/categories", element: l.jsx(Sm, {}) }),
+          l.jsx(Me, { path: "/items/:categoryId", element: l.jsx(zm, {}) }),
+          l.jsx(Me, { path: "/auth", element: l.jsx(Pm, {}) }),
+          l.jsx(Me, { path: "/payment", element: l.jsx(Lm, {}) }),
+          l.jsx(Me, { path: "/confirmation", element: l.jsx(Mm, {}) }),
+          l.jsx(Me, { path: "/admin", element: l.jsx(Tm, {}) }),
+          l.jsx(Me, { path: "/about", element: l.jsx(Im, {}) }),
+          l.jsx(Me, { path: "/delivery", element: l.jsx(Am, {}) }),
+          l.jsx(Me, {
+            path: "*",
+            element: l.jsx(Gh, { to: "/", replace: !0 }),
+          }),
+        ],
+      }),
+    }),
+  });
+}
+rd(document.getElementById("root")).render(
+  l.jsx(k.StrictMode, { children: l.jsx(nm, { children: l.jsx(Dm, {}) }) }),
+);
