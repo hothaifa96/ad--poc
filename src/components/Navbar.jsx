@@ -30,7 +30,7 @@ export default function Navbar() {
       >
         <div className='w-9 h-9 rounded-xl overflow-hidden transition-transform group-hover:scale-110 border border-brand-red/40'>
           <img
-            src='/logo.jpeg'
+            src={import.meta.env.BASE_URL + "logo.jpeg"}
             alt='أبو دغش'
             className='w-full h-full object-cover'
           />

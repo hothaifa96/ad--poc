@@ -53,7 +53,7 @@ export default function AuthPage() {
             }}
           >
             <img
-              src='/logo.jpeg'
+              src={import.meta.env.BASE_URL + "logo.jpeg"}
               alt='أبو دغش'
               className='w-full h-full object-cover'
             />
